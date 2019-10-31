@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Agustin Hernandorena
  */
 public class Venta {
-
+	//comentario
     ArrayList<Articulo> articulosAdquiridos;
     PuntoVenta lugarDeCompra;
     int precioTotal;
