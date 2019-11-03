@@ -11,7 +11,7 @@ package utilites;
  * @param <T>
  * @param <R>
  */
-public class Pair <T,R> implements Comparable <Pair>  {
+public class Pair <T,R> {
     private T leftDate;
     private R rightDate;
 
@@ -31,9 +31,6 @@ public class Pair <T,R> implements Comparable <Pair>  {
         this.rightDate = rightDate;
     }
     
-    @Override
-    public int compareTo(Pair o){
-        return (int)this.leftDate-(int)o.leftDate;
-    }
+  
     
 }

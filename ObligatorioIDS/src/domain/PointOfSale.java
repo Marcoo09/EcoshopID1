@@ -89,7 +89,6 @@ public class PointOfSale {
     //POS: Given a natural n, returns a list of the n best selling products of
     // the store.
     public ArrayList<Pair> mostSelledProducts(int quantity) {
-        Collections.sort(selledProducts);
         ArrayList<Pair> listOfBestSellingProducts = new ArrayList<>();
         for (int i = 0; i < selledProducts.size() && quantity > 0; i++) {
             listOfBestSellingProducts.add(selledProducts.get(i));
