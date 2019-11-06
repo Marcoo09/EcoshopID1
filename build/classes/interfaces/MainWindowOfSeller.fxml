@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" pickOnBounds="false" prefHeight="577.0" prefWidth="748.0" style="-fx-background-color: #979797;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.MainWindowOfSellerController">
+   <children>
+      <VBox prefHeight="577.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;">
+         <children>
+            <Label alignment="CENTER" prefHeight="62.0" prefWidth="178.0" style="-fx-background-color: #106EAF;" text="EcoShop" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="perfil">
+                     <image>
+                        <Image url="@../../../../../Desktop/1x/baseline_account_circle_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="21.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Agregar Producto" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Label>
+                  <ImageView layoutX="11.0" layoutY="23.0">
+                     <image>
+                        <Image url="@../utilites/baseline_add_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="-10.0" layoutY="30.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Pre-ventas" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <ImageView layoutX="12.0" layoutY="30.0">
+                     <image>
+                        <Image url="@../utilites/baseline_date_range_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="-1.0" layoutY="32.0" onMouseClicked="#evento3" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Mas vendidos" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <ImageView layoutX="11.0" layoutY="33.0">
+                     <image>
+                        <Image url="@../utilites/baseline_sort_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="30.0" layoutY="35.0" prefHeight="19.0" prefWidth="134.0" style="-fx-background-color: #6C6C6C;" text="Envases reutilizados" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="11.0" layoutY="35.0">
+                     <image>
+                        <Image url="@../utilites/icons8-reciclaje-24.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <ImageView layoutX="9.0" layoutY="32.0">
+                     <image>
+                        <Image url="@../utilites/icons8-comportamiento-de-las-ventas-24.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="32.0" layoutY="36.0" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Ventas por mes" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Text fill="WHITE" layoutX="260.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pais de origen">
+         <font>
+            <Font size="13.0" />
+         </font></Text>
+      <Text fill="WHITE" layoutX="282.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio">
+         <font>
+            <Font size="13.0" />
+         </font></Text>
+      <Text fill="WHITE" layoutX="278.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Material">
+         <font>
+            <Font size="13.0" />
+         </font></Text>
+      <Text fill="WHITE" layoutX="283.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fill="WHITE" layoutX="274.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+         <font>
+            <Font size="13.0" />
+         </font></Text>
+      <Text fx:id="agregarProducto" fill="WHITE" layoutX="377.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar Producto" wrappingWidth="175.00000834465027">
+         <font>
+            <Font size="21.0" />
+         </font></Text>
+      <JFXButton layoutX="572.0" layoutY="510.0" onAction="#evento" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #106EAF;" text="Registrar" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField layoutX="230.0" layoutY="85.0" style="-fx-background-color: FFFFFF;" />
+      <JFXTextField layoutX="231.0" layoutY="162.0" style="-fx-background-color: FFFFFF;" />
+      <JFXTextField layoutX="232.0" layoutY="237.0" style="-fx-background-color: FFFFFF;" />
+      <JFXTextField layoutX="231.0" layoutY="317.0" style="-fx-background-color: FFFFFF;" />
+      <JFXCheckBox fx:id="check" layoutX="451.0" layoutY="67.0" onAction="#evento2" text="Organico" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXDialog layoutX="419.0" layoutY="416.0" prefHeight="49.0" prefWidth="127.0" style="-fx-background-color: FFFF;" />
+      <JFXComboBox fx:id="combo" layoutX="272.0" layoutY="378.0" />
+      <JFXCheckBox fx:id="check1" layoutX="451.0" layoutY="101.0" onAction="#evento2" prefHeight="19.0" prefWidth="273.0" text="Formado a partir de materiales reciclados" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXCheckBox>
+      <Text fill="WHITE" layoutX="515.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Envases disponibles">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <JFXListView layoutX="458.0" layoutY="161.0" prefHeight="273.0" prefWidth="238.0" />
+   </children>
+</AnchorPane>
