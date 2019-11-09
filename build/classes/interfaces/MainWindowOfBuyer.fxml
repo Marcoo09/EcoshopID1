@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXClippedPane?>
 <?import com.jfoenix.controls.JFXDialog?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -23,7 +21,7 @@
                <graphic>
                   <ImageView>
                      <image>
-                        <Image url="@../utilites/baseline_face_white_18dp.png" />
+                        <Image url="@../resources/baseline_face_white_18dp.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -36,7 +34,7 @@
                      </font></Label>
                   <ImageView layoutX="26.0" layoutY="21.0">
                      <image>
-                        <Image url="@../utilites/baseline_shopping_cart_white_18dp.png" />
+                        <Image url="@../resources/baseline_shopping_cart_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
@@ -49,7 +47,7 @@
                      </font></Label>
                   <ImageView layoutX="24.0" layoutY="29.0">
                      <image>
-                        <Image url="@../utilites/baseline_shop_white_18dp.png" />
+                        <Image url="@../resources/baseline_shop_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
@@ -62,7 +60,7 @@
                      </font></Label>
                   <ImageView layoutX="20.0" layoutY="26.0">
                      <image>
-                        <Image url="@../utilites/baseline_my_location_white_18dp.png" />
+                        <Image url="@../resources/baseline_my_location_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
@@ -75,7 +73,7 @@
                      </font></Label>
                   <ImageView layoutX="19.0" layoutY="23.0">
                      <image>
-                        <Image url="@../utilites/baseline_add_white_18dp.png" />
+                        <Image url="@../resources/baseline_add_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
@@ -103,18 +101,13 @@
             <ImageView fitHeight="137.0" fitWidth="166.0" layoutX="16.0" layoutY="25.0" onMouseClicked="#imageEvent" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <ImageView fitHeight="137.0" fitWidth="166.0" layoutX="16.0" layoutY="25.0" onMouseClicked="#imageEvent" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <ImageView fitHeight="137.0" fitWidth="166.0" layoutX="16.0" layoutY="192.0" onMouseClicked="#imageEvent" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <JFXButton prefHeight="25.0" prefWidth="56.0" translateX="50.0">
-               <GridPane.margin>
-                  <Insets top="50.0" />
-               </GridPane.margin>
-            </JFXButton>
          </children>
       </GridPane>
       <ImageView fitHeight="137.0" fitWidth="166.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="lblCant" layoutX="676.0" layoutY="26.0" prefHeight="17.0" prefWidth="38.0" />
       <ImageView fitHeight="49.0" fitWidth="38.0" layoutX="682.0" layoutY="13.0">
          <image>
-            <Image url="@../utilites/icons8-carro-de-compras-con-dinero-96.png" />
+            <Image url="@../resources/icons8-carro-de-compras-con-dinero-96.png" />
          </image>
       </ImageView>
       <Label fx:id="lblCant" layoutX="708.0" layoutY="41.0" prefHeight="17.0" prefWidth="18.0" text="0">

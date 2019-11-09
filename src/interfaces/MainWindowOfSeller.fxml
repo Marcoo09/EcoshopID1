@@ -22,7 +22,7 @@
                <graphic>
                   <ImageView fx:id="perfil">
                      <image>
-                        <Image url="@../../../../../Desktop/1x/baseline_account_circle_white_18dp.png" />
+                        <Image url="@../resources/baseline_account_circle_white_18dp.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -35,7 +35,7 @@
                      </font></Label>
                   <ImageView layoutX="11.0" layoutY="23.0">
                      <image>
-                        <Image url="@../utilites/baseline_add_white_18dp.png" />
+                        <Image url="@../resources/baseline_add_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
@@ -48,7 +48,7 @@
                      </font></Label>
                   <ImageView layoutX="12.0" layoutY="30.0">
                      <image>
-                        <Image url="@../utilites/baseline_date_range_white_18dp.png" />
+                        <Image url="@../resources/baseline_date_range_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
@@ -61,7 +61,7 @@
                      </font></Label>
                   <ImageView layoutX="11.0" layoutY="33.0">
                      <image>
-                        <Image url="@../utilites/baseline_sort_white_18dp.png" />
+                        <Image url="@../resources/baseline_sort_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
@@ -74,7 +74,7 @@
                      </font></Label>
                   <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="11.0" layoutY="35.0">
                      <image>
-                        <Image url="@../utilites/icons8-reciclaje-24.png" />
+                        <Image url="@../resources/icons8-reciclaje-24.png" />
                      </image>
                   </ImageView>
                </children>
@@ -83,7 +83,7 @@
                <children>
                   <ImageView layoutX="9.0" layoutY="32.0">
                      <image>
-                        <Image url="@../utilites/icons8-comportamiento-de-las-ventas-24.png" />
+                        <Image url="@../resources/icons8-comportamiento-de-las-ventas-24.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" layoutX="32.0" layoutY="36.0" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Ventas por mes" textFill="WHITE">
