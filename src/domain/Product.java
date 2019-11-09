@@ -13,12 +13,14 @@ import java.util.ArrayList;
  */
 public class Product {
 
+    private String name;
     private String countryOfOrigin;
     private boolean Organic;
     private boolean formedFromRecycledMaterials;
     private int price;
     private String material;
     private int identifier;
+
     private ArrayList<Package> listOfAvailablePackages;
 
     public Product() {
@@ -33,14 +35,24 @@ public class Product {
 
     public Product(String countryOfOrigin, boolean organic,
             boolean formedFromRecycledMaterials, int price,
-            String material, int identifier) {
+            String material, int identifier, String name) {
         setCountryOfOrigin(countryOfOrigin);
         setOrganic(organic);
         setFormedFromRecycledMaterials(formedFromRecycledMaterials);
         setPrice(price);
         setMaterial(material);
         setIdentifier(identifier);
+        setName(name);
+
         listOfAvailablePackages = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCountryOfOrigin() {
@@ -97,5 +109,10 @@ public class Product {
 
     public void addPackage(Package aPackage) {
         listOfAvailablePackages.add(aPackage);
+    }
+
+    @Override
+    public String toString() {
+        return "" + name;
     }
 }

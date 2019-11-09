@@ -18,8 +18,7 @@ import javafx.scene.control.Label;
  * @author Agustin Hernandorena
  */
 public class BestSellerWindowController implements Initializable {
-    @FXML
-    private Label bestSeller;
+    
     
     
     @Override

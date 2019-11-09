@@ -7,10 +7,13 @@ package interfaces;
 
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXListView;
 import static interfaces.JavaFXApplication1.myPrimaryStage;
+import static interfaces.JavaFXApplication1.mySystem;
 import java.io.IOException;
 import javafx.scene.input.MouseEvent;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +22,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -32,9 +37,10 @@ public class MainWindowOfSellerController implements Initializable {
     @FXML
     private Label bestSeller;
     @FXML
-    private JFXComboBox<Label> combo = new JFXComboBox<>();
-
+    private JFXListView availablePackages;
     @FXML
+    private Text agregarProducto;
+
     public void evento(ActionEvent e) {
         java.lang.System.out.println("hola");
     }
@@ -47,7 +53,6 @@ public class MainWindowOfSellerController implements Initializable {
         myPrimaryStage.show();
     }
 
-    @FXML
     public void evento2(ActionEvent e) {
         if (check.isSelected()) {
             java.lang.System.out.println("hola");
@@ -56,7 +61,11 @@ public class MainWindowOfSellerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Label l = new Label("Plastico");
-        combo.getItems().add(l);
+        availablePackages.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        for (int i = 0; i < mySystem.getPackagesList().size(); i++) {
+            Label lbl = new Label(mySystem.getPackagesList().get(i).getName());
+            availablePackages.getItems().add(lbl);
+        }
+
     }
 }

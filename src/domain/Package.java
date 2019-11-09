@@ -5,6 +5,8 @@
  */
 package domain;
 
+import javafx.scene.image.Image;
+
 /**
  *
  * @author Agustin Hernandorena

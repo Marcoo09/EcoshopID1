@@ -26,6 +26,27 @@ public class System {
         products= new ArrayList<>();
         sales = new ArrayList<>();
     }
+
+    public ArrayList<Client> getClientList() {
+        return clientList;
+    }
+
+    public ArrayList<Package> getPackagesList() {
+        return packagesList;
+    }
+
+    public ArrayList<PointOfSale> getSalePoints() {
+        return salePoints;
+    }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public ArrayList<Sale> getSales() {
+        return sales;
+    }
+    
     
     public void addClient(Client aClient) {
         clientList.add(aClient);

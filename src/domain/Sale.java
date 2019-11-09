@@ -15,7 +15,7 @@ import utilites.Pair;
  */
 public class Sale {
     //The pair represents: (quantity, product).
-    private ArrayList<Pair> purchasedProducts;
+    private ArrayList<Product> purchasedProducts;
     private PointOfSale shopPlace;
     private double totalPrice;
     private String ticketNumber;
@@ -25,7 +25,7 @@ public class Sale {
     private ArrayList<Package> usedPackagingList;
     
 
-    Sale() {
+    public Sale() {
         purchasedProducts = new ArrayList<>();
         usedPackagingList = new ArrayList<>();
     }
@@ -43,11 +43,11 @@ public class Sale {
         
     }
 
-    public ArrayList<Pair> getPurchasedProducts() {
+    public ArrayList<Product> getPurchasedProducts() {
         return purchasedProducts;
     }
 
-    public void addProductToCart(Pair product) {
+    public void addProductToCart(Product product) {
         purchasedProducts.add(product);
     }
     

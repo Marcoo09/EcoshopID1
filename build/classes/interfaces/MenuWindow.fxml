@@ -17,12 +17,12 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <JFXButton layoutX="320.0" layoutY="311.0" prefHeight="48.0" prefWidth="123.0" style="-fx-background-color: AFACAC;" text="Comprador" textAlignment="CENTER">
+      <JFXButton layoutX="320.0" layoutY="311.0" onAction="#buyerEvent" prefHeight="48.0" prefWidth="123.0" style="-fx-background-color: AFACAC;" text="Comprador" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnSeller" layoutX="320.0" layoutY="213.0" onAction="#evento1" prefHeight="48.0" prefWidth="123.0" style="-fx-background-color: AFACAC;" text="Vendedor" textAlignment="CENTER">
+      <JFXButton fx:id="btnSeller" layoutX="320.0" layoutY="213.0" onAction="#sellerEvent" prefHeight="48.0" prefWidth="123.0" style="-fx-background-color: AFACAC;" text="Vendedor" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
