@@ -31,18 +31,18 @@ public class HomeWindowController implements Initializable {
 
     @FXML
     public void sellerEvent(ActionEvent e) throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
-//        Scene scene = new Scene(root);
-//        myPrimaryStage.setScene(scene);
-//        myPrimaryStage.show(); 
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show(); 
     }
     
     @FXML
     public void buyerEvent(ActionEvent e) throws IOException{
-//        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
-//        Scene scene = new Scene(root);
-//        myPrimaryStage.setScene(scene);
-//        myPrimaryStage.show(); 
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show(); 
     }
     
     @Override
