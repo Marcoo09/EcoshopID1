@@ -64,8 +64,7 @@ public class MainWindowOfBuyerController implements Initializable {
         for (int i = 0; i < productList.size(); i++) {
             Product product = productList.get(i);
             if (product.getName().equalsIgnoreCase(element)) {
-                //TO DO
-               // newSale.addProductToCart(product);
+                newSale.addProductToCart(product);
             }
         }
     }
