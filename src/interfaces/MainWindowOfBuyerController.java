@@ -14,16 +14,20 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -51,35 +55,46 @@ public class MainWindowOfBuyerController implements Initializable {
     }
 
     @FXML
-    public void imageEvent(MouseEvent e) throws IOException {
+    public void plusEvent(ActionEvent e) throws IOException {
         count++;
         lblCant.setText("" + count);
         ArrayList<Product> productList = mySystem.getProducts();
-        String elem = e.getPickResult().getIntersectedNode().getId();
+        Button btn = (Button) e.getSource();
+        String element = btn.getId();
         for (int i = 0; i < productList.size(); i++) {
-            Product p = productList.get(i);
-            if (p.getName().equalsIgnoreCase(elem)) {
-                newSale.addProductToCart(p);
+            Product product = productList.get(i);
+            if (product.getName().equalsIgnoreCase(element)) {
+                newSale.addProductToCart(product);
             }
         }
     }
 
     @FXML
     public void chargePane() {
-        int count = 0;
+        int index = 0;
         ArrayList<Product> productList = mySystem.getProducts();
-        for (int i = 0; i <= 1 && count < productList.size(); i++) {
-            for (int j = 0; j <= 1 && count < productList.size(); j++) {
+        for (int i = 0; i <= 1 && index < productList.size(); i++) {
+            for (int j = 0; j <= 1 && index < productList.size(); j++) {
+                ObservableList<Node> list = pane.getChildren(); 
                 Image image;
-                Product p = productList.get(count);
-                image = new Image("resources/" + p.getName() + ".png");
-                ObservableList<Node> list = pane.getChildren();
-                ImageView im = (ImageView) list.get(count);
-                im.setId(p.getName());
-                im.setImage(image);
-                count++;
+                AnchorPane productPane = (AnchorPane) list.get(index);                
+                ObservableList<Node> listOfChildrens = productPane.getChildren(); 
+                ImageView imageOfProduct = (ImageView )listOfChildrens.get(0);
+                Label labelOfName = (Label) listOfChildrens.get(1);
+                Button addToCart = (Button) listOfChildrens.get(2);
+                Label labelOfPrice = (Label) listOfChildrens.get(3);
+                Label labelOfQuantity = (Label) listOfChildrens.get(4);                
+                Product currentProduct = productList.get(index);       
+                
+                image = new Image("resources/" + currentProduct.getName() + ".png");
+                imageOfProduct.setImage(image);  
+                imageOfProduct.setId(currentProduct.getName());
+                labelOfName.setText(currentProduct.getName());
+                labelOfPrice.setText(Integer.toString(currentProduct.getPrice()));
+                labelOfQuantity.setText("0");
+                addToCart.setId(currentProduct.getName());
+                index++;
             }
         }
     }
-
 }
