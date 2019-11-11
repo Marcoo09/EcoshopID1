@@ -18,12 +18,12 @@ public class System {
     private ArrayList<PointOfSale> salePoints;
     private ArrayList<Product> products;
     private ArrayList<Sale> sales;
-    
-    public System(){
+
+    public System() {
         clientList = new ArrayList<>();
         packagesList = new ArrayList<>();
         salePoints = new ArrayList<>();
-        products= new ArrayList<>();
+        products = new ArrayList<>();
         sales = new ArrayList<>();
     }
 
@@ -46,8 +46,7 @@ public class System {
     public ArrayList<Sale> getSales() {
         return sales;
     }
-    
-    
+
     public void addClient(Client aClient) {
         clientList.add(aClient);
     }
@@ -67,5 +66,5 @@ public class System {
     public void addSale(Sale aSale) {
         sales.add(aSale);
     }
-    
+
 }

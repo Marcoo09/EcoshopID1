@@ -113,6 +113,8 @@ public class Product {
 
     @Override
     public String toString() {
-        return "" + name;
+        return "Product{" + "name=" + name + ", countryOfOrigin=" + countryOfOrigin + ", Organic=" + Organic + ", formedFromRecycledMaterials=" + formedFromRecycledMaterials + ", price=" + price + ", material=" + material + ", identifier=" + identifier + ", listOfAvailablePackages=" + listOfAvailablePackages + '}';
     }
+
+   
 }
