@@ -66,5 +66,13 @@ public class System {
     public void addSale(Sale aSale) {
         sales.add(aSale);
     }
+    
+    public int[] salesPerMonth(){
+        int[] salesPerMonth = new int[13];
+        for(int i=0; i<sales.size();i++){
+            salesPerMonth[sales.get(i).getPurchaseDate().getMonthValue()]+=sales.get(i).getTotalPrice();
+        }
+     return salesPerMonth;
+    }
 
 }
