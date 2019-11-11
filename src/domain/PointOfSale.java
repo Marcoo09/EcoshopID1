@@ -29,7 +29,7 @@ public class PointOfSale {
         sales = new ArrayList<>();
     }
 
-    PointOfSale(String address, String name, String description) {
+    public PointOfSale(String address, String name, String description) {
         setAddress(address);
         setName(name);
         setDescription(description);

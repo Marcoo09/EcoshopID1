@@ -85,7 +85,7 @@
                         <Image url="@../resources/icons8-comportamiento-de-las-ventas-24.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="32.0" layoutY="36.0" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Ventas por mes" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="32.0" layoutY="36.0" onMouseClicked="#salesPerMonthEvent" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Ventas por mes" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
