@@ -18,10 +18,7 @@ import domain.Product;
 import domain.PointOfSale;
 import domain.Sale;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.ArrayList;
 import javafx.util.Pair;
-import javafx.util.converter.LocalDateTimeStringConverter;
 
 /**
  *

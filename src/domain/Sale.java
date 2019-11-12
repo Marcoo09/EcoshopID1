@@ -41,12 +41,23 @@ public class Sale {
     public ArrayList<Pair> getPurchasedProducts() {
         return purchasedProducts;
     }
-
+    
+    public Pair getProduct(Product product){
+        Pair returnedValue = new Pair("",0);
+        for (int i = 0; i < purchasedProducts.size(); i++) {
+            Pair currentProduct = purchasedProducts.get(i);
+            if(currentProduct.getKey() == product.getName()){
+                returnedValue = currentProduct;
+            }
+        }
+        return returnedValue;
+    }
+    
     public void addProductToCart(Pair product) {
         purchasedProducts.add(product);
     }
 
-    public void removeProductOfCart(Product product) {
+    public void removeProductOfCart(Pair product) {
         purchasedProducts.remove(product);
     }
 
@@ -75,12 +86,7 @@ public class Sale {
         }
         return totalPrice;
     }
-
-    @Override
-    public String toString() {
-        return "Sale{" + "purchasedProducts=" + purchasedProducts + ", shopPlace=" + shopPlace + ", totalPrice=" + totalPrice + ", ticketNumber=" + ticketNumber + ", purchaseDate=" + purchaseDate + ", fullPayment=" + fullPayment + ", change=" + change + ", usedPackagingList=" + usedPackagingList + '}';
-    }
-
+    
     public String getTicketNumber() {
         return ticketNumber;
     }
@@ -133,4 +139,8 @@ public class Sale {
         this.client = client;
     }
 
+    @Override
+    public String toString() {
+        return "Sale{" + "purchasedProducts=" + purchasedProducts + ", shopPlace=" + shopPlace + ", totalPrice=" + totalPrice + ", ticketNumber=" + ticketNumber + ", purchaseDate=" + purchaseDate + ", fullPayment=" + fullPayment + ", change=" + change + ", usedPackagingList=" + usedPackagingList + '}';
+    }
 }

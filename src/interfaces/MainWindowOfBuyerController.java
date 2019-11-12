@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
 import domain.Product;
 import domain.Sale;
-import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
 import java.io.IOException;
 import java.net.URL;
@@ -15,20 +9,16 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.util.Pair;
 
 /**
  * FXML Controller class
@@ -43,14 +33,11 @@ public class MainWindowOfBuyerController implements Initializable {
     Label lblCant;
     private Sale newSale;
     private int count;
-    private ImageView actualImage;
-
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         newSale = new Sale();
         count = 0;
-        actualImage = new ImageView();
         chargePane();
     }
 
@@ -64,7 +51,17 @@ public class MainWindowOfBuyerController implements Initializable {
         for (int i = 0; i < productList.size(); i++) {
             Product product = productList.get(i);
             if (product.getName().equalsIgnoreCase(element)) {
-                newSale.addProductToCart(product);
+                Pair pairOfProduct = newSale.getProduct(product);
+                if(pairOfProduct.getKey() == product.getName()){
+                    newSale.removeProductOfCart(pairOfProduct);
+                    Pair newPair = new Pair(pairOfProduct.getKey(),(int)pairOfProduct.getValue() + 1);
+                    newSale.addProductToCart(newPair);
+                    chargePane();
+                }else{
+                    Pair newProduct = new Pair(product.getName(),1);
+                    newSale.addProductToCart(newProduct);
+                    chargePane();
+                }
             }
         }
     }
@@ -91,7 +88,8 @@ public class MainWindowOfBuyerController implements Initializable {
                 imageOfProduct.setId(currentProduct.getName());
                 labelOfName.setText(currentProduct.getName());
                 labelOfPrice.setText(Integer.toString(currentProduct.getPrice()));
-                labelOfQuantity.setText("0");
+                int quantityOfTimes = (int) newSale.getProduct(currentProduct).getValue();
+                labelOfQuantity.setText(Integer.toString(quantityOfTimes));
                 addToCart.setId(currentProduct.getName());
                 index++;
             }
