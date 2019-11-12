@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
 /**
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
+
 public class Client {
 
     private String name;
@@ -17,8 +13,7 @@ public class Client {
     private String phoneNumber;
     private int clientNumber;
 
-    public Client(String name, String surname, String identifyCard, 
-            String phoneNumber, int clientNumber) {
+    public Client(String name, String surname, String identifyCard, String phoneNumber, int clientNumber) {
         this.setName(name);
         this.setSurname(surname);
         this.setIdentifyCard(identifyCard);
