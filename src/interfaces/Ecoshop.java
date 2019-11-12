@@ -16,6 +16,12 @@ import domain.System;
 import domain.Package;
 import domain.Product;
 import domain.PointOfSale;
+import domain.Sale;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.ArrayList;
+import javafx.util.Pair;
+import javafx.util.converter.LocalDateTimeStringConverter;
 
 /**
  *
@@ -44,6 +50,7 @@ public class Ecoshop extends Application {
         Product product2 = new Product("Uruguay", true, true, 190, "No aplica", 2, "almendrasacarameladas");
         Product product3 = new Product("Uruguay", true, true, 200, "No aplica", 4, "almendrasconchocolate");
         Product product4 = new Product("Uruguay", true, true, 120, "No aplica", 3, "ajogranulado");
+        PointOfSale store = new PointOfSale("Ejido 1423, Montevideo", "La Molienda", "Incursionamos en el  área de elaboración de alimentos, un menú diario vegetariano y saludable,  postres, veganos y sin azúcar");
         Package p1 = new Package("Tupper hermetico", "Plastico", 1800);
         Package p2 = new Package("Bolsa Ziploc 4cm x 6cm", "Plastico", 70);
         Package p3 = new Package("Bollon", "Vidrio", 100);
@@ -57,6 +64,25 @@ public class Ecoshop extends Application {
         mySystem.addProduct(product2);
         mySystem.addProduct(product3);
         mySystem.addProduct(product4);
+        Sale s1 = new Sale();
+        Sale s2 = new Sale();
+        s1.addProductToCart(new Pair(product1, 1));
+        s1.addProductToCart(new Pair(product2, 2));
+        s1.addUsedPackage(p1);
+        s1.setShopPlace(store);
+        s1.setTicketNumber("1");
+        s1.setTotalPrice(s1.obtainPrice());
+        LocalDateTime date1 = LocalDateTime.of(2019, 1, 25, 19, 30);
+        s1.setPurchaseDate(date1);
+        mySystem.addSale(s1);
+        s2.addProductToCart(new Pair(product1, 5));
+        s2.addProductToCart(new Pair(product2, 3));
+        s2.addUsedPackage(p3);
+        s2.setShopPlace(store);
+        s2.setTicketNumber("2");
+        s2.setTotalPrice(s2.obtainPrice());
+        s2.setPurchaseDate(LocalDateTime.of(2019, 2, 15, 12, 15));
+        mySystem.addSale(s2);
         launch(args);
     }
 

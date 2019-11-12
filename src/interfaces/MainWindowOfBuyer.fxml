@@ -137,16 +137,11 @@
          </children>
       </GridPane>
       <ImageView fitHeight="137.0" fitWidth="166.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="lblCant" layoutX="676.0" layoutY="26.0" prefHeight="17.0" prefWidth="38.0" />
+      <Label fx:id="lblCant" layoutX="707.0" layoutY="41.0" prefHeight="17.0" prefWidth="10.0" text="0" />
       <ImageView fitHeight="49.0" fitWidth="38.0" layoutX="682.0" layoutY="13.0">
          <image>
             <Image url="@../resources/icons8-carro-de-compras-con-dinero-96.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblCant" layoutX="708.0" layoutY="41.0" prefHeight="17.0" prefWidth="18.0" text="0">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

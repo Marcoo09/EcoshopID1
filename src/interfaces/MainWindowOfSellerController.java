@@ -28,9 +28,13 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
@@ -49,8 +53,6 @@ public class MainWindowOfSellerController implements Initializable {
     @FXML
     private JFXListView<domain.Package> availablePackages;
     @FXML
-    private Text agregarProducto;
-    @FXML
     private JFXTextField nameTextField;
     @FXML
     private JFXTextField originCountryTextField;
@@ -65,16 +67,25 @@ public class MainWindowOfSellerController implements Initializable {
     @FXML
     private AnchorPane mainPane;
     private int count = mySystem.getProducts().size();
+    @FXML
+    private ImageView perfil;
 
     @FXML
-    public void evento3(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("BestSellerWindow.fxml"));
+    public void mostSelledProducts(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void salesPerMonthEvent (MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
 
-    @FXML
     public void registerEvent(ActionEvent e) {
         String name = nameTextField.getText();
         String originCountry = originCountryTextField.getText();
@@ -111,7 +122,7 @@ public class MainWindowOfSellerController implements Initializable {
                 organicCheck.setSelected(false);
                 formedForRecycledMaterialCheck.setSelected(false);
                 availablePackages.getSelectionModel().clearSelection();
-             
+
             }
         });
         content.setActions(okButton);

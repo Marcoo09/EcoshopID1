@@ -7,49 +7,50 @@ package domain;
 
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import javafx.util.Pair;
 
 /**
  *
  * @author Agustin Hernandorena
  */
 public class Sale {
-    private ArrayList<Product> purchasedProducts;
+
+    private ArrayList<Pair> purchasedProducts;
     private PointOfSale shopPlace;
-    private double totalPrice;
+    private int totalPrice;
     private String ticketNumber;
     private LocalDateTime purchaseDate;
-    private double fullPayment;
-    private double change;
+    private int fullPayment;
+    private int change;
     private ArrayList<Package> usedPackagingList;
-    
 
     public Sale() {
         purchasedProducts = new ArrayList<>();
         usedPackagingList = new ArrayList<>();
     }
 
-    Sale(PointOfSale shopPlace, String ticketNumber, int fullPayment,
+    public Sale(PointOfSale shopPlace, String ticketNumber, int fullPayment,
             int totalPrice) {
         setShopPlace(shopPlace);
         setTicketNumber(ticketNumber);
         setFullPayment(fullPayment);
         setTotalPrice(totalPrice);
-        setChange(totalPrice-fullPayment);
+        setChange(totalPrice - fullPayment);
         purchasedProducts = new ArrayList<>();
         usedPackagingList = new ArrayList<>();
         setPurchaseDate(LocalDateTime.now());
-        
+
     }
 
-    public ArrayList<Product> getPurchasedProducts() {
+    public ArrayList<Pair> getPurchasedProducts() {
         return purchasedProducts;
     }
 
-    public void addProductToCart(Product product) {
+    public void addProductToCart(Pair product) {
         purchasedProducts.add(product);
     }
-    
-    public void removeProductOfCart(Product product){
+
+    public void removeProductOfCart(Product product) {
         purchasedProducts.remove(product);
     }
 
@@ -61,14 +62,29 @@ public class Sale {
         this.shopPlace = shopPlace;
     }
 
-    public double getTotalPrice() {
+    public int getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTotalPrice(int aTotalPrice) {
+        totalPrice=aTotalPrice;
+    }
+    
+    public int obtainPrice(){
+        int totalPrice = 0;
+        for (int i = 0; i < purchasedProducts.size(); i++) {
+            Product p = (Product) purchasedProducts.get(i).getKey();
+            int quantity = (int) purchasedProducts.get(i).getValue();
+            totalPrice += p.getPrice() * (quantity);
+        }
+        return totalPrice;
     }
 
+    @Override
+    public String toString() {
+        return "Sale{" + "purchasedProducts=" + purchasedProducts + ", shopPlace=" + shopPlace + ", totalPrice=" + totalPrice + ", ticketNumber=" + ticketNumber + ", purchaseDate=" + purchaseDate + ", fullPayment=" + fullPayment + ", change=" + change + ", usedPackagingList=" + usedPackagingList + '}';
+    }
+    
     public String getTicketNumber() {
         return ticketNumber;
     }
@@ -77,7 +93,7 @@ public class Sale {
         this.ticketNumber = ticketNumber;
     }
 
-    public double getFullPayment() {
+    public int getFullPayment() {
         return fullPayment;
     }
 
@@ -93,7 +109,7 @@ public class Sale {
         this.fullPayment = fullPayment;
     }
 
-    public double getChange() {
+    public int getChange() {
         return change;
     }
 
@@ -108,9 +124,9 @@ public class Sale {
     public void addUsedPackage(Package aPackage) {
         usedPackagingList.add(aPackage);
     }
-    
-    public void removeUsedPackage(Package aPackage){
+
+    public void removeUsedPackage(Package aPackage) {
         usedPackagingList.remove(aPackage);
     }
-    
+
 }
