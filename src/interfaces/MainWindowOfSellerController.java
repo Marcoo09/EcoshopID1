@@ -71,8 +71,8 @@ public class MainWindowOfSellerController implements Initializable {
     private ImageView perfil;
 
     @FXML
-    public void evento3(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("BestSellerWindow.fxml"));
+    public void mostSelledProducts(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();

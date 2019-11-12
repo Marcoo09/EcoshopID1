@@ -19,6 +19,7 @@ import domain.PointOfSale;
 import domain.Sale;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.ArrayList;
 import javafx.util.Pair;
 import javafx.util.converter.LocalDateTimeStringConverter;
 
@@ -65,14 +66,6 @@ public class Ecoshop extends Application {
         mySystem.addProduct(product4);
         Sale s1 = new Sale();
         Sale s2 = new Sale();
-        s2.addProductToCart(new Pair(product1, 5));
-        s2.addProductToCart(new Pair(product2, 3));
-        s2.addUsedPackage(p3);
-        s2.setShopPlace(store);
-        s2.setTicketNumber("2");
-        s2.setTotalPrice(s2.obtainPrice());
-        s2.setPurchaseDate(LocalDateTime.of(2019, 2, 15, 12, 15));
-        mySystem.addSale(s2);
         s1.addProductToCart(new Pair(product1, 1));
         s1.addProductToCart(new Pair(product2, 2));
         s1.addUsedPackage(p1);
@@ -82,6 +75,14 @@ public class Ecoshop extends Application {
         LocalDateTime date1 = LocalDateTime.of(2019, 1, 25, 19, 30);
         s1.setPurchaseDate(date1);
         mySystem.addSale(s1);
+        s2.addProductToCart(new Pair(product1, 5));
+        s2.addProductToCart(new Pair(product2, 3));
+        s2.addUsedPackage(p3);
+        s2.setShopPlace(store);
+        s2.setTicketNumber("2");
+        s2.setTotalPrice(s2.obtainPrice());
+        s2.setPurchaseDate(LocalDateTime.of(2019, 2, 15, 12, 15));
+        mySystem.addSale(s2);
         launch(args);
     }
 
