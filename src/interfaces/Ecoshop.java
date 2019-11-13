@@ -47,8 +47,8 @@ public class Ecoshop extends Application {
         Client c2 = new Client("Raul", "Diaz", "13456079", "099771234", 2);
         Client c3 = new Client("Nicolas", "Gomez", "34456788", "095458711", 3);
         Product product1 = new Product("Uruguay", true, true, 150, "No aplica", 1, "almendras");
-        Product product2 = new Product("Uruguay", true, true, 190, "No aplica", 2, "almendrasacarameladas");
-        Product product3 = new Product("Uruguay", true, true, 200, "No aplica", 4, "almendrasconchocolate");
+        Product product2 = new Product("Uruguay", false, true, 190, "No aplica", 2, "almendrasacarameladas");
+        Product product3 = new Product("Uruguay", false, true, 200, "No aplica", 4, "almendrasconchocolate");
         Product product4 = new Product("Uruguay", true, true, 120, "No aplica", 3, "ajogranulado");
         PointOfSale store = new PointOfSale("Ejido 1423, Montevideo", "La Molienda", "Incursionamos en el  área de elaboración de alimentos, un menú diario vegetariano y saludable,  postres, veganos y sin azúcar");
         Package p1 = new Package("Tupper hermetico", "Plastico", 1800);

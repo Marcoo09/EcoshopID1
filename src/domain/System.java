@@ -101,9 +101,9 @@ public class System {
             Sale actualSale = sales.get(i);
             for (int j = 0; j < actualSale.getPurchasedProducts().size(); j++) {
                 Pair aPair = totalSaleByProduct((Product) actualSale.getPurchasedProducts().get(j).getKey());
-                if(!returnList.contains(aPair)){
+                if (!returnList.contains(aPair)) {
                     returnList.add(aPair);
-                } 
+                }
             }
         }
         return returnList;
@@ -139,6 +139,22 @@ public class System {
         }
         );
         return list;
+    }
+
+    public int[] quantityOfOrganicProductsSold() {
+        //In position 0 put the organics and in 1 the inorganics.
+        int[] organicAndInorganic = new int[2];
+        ArrayList<Pair> list = totalQuantitySoldPerProduct();
+        for (int i = 0; i < list.size(); i++) {
+            Product aProduct = (Product) list.get(i).getKey();
+            int quantity = (int) list.get(i).getValue();
+            if (aProduct.isOrganic()) {
+                organicAndInorganic[0] += quantity;
+            } else {
+                organicAndInorganic[1] += quantity;
+            }
+        }
+        return organicAndInorganic;
     }
 
 }
