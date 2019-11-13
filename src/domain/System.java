@@ -21,6 +21,7 @@ public class System {
     private ArrayList<PointOfSale> salePoints;
     private ArrayList<Product> products;
     private ArrayList<Sale> sales;
+    private ArrayList<Sale> preSales;
 
     public System() {
         clientList = new ArrayList<>();
@@ -28,6 +29,15 @@ public class System {
         salePoints = new ArrayList<>();
         products = new ArrayList<>();
         sales = new ArrayList<>();
+        preSales = new ArrayList<>();
+    }
+
+    public ArrayList<Sale> getPreSales() {
+        return preSales;
+    }
+
+    public void addPreSale(Sale aSale) {
+        this.preSales.add(aSale);
     }
 
     public ArrayList<Client> getClientList() {
