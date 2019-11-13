@@ -31,6 +31,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
@@ -69,8 +70,9 @@ public class MainWindowOfSellerController implements Initializable {
     private int count = mySystem.getProducts().size();
     @FXML
     private ImageView perfil;
-
     @FXML
+    private PieChart pieChart;
+
     public void mostSelledProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
         Scene scene = new Scene(root);
@@ -81,6 +83,14 @@ public class MainWindowOfSellerController implements Initializable {
     @FXML
     public void salesPerMonthEvent (MouseEvent e) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void pieChartEvent (MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
