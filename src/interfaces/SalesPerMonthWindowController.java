@@ -22,6 +22,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /*
@@ -55,6 +56,39 @@ public class SalesPerMonthWindowController implements Initializable {
     private ImageView perfil;
     @FXML
     private Label bestSeller;
+    
+     @FXML
+    public void addProductEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void preSalesEvent (MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("PreSaleListWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void mostSelledEvent(MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void pieChartEvent (MouseEvent e) throws IOException{
+       Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show(); 
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
