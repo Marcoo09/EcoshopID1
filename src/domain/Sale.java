@@ -23,6 +23,7 @@ public class Sale {
     private int fullPayment;
     private int change;
     private ArrayList<Package> usedPackagingList;
+    private Client client;
 
     public Sale() {
         purchasedProducts = new ArrayList<>();
@@ -67,10 +68,10 @@ public class Sale {
     }
 
     public void setTotalPrice(int aTotalPrice) {
-        totalPrice=aTotalPrice;
+        totalPrice = aTotalPrice;
     }
-    
-    public int obtainPrice(){
+
+    public int obtainPrice() {
         int totalPrice = 0;
         for (int i = 0; i < purchasedProducts.size(); i++) {
             Product p = (Product) purchasedProducts.get(i).getKey();
@@ -84,7 +85,7 @@ public class Sale {
     public String toString() {
         return "Sale{" + "purchasedProducts=" + purchasedProducts + ", shopPlace=" + shopPlace + ", totalPrice=" + totalPrice + ", ticketNumber=" + ticketNumber + ", purchaseDate=" + purchaseDate + ", fullPayment=" + fullPayment + ", change=" + change + ", usedPackagingList=" + usedPackagingList + '}';
     }
-    
+
     public String getTicketNumber() {
         return ticketNumber;
     }
@@ -127,6 +128,14 @@ public class Sale {
 
     public void removeUsedPackage(Package aPackage) {
         usedPackagingList.remove(aPackage);
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
 }

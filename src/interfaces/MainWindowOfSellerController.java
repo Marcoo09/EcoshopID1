@@ -89,6 +89,14 @@ public class MainWindowOfSellerController implements Initializable {
     }
     
     @FXML
+    public void preSalesEvent (MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("PreSaleListWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
     public void pieChartEvent (MouseEvent e) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
         Scene scene = new Scene(root);

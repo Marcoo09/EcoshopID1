@@ -10,10 +10,8 @@ import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import domain.Product;
-import domain.Sale;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
-import static interfaces.SalesPerMonthWindowController.monthSelected;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -27,11 +25,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.input.MouseEvent;
@@ -42,11 +37,11 @@ import javafx.util.Pair;
  *
  * @author Agustin Hernandorena
  */
-public class SalesPerMonthInDetailWindowController implements Initializable {
+public class PreSaleListWindowController implements Initializable {
 
     @FXML
-    private JFXTreeTableView<Sale> treeView;
-
+    private JFXTreeTableView<Sale> table;
+    
     @FXML
     public void addProductEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -56,53 +51,38 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
     }
 
     @FXML
-    public void preSalesEvent(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("PreSaleListWindow.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-
-    @FXML
-    public void mostSelledEvent(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-
-    @FXML
-    public void pieChartEvent(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-    
-    @FXML
     public void salesPerMonthEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
+    
+    @FXML
+    public void mostSelledEvent(MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void pieChartEvent (MouseEvent e) throws IOException{
+       Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show(); 
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        JFXTreeTableColumn<Sale, String> ticketNumberCol = new JFXTreeTableColumn<>("Numero de ticket");
-        ticketNumberCol.setPrefWidth(150);
-        ticketNumberCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Sale, String>, ObservableValue<String>>() {
+        JFXTreeTableColumn<Sale, String> orderedNumberCol = new JFXTreeTableColumn<>("Numero de orden");
+        orderedNumberCol.setPrefWidth(150);
+        orderedNumberCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Sale, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Sale, String> param) {
-                return param.getValue().getValue().ticketNumber;
-            }
-        });
-        JFXTreeTableColumn<Sale, String> purchasedDateCol = new JFXTreeTableColumn<>("Fecha de compra");
-        purchasedDateCol.setPrefWidth(150);
-        purchasedDateCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Sale, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Sale, String> param) {
-                return param.getValue().getValue().purchasedDate;
+                return param.getValue().getValue().orderNumber;
             }
         });
         JFXTreeTableColumn<Sale, String> purchasedProductsCol = new JFXTreeTableColumn<>("Productos comprados");
@@ -113,6 +93,14 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
                 return param.getValue().getValue().purchasedProducts;
             }
         });
+        JFXTreeTableColumn<Sale, String> pickupDateCol = new JFXTreeTableColumn<>("Fecha de recogida");
+        pickupDateCol.setPrefWidth(150);
+        pickupDateCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Sale, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Sale, String> param) {
+                return param.getValue().getValue().pickupDate;
+            }
+        });
         JFXTreeTableColumn<Sale, String> totalPriceCol = new JFXTreeTableColumn<>("Precio Total");
         totalPriceCol.setPrefWidth(150);
         totalPriceCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Sale, String>, ObservableValue<String>>() {
@@ -121,37 +109,46 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
                 return param.getValue().getValue().totalPrice;
             }
         });
-        ObservableList<Sale> sales = FXCollections.observableArrayList();
-        for (int i = 0; i < mySystem.getSales().size(); i++) {
-            domain.Sale s = mySystem.getSales().get(i);
-            sales.add(new Sale(s.getTotalPrice(), s.getTicketNumber(), s.getPurchaseDate(), s.getPurchasedProducts()));
+        JFXTreeTableColumn<Sale, String> clientIdentityCardCol = new JFXTreeTableColumn<>("Cedula de Identidad");
+        clientIdentityCardCol.setPrefWidth(150);
+        clientIdentityCardCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Sale, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Sale, String> param) {
+                return param.getValue().getValue().clientIdentityCard;
+            }
+        });
+        ObservableList<Sale> preSales = FXCollections.observableArrayList();
+        for (int i = 0; i < mySystem.getPreSales().size(); i++) {
+            domain.Sale s = mySystem.getPreSales().get(i);
+            preSales.add(new Sale(s.getTotalPrice(), s.getTicketNumber(), s.getPurchaseDate(), s.getPurchasedProducts(),s.getClient().getIdentifyCard()));
         }
-        final TreeItem<Sale> root = new RecursiveTreeItem<Sale>(sales, RecursiveTreeObject::getChildren);
-        treeView.getColumns().setAll(ticketNumberCol, purchasedDateCol, purchasedProductsCol, totalPriceCol);
-        treeView.setRoot(root);
-        treeView.setShowRoot(false);
-
+        final TreeItem<Sale> root = new RecursiveTreeItem<Sale>(preSales, RecursiveTreeObject::getChildren);
+        table.getColumns().setAll(orderedNumberCol, purchasedProductsCol, pickupDateCol, totalPriceCol, clientIdentityCardCol);
+        table.setRoot(root);
+        table.setShowRoot(false);
     }
 
     class Sale extends RecursiveTreeObject<Sale> {
 
         StringProperty totalPrice;
-        StringProperty ticketNumber;
-        StringProperty purchasedDate;
+        StringProperty orderNumber;
+        StringProperty pickupDate;
         StringProperty purchasedProducts;
+        StringProperty clientIdentityCard;
 
-        public Sale(int aTotalPrice, String ticketNumber, LocalDateTime aPurchasedDate, ArrayList<Pair> aPurchasedProducts) {
+        public Sale(int aTotalPrice, String orderNumber, LocalDateTime aPickupDate, ArrayList<Pair> aPurchasedProducts, String aIdentityCard) {
             this.totalPrice = new SimpleStringProperty(aTotalPrice + "");
-            this.ticketNumber = new SimpleStringProperty(ticketNumber);
-            this.purchasedDate = new SimpleStringProperty("" + aPurchasedDate.getDayOfMonth() + "-" + aPurchasedDate.getMonthValue() + "-" + aPurchasedDate.getYear());
+            this.orderNumber = new SimpleStringProperty(orderNumber);
+            this.pickupDate = new SimpleStringProperty("" + aPickupDate.getDayOfMonth() + "-" + aPickupDate.getMonthValue() + "-" + aPickupDate.getYear());
             String products = "";
             for (int i = 0; i < aPurchasedProducts.size(); i++) {
                 Product p = (Product) aPurchasedProducts.get(i).getKey();
                 int quantity = (int) aPurchasedProducts.get(i).getValue();
                 products = products + "-" + " " + p.getName() + " " + "x" + quantity + " " + "Unidades" + System.lineSeparator();
-
             }
             this.purchasedProducts = new SimpleStringProperty(products);
+            this.clientIdentityCard = new SimpleStringProperty(aIdentityCard);
         }
     }
+
 }
