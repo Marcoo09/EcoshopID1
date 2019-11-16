@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
 import com.jfoenix.controls.JFXButton;
@@ -17,7 +12,6 @@ import static interfaces.Ecoshop.mySystem;
 import java.io.IOException;
 import javafx.scene.input.MouseEvent;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,7 +30,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -45,8 +38,9 @@ import javafx.scene.text.Text;
 /**
  * FXML Controller class
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco FIorito
  */
+
 public class MainWindowOfSellerController implements Initializable {
 
     @FXML

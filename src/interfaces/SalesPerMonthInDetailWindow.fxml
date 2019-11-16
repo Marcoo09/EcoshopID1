@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="mainPane" pickOnBounds="false" prefHeight="471.0" prefWidth="724.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.SalesPerMonthInDetailWindowController">
    <children>
-      <VBox prefHeight="577.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;">
+      <VBox prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;">
          <children>
             <Label alignment="CENTER" prefHeight="62.0" prefWidth="178.0" style="-fx-background-color: #106EAF;" text="EcoShop" textFill="WHITE">
                <graphic>

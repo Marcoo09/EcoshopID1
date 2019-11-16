@@ -2,6 +2,7 @@ package interfaces;
 
 import domain.Product;
 import domain.Sale;
+import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
 import java.io.IOException;
 import java.net.URL;
@@ -10,8 +11,11 @@ import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -23,16 +27,19 @@ import javafx.util.Pair;
 /**
  * FXML Controller class
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
+
 public class MainWindowOfBuyerController implements Initializable {
 
-    @FXML
-    GridPane pane;
-    @FXML
-    Label lblCant;
     private Sale newSale;
     private int count;
+    
+    @FXML
+    GridPane pane;
+    
+    @FXML
+    Label lblCant;  
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -64,6 +71,15 @@ public class MainWindowOfBuyerController implements Initializable {
                 }
             }
         }
+    }
+
+    @FXML
+    public void goToCartEvent(ActionEvent e) throws IOException {
+        System.out.println("Se ejecuto");
+        Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
     }
 
     @FXML

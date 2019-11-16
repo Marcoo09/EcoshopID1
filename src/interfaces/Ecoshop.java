@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
 import domain.Client;
@@ -17,13 +12,16 @@ import domain.Package;
 import domain.Product;
 import domain.PointOfSale;
 import domain.Sale;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.time.LocalDateTime;
 import javafx.util.Pair;
 
 /**
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
+
 public class Ecoshop extends Application {
 
     public static Stage myPrimaryStage;
@@ -31,9 +29,12 @@ public class Ecoshop extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         myPrimaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("HomeWindow.fxml"));
         Scene scene = new Scene(root);
+        myPrimaryStage.setMaximized(true);
+        myPrimaryStage.setWidth(screenSize.getWidth());
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
