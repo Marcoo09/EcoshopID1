@@ -1,7 +1,3 @@
-.tree-table-cell {
-    -fx-alignment: center ;
-}
-
 
 .tree-table-view{
     -fx-tree-table-color: rgba(0, 150, 0, 0.8);

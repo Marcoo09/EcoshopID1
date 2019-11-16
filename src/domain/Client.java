@@ -25,7 +25,9 @@ public class Client {
         this.setPhoneNumber(phoneNumber);
         this.setClientNumber(clientNumber);
     }
-
+    public Client(){
+        this.setClientNumber(0);
+    }
     public String getName() {
         return name;
     }
