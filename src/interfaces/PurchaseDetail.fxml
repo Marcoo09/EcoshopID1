@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="520.0" prefWidth="828.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="520.0" prefWidth="828.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.PurchaseDetailController">
    <children>
       <VBox layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -83,16 +83,15 @@
             </AnchorPane>
          </children>
       </VBox>
-      <JFXTabPane id="tabPane" prefHeight="400.0" prefWidth="565.0" styleClass="wizardContainer" stylesheets="@purchasedetail.css" tabClosingPolicy="UNAVAILABLE" tabMinHeight="60.0" tabMinWidth="100.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0">
+      <JFXTabPane id="tabPane" fx:id="tabPane" prefHeight="400.0" prefWidth="565.0" styleClass="wizardContainer" stylesheets="@purchasedetail.css" tabClosingPolicy="UNAVAILABLE" tabMinHeight="60.0" tabMinWidth="100.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0">
          <tabs>
             <Tab disable="true" text="Detalle">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane fx:id="tabPan" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Pane prefHeight="42.0" prefWidth="150.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <JFXButton layoutY="5.0" ripplerFill="WHITE" style="-fx-background-color: #232a37;" text="Anterior" />
-                              <JFXButton layoutX="75.0" layoutY="5.0" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
+                              <JFXButton layoutX="75.0" layoutY="5.0" onMouseClicked="#nextTabEvent" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
                            </children>
                         </Pane>
                      </children>
@@ -105,8 +104,8 @@
                      <children>
                         <Pane prefHeight="42.0" prefWidth="150.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <JFXButton layoutY="5.0" ripplerFill="WHITE" style="-fx-background-color: #232a37;" text="Anterior" />
-                              <JFXButton layoutX="75.0" layoutY="5.0" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
+                              <JFXButton layoutY="5.0" onMouseClicked="#previousTabEvent" ripplerFill="WHITE" styleClass="buttonBack" stylesheets="@purchasedetail.css" text="Anterior" />
+                              <JFXButton layoutX="75.0" layoutY="5.0" onMouseClicked="#nextTabEvent" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
                            </children>
                         </Pane>
                      </children>
@@ -119,8 +118,8 @@
                      <children>
                         <Pane prefHeight="42.0" prefWidth="150.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <JFXButton layoutY="5.0" ripplerFill="WHITE" style="-fx-background-color: #232a37;" text="Anterior" />
-                              <JFXButton layoutX="75.0" layoutY="5.0" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
+                              <JFXButton layoutY="5.0" onMouseClicked="#previousTabEvent" ripplerFill="WHITE" styleClass="buttonBack" stylesheets="@purchasedetail.css" text="Anterior" />
+                              <JFXButton layoutX="75.0" layoutY="5.0" onMouseClicked="#nextTabEvent" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
                            </children>
                         </Pane>
                      </children>
@@ -133,13 +132,27 @@
                      <children>
                         <Pane prefHeight="42.0" prefWidth="150.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <JFXButton layoutY="5.0" ripplerFill="WHITE" style="-fx-background-color: #232a37;" text="Anterior" />
-                              <JFXButton layoutX="75.0" layoutY="5.0" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
+                              <JFXButton layoutY="5.0" onMouseClicked="#previousTabEvent" ripplerFill="WHITE" styleClass="buttonBack" stylesheets="@purchasedetail.css" text="Anterior" />
+                              <JFXButton layoutX="75.0" layoutY="5.0" onMouseClicked="#nextTabEvent" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
                            </children>
                         </Pane>
                      </children>
                   </AnchorPane>
               </content>
+            </Tab>
+            <Tab disable="true" text="Resumen">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="47.0" prefWidth="260.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <children>
+                              <JFXButton layoutX="48.0" layoutY="5.0" onMouseClicked="#previousTabEvent" ripplerFill="WHITE" styleClass="buttonBack" stylesheets="@purchasedetail.css" text="Anterior" />
+                              <JFXButton layoutX="121.0" layoutY="5.0" onMouseClicked="#nextTabEvent" styleClass="buttonConfirm" stylesheets="@purchasedetail.css" text="Confirmar compra" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
             </Tab>
             <Tab disable="true" text="Final">
               <content>
@@ -147,7 +160,7 @@
                      <children>
                         <Pane prefHeight="42.0" prefWidth="74.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
-                              <JFXButton layoutX="2.0" layoutY="5.0" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Ir a Inicio" />
+                              <JFXButton layoutX="2.0" layoutY="5.0" onMouseClicked="#goToHome" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Ir a Inicio" />
                            </children>
                         </Pane>
                      </children>

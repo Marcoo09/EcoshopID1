@@ -19,7 +19,20 @@
     -fx-stroke-width: 3pt;
 }
 
-.jfx-button .buttonNext{
-     -fx-background-color: blue;
-     -fx-text-fill: white;
+.buttonNext{
+    -jfx-button-type: RAISED;
+    -fx-background-color: #106EAF;
+    -fx-text-fill: white;
+}
+
+.buttonBack{
+    -jfx-button-type: RAISED;
+    -fx-background-color: #232a37;
+    -fx-text-fill: white;
+}
+
+.buttonConfirm{
+    -jfx-button-type: RAISED;
+    -fx-background-color: #00701a;
+    -fx-text-fill: white;
 }
