@@ -1,10 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.layout.BorderPane?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.PurchaseDetailController">
-   <left>
-      <JFXButton onMouseClicked="#goBackEvent" text="GoBack" BorderPane.alignment="CENTER" />
-   </left>
-</BorderPane>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="520.0" prefWidth="828.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="62.0" prefWidth="178.0" style="-fx-background-color: #106EAF;" text="Cliente" textFill="WHITE">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../resources/baseline_face_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="7.0" layoutY="21.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Comprar" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="26.0" layoutY="21.0">
+                     <image>
+                        <Image url="@../resources/baseline_shopping_cart_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="7.0" layoutY="28.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Pre-compra" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="24.0" layoutY="29.0">
+                     <image>
+                        <Image url="@../resources/baseline_shop_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="35.0" layoutY="26.0" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Puntos de venta" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="20.0" layoutY="26.0">
+                     <image>
+                        <Image url="@../resources/baseline_my_location_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="32.0" layoutY="23.0" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: #6C6C6C;" text="Envases reutilizados" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="19.0" layoutY="23.0">
+                     <image>
+                        <Image url="@../resources/baseline_add_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <JFXTabPane id="tabPane" prefHeight="400.0" prefWidth="565.0" styleClass="wizardContainer" stylesheets="@purchasedetail.css" tabClosingPolicy="UNAVAILABLE" tabMinHeight="60.0" tabMinWidth="100.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0">
+         <tabs>
+            <Tab disable="true" text="Detalle">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="42.0" prefWidth="150.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <children>
+                              <JFXButton layoutY="5.0" ripplerFill="WHITE" style="-fx-background-color: #232a37;" text="Anterior" />
+                              <JFXButton layoutX="75.0" layoutY="5.0" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab disable="true" text="Más Info">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="42.0" prefWidth="150.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <children>
+                              <JFXButton layoutY="5.0" ripplerFill="WHITE" style="-fx-background-color: #232a37;" text="Anterior" />
+                              <JFXButton layoutX="75.0" layoutY="5.0" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab disable="true" text="Fecha">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="42.0" prefWidth="150.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <children>
+                              <JFXButton layoutY="5.0" ripplerFill="WHITE" style="-fx-background-color: #232a37;" text="Anterior" />
+                              <JFXButton layoutX="75.0" layoutY="5.0" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab disable="true" text="Punto de Venta">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="42.0" prefWidth="150.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <children>
+                              <JFXButton layoutY="5.0" ripplerFill="WHITE" style="-fx-background-color: #232a37;" text="Anterior" />
+                              <JFXButton layoutX="75.0" layoutY="5.0" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab disable="true" text="Final">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="42.0" prefWidth="74.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <children>
+                              <JFXButton layoutX="2.0" layoutY="5.0" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Ir a Inicio" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+         <effect>
+            <DropShadow color="#c9c9c9" />
+         </effect>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

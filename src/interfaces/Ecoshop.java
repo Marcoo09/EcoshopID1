@@ -26,6 +26,7 @@ public class Ecoshop extends Application {
 
     public static Stage myPrimaryStage;
     public static System mySystem;
+    public static Sale newSale;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -33,8 +34,10 @@ public class Ecoshop extends Application {
         myPrimaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("HomeWindow.fxml"));
         Scene scene = new Scene(root);
+        newSale = new Sale();
         myPrimaryStage.setMaximized(true);
         myPrimaryStage.setWidth(screenSize.getWidth());
+        myPrimaryStage.setHeight(screenSize.getHeight());
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }

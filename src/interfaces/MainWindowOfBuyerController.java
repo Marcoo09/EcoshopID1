@@ -1,9 +1,9 @@
 package interfaces;
 
 import domain.Product;
-import domain.Sale;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
+import static interfaces.Ecoshop.newSale;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -20,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
@@ -32,9 +33,6 @@ import javafx.util.Pair;
 
 public class MainWindowOfBuyerController implements Initializable {
 
-    private Sale newSale;
-    private int count;
-    
     @FXML
     GridPane pane;
     
@@ -43,15 +41,12 @@ public class MainWindowOfBuyerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        newSale = new Sale();
-        count = 0;
         chargePane();
+        lblCant.setText("" + newSale.getPurchasedProducts().size());
     }
 
     @FXML
     public void plusEvent(ActionEvent e) throws IOException {
-        count++;
-        lblCant.setText("" + count);
         ArrayList<Product> productList = mySystem.getProducts();
         Button btn = (Button) e.getSource();
         String element = btn.getId();
@@ -71,11 +66,11 @@ public class MainWindowOfBuyerController implements Initializable {
                 }
             }
         }
+        lblCant.setText("" + newSale.getPurchasedProducts().size());
     }
 
     @FXML
-    public void goToCartEvent(ActionEvent e) throws IOException {
-        System.out.println("Se ejecuto");
+    public void goToCartEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
