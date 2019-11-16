@@ -32,6 +32,8 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
@@ -79,25 +81,25 @@ public class MainWindowOfSellerController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
-    public void salesPerMonthEvent (MouseEvent e) throws IOException{
+    public void salesPerMonthEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
-    public void preSalesEvent (MouseEvent e) throws IOException{
+    public void preSalesEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PreSaleListWindow.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
-    public void pieChartEvent (MouseEvent e) throws IOException{
+    public void pieChartEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
@@ -105,10 +107,23 @@ public class MainWindowOfSellerController implements Initializable {
     }
 
     public void registerEvent(ActionEvent e) {
-        String name = nameTextField.getText();
-        String originCountry = originCountryTextField.getText();
-        int price = (Integer.parseInt(priceTextField.getText()));
-        String material = materialTextField.getText();
+        String name = "";
+        String originCountry = "";
+        String material = "";
+        String price = "";
+        int intPrice = -1;
+        boolean isInt = false;
+        boolean isLetter = false;
+        name = nameTextField.getText();
+        originCountry = originCountryTextField.getText();
+        price = priceTextField.getText();
+        try {
+            intPrice = Integer.parseInt(price);
+            isInt = true;
+        } catch (NumberFormatException excepcion) {
+            isLetter = true;
+        }
+        material = materialTextField.getText();
         boolean isOrganic = false;
         boolean formedFromRecycledMaterial = false;
         if (organicCheck.isSelected()) {
@@ -118,34 +133,61 @@ public class MainWindowOfSellerController implements Initializable {
             formedFromRecycledMaterial = true;
         }
         ObservableList<domain.Package> list = availablePackages.getSelectionModel().getSelectedItems();
-        Product p = new Product(originCountry, isOrganic, formedFromRecycledMaterial, price, material, 20, name);
+        Product p = new Product(originCountry, isOrganic, formedFromRecycledMaterial, intPrice, material, 20, name);
         for (int i = 0; i < list.size(); i++) {
             p.addPackage(list.get(i));
         }
-        mySystem.addProduct(p);
-        JFXDialogLayout content = new JFXDialogLayout();
-        myStackPane.setMargin(mainPane, new Insets(180, 141, 260, 280));
-        content.setHeading(new Text("Alta de producto"));
-        content.setBody(new Text("El producto se ha registrado correctamente en el sistema"));
-        JFXDialog dialog = new JFXDialog(myStackPane, content, JFXDialog.DialogTransition.CENTER);
-        JFXButton okButton = new JFXButton("Aceptar");
-        okButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                dialog.close();
-                nameTextField.setText("");
-                originCountryTextField.setText("");
-                materialTextField.setText("");
-                priceTextField.setText("");
-                organicCheck.setSelected(false);
-                formedForRecycledMaterialCheck.setSelected(false);
-                availablePackages.getSelectionModel().clearSelection();
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Error faltan ingresar datos.");
+        if (list.size() == 0) {
+            alert.setContentText("Debe seleccionar algun envase.");
+            alert.showAndWait();
+        } else if (name.equals("")) {
+            alert.setContentText("Debe ingresar un nombre.");
+            alert.showAndWait();
+        } else if (originCountry.equals("")) {
+            alert.setContentText("Debe ingresar un pais de origen.");
+            alert.showAndWait();
+        } else if (material.equals("")) {
+            alert.setContentText("Debe ingresar un material.");
+            alert.showAndWait();
+        } else if (price.equals("")) {
+            alert.setContentText("Debe ingresar un precio.");
+            alert.showAndWait();
+        } else if (isLetter) {
+            alert.setContentText("El precio debe ser un numero.");
+            alert.showAndWait();
+        } else if (intPrice <= 0 && isInt) {
+            alert.setContentText("El precio debe ser positivo.");
+            alert.showAndWait();
+        } else {
+            mySystem.addProduct(p);
+            JFXDialogLayout content = new JFXDialogLayout();
+            myStackPane.setMargin(mainPane, new Insets(180, 141, 260, 280));
+            content.setHeading(new Text("Alta de producto"));
+            content.setBody(new Text("El producto se ha registrado correctamente en el sistema"));
+            JFXDialog dialog = new JFXDialog(myStackPane, content, JFXDialog.DialogTransition.CENTER);
+            JFXButton okButton = new JFXButton("Aceptar");
+            okButton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    dialog.close();
+                    nameTextField.setText("");
+                    originCountryTextField.setText("");
+                    materialTextField.setText("");
+                    priceTextField.setText("");
+                    organicCheck.setSelected(false);
+                    formedForRecycledMaterialCheck.setSelected(false);
+                    availablePackages.getSelectionModel().clearSelection();
 
-            }
-        });
-        content.setActions(okButton);
-        dialog.show();
-        count++;
+                }
+            });
+            content.setActions(okButton);
+            dialog.show();
+            count++;
+        }
+
     }
 
     @Override
