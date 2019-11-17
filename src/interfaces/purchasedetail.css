@@ -36,3 +36,16 @@
     -fx-background-color: #00701a;
     -fx-text-fill: white;
 }
+
+.jfx-list-cell{
+    height: 50;
+}
+
+
+.jfx-list-cell:selected{
+    -fx-background-color:white;
+}
+
+.jfx-list-cell:pressed{
+    -fx-background-color:white;
+}

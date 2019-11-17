@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -89,6 +90,7 @@
               <content>
                 <AnchorPane fx:id="tabPan" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
+                        <JFXListView id="listOfProducts" fx:id="listOfProducts" layoutX="25.0" layoutY="18.0" prefHeight="305.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                         <Pane prefHeight="42.0" prefWidth="150.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
                               <JFXButton layoutX="75.0" layoutY="5.0" onMouseClicked="#nextTabEvent" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
