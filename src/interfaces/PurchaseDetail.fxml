@@ -198,7 +198,7 @@
                         <Pane prefHeight="47.0" prefWidth="260.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
                               <JFXButton layoutX="48.0" layoutY="5.0" onMouseClicked="#previousTabEvent" ripplerFill="WHITE" styleClass="buttonBack" stylesheets="@purchasedetail.css" text="Anterior" />
-                              <JFXButton layoutX="121.0" layoutY="5.0" onMouseClicked="#nextTabEvent" styleClass="buttonConfirm" stylesheets="@purchasedetail.css" text="Confirmar compra" />
+                              <JFXButton layoutX="121.0" layoutY="5.0" onMouseClicked="#confirmTabEvent" styleClass="buttonConfirm" stylesheets="@purchasedetail.css" text="Confirmar compra" />
                            </children>
                         </Pane>
                      </children>

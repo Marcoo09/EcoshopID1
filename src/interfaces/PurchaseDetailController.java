@@ -7,7 +7,9 @@ import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextField;
 import components.ProductListCellController;
 import domain.Client;
+import domain.Sale;
 import static interfaces.Ecoshop.myPrimaryStage;
+import static interfaces.Ecoshop.mySystem;
 import static interfaces.Ecoshop.newSale;
 import java.io.IOException;
 import java.net.URL;
@@ -127,6 +129,13 @@ public class PurchaseDetailController implements Initializable {
     @FXML
     public void previousTabEvent(MouseEvent e) throws IOException{
         previousTabLogic();
+    }
+    
+    @FXML
+    public void confirmTabEvent(MouseEvent e) throws IOException{        
+        mySystem.addSale(newSale);
+        newSale = new Sale();
+        nextTabLogic();
     }
     
     @FXML
