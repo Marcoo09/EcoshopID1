@@ -1,6 +1,7 @@
 package interfaces;
 
 import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextField;
@@ -10,6 +11,8 @@ import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.newSale;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import static java.time.LocalDate.now;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -49,7 +52,10 @@ public class PurchaseDetailController implements Initializable {
             
     @FXML
     JFXCheckBox isPreSale;
-            
+         
+    @FXML
+    JFXDatePicker date;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentTab = 0;
@@ -68,7 +74,7 @@ public class PurchaseDetailController implements Initializable {
         ArrayList<Pair> purchasedProducts = newSale.getPurchasedProducts();
         purchasedProducts.forEach((product) -> {
             try{
-                System.out.println("Entre");
+//                System.out.println("Entre");
                 Label lbl = new Label("" +product.getValue());
                 lbl.setGraphic(new ImageView(new Image("resources/" + product.getKey() + ".png")));
 //                ProductListCellController productListCell = new ProductListCellController(product);
@@ -80,14 +86,30 @@ public class PurchaseDetailController implements Initializable {
             }
         });
     }
-       
+    
+    @FXML
+    public void nextOfDateTabEvent(MouseEvent e) throws IOException{
+        LocalDate dateSelected = date.getValue();
+        if(dateSelected!= null){
+            LocalDate today = now();
+            if(dateSelected.isBefore(today)){
+                //ERROR FECHA INVALIDA
+            }else{
+                newSale.setPurchaseDate(dateSelected);
+                nextTabLogic();
+            }
+        }else{
+            //ERROR SELECCIONAR FECHA
+        }
+    }
+    
+    
     @FXML
     public void nextOfMoreInfoTabEvent(MouseEvent e) throws IOException{
         Client client = new Client(firstName.getText(),lastName.getText(),"",phoneNumber.getText(),0);
         boolean isPreSaleValue = isPreSale.isSelected();
         newSale.setClient(client);
         newSale.setIsPreSale(isPreSaleValue);
-        
         tabPane.getTabs().get(currentTab).setDisable(true);
         currentTab++;
         if(!isPreSaleValue){
@@ -98,20 +120,13 @@ public class PurchaseDetailController implements Initializable {
     }
     
     @FXML
-    public void nextTabEvent(MouseEvent e) throws IOException{
-        
-        tabPane.getTabs().get(currentTab).setDisable(true);
-        currentTab++;
-        tabPane.getTabs().get(currentTab).setDisable(false);
-        tabPane.getSelectionModel().select(currentTab);
+    public void nextTabEvent(MouseEvent e) throws IOException{        
+        nextTabLogic();
     }
       
     @FXML
     public void previousTabEvent(MouseEvent e) throws IOException{
-        tabPane.getTabs().get(currentTab).setDisable(true);
-        currentTab--;
-        tabPane.getTabs().get(currentTab).setDisable(false);
-        tabPane.getSelectionModel().select(currentTab);
+        previousTabLogic();
     }
     
     @FXML
@@ -131,5 +146,19 @@ public class PurchaseDetailController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
- 
+    
+    public void nextTabLogic(){
+        tabPane.getTabs().get(currentTab).setDisable(true);
+        currentTab++;
+        tabPane.getTabs().get(currentTab).setDisable(false);
+        tabPane.getSelectionModel().select(currentTab);
+    }
+    
+    public void previousTabLogic(){
+        tabPane.getTabs().get(currentTab).setDisable(true);
+        currentTab--;
+        tabPane.getTabs().get(currentTab).setDisable(false);
+        tabPane.getSelectionModel().select(currentTab);     
+    }
+    
 }

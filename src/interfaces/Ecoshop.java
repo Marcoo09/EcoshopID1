@@ -14,6 +14,7 @@ import domain.PointOfSale;
 import domain.Sale;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import javafx.util.Pair;
 
@@ -73,7 +74,7 @@ public class Ecoshop extends Application {
         s1.setShopPlace(store);
         s1.setTicketNumber("1");
         s1.setTotalPrice(s1.obtainPrice());
-        LocalDateTime date1 = LocalDateTime.of(2019, 1, 25, 19, 30);
+        LocalDate date1 = LocalDate.of(2019, 1, 25);
         s1.setPurchaseDate(date1);
         mySystem.addSale(s1);
         s2.addProductToCart(new Pair(product1, 5));
@@ -82,8 +83,8 @@ public class Ecoshop extends Application {
         s2.setShopPlace(store);
         s2.setTicketNumber("2");
         s2.setTotalPrice(s2.obtainPrice());
-        s2.setPurchaseDate(LocalDateTime.of(2019, 2, 15, 12, 15));
         s2.setClient(c3);
+        s2.setPurchaseDate(LocalDate.of(2019, 2, 15));
         mySystem.addSale(s2);
         mySystem.addPreSale(s2);
         launch(args);

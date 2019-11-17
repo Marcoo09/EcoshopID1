@@ -1,7 +1,7 @@
 package domain;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.time.LocalDateTime;
 import javafx.util.Pair;
 
 /**
@@ -15,7 +15,7 @@ public class Sale {
     private PointOfSale shopPlace;
     private int totalPrice;
     private String ticketNumber;
-    private LocalDateTime purchaseDate;
+    private LocalDate purchaseDate;
     private int fullPayment;
     private int change;
     private ArrayList<Package> usedPackagingList;
@@ -35,8 +35,7 @@ public class Sale {
         setChange(totalPrice - fullPayment);
         purchasedProducts = new ArrayList<>();
         usedPackagingList = new ArrayList<>();
-        setPurchaseDate(LocalDateTime.now());
-
+        setPurchaseDate(LocalDate.now());
     }
 
     public Client getClient() {
@@ -116,11 +115,11 @@ public class Sale {
         return fullPayment;
     }
 
-    public LocalDateTime getPurchaseDate() {
+    public LocalDate getPurchaseDate() {
         return purchaseDate;
     }
 
-    public void setPurchaseDate(LocalDateTime purchaseDate) {
+    public void setPurchaseDate(LocalDate purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
 
