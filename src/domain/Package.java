@@ -1,29 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
-
-import javafx.scene.image.Image;
 
 /**
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
+
 public class Package {
     private String name;
     private String material;
     private int capacity;
     
-    //Constructor vacio
     public Package(){
        this.setName("");
        this.setMaterial("");
        this.setCapacity(0);
     }
     
-    //Constructor con parametros
     public Package(String name, String material, int capacity){
         this.setName(name);
         this.setMaterial(material);

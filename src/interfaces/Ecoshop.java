@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
 import domain.Client;
@@ -17,26 +12,33 @@ import domain.Package;
 import domain.Product;
 import domain.PointOfSale;
 import domain.Sale;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.ArrayList;
 import javafx.util.Pair;
-import javafx.util.converter.LocalDateTimeStringConverter;
 
 /**
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
+
 public class Ecoshop extends Application {
 
     public static Stage myPrimaryStage;
     public static System mySystem;
+    public static Sale newSale;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         myPrimaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("HomeWindow.fxml"));
         Scene scene = new Scene(root);
+        newSale = new Sale();
+        myPrimaryStage.setMaximized(true);
+        myPrimaryStage.setWidth(screenSize.getWidth());
+        myPrimaryStage.setHeight(screenSize.getHeight());
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
@@ -72,7 +74,7 @@ public class Ecoshop extends Application {
         s1.setShopPlace(store);
         s1.setTicketNumber("1");
         s1.setTotalPrice(s1.obtainPrice());
-        LocalDateTime date1 = LocalDateTime.of(2019, 1, 25, 19, 30);
+        LocalDate date1 = LocalDate.of(2019, 1, 25);
         s1.setPurchaseDate(date1);
         mySystem.addSale(s1);
         s2.addProductToCart(new Pair(product1, 5));
@@ -81,8 +83,8 @@ public class Ecoshop extends Application {
         s2.setShopPlace(store);
         s2.setTicketNumber("2");
         s2.setTotalPrice(s2.obtainPrice());
-        s2.setPurchaseDate(LocalDateTime.of(2019, 2, 15, 12, 15));
         s2.setClient(c3);
+        s2.setPurchaseDate(LocalDate.of(2019, 2, 15));
         mySystem.addSale(s2);
         mySystem.addPreSale(s2);
         launch(args);

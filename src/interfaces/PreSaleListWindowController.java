@@ -14,6 +14,7 @@ import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -136,7 +137,7 @@ public class PreSaleListWindowController implements Initializable {
         StringProperty purchasedProducts;
         StringProperty clientIdentityCard;
 
-        public Sale(int aTotalPrice, String orderNumber, LocalDateTime aPickupDate, ArrayList<Pair> aPurchasedProducts, String aIdentityCard) {
+        public Sale(int aTotalPrice, String orderNumber, LocalDate aPickupDate, ArrayList<Pair> aPurchasedProducts, String aIdentityCard) {
             this.totalPrice = new SimpleStringProperty(aTotalPrice + "");
             this.orderNumber = new SimpleStringProperty(orderNumber);
             this.pickupDate = new SimpleStringProperty("" + aPickupDate.getDayOfMonth() + "-" + aPickupDate.getMonthValue() + "-" + aPickupDate.getYear());

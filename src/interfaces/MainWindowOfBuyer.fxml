@@ -9,14 +9,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" pickOnBounds="false" prefHeight="558.0" prefWidth="748.0" style="-fx-background-color: FAF9F9;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.MainWindowOfBuyerController">
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pickOnBounds="false" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.MainWindowOfBuyerController">
    <children>
-      <VBox prefHeight="577.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="62.0" prefWidth="178.0" style="-fx-background-color: #106EAF;" text="Cliente" textFill="WHITE">
                <graphic>
@@ -29,9 +30,9 @@
             </Label>
             <AnchorPane prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="7.0" layoutY="21.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Comprar" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="7.0" layoutY="21.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Carrito" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font size="13.0" />
                      </font></Label>
                   <ImageView layoutX="26.0" layoutY="21.0">
                      <image>
@@ -79,10 +80,9 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0" />
          </children>
       </VBox>
-      <Text fill="#838383" layoutX="368.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comprar Producto" wrappingWidth="199.9999941587448">
+      <Text fill="#838383" layoutX="188.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comprar Producto" wrappingWidth="199.9999941587448">
          <font>
             <Font name="System Bold" size="21.0" />
          </font></Text>
@@ -136,12 +136,19 @@
               </AnchorPane>
          </children>
       </GridPane>
-      <ImageView fitHeight="137.0" fitWidth="166.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="lblCant" layoutX="707.0" layoutY="41.0" prefHeight="17.0" prefWidth="10.0" text="0" />
-      <ImageView fitHeight="49.0" fitWidth="38.0" layoutX="682.0" layoutY="13.0">
-         <image>
-            <Image url="@../resources/icons8-carro-de-compras-con-dinero-96.png" />
-         </image>
-      </ImageView>
+      <Pane layoutX="1158.0" layoutY="12.0" onMouseClicked="#goToCartEvent" prefHeight="82.0" prefWidth="96.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <ImageView fitHeight="62.0" fitWidth="58.0" layoutX="19.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/ShoppingCart.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblCant" layoutX="68.0" layoutY="41.0" prefHeight="18.0" prefWidth="18.0" text="0" textFill="#f0f0f0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

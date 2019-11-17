@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
 import com.jfoenix.controls.JFXButton;
@@ -20,12 +15,10 @@ import javafx.scene.Scene;
 /**
  * FXML Controller class
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
-public class HomeWindowController implements Initializable {
 
-    @FXML
-    private JFXButton btnSeller;
+public class HomeWindowController implements Initializable {
 
     @FXML
     public void sellerEvent(ActionEvent e) throws IOException {

@@ -8,14 +8,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="mainPane" pickOnBounds="false" prefHeight="471.0" prefWidth="724.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.MainWindowOfSellerController">
+<AnchorPane id="AnchorPane" fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pickOnBounds="false" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.MainWindowOfSellerController">
    <children>
-      <VBox prefHeight="577.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;">
+      <VBox prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="62.0" prefWidth="178.0" style="-fx-background-color: #106EAF;" text="EcoShop" textFill="WHITE">
                <graphic>
@@ -125,7 +124,7 @@
          <font>
             <Font size="13.0" />
          </font></Text>
-      <Text fx:id="agregarProducto" layoutX="359.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar Producto" wrappingWidth="175.00000834465027">
+      <Text fx:id="agregarProducto" layoutX="189.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar Producto" wrappingWidth="175.00000834465027">
          <font>
             <Font size="21.0" />
          </font></Text>
@@ -154,6 +153,5 @@
          </font>
       </Text>
       <JFXListView fx:id="availablePackages" layoutX="458.0" layoutY="158.0" prefHeight="273.0" prefWidth="238.0" />
-      <StackPane fx:id="myStackPane" layoutX="94.0" layoutY="428.0" prefHeight="137.0" prefWidth="303.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="94.0" AnchorPane.rightAnchor="327.0" AnchorPane.topAnchor="428.0" />
    </children>
 </AnchorPane>
