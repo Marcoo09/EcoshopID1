@@ -138,12 +138,16 @@
       </GridPane>
       <Pane layoutX="1158.0" layoutY="12.0" onMouseClicked="#goToCartEvent" prefHeight="82.0" prefWidth="96.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
          <children>
-            <Label fx:id="lblCant" layoutX="77.0" layoutY="32.0" prefHeight="17.0" prefWidth="10.0" text="0" />
-            <ImageView fitHeight="40.0" fitWidth="33.0" layoutX="32.0" layoutY="20.0">
+            <ImageView fitHeight="62.0" fitWidth="58.0" layoutX="19.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/icons8-carro-de-compras-con-dinero-96.png" />
+                  <Image url="@../resources/ShoppingCart.png" />
                </image>
             </ImageView>
+            <Label fx:id="lblCant" layoutX="68.0" layoutY="41.0" prefHeight="18.0" prefWidth="18.0" text="0" textFill="#f0f0f0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

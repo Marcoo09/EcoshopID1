@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
 import com.jfoenix.controls.JFXTreeTableColumn;
@@ -15,8 +10,9 @@ import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
 import static interfaces.SalesPerMonthWindowController.monthSelected;
 import java.io.IOException;
+import static interfaces.Ecoshop.mySystem;
 import java.net.URL;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
@@ -140,7 +136,7 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         StringProperty purchasedDate;
         StringProperty purchasedProducts;
 
-        public Sale(int aTotalPrice, String ticketNumber, LocalDateTime aPurchasedDate, ArrayList<Pair> aPurchasedProducts) {
+        public Sale(int aTotalPrice, String ticketNumber, LocalDate aPurchasedDate, ArrayList<Pair> aPurchasedProducts) {
             this.totalPrice = new SimpleStringProperty(aTotalPrice + "");
             this.ticketNumber = new SimpleStringProperty(ticketNumber);
             this.purchasedDate = new SimpleStringProperty("" + aPurchasedDate.getDayOfMonth() + "-" + aPurchasedDate.getMonthValue() + "-" + aPurchasedDate.getYear());

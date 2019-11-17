@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,7 +23,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.util.Pair;
 
 /**
@@ -42,7 +47,11 @@ public class MainWindowOfBuyerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         chargePane();
-        lblCant.setText("" + newSale.getPurchasedProducts().size());
+        String quantityOfProducstAdded = Integer.toString(newSale.getPurchasedProducts().size());
+        if(newSale.getPurchasedProducts().size() != 0){
+            changeStyleOfQuantityText(true);
+        }
+        lblCant.setText(quantityOfProducstAdded);
     }
 
     @FXML
@@ -66,7 +75,10 @@ public class MainWindowOfBuyerController implements Initializable {
                 }
             }
         }
-        lblCant.setText("" + newSale.getPurchasedProducts().size());
+        if(newSale.getPurchasedProducts().size() != 0){
+            changeStyleOfQuantityText(true);
+        }
+        lblCant.setText("[" + newSale.getPurchasedProducts().size() + "]");
     }
 
     @FXML
@@ -104,6 +116,16 @@ public class MainWindowOfBuyerController implements Initializable {
                 addToCart.setId(currentProduct.getName());
                 index++;
             }
+        }
+    }
+    
+    @FXML
+    public void changeStyleOfQuantityText(boolean cartWithProducts){
+        if(cartWithProducts){
+            Color col = Color.rgb(255, 0, 0, 1);
+            CornerRadii corn = new CornerRadii(30);
+            Background background = new Background(new BackgroundFill(col, corn, Insets.EMPTY));
+            lblCant.setBackground(background);
         }
     }
 }
