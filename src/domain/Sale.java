@@ -1,37 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.time.LocalDateTime;
 import javafx.util.Pair;
 
 /**
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
+
 public class Sale {
 
     private ArrayList<Pair> purchasedProducts;
     private PointOfSale shopPlace;
     private int totalPrice;
     private String ticketNumber;
-    private LocalDateTime purchaseDate;
+    private LocalDate purchaseDate;
     private int fullPayment;
     private int change;
     private ArrayList<Package> usedPackagingList;
+    private boolean isPreSale;
     private Client client;
-
+    
     public Sale() {
         purchasedProducts = new ArrayList<>();
         usedPackagingList = new ArrayList<>();
     }
 
-    public Sale(PointOfSale shopPlace, String ticketNumber, int fullPayment,
-            int totalPrice) {
+    public Sale(PointOfSale shopPlace, String ticketNumber, int fullPayment, int totalPrice) {
         setShopPlace(shopPlace);
         setTicketNumber(ticketNumber);
         setFullPayment(fullPayment);
@@ -39,19 +35,45 @@ public class Sale {
         setChange(totalPrice - fullPayment);
         purchasedProducts = new ArrayList<>();
         usedPackagingList = new ArrayList<>();
-        setPurchaseDate(LocalDateTime.now());
-
+        setPurchaseDate(LocalDate.now());
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public boolean isIsPreSale() {
+        return isPreSale;
+    }
+
+    public void setIsPreSale(boolean isPreSale) {
+        this.isPreSale = isPreSale;
+    }
+    
     public ArrayList<Pair> getPurchasedProducts() {
         return purchasedProducts;
     }
-
+    
+    public Pair getProduct(Product product){
+        Pair returnedValue = new Pair("",0);
+        for (int i = 0; i < purchasedProducts.size(); i++) {
+            Pair currentProduct = purchasedProducts.get(i);
+            if(currentProduct.getKey() == product.getName()){
+                returnedValue = currentProduct;
+            }
+        }
+        return returnedValue;
+    }
+    
     public void addProductToCart(Pair product) {
         purchasedProducts.add(product);
     }
 
-    public void removeProductOfCart(Product product) {
+    public void removeProductOfCart(Pair product) {
         purchasedProducts.remove(product);
     }
 
@@ -80,12 +102,7 @@ public class Sale {
         }
         return totalPrice;
     }
-
-    @Override
-    public String toString() {
-        return "Sale{" + "purchasedProducts=" + purchasedProducts + ", shopPlace=" + shopPlace + ", totalPrice=" + totalPrice + ", ticketNumber=" + ticketNumber + ", purchaseDate=" + purchaseDate + ", fullPayment=" + fullPayment + ", change=" + change + ", usedPackagingList=" + usedPackagingList + '}';
-    }
-
+    
     public String getTicketNumber() {
         return ticketNumber;
     }
@@ -98,11 +115,11 @@ public class Sale {
         return fullPayment;
     }
 
-    public LocalDateTime getPurchaseDate() {
+    public LocalDate getPurchaseDate() {
         return purchaseDate;
     }
 
-    public void setPurchaseDate(LocalDateTime purchaseDate) {
+    public void setPurchaseDate(LocalDate purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
 
@@ -130,12 +147,8 @@ public class Sale {
         usedPackagingList.remove(aPackage);
     }
 
-    public Client getClient() {
-        return client;
+    @Override
+    public String toString() {
+        return "Sale{" + "purchasedProducts=" + purchasedProducts + ", shopPlace=" + shopPlace + ", totalPrice=" + totalPrice + ", ticketNumber=" + ticketNumber + ", purchaseDate=" + purchaseDate + ", fullPayment=" + fullPayment + ", change=" + change + ", usedPackagingList=" + usedPackagingList + '}';
     }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
 }

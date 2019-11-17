@@ -1,0 +1,51 @@
+
+.mainFxmlClass {
+
+}
+
+.wizardContainer{
+    -fx-background-color: 'white';  
+    -fx-box-radius: 50;
+}
+
+.jfx-tab-pane .headers-region {
+    -fx-background-color:  #106EAF;
+}
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color:  #106EAF;
+}
+.jfx-tab-pane .tab-selected-line {
+    -fx-stroke: #75bc1b;
+    -fx-stroke-width: 3pt;
+}
+
+.buttonNext{
+    -jfx-button-type: RAISED;
+    -fx-background-color: #106EAF;
+    -fx-text-fill: white;
+}
+
+.buttonBack{
+    -jfx-button-type: RAISED;
+    -fx-background-color: #232a37;
+    -fx-text-fill: white;
+}
+
+.buttonConfirm{
+    -jfx-button-type: RAISED;
+    -fx-background-color: #00701a;
+    -fx-text-fill: white;
+}
+
+.jfx-list-cell{
+    height: 50;
+}
+
+
+.jfx-list-cell:selected{
+    -fx-background-color:white;
+}
+
+.jfx-list-cell:pressed{
+    -fx-background-color:white;
+}
