@@ -1,8 +1,11 @@
 package interfaces;
 
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTabPane;
+import com.jfoenix.controls.JFXTextField;
 import components.ProductListCellController;
+import domain.Client;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.newSale;
 import java.io.IOException;
@@ -35,6 +38,18 @@ public class PurchaseDetailController implements Initializable {
     @FXML
     JFXListView listOfProducts;
     
+    @FXML
+    JFXTextField firstName;
+    
+    @FXML    
+    JFXTextField lastName;
+    
+    @FXML
+    JFXTextField phoneNumber;
+            
+    @FXML
+    JFXCheckBox isPreSale;
+            
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentTab = 0;
@@ -65,7 +80,23 @@ public class PurchaseDetailController implements Initializable {
             }
         });
     }
+       
+    @FXML
+    public void nextOfMoreInfoTabEvent(MouseEvent e) throws IOException{
+        Client client = new Client(firstName.getText(),lastName.getText(),"",phoneNumber.getText(),0);
+        boolean isPreSaleValue = isPreSale.isSelected();
+        newSale.setClient(client);
+        newSale.setIsPreSale(isPreSaleValue);
         
+        tabPane.getTabs().get(currentTab).setDisable(true);
+        currentTab++;
+        if(!isPreSaleValue){
+            currentTab++;
+        }
+        tabPane.getTabs().get(currentTab).setDisable(false);
+        tabPane.getSelectionModel().select(currentTab);
+    }
+    
     @FXML
     public void nextTabEvent(MouseEvent e) throws IOException{
         
@@ -79,6 +110,17 @@ public class PurchaseDetailController implements Initializable {
     public void previousTabEvent(MouseEvent e) throws IOException{
         tabPane.getTabs().get(currentTab).setDisable(true);
         currentTab--;
+        tabPane.getTabs().get(currentTab).setDisable(false);
+        tabPane.getSelectionModel().select(currentTab);
+    }
+    
+    @FXML
+    public void previousOfPointsOfSaleTabEvent(MouseEvent e) throws IOException{
+        tabPane.getTabs().get(currentTab).setDisable(true);
+        currentTab--;
+        if(!newSale.isIsPreSale()){
+            currentTab--;
+        }
         tabPane.getTabs().get(currentTab).setDisable(false);
         tabPane.getSelectionModel().select(currentTab);
     }

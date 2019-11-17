@@ -7,15 +7,15 @@ package domain;
 
 public class Client {
 
-    private String name;
-    private String surname;
+    private String firstName;
+    private String lastName;
     private String identifyCard;
     private String phoneNumber;
     private int clientNumber;
 
-    public Client(String name, String surname, String identifyCard, String phoneNumber, int clientNumber) {
-        this.setName(name);
-        this.setSurname(surname);
+    public Client(String firstName, String lastName, String identifyCard, String phoneNumber, int clientNumber) {
+        this.setFirstName(firstName);
+        this.setlastName(lastName);
         this.setIdentifyCard(identifyCard);
         this.setPhoneNumber(phoneNumber);
         this.setClientNumber(clientNumber);
@@ -23,20 +23,21 @@ public class Client {
     public Client(){
         this.setClientNumber(0);
     }
-    public String getName() {
-        return name;
+        
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setlastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getIdentifyCard() {

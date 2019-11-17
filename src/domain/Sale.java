@@ -19,8 +19,9 @@ public class Sale {
     private int fullPayment;
     private int change;
     private ArrayList<Package> usedPackagingList;
+    private boolean isPreSale;
     private Client client;
-
+    
     public Sale() {
         purchasedProducts = new ArrayList<>();
         usedPackagingList = new ArrayList<>();
@@ -38,6 +39,22 @@ public class Sale {
 
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public boolean isIsPreSale() {
+        return isPreSale;
+    }
+
+    public void setIsPreSale(boolean isPreSale) {
+        this.isPreSale = isPreSale;
+    }
+    
     public ArrayList<Pair> getPurchasedProducts() {
         return purchasedProducts;
     }
@@ -129,14 +146,6 @@ public class Sale {
 
     public void removeUsedPackage(Package aPackage) {
         usedPackagingList.remove(aPackage);
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 
     @Override
