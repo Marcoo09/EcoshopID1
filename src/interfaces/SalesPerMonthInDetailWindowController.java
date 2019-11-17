@@ -43,10 +43,10 @@ import javafx.util.Pair;
  * @author Agustin Hernandorena
  */
 public class SalesPerMonthInDetailWindowController implements Initializable {
-
+    
     @FXML
     private JFXTreeTableView<Sale> treeView;
-
+    
     @FXML
     public void addProductEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -54,7 +54,7 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-
+    
     @FXML
     public void preSalesEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PreSaleListWindow.fxml"));
@@ -62,7 +62,7 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-
+    
     @FXML
     public void mostSelledEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
@@ -70,7 +70,7 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-
+    
     @FXML
     public void pieChartEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
@@ -86,7 +86,7 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         JFXTreeTableColumn<Sale, String> ticketNumberCol = new JFXTreeTableColumn<>("Numero de ticket");
@@ -124,22 +124,24 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         ObservableList<Sale> sales = FXCollections.observableArrayList();
         for (int i = 0; i < mySystem.getSales().size(); i++) {
             domain.Sale s = mySystem.getSales().get(i);
-            sales.add(new Sale(s.getTotalPrice(), s.getTicketNumber(), s.getPurchaseDate(), s.getPurchasedProducts()));
+            if (s.getPurchaseDate().getMonthValue() == Integer.parseInt(monthSelected)) {
+                sales.add(new Sale(s.getTotalPrice(), s.getTicketNumber(), s.getPurchaseDate(), s.getPurchasedProducts()));
+            }
         }
         final TreeItem<Sale> root = new RecursiveTreeItem<Sale>(sales, RecursiveTreeObject::getChildren);
         treeView.getColumns().setAll(ticketNumberCol, purchasedDateCol, purchasedProductsCol, totalPriceCol);
         treeView.setRoot(root);
         treeView.setShowRoot(false);
-
+        
     }
-
+    
     class Sale extends RecursiveTreeObject<Sale> {
-
+        
         StringProperty totalPrice;
         StringProperty ticketNumber;
         StringProperty purchasedDate;
         StringProperty purchasedProducts;
-
+        
         public Sale(int aTotalPrice, String ticketNumber, LocalDateTime aPurchasedDate, ArrayList<Pair> aPurchasedProducts) {
             this.totalPrice = new SimpleStringProperty(aTotalPrice + "");
             this.ticketNumber = new SimpleStringProperty(ticketNumber);
@@ -149,7 +151,7 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
                 Product p = (Product) aPurchasedProducts.get(i).getKey();
                 int quantity = (int) aPurchasedProducts.get(i).getValue();
                 products = products + "-" + " " + p.getName() + " " + "x" + quantity + " " + "Unidades" + System.lineSeparator();
-
+                
             }
             this.purchasedProducts = new SimpleStringProperty(products);
         }
