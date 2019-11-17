@@ -8,14 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <jar href="Ecoshop.jar" size="2864530" download="eager" />
-=======
-    <jar href="Ecoshop.jar" size="2822485" download="eager" />
-=======
-    <jar href="Ecoshop.jar" size="2822488" download="eager" />
->>>>>>> organize classes
+    <jar href="Ecoshop.jar" size="2875080" download="eager" />
     <jar href="lib\javafx-swt.jar" size="36811" download="eager" />
     <jar href="lib\javafx.base.jar" size="749889" download="eager" />
     <jar href="lib\javafx.controls.jar" size="2511137" download="eager" />
@@ -24,7 +17,6 @@
     <jar href="lib\javafx.media.jar" size="270594" download="eager" />
     <jar href="lib\javafx.swing.jar" size="119848" download="eager" />
     <jar href="lib\javafx.web.jar" size="714741" download="eager" />
->>>>>>> improvements menu screen images with custom components
     <jar href="lib\jfoenix-8.0.8.jar" size="2708772" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Ecoshop" >
