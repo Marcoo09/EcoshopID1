@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -105,27 +106,39 @@
          </children>
       </VBox>
       <Text fill="WHITE" layoutX="283.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="334.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto mas vendido">
+      <Text fill="#838383" layoutX="196.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto mas vendido">
          <font>
-            <Font size="23.0" />
+            <Font name="System Bold" size="21.0" />
          </font>
       </Text>
-      <ImageView fx:id="productImage" fitHeight="178.0" fitWidth="175.0" layoutX="193.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="lblName" layoutX="425.0" layoutY="61.0" prefHeight="17.0" prefWidth="89.0">
+      <JFXTreeTableView fx:id="table" layoutX="209.0" layoutY="431.0" prefHeight="452.0" prefWidth="500.0" stylesheets="@salesPerMonth.css" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="312.0" />
+      <Label layoutX="453.0" layoutY="125.0" prefHeight="24.0" prefWidth="134.0" text="Unidades vendidas" textFill="#838383">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblQuantity" layoutX="455.0" layoutY="91.0" prefHeight="17.0" prefWidth="34.0">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="404.0" layoutY="119.0" text="Unidades vendidas">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <JFXTreeTableView fx:id="table" layoutX="184.0" layoutY="236.0" prefHeight="333.0" prefWidth="535.0" stylesheets="@salesPerMonth.css" />
+      <Pane layoutX="222.0" layoutY="60.0" prefHeight="178.0" prefWidth="175.0" AnchorPane.bottomAnchor="562.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="327.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <ImageView fx:id="productImage" fitHeight="178.0" fitWidth="182.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Pane layoutX="494.0" layoutY="157.0" prefHeight="20.0" prefWidth="54.0" AnchorPane.bottomAnchor="623.0" AnchorPane.leftAnchor="493.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="157.0">
+         <children>
+            <Label fx:id="lblQuantity" layoutX="6.0" prefHeight="17.0" prefWidth="34.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="485.0" layoutY="46.0" prefHeight="24.0" prefWidth="122.0" AnchorPane.bottomAnchor="706.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <Label fx:id="lblName" layoutX="32.0" layoutY="3.0" prefHeight="17.0" prefWidth="89.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

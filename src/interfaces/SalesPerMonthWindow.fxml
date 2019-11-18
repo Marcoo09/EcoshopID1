@@ -9,13 +9,14 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" fx:id="mainPane" pickOnBounds="false" prefHeight="471.0" prefWidth="724.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.SalesPerMonthWindowController">
    <children>
-      <VBox prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;">
+      <VBox prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="62.0" prefWidth="178.0" style="-fx-background-color: #106EAF;" text="EcoShop" textFill="WHITE">
                <graphic>
@@ -109,7 +110,7 @@
          </children>
       </VBox>
       <Text fill="WHITE" layoutX="283.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <BarChart fx:id="salesChart" layoutX="189.0" layoutY="14.0" legendVisible="false" title="Ventas por mes (en pesos uruguayos)">
+      <BarChart fx:id="salesChart" layoutX="185.0" layoutY="14.0" legendVisible="false" prefHeight="356.0" prefWidth="525.0" title="Ventas por mes (en pesos uruguayos)" AnchorPane.bottomAnchor="101.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
         <xAxis>
           <CategoryAxis label="Mes" side="BOTTOM" fx:id="x" />
         </xAxis>
@@ -117,12 +118,16 @@
           <NumberAxis fx:id="y" label="Monto" side="LEFT" />
         </yAxis>
       </BarChart>
-      <JFXComboBox fx:id="monthCheckBox" layoutX="260.0" layoutY="480.0" onAction="#monthEvent" />
-      <JFXButton layoutX="366.0" layoutY="478.0" onAction="#viewDetail" style="-fx-background-color: #106EAF;" text="Ver detalle" textFill="WHITE" />
-      <Text layoutX="278.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes" wrappingWidth="24.00000786781311">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Text>
+      <Pane layoutX="413.0" layoutY="370.0" prefHeight="99.0" prefWidth="112.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="413.0" AnchorPane.rightAnchor="199.0">
+         <children>
+            <JFXComboBox fx:id="monthCheckBox" layoutX="25.0" layoutY="33.0" onAction="#monthEvent" />
+            <JFXButton layoutX="19.0" layoutY="69.0" onAction="#viewDetail" style="-fx-background-color: #106EAF;" text="Ver detalle" textFill="WHITE" />
+            <Text layoutX="41.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes" wrappingWidth="24.00000786781311">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
