@@ -1,10 +1,12 @@
 package interfaces;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import domain.Product;
 import static interfaces.Ecoshop.mySystem;
 import static interfaces.Ecoshop.newSale;
 import static interfaces.Ecoshop.pendingProduct;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -59,7 +61,7 @@ public class AddProductToCartController implements Initializable {
     JFXButton confirmAddToCartButton;
     
     @FXML 
-    HBox packagesContainer;
+    JFXComboBox<Label> packagesContainer;
     
     @FXML
     TextField quantity;
@@ -85,10 +87,9 @@ public class AddProductToCartController implements Initializable {
         
         for (int i = 0; i < packagesAvailable.size(); i++) {
             domain.Package currentPackage = packagesAvailable.get(i);
-            JFXButton buttonToAdd = new JFXButton();
-            buttonToAdd.setText(currentPackage.getName());
-            buttonToAdd.setStyle("-fx-background-color: #dadada;-fx-background-radius:0px;-fx-border-color: #a2a2a2;");
-            packagesContainer.getChildren().add(buttonToAdd);
+            Label labelToAdd = new Label();
+            labelToAdd.setText(currentPackage.getName());
+            packagesContainer.getItems().add(labelToAdd);
         }
     }
     
@@ -114,10 +115,17 @@ public class AddProductToCartController implements Initializable {
     }
     
     @FXML
-    private void confirmEvent(MouseEvent e){
+    private void confirmEvent(MouseEvent e) throws IOException{
         ArrayList<Product> productList = mySystem.getProducts();
         Button btn = (Button) e.getSource();
         String element = btn.getId();
+        String packageUsed;
+        try{
+           packageUsed = packagesContainer.getSelectionModel().getSelectedItem().getText();
+        }catch(Exception error){
+            packageUsed = "default";
+        }
+
         for (int i = 0; i < productList.size(); i++) {
             Product product = productList.get(i);
             if (product.getName().equalsIgnoreCase(element)) {
@@ -130,7 +138,19 @@ public class AddProductToCartController implements Initializable {
                     }else{
                         Pair newProduct = new Pair(product.getName(),quantityOfProductsToBuy);
                         newSale.addProductToCart(newProduct);
-                    }                    
+                    }       
+                    if(packageUsed != "default"){
+                        domain.Package pack = mySystem.getPackageByName(packageUsed);
+                        if(pack != null && !newSale.getPackagesUsed().contains(pack)){
+                            newSale.addUsedPackage(pack);
+                        }
+                    }else{
+                        //We asume that he/she select the first
+                        domain.Package pack = mySystem.getPackagesList().get(0);
+                        if(pack != null && !newSale.getPackagesUsed().contains(pack)){
+                            newSale.addUsedPackage(pack);
+                        }
+                    }
                 }
             }
         }

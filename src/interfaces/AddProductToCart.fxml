@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -98,11 +99,11 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </JFXButton>
-            <HBox fx:id="packagesContainer">
+            <JFXComboBox fx:id="packagesContainer" prefHeight="25.0" prefWidth="235.0" promptText="Envase a utilizar">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
-            </HBox>
+            </JFXComboBox>
          </children>
          <padding>
             <Insets left="10.0" />

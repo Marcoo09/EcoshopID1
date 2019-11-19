@@ -171,4 +171,14 @@ public class System {
         }
         return null;
     }
+    
+    public Package getPackageByName(String name){
+        for (int i = 0; i < packagesList.size(); i++) {
+            Package currentPackage = packagesList.get(i);
+            if(currentPackage.getName() == name){
+                return currentPackage;
+            }
+        }
+        return null;
+    }
 }
