@@ -22,6 +22,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -92,16 +93,21 @@ public class PurchaseDetailController implements Initializable {
     @FXML
     public void nextOfDateTabEvent(MouseEvent e) throws IOException{
         LocalDate dateSelected = date.getValue();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Error de fecha");
         if(dateSelected!= null){
             LocalDate today = now();
             if(dateSelected.isBefore(today)){
-                //ERROR FECHA INVALIDA
+                alert.setContentText("Debe ingresar una fecha posterior al dia de hoy.");
+                alert.showAndWait();
             }else{
                 newSale.setPurchaseDate(dateSelected);
                 nextTabLogic();
             }
         }else{
-            //ERROR SELECCIONAR FECHA
+            alert.setContentText("Debe seleccionar una fecha.");
+            alert.showAndWait();
         }
     }
     
