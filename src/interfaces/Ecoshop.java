@@ -27,7 +27,8 @@ public class Ecoshop extends Application {
     public static Stage myPrimaryStage;
     public static System mySystem;
     public static Sale newSale;
-
+    public static Product pendingProduct;
+    
     @Override
     public void start(Stage primaryStage) throws IOException {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -56,6 +57,17 @@ public class Ecoshop extends Application {
         Package p1 = new Package("Tupper hermetico", "Plastico", 1800);
         Package p2 = new Package("Bolsa Ziploc 4cm x 6cm", "Plastico", 70);
         Package p3 = new Package("Bollon", "Vidrio", 100);
+        product1.addPackage(p1);
+        product2.addPackage(p1);
+        product3.addPackage(p1);
+        product4.addPackage(p1);
+        product5.addPackage(p1);
+        product1.addPackage(p3);
+        product3.addPackage(p3);
+        product4.addPackage(p3);
+        product5.addPackage(p3);
+        product1.addPackage(p2);
+        product2.addPackage(p2);
         mySystem.addPackage(p1);
         mySystem.addPackage(p2);
         mySystem.addPackage(p3);

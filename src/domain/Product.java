@@ -109,7 +109,8 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" + "name=" + name + ", countryOfOrigin=" + countryOfOrigin + ", Organic=" + Organic + ", formedFromRecycledMaterials=" + formedFromRecycledMaterials + ", price=" + price + ", material=" + material + ", identifier=" + identifier + ", listOfAvailablePackages=" + listOfAvailablePackages + '}';
+        return "El material es: " + material + "\n" + (Organic ? "Es organico\n" : "No es Organico\n")
+                + "Proviene de " + countryOfOrigin + "\n";
     }
 
    
