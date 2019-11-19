@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -26,10 +27,10 @@ public class AddProductToCartController implements Initializable {
     ImageView firstAuxImage;
         
     @FXML
-    ImageView secondAuxImage;
+    VBox secondAuxImage;
             
     @FXML
-    ImageView thirdAuxImage;
+    VBox thirdAuxImage;
     
     @FXML
     Label nameOfProduct;
@@ -51,6 +52,8 @@ public class AddProductToCartController implements Initializable {
     
     @FXML 
     HBox packagesContainer;
+    @FXML
+    private JFXButton closeButton;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

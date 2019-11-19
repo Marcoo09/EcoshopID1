@@ -66,7 +66,7 @@
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white; -fx-alignment: right;">
                <children>
-                  <JFXButton alignment="CENTER_RIGHT" onMouseClicked="#close" style="-fx-background-color: #ffffff;" text="x">
+                  <JFXButton fx:id="closeButton" alignment="CENTER_RIGHT" onMouseClicked="#close" style="-fx-background-color: #ffffff;" text="x">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
