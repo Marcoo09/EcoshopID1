@@ -29,6 +29,8 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Pair;
 
 /**
@@ -57,29 +59,41 @@ public class MainWindowOfBuyerController implements Initializable {
 
     @FXML
     public void plusEvent(ActionEvent e) throws IOException {
-        ArrayList<Product> productList = mySystem.getProducts();
-        Button btn = (Button) e.getSource();
-        String element = btn.getId();
-        for (int i = 0; i < productList.size(); i++) {
-            Product product = productList.get(i);
-            if (product.getName().equalsIgnoreCase(element)) {
-                Pair pairOfProduct = newSale.getProduct(product);
-                if(pairOfProduct.getKey() == product.getName()){
-                    newSale.removeProductOfCart(pairOfProduct);
-                    Pair newPair = new Pair(pairOfProduct.getKey(),(int)pairOfProduct.getValue() + 1);
-                    newSale.addProductToCart(newPair);
-                    chargePane();
-                }else{
-                    Pair newProduct = new Pair(product.getName(),1);
-                    newSale.addProductToCart(newProduct);
-                    chargePane();
-                }
-            }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddProductToCart.fxml"));
+        Scene newScene;
+        try {
+            newScene = new Scene(loader.load());
+        } catch (IOException ex) {
+            return;
         }
-        if(newSale.getPurchasedProducts().size() != 0){
-            changeStyleOfQuantityText(true);
-        }
-        lblCant.setText(" " + newSale.getPurchasedProducts().size());
+        Stage inputStage = new Stage();
+        inputStage.initStyle(StageStyle.UNDECORATED);
+        inputStage.initOwner(myPrimaryStage);
+        inputStage.setScene(newScene);
+        inputStage.showAndWait();
+//        ArrayList<Product> productList = mySystem.getProducts();
+//        Button btn = (Button) e.getSource();
+//        String element = btn.getId();
+//        for (int i = 0; i < productList.size(); i++) {
+//            Product product = productList.get(i);
+//            if (product.getName().equalsIgnoreCase(element)) {
+//                Pair pairOfProduct = newSale.getProduct(product);
+//                if(pairOfProduct.getKey() == product.getName()){
+//                    newSale.removeProductOfCart(pairOfProduct);
+//                    Pair newPair = new Pair(pairOfProduct.getKey(),(int)pairOfProduct.getValue() + 1);
+//                    newSale.addProductToCart(newPair);
+//                    chargePane();
+//                }else{
+//                    Pair newProduct = new Pair(product.getName(),1);
+//                    newSale.addProductToCart(newProduct);
+//                    chargePane();
+//                }
+//            }
+//        }
+//        if(newSale.getPurchasedProducts().size() != 0){
+//            changeStyleOfQuantityText(true);
+//        }
+//        lblCant.setText(" " + newSale.getPurchasedProducts().size());
     }
 
     @FXML
