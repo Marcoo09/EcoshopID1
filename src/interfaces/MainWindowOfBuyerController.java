@@ -5,6 +5,7 @@ import domain.Product;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
 import static interfaces.Ecoshop.newSale;
+import static interfaces.Ecoshop.pendingProduct;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -59,41 +60,28 @@ public class MainWindowOfBuyerController implements Initializable {
 
     @FXML
     public void plusEvent(ActionEvent e) throws IOException {
+        pendingProduct = new Product();
+        Button btn = (Button) e.getSource();
+        String element = btn.getId();
+        pendingProduct = mySystem.getProductsByName(element);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AddProductToCart.fxml"));
         Scene newScene;
         try {
             newScene = new Scene(loader.load());
         } catch (IOException ex) {
             return;
-        }
+        }        
         Stage inputStage = new Stage();
         inputStage.initStyle(StageStyle.UNDECORATED);
         inputStage.initOwner(myPrimaryStage);
         inputStage.setScene(newScene);
         inputStage.showAndWait();
-//        ArrayList<Product> productList = mySystem.getProducts();
-//        Button btn = (Button) e.getSource();
-//        String element = btn.getId();
-//        for (int i = 0; i < productList.size(); i++) {
-//            Product product = productList.get(i);
-//            if (product.getName().equalsIgnoreCase(element)) {
-//                Pair pairOfProduct = newSale.getProduct(product);
-//                if(pairOfProduct.getKey() == product.getName()){
-//                    newSale.removeProductOfCart(pairOfProduct);
-//                    Pair newPair = new Pair(pairOfProduct.getKey(),(int)pairOfProduct.getValue() + 1);
-//                    newSale.addProductToCart(newPair);
-//                    chargePane();
-//                }else{
-//                    Pair newProduct = new Pair(product.getName(),1);
-//                    newSale.addProductToCart(newProduct);
-//                    chargePane();
-//                }
-//            }
-//        }
-//        if(newSale.getPurchasedProducts().size() != 0){
-//            changeStyleOfQuantityText(true);
-//        }
-//        lblCant.setText(" " + newSale.getPurchasedProducts().size());
+
+        chargePane();
+        if(newSale.getPurchasedProducts().size() != 0){
+            changeStyleOfQuantityText(true);
+        }
+        lblCant.setText(" " + newSale.getPurchasedProducts().size());
     }
 
     @FXML

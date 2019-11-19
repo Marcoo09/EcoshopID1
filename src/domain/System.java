@@ -161,5 +161,14 @@ public class System {
         }
         return organicAndInorganic;
     }
-
+    
+    public Product getProductsByName(String name){
+        for (int i = 0; i < products.size(); i++) {
+            Product currentProduct = products.get(i);
+            if(currentProduct.getName() == name){
+                return currentProduct;
+            }
+        }
+        return null;
+    }
 }
