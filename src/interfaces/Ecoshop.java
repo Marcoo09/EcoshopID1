@@ -45,9 +45,9 @@ public class Ecoshop extends Application {
 
     public static void main(String[] args) {
         mySystem = new System();
-        Client c1 = new Client("Luis", "Perez", "58902346", "091234567", 1);
-        Client c2 = new Client("Raul", "Diaz", "13456079", "099771234", 2);
-        Client c3 = new Client("Nicolas", "Gomez", "34456788", "095458711", 3);
+        Client c1 = new Client("Luis", "Perez", "58902346", "091234567", "1");
+        Client c2 = new Client("Raul", "Diaz", "13456079", "099771234", "2");
+        Client c3 = new Client("Nicolas", "Gomez", "34456788", "095458711", "3");
         Product product1 = new Product("Uruguay", true, true, 150, "No aplica", 1, "almendras");
         Product product2 = new Product("Uruguay", false, true, 190, "No aplica", 2, "almendrasacarameladas");
         Product product3 = new Product("Uruguay", false, true, 200, "No aplica", 4, "almendrasconchocolate");
