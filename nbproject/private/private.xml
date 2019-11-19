@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/SalesPerMonthWindowController.java</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MostSelledProductsWindowController.java</file>
+<<<<<<< HEAD
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfBuyerController.java</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfSellerController.java</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfBuyer.fxml</file>
@@ -16,6 +17,17 @@
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/components/ProductListCellController.java</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/SalesPerMonthInDetailWindowController.java</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/PurchaseDetail.fxml</file>
+=======
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfSeller.fxml</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MostSelledProductsWindow.fxml</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfBuyerController.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/salesPerMonth.css</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/PreSaleListWindowController.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfSellerController.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfBuyer.fxml</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/SalesPerMonthInDetailWindowController.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/Client.java</file>
+>>>>>>> 47d94e0299fcfebedffcd90238d89ec8b7fa1acc
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/SalesPerMonthWindow.fxml</file>
         </group>
     </open-files>
