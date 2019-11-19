@@ -1,5 +1,6 @@
 package interfaces;
 
+import components.ProductController;
 import domain.Product;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
@@ -93,30 +94,40 @@ public class MainWindowOfBuyerController implements Initializable {
     public void chargePane() {
         int index = 0;
         ArrayList<Product> productList = mySystem.getProducts();
-        for (int i = 0; i <= 1 && index < productList.size(); i++) {
-            for (int j = 0; j <= 1 && index < productList.size(); j++) {
+            for (int j = 0; j <= 8 ; j++) {
                 ObservableList<Node> list = pane.getChildren(); 
-                Image image;
-                AnchorPane productPane = (AnchorPane) list.get(index);                
+                Image image;      
+                //Obtain the product component to modify
+                AnchorPane productPane = (AnchorPane) list.get(index);   
+                
                 ObservableList<Node> listOfChildrens = productPane.getChildren(); 
+                //Get each component and charge
                 ImageView imageOfProduct = (ImageView )listOfChildrens.get(0);
                 Label labelOfName = (Label) listOfChildrens.get(1);
                 Button addToCart = (Button) listOfChildrens.get(2);
                 Label labelOfPrice = (Label) listOfChildrens.get(3);
-                Label labelOfQuantity = (Label) listOfChildrens.get(4);                
-                Product currentProduct = productList.get(index);       
+                Label labelOfQuantity = (Label) listOfChildrens.get(4);     
                 
-                image = new Image("resources/" + currentProduct.getName() + ".png");
-                imageOfProduct.setImage(image);  
-                imageOfProduct.setId(currentProduct.getName());
-                labelOfName.setText(currentProduct.getName());
-                labelOfPrice.setText(Integer.toString(currentProduct.getPrice()));
-                int quantityOfTimes = (int) newSale.getProduct(currentProduct).getValue();
-                labelOfQuantity.setText(Integer.toString(quantityOfTimes));
-                addToCart.setId(currentProduct.getName());
+                try{
+                    Product currentProduct = productList.get(index);      
+                    image = new Image("resources/" + currentProduct.getName() + ".png");
+                    imageOfProduct.setImage(image);  
+                    imageOfProduct.setId(currentProduct.getName());
+                    labelOfName.setText(currentProduct.getName());
+                    labelOfPrice.setText(Integer.toString(currentProduct.getPrice()));
+                    int quantityOfTimes = (int) newSale.getProduct(currentProduct).getValue();
+                    labelOfQuantity.setText(Integer.toString(quantityOfTimes));
+                    addToCart.setId(currentProduct.getName());
+                }catch(Exception e){
+                    labelOfName.setVisible(false);
+                    labelOfPrice.setVisible(false);
+                    labelOfQuantity.setVisible(false);
+                    imageOfProduct.setVisible(false);
+                    addToCart.setVisible(false);
+                    addToCart.setDisable(true);
+                }
                 index++;
             }
-        }
     }
     
     @FXML
