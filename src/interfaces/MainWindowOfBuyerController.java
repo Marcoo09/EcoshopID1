@@ -79,7 +79,7 @@ public class MainWindowOfBuyerController implements Initializable {
         if(newSale.getPurchasedProducts().size() != 0){
             changeStyleOfQuantityText(true);
         }
-        lblCant.setText("[" + newSale.getPurchasedProducts().size() + "]");
+        lblCant.setText(" " + newSale.getPurchasedProducts().size());
     }
 
     @FXML
@@ -119,12 +119,7 @@ public class MainWindowOfBuyerController implements Initializable {
                     labelOfQuantity.setText(Integer.toString(quantityOfTimes));
                     addToCart.setId(currentProduct.getName());
                 }catch(Exception e){
-                    labelOfName.setVisible(false);
-                    labelOfPrice.setVisible(false);
-                    labelOfQuantity.setVisible(false);
-                    imageOfProduct.setVisible(false);
-                    addToCart.setVisible(false);
-                    addToCart.setDisable(true);
+                    productPane.setVisible(false);
                 }
                 index++;
             }
