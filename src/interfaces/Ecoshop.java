@@ -15,7 +15,6 @@ import domain.Sale;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import javafx.util.Pair;
 
 /**
@@ -52,6 +51,7 @@ public class Ecoshop extends Application {
         Product product2 = new Product("Uruguay", false, true, 190, "No aplica", 2, "almendrasacarameladas");
         Product product3 = new Product("Uruguay", false, true, 200, "No aplica", 4, "almendrasconchocolate");
         Product product4 = new Product("Uruguay", true, true, 120, "No aplica", 3, "ajogranulado");
+        Product product5 = new Product("Uruguay", true, true, 120, "No aplica", 3, "anisestrelladoengrano");
         PointOfSale store = new PointOfSale("Ejido 1423, Montevideo", "La Molienda", "Incursionamos en el  área de elaboración de alimentos, un menú diario vegetariano y saludable,  postres, veganos y sin azúcar");
         Package p1 = new Package("Tupper hermetico", "Plastico", 1800);
         Package p2 = new Package("Bolsa Ziploc 4cm x 6cm", "Plastico", 70);
@@ -66,6 +66,7 @@ public class Ecoshop extends Application {
         mySystem.addProduct(product2);
         mySystem.addProduct(product3);
         mySystem.addProduct(product4);
+        mySystem.addProduct(product5);
         Sale s1 = new Sale();
         Sale s2 = new Sale();
         s1.addProductToCart(new Pair(product1, 1));

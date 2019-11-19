@@ -1,5 +1,6 @@
 package interfaces;
 
+import components.ProductController;
 import domain.Product;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
@@ -28,6 +29,8 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Pair;
 
 /**
@@ -56,29 +59,41 @@ public class MainWindowOfBuyerController implements Initializable {
 
     @FXML
     public void plusEvent(ActionEvent e) throws IOException {
-        ArrayList<Product> productList = mySystem.getProducts();
-        Button btn = (Button) e.getSource();
-        String element = btn.getId();
-        for (int i = 0; i < productList.size(); i++) {
-            Product product = productList.get(i);
-            if (product.getName().equalsIgnoreCase(element)) {
-                Pair pairOfProduct = newSale.getProduct(product);
-                if(pairOfProduct.getKey() == product.getName()){
-                    newSale.removeProductOfCart(pairOfProduct);
-                    Pair newPair = new Pair(pairOfProduct.getKey(),(int)pairOfProduct.getValue() + 1);
-                    newSale.addProductToCart(newPair);
-                    chargePane();
-                }else{
-                    Pair newProduct = new Pair(product.getName(),1);
-                    newSale.addProductToCart(newProduct);
-                    chargePane();
-                }
-            }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddProductToCart.fxml"));
+        Scene newScene;
+        try {
+            newScene = new Scene(loader.load());
+        } catch (IOException ex) {
+            return;
         }
-        if(newSale.getPurchasedProducts().size() != 0){
-            changeStyleOfQuantityText(true);
-        }
-        lblCant.setText("[" + newSale.getPurchasedProducts().size() + "]");
+        Stage inputStage = new Stage();
+        inputStage.initStyle(StageStyle.UNDECORATED);
+        inputStage.initOwner(myPrimaryStage);
+        inputStage.setScene(newScene);
+        inputStage.showAndWait();
+//        ArrayList<Product> productList = mySystem.getProducts();
+//        Button btn = (Button) e.getSource();
+//        String element = btn.getId();
+//        for (int i = 0; i < productList.size(); i++) {
+//            Product product = productList.get(i);
+//            if (product.getName().equalsIgnoreCase(element)) {
+//                Pair pairOfProduct = newSale.getProduct(product);
+//                if(pairOfProduct.getKey() == product.getName()){
+//                    newSale.removeProductOfCart(pairOfProduct);
+//                    Pair newPair = new Pair(pairOfProduct.getKey(),(int)pairOfProduct.getValue() + 1);
+//                    newSale.addProductToCart(newPair);
+//                    chargePane();
+//                }else{
+//                    Pair newProduct = new Pair(product.getName(),1);
+//                    newSale.addProductToCart(newProduct);
+//                    chargePane();
+//                }
+//            }
+//        }
+//        if(newSale.getPurchasedProducts().size() != 0){
+//            changeStyleOfQuantityText(true);
+//        }
+//        lblCant.setText(" " + newSale.getPurchasedProducts().size());
     }
 
     @FXML
@@ -93,30 +108,35 @@ public class MainWindowOfBuyerController implements Initializable {
     public void chargePane() {
         int index = 0;
         ArrayList<Product> productList = mySystem.getProducts();
-        for (int i = 0; i <= 1 && index < productList.size(); i++) {
-            for (int j = 0; j <= 1 && index < productList.size(); j++) {
+            for (int j = 0; j <= 8 ; j++) {
                 ObservableList<Node> list = pane.getChildren(); 
-                Image image;
-                AnchorPane productPane = (AnchorPane) list.get(index);                
+                Image image;      
+                //Obtain the product component to modify
+                AnchorPane productPane = (AnchorPane) list.get(index);   
+                
                 ObservableList<Node> listOfChildrens = productPane.getChildren(); 
+                //Get each component and charge
                 ImageView imageOfProduct = (ImageView )listOfChildrens.get(0);
                 Label labelOfName = (Label) listOfChildrens.get(1);
                 Button addToCart = (Button) listOfChildrens.get(2);
                 Label labelOfPrice = (Label) listOfChildrens.get(3);
-                Label labelOfQuantity = (Label) listOfChildrens.get(4);                
-                Product currentProduct = productList.get(index);       
+                Label labelOfQuantity = (Label) listOfChildrens.get(4);     
                 
-                image = new Image("resources/" + currentProduct.getName() + ".png");
-                imageOfProduct.setImage(image);  
-                imageOfProduct.setId(currentProduct.getName());
-                labelOfName.setText(currentProduct.getName());
-                labelOfPrice.setText(Integer.toString(currentProduct.getPrice()));
-                int quantityOfTimes = (int) newSale.getProduct(currentProduct).getValue();
-                labelOfQuantity.setText(Integer.toString(quantityOfTimes));
-                addToCart.setId(currentProduct.getName());
+                try{
+                    Product currentProduct = productList.get(index);      
+                    image = new Image("resources/" + currentProduct.getName() + ".png");
+                    imageOfProduct.setImage(image);  
+                    imageOfProduct.setId(currentProduct.getName());
+                    labelOfName.setText(currentProduct.getName());
+                    labelOfPrice.setText(Integer.toString(currentProduct.getPrice()));
+                    int quantityOfTimes = (int) newSale.getProduct(currentProduct).getValue();
+                    labelOfQuantity.setText(Integer.toString(quantityOfTimes));
+                    addToCart.setId(currentProduct.getName());
+                }catch(Exception e){
+                    productPane.setVisible(false);
+                }
                 index++;
             }
-        }
     }
     
     @FXML
