@@ -11,9 +11,9 @@ public class Client {
     private String lastName;
     private String identifyCard;
     private String phoneNumber;
-    private int clientNumber;
+    private String clientNumber;
 
-    public Client(String firstName, String lastName, String identifyCard, String phoneNumber, int clientNumber) {
+    public Client(String firstName, String lastName, String identifyCard, String phoneNumber, String clientNumber) {
         this.setFirstName(firstName);
         this.setlastName(lastName);
         this.setIdentifyCard(identifyCard);
@@ -21,7 +21,7 @@ public class Client {
         this.setClientNumber(clientNumber);
     }
     public Client(){
-        this.setClientNumber(0);
+        this.setClientNumber("");
     }
         
     public String getFirstName() {
@@ -56,11 +56,11 @@ public class Client {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getClientNumber() {
+    public String getClientNumber() {
         return clientNumber;
     }
 
-    public void setClientNumber(int clientNumber) {
+    public void setClientNumber(String clientNumber) {
         this.clientNumber = clientNumber;
     }
 
