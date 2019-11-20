@@ -119,7 +119,7 @@
       </Label>
       <Pane layoutX="222.0" layoutY="60.0" prefHeight="178.0" prefWidth="175.0" AnchorPane.bottomAnchor="562.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="327.0" AnchorPane.topAnchor="60.0">
          <children>
-            <ImageView fx:id="productImage" fitHeight="178.0" fitWidth="182.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="packageImage" fitHeight="178.0" fitWidth="182.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <Pane layoutX="494.0" layoutY="157.0" prefHeight="20.0" prefWidth="54.0" AnchorPane.bottomAnchor="623.0" AnchorPane.leftAnchor="493.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="157.0">

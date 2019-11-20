@@ -92,14 +92,28 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane onMouseClicked="#pieChartEvent" prefHeight="0.0" prefWidth="175.0">
+            <AnchorPane prefHeight="0.0" prefWidth="175.0">
                <children>
                   <ImageView layoutX="10.0" layoutY="25.0">
                      <image>
                         <Image url="@../resources/baseline_eco_white_18dp.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="35.0" layoutY="23.0" onMouseClicked="#pieChartEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Organicos vendidos" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="34.0" layoutY="22.0" onMouseClicked="#pieChartEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Organicos vendidos" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="175.0">
+               <children>
+                  <ImageView layoutX="10.0" layoutY="23.0">
+                     <image>
+                        <Image url="@../resources/baseline_face_white_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="27.0" layoutY="20.0" onMouseClicked="#buyerProfileEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Perfil comprador" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>

@@ -88,6 +88,14 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         myPrimaryStage.show();
     }
     
+    @FXML
+    public void buyerProfileEvent(MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         JFXTreeTableColumn<Sale, String> ticketNumberCol = new JFXTreeTableColumn<>("Numero de ticket");
