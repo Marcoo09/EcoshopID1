@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox style="-fx-background-color: white; -fx-border-color: #a2a2a2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.AddProductToCartController">
+   <children>
+      <ImageView fx:id="mainImage" fitHeight="480.0" fitWidth="402.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/dummy.jpg" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <StackPane>
+               <children>
+                  <ImageView fx:id="firstAuxImage" fitHeight="112.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/dummy.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox style="-fx-background-color: #696969ab;" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </StackPane>
+            <StackPane layoutX="10.0" layoutY="10.0">
+               <children>
+                  <ImageView fitHeight="112.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/dummy.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox fx:id="secondAuxImage" style="-fx-background-color: #696969ab;" />
+               </children>
+            </StackPane>
+            <StackPane layoutX="10.0" layoutY="10.0">
+               <children>
+                  <ImageView fitHeight="112.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/dummy.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox fx:id="thirdAuxImage" style="-fx-background-color: #696969ab;" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </StackPane>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </VBox>
+      <VBox prefHeight="402.0" prefWidth="279.0">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white; -fx-alignment: right;">
+               <children>
+                  <JFXButton fx:id="closeButton" alignment="CENTER_RIGHT" onMouseClicked="#close" style="-fx-background-color: #ffffff; -fx-text-fill: #106EAF;" text="x">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <Label fx:id="nameOfProduct" prefHeight="47.0" prefWidth="195.0" style="-fx-font-size: 32;" text="Producto" textFill="#464545" />
+            <Label fx:id="price" style="-fx-font-size: 14;" text="\$">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="description" text="Lorem impoasd asdasd paosa asfaoisdias adsasd asda lroem as pasoas poad ,adsa ladsaksda sakadapsdoasd  aksdjasd poas poas anadjasdj pasdas" textFill="#979191" wrapText="true" />
+            <HBox prefHeight="6.0" prefWidth="279.0" style="-fx-background-color: white;">
+               <children>
+                  <JFXButton fx:id="decrementButton" onMouseClicked="#decrement" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #dadada; -fx-background-radius: 0px;" text="-" />
+                  <TextField fx:id="quantity" alignment="CENTER" style="-fx-background-color: white; -fx-font-size: 14;" text="0" />
+                  <JFXButton fx:id="incrementButton" onMouseClicked="#increment" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #dadada; -fx-border-radius: 0px;" text="+">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <JFXButton fx:id="confirmAddToCartButton" onMouseClicked="#confirmEvent" prefHeight="25.0" prefWidth="235.0" style="-fx-background-color: #106EAF; -fx-border-radius: 0px; -fx-text-fill: white;" text="Agregar al carrito">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXComboBox fx:id="packagesContainer" prefHeight="25.0" prefWidth="235.0" promptText="Envase a utilizar">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXComboBox>
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</HBox>

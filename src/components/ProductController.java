@@ -13,13 +13,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Region;
 
 /**
  * FXML Controller class
  *
  * @author Marco Fiorito
  */
-public class ProductController implements Initializable {
+public class ProductController extends Region implements Initializable {
     @FXML
     ImageView image;
     @FXML
@@ -30,11 +31,10 @@ public class ProductController implements Initializable {
     JFXButton addToCart;
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {        
+    public void initialize(URL url, ResourceBundle rb) {    
         price.setText("Precio");;
         name.setText("Name");
         Image auxImage = new Image("resources/almendras.png");
         image = new ImageView(auxImage);
     }    
-    
 }
