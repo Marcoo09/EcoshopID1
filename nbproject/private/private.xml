@@ -11,8 +11,6 @@
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfSellerController.java</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfBuyer.fxml</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/Client.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MostUsedPackageWindowController.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/AddProductToCartController.java</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/HomeWindowController.java</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfSeller.fxml</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MostSelledProductsWindow.fxml</file>
@@ -22,6 +20,7 @@
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/SalesPerMonthInDetailWindowController.java</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/Ecoshop.java</file>
             <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/SalesPerMonthWindow.fxml</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/OrganicProductsPieChartController.java</file>
         </group>
     </open-files>
 </project-private>
