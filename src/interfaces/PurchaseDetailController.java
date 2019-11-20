@@ -5,7 +5,6 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextField;
-import components.ProductListCellController;
 import domain.Client;
 import domain.Product;
 import domain.Sale;
@@ -78,7 +77,7 @@ public class PurchaseDetailController implements Initializable {
         currentTab = 0;
         initializeTabs();
         initializeListView();
-        final URL urlGoogleMaps = getClass().getResource("map.html");
+        final URL urlGoogleMaps = getClass().getResource("htmlResources/mapBuyFlow.html");
         browser.getEngine().load(urlGoogleMaps.toExternalForm());
     }
 
@@ -93,13 +92,9 @@ public class PurchaseDetailController implements Initializable {
         ArrayList<Pair> purchasedProducts = newSale.getPurchasedProducts();
         purchasedProducts.forEach((product) -> {
             try {
-//                System.out.println("Entre");
                 Product aProduct = (Product) product.getKey();
                 Label lbl = new Label("" + (int) product.getValue());
                 lbl.setGraphic(new ImageView(new Image("resources/" + aProduct.getName() + ".png")));
-//                ProductListCellController productListCell = new ProductListCellController(product);
-//                System.out.println("hasta aca lleguee");
-//                listOfProducts.getItems().add(productListCell);
                 listOfProducts.getItems().add(lbl);
             } catch (Exception e) {
                 System.out.println("An error occurs in charge the list");

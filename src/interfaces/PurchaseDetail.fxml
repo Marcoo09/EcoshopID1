@@ -208,7 +208,7 @@
                               <JFXButton layoutX="75.0" layoutY="5.0" onMouseClicked="#nextTabEvent" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
                            </children>
                         </Pane>
-                        <WebView fx:id="browser" layoutX="106.0" layoutY="20.0" prefHeight="268.0" prefWidth="354.0" />
+                        <WebView fx:id="browser" layoutX="106.0" layoutY="20.0" prefHeight="400.0" prefWidth="500.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="50.0" />
                      </children>
                   </AnchorPane>
               </content>

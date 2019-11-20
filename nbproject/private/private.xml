@@ -1,30 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/interfaces/PurchaseDetailController.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>91</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/SalesPerMonthWindowController.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MostSelledProductsWindowController.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/Sale.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfBuyerController.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/PurchaseDetailController.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfSellerController.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfBuyer.fxml</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/Client.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/HomeWindowController.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/PointsOfSaleWindow.fxml</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/map.html</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfSeller.fxml</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MostSelledProductsWindow.fxml</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/salesPerMonth.css</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/PreSaleListWindowController.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/System.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/SalesPerMonthInDetailWindowController.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/Ecoshop.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/PurchaseDetail.fxml</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/SalesPerMonthWindow.fxml</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/PointsOfSaleWindowController.java</file>
-            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/OrganicProductsPieChartController.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
