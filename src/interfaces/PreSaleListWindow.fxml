@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="mainPane" pickOnBounds="false" prefHeight="471.0" prefWidth="724.0" style="-fx-background-color: #F0F0F0;" stylesheets="@salesPerMonth.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.PreSaleListWindowController">
    <children>
-      <VBox prefHeight="577.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;">
+      <VBox prefHeight="577.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="62.0" prefWidth="178.0" style="-fx-background-color: #106EAF;" text="EcoShop" textFill="WHITE">
                <graphic>
@@ -102,14 +102,28 @@
                   </Label>
                </children>
             </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="175.0">
+               <children>
+                  <ImageView layoutX="10.0" layoutY="24.0">
+                     <image>
+                        <Image url="@../resources/baseline_face_white_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="29.0" layoutY="21.0" onMouseClicked="#buyerProfileEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Perfil comprador" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
       <Text fill="WHITE" layoutX="283.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="328.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pre-ventas de productos">
+      <Text fill="#838383" layoutX="209.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pre-ventas de productos">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="21.0" />
          </font>
       </Text>
-      <JFXTreeTableView fx:id="table" layoutX="208.0" layoutY="52.0" prefHeight="496.0" prefWidth="479.0" />
+      <JFXTreeTableView fx:id="table" layoutX="209.0" layoutY="52.0" prefHeight="384.0" prefWidth="479.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="52.0" />
    </children>
 </AnchorPane>

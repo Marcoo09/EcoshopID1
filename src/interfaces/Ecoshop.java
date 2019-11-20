@@ -96,10 +96,11 @@ public class Ecoshop extends Application {
         s2.setShopPlace(store);
         s2.setTicketNumber("2");
         s2.setTotalPrice(s2.obtainPrice());
+        s2.setIsPreSale(true);
         s2.setClient(c3);
-        s2.setPurchaseDate(LocalDate.of(2019, 2, 15));
+        s2.setPurchaseDate(LocalDate.of(2019, 12, 15));
         mySystem.addSale(s2);
-        mySystem.addPreSale(s2);
+        
         launch(args);
     }
 

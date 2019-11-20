@@ -1,5 +1,9 @@
 
 .tree-table-view{
+    text-align:  center;
+}
+
+.tree-table-view{
     -fx-tree-table-color: rgba(0, 150, 0, 0.8);
     -fx-tree-table-rippler-color : rgba(255, 0, 0, 0.9);
 }

@@ -88,6 +88,14 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show(); 
     }
+    
+    @FXML
+    public void buyerProfileEvent(MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
 
 
     @Override

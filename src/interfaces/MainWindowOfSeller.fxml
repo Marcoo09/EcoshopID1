@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -91,14 +92,28 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane onMouseClicked="#pieChartEvent" prefHeight="0.0" prefWidth="175.0">
+            <AnchorPane prefHeight="0.0" prefWidth="175.0">
                <children>
                   <ImageView layoutX="10.0" layoutY="25.0">
                      <image>
                         <Image url="@../resources/baseline_eco_white_18dp.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="35.0" layoutY="23.0" onMouseClicked="#pieChartEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Organicos vendidos" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="34.0" layoutY="22.0" onMouseClicked="#pieChartEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Organicos vendidos" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="175.0">
+               <children>
+                  <ImageView layoutX="10.0" layoutY="23.0">
+                     <image>
+                        <Image url="@../resources/baseline_face_white_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="27.0" layoutY="20.0" onMouseClicked="#buyerProfileEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Perfil comprador" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -110,7 +125,8 @@
       <Text layoutX="262.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pais de origen">
          <font>
             <Font size="13.0" />
-         </font></Text>
+         </font>
+      </Text>
       <Text layoutX="283.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio">
          <font>
             <Font size="13.0" />
@@ -124,9 +140,9 @@
          <font>
             <Font size="13.0" />
          </font></Text>
-      <Text fx:id="agregarProducto" layoutX="189.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar Producto" wrappingWidth="175.00000834465027">
+      <Text fx:id="agregarProducto" fill="#838383" layoutX="223.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar Producto" wrappingWidth="185.00000834465027">
          <font>
-            <Font size="21.0" />
+            <Font name="System Bold" size="21.0" />
          </font></Text>
       <JFXButton layoutX="571.0" layoutY="465.0" onAction="#registerEvent" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #106EAF;" text="Registrar" textFill="WHITE">
          <font>
@@ -153,5 +169,6 @@
          </font>
       </Text>
       <JFXListView fx:id="availablePackages" layoutX="458.0" layoutY="158.0" prefHeight="273.0" prefWidth="238.0" />
+      <StackPane fx:id="myStackPane" layoutX="193.0" layoutY="431.0" prefHeight="175.0" prefWidth="250.0" />
    </children>
 </AnchorPane>

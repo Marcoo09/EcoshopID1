@@ -42,7 +42,7 @@ public class PreSaleListWindowController implements Initializable {
 
     @FXML
     private JFXTreeTableView<Sale> table;
-    
+
     @FXML
     public void addProductEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -58,23 +58,30 @@ public class PreSaleListWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
-    public void mostSelledEvent(MouseEvent e) throws IOException{
+    public void mostSelledEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void pieChartEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
     
     @FXML
-    public void pieChartEvent (MouseEvent e) throws IOException{
-       Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
+    public void buyerProfileEvent(MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
-        myPrimaryStage.show(); 
+        myPrimaryStage.show();
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -119,9 +126,11 @@ public class PreSaleListWindowController implements Initializable {
             }
         });
         ObservableList<Sale> preSales = FXCollections.observableArrayList();
-        for (int i = 0; i < mySystem.getPreSales().size(); i++) {
-            domain.Sale s = mySystem.getPreSales().get(i);
-            preSales.add(new Sale(s.getTotalPrice(), s.getTicketNumber(), s.getPurchaseDate(), s.getPurchasedProducts(),s.getClient().getIdentifyCard()));
+        for (int i = 0; i < mySystem.getSales().size(); i++) {
+            domain.Sale s = mySystem.getSales().get(i);
+            if (s.isIsPreSale()) {
+                preSales.add(new Sale(s.getTotalPrice(), s.getTicketNumber(), s.getPurchaseDate(), s.getPurchasedProducts(), s.getClient().getIdentifyCard()));
+            }
         }
         final TreeItem<Sale> root = new RecursiveTreeItem<Sale>(preSales, RecursiveTreeObject::getChildren);
         table.getColumns().setAll(orderedNumberCol, purchasedProductsCol, pickupDateCol, totalPriceCol, clientIdentityCardCol);

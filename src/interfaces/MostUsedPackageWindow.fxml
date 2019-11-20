@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="mainPane" pickOnBounds="false" prefHeight="471.0" prefWidth="724.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.SalesPerMonthWindowController">
+<AnchorPane id="AnchorPane" fx:id="mainPane" pickOnBounds="false" prefHeight="471.0" prefWidth="724.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.MostSelledProductsWindowController">
    <children>
       <VBox prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -55,7 +51,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label fx:id="bestSeller" alignment="CENTER" layoutX="-1.0" layoutY="32.0" onMouseClicked="#mostSelledEvent" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Mas vendidos" textFill="WHITE">
+                  <Label fx:id="bestSeller" alignment="CENTER" layoutX="-1.0" layoutY="32.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Mas vendidos" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font></Label>
@@ -70,7 +66,7 @@
                <children>
                   <Label alignment="CENTER" layoutX="30.0" layoutY="35.0" prefHeight="19.0" prefWidth="134.0" style="-fx-background-color: #6C6C6C;" text="Envases reutilizados" textFill="WHITE">
                      <font>
-                        <Font size="13.0" />
+                        <Font name="System Bold" size="13.0" />
                      </font></Label>
                   <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="11.0" layoutY="35.0">
                      <image>
@@ -86,9 +82,9 @@
                         <Image url="@../resources/icons8-comportamiento-de-las-ventas-24.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="32.0" layoutY="36.0" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Ventas por mes" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="32.0" layoutY="36.0" onMouseClicked="#salesPerMonthEvent" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Ventas por mes" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font size="13.0" />
                      </font>
                   </Label>
                </children>
@@ -107,40 +103,41 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="175.0">
-               <children>
-                  <ImageView layoutX="10.0" layoutY="24.0">
-                     <image>
-                        <Image url="@../resources/baseline_face_white_18dp.png" />
-                     </image>
-                  </ImageView>
-                  <Label alignment="CENTER" layoutX="26.0" layoutY="21.0" onMouseClicked="#buyerProfileEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Perfil comprador" textFill="WHITE">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
          </children>
       </VBox>
       <Text fill="WHITE" layoutX="283.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <BarChart fx:id="salesChart" layoutX="185.0" layoutY="14.0" legendVisible="false" prefHeight="356.0" prefWidth="525.0" title="Ventas por mes (en pesos uruguayos)" AnchorPane.bottomAnchor="101.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
-        <xAxis>
-          <CategoryAxis label="Mes" side="BOTTOM" fx:id="x" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis fx:id="y" label="Monto" side="LEFT" />
-        </yAxis>
-      </BarChart>
-      <Pane layoutX="413.0" layoutY="370.0" prefHeight="99.0" prefWidth="112.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="413.0" AnchorPane.rightAnchor="199.0">
+      <Text fill="#838383" layoutX="196.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Envase mas reutilizado">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Text>
+      <JFXTreeTableView fx:id="table" layoutX="209.0" layoutY="431.0" prefHeight="452.0" prefWidth="500.0" stylesheets="@../../../../Desktop/salesPerMonth.css" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="312.0" />
+      <Label layoutX="453.0" layoutY="125.0" prefHeight="24.0" prefWidth="112.0" text="Veces reutilizado" textFill="#838383">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Pane layoutX="222.0" layoutY="60.0" prefHeight="178.0" prefWidth="175.0" AnchorPane.bottomAnchor="562.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="327.0" AnchorPane.topAnchor="60.0">
          <children>
-            <JFXComboBox fx:id="monthCheckBox" layoutX="25.0" layoutY="33.0" onAction="#monthEvent" />
-            <JFXButton layoutX="19.0" layoutY="69.0" onAction="#viewDetail" style="-fx-background-color: #106EAF;" text="Ver detalle" textFill="WHITE" />
-            <Text layoutX="41.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes" wrappingWidth="24.00000786781311">
+            <ImageView fx:id="packageImage" fitHeight="178.0" fitWidth="182.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Pane layoutX="494.0" layoutY="157.0" prefHeight="20.0" prefWidth="54.0" AnchorPane.bottomAnchor="623.0" AnchorPane.leftAnchor="493.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="157.0">
+         <children>
+            <Label fx:id="lblQuantity" layoutX="6.0" prefHeight="17.0" prefWidth="34.0">
                <font>
-                  <Font size="13.0" />
+                  <Font size="15.0" />
                </font>
-            </Text>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="485.0" layoutY="46.0" prefHeight="24.0" prefWidth="122.0" AnchorPane.bottomAnchor="706.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <Label fx:id="lblName" layoutX="32.0" layoutY="3.0" prefHeight="17.0" prefWidth="89.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
