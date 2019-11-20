@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="520.0" prefWidth="828.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.PurchaseDetailController">
    <children>
@@ -207,6 +208,7 @@
                               <JFXButton layoutX="75.0" layoutY="5.0" onMouseClicked="#nextTabEvent" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
                            </children>
                         </Pane>
+                        <WebView fx:id="browser" layoutX="106.0" layoutY="20.0" prefHeight="268.0" prefWidth="354.0" />
                      </children>
                   </AnchorPane>
               </content>

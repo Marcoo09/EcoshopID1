@@ -25,6 +25,7 @@ public class Sale {
     public Sale() {
         purchasedProducts = new ArrayList<>();
         usedPackagingList = new ArrayList<>();
+        setPurchaseDate(LocalDate.now());
     }
 
     public Sale(PointOfSale shopPlace, String ticketNumber, int fullPayment, int totalPrice) {
@@ -59,14 +60,28 @@ public class Sale {
     }
     
     public Pair getProduct(Product product){
-        Pair returnedValue = new Pair("",0);
+        Product aProduct = new Product();
+        Pair returnedValue = new Pair(aProduct,0);
         for (int i = 0; i < purchasedProducts.size(); i++) {
-            Pair currentProduct = purchasedProducts.get(i);
-            if(currentProduct.getKey() == product.getName()){
-                returnedValue = currentProduct;
+            Pair currentPair = purchasedProducts.get(i);
+            Product currentProduct = (Product)purchasedProducts.get(i).getKey();
+            if(currentProduct.getName().equalsIgnoreCase(product.getName())){
+                returnedValue = currentPair;
             }
         }
         return returnedValue;
+    }
+    
+    public boolean pertain(Product product){
+        boolean ret=false;
+        for (int i = 0; i < purchasedProducts.size(); i++) {
+            Pair currentPair = purchasedProducts.get(i);
+            Product currentProduct = (Product)purchasedProducts.get(i).getKey();
+            if(currentProduct.getName().equalsIgnoreCase(product.getName())){
+                ret=true;
+            }
+        }
+        return ret;
     }
     
     public void addProductToCart(Pair product) {

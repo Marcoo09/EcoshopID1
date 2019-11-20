@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextField;
 import components.ProductListCellController;
 import domain.Client;
+import domain.Product;
 import domain.Sale;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
@@ -27,6 +28,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.web.WebView;
 import javafx.util.Pair;
 
 /**
@@ -64,15 +66,20 @@ public class PurchaseDetailController implements Initializable {
 
     @FXML
     JFXDatePicker date;
-    
+
     @FXML
     Label confirmationText;
+
+    @FXML
+    private WebView browser;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentTab = 0;
         initializeTabs();
         initializeListView();
+        final URL urlGoogleMaps = getClass().getResource("map.html");
+        browser.getEngine().load(urlGoogleMaps.toExternalForm());
     }
 
     @FXML
@@ -87,8 +94,9 @@ public class PurchaseDetailController implements Initializable {
         purchasedProducts.forEach((product) -> {
             try {
 //                System.out.println("Entre");
-                Label lbl = new Label("" + product.getValue());
-                lbl.setGraphic(new ImageView(new Image("resources/" + product.getKey() + ".png")));
+                Product aProduct = (Product) product.getKey();
+                Label lbl = new Label("" + (int) product.getValue());
+                lbl.setGraphic(new ImageView(new Image("resources/" + aProduct.getName() + ".png")));
 //                ProductListCellController productListCell = new ProductListCellController(product);
 //                System.out.println("hasta aca lleguee");
 //                listOfProducts.getItems().add(productListCell);
@@ -186,8 +194,10 @@ public class PurchaseDetailController implements Initializable {
 
     @FXML
     public void confirmTabEvent(MouseEvent e) throws IOException {
+        newSale.setTotalPrice(newSale.obtainPrice());
         mySystem.addSale(newSale);
         newSale = new Sale();
+
         nextTabLogic();
     }
 

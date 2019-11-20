@@ -98,6 +98,14 @@ public class MainWindowOfBuyerController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
+    
+    @FXML
+    public void pointsOfSaleEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("PointsOfSaleWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
 
     @FXML
     public void chargePane() {
