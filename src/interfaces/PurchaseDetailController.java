@@ -64,6 +64,9 @@ public class PurchaseDetailController implements Initializable {
 
     @FXML
     JFXDatePicker date;
+    
+    @FXML
+    Label confirmationText;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
