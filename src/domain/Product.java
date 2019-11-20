@@ -109,7 +109,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "El material es: " + material + "\n" + (Organic ? "Es organico\n" : "No es Organico\n")
+        return "Nommbre" + name + "El material es: " + material + "\n" + (Organic ? "Es organico\n" : "No es Organico\n")
                 + "Proviene de " + countryOfOrigin + "\n";
     }
 
