@@ -6,13 +6,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pickOnBounds="false" prefHeight="655.0" prefWidth="1000.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.RegisterClientWindowController">
    <children>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="62.0" prefWidth="178.0" style="-fx-background-color: #106EAF;" text="Cliente" textFill="WHITE">
                <graphic>
@@ -23,13 +22,14 @@
                   </ImageView>
                </graphic>
             </Label>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#goToCartEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="7.0" layoutY="21.0" onMouseClicked="#mainWindowOfBuyerEvent" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Carrito" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="7.0" layoutY="21.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Carrito" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
-                     </font></Label>
-                  <ImageView layoutX="26.0" layoutY="21.0">
+                     </font>
+                  </Label>
+                  <ImageView layoutX="26.0" layoutY="21.0" AnchorPane.leftAnchor="20.0">
                      <image>
                         <Image url="@../resources/baseline_shopping_cart_white_18dp.png" />
                      </image>
@@ -41,81 +41,69 @@
                   <Label alignment="CENTER" layoutX="7.0" layoutY="28.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Pre-compra" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
-                     </font></Label>
-                  <ImageView layoutX="24.0" layoutY="29.0">
+                     </font>
+                  </Label>
+                  <ImageView layoutX="24.0" layoutY="29.0" AnchorPane.leftAnchor="20.0">
                      <image>
-                        <Image url="@../resources/baseline_date_range_white_18dp.png" />
+                        <Image url="@../resources/baseline_shop_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#pointsOfSaleEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="35.0" layoutY="26.0" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Puntos de venta" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="35.0" layoutY="26.0" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Puntos de venta" textFill="WHITE" AnchorPane.leftAnchor="35.0">
                      <font>
                         <Font size="13.0" />
-                     </font></Label>
-                  <ImageView layoutX="20.0" layoutY="26.0">
+                     </font>
+                  </Label>
+                  <ImageView layoutX="20.0" layoutY="26.0" AnchorPane.leftAnchor="20.0">
                      <image>
                         <Image url="@../resources/baseline_my_location_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#registerClientEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="37.0" layoutY="23.0" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: #6C6C6C;" text="Envases reutilizados" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: #6C6C6C;" text="Cuenta de cliente" textFill="WHITE">
                      <font>
-                        <Font size="13.0" />
-                     </font></Label>
-                  <ImageView layoutX="16.0" layoutY="21.0">
-                     <image>
-                        <Image url="@../resources/icons8-reciclaje-24.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
-               <children>
-                  <Label alignment="CENTER" layoutX="27.0" layoutY="23.0" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: #6C6C6C;" text="Perfil vendedor" textFill="WHITE">
-                     <font>
-                        <Font size="13.0" />
+                        <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
-                  <ImageView layoutX="17.0" layoutY="22.0">
-                     <image>
-                        <Image url="@../resources/baseline_account_circle_white_18dp.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
-               <children>
-                  <Label alignment="CENTER" layoutX="32.0" layoutY="20.0" onMouseClicked="#eventRegister" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: #6C6C6C;" text="Registro de cliente" textFill="WHITE">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-                  <ImageView layoutX="16.0" layoutY="21.0">
+                  <ImageView layoutX="16.0" layoutY="21.0" AnchorPane.leftAnchor="20.0">
                      <image>
                         <Image url="@../resources/baseline_add_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
+            <AnchorPane onMouseClicked="#sellerProfileEvent" prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="26.0" layoutY="23.0" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: #6C6C6C;" text="Perfil vendedor" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="17.0" layoutY="22.0" AnchorPane.leftAnchor="20.0">
+                     <image>
+                        <Image url="@../resources/baseline_account_circle_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
-      <Label layoutX="275.0" layoutY="75.0" text="Nombre" />
-      <JFXTextField fx:id="name" layoutX="231.0" layoutY="105.0" />
-      <JFXTextField fx:id="surname" layoutX="480.0" layoutY="106.0" />
-      <Label layoutX="526.0" layoutY="77.0" text="Apellido" />
-      <JFXTextField fx:id="telephone" layoutX="748.0" layoutY="107.0" />
-      <Label layoutX="786.0" layoutY="77.0" text="Telefono" />
-      <Label layoutX="248.0" layoutY="191.0" text="Cedula de Identidad" />
+      <Label layoutX="275.0" layoutY="75.0" text="Nombre" AnchorPane.leftAnchor="233.0" />
+      <JFXTextField fx:id="name" layoutX="231.0" layoutY="105.0" AnchorPane.leftAnchor="233.0" />
+      <JFXTextField fx:id="surname" layoutX="480.0" layoutY="106.0" AnchorPane.leftAnchor="480.0" />
+      <Label layoutX="526.0" layoutY="77.0" text="Apellido" AnchorPane.leftAnchor="480.0" />
+      <JFXTextField fx:id="telephone" layoutX="748.0" layoutY="107.0" AnchorPane.leftAnchor="748.0" />
+      <Label layoutX="786.0" layoutY="77.0" text="Telefono" AnchorPane.leftAnchor="748.0" />
+      <Label layoutX="248.0" layoutY="191.0" text="Cedula de Identidad" AnchorPane.leftAnchor="233.0" />
       <JFXTextField fx:id="indentifyCard" layoutX="235.0" layoutY="211.0" />
       <JFXButton fx:id="btnRegister" layoutX="809.0" layoutY="561.0" onAction="#eventRegister" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: #106EAF;" text="Registrar" textFill="WHITE" />
-      <StackPane fx:id="myPane" layoutX="396.0" layoutY="261.0" prefHeight="197.0" prefWidth="288.0" />
-      <Label fx:id="title" layoutX="231.0" layoutY="14.0" text="Crear cuenta" textFill="#838383">
+      <Label fx:id="title" layoutX="231.0" layoutY="14.0" text="Crear cuenta" textFill="#838383" AnchorPane.leftAnchor="188.0">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
