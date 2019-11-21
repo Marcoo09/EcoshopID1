@@ -189,7 +189,7 @@
                               <JFXButton layoutX="75.0" layoutY="5.0" onMouseClicked="#nextOfDateTabEvent" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
                            </children>
                         </Pane>
-                        <Pane layoutX="149.0" layoutY="1.0" prefHeight="275.0" prefWidth="297.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+                        <Pane layoutX="149.0" layoutY="1.0" prefHeight="275.0" prefWidth="297.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
                            <children>
                               <JFXDatePicker fx:id="date" defaultColor="#106eaf" layoutX="37.0" layoutY="22.0" prefHeight="26.0" prefWidth="224.0" promptText="Selecciona cuando lo recoges" />
                            </children>
@@ -205,10 +205,11 @@
                         <Pane prefHeight="42.0" prefWidth="150.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
                               <JFXButton layoutY="5.0" onMouseClicked="#previousOfPointsOfSaleTabEvent" ripplerFill="WHITE" styleClass="buttonBack" stylesheets="@purchasedetail.css" text="Anterior" />
-                              <JFXButton layoutX="75.0" layoutY="5.0" onMouseClicked="#nextTabEvent" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
+                              <JFXButton layoutX="75.0" layoutY="5.0" onMouseClicked="#nextOfPointOfSaleTabEvent" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
                            </children>
                         </Pane>
-                        <WebView fx:id="browser" layoutX="106.0" layoutY="20.0" prefHeight="400.0" prefWidth="500.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="50.0" />
+                        <WebView fx:id="browser" layoutX="106.0" layoutY="20.0" prefHeight="400.0" prefWidth="500.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="50.0" />
+                        <JFXListView fx:id="availablePointsOfSale" prefHeight="273.0" prefWidth="150.0" AnchorPane.bottomAnchor="64.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
                      </children>
                   </AnchorPane>
               </content>

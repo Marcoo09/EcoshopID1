@@ -53,7 +53,12 @@ public class Ecoshop extends Application {
         Product product3 = new Product("Uruguay", false, true, 200, "No aplica", 4, "almendrasconchocolate");
         Product product4 = new Product("Uruguay", true, true, 120, "No aplica", 3, "ajogranulado");
         Product product5 = new Product("Uruguay", true, true, 120, "No aplica", 3, "anisestrelladoengrano");
-        PointOfSale store = new PointOfSale("Ejido 1423, Montevideo", "La Molienda", "Incursionamos en el  área de elaboración de alimentos, un menú diario vegetariano y saludable,  postres, veganos y sin azúcar");
+        PointOfSale store1 = new PointOfSale("Ejido 1423, Montevideo", "La Molienda", "Incursionamos en el  área de elaboración de alimentos, un menú diario vegetariano y saludable,  postres, veganos y sin azúcar");
+        PointOfSale store2 = new PointOfSale("Cuareim 14200, Montevideo", "El granero", "Variedad de insumos ecológicos a los mejores precios");
+        PointOfSale store3 = new PointOfSale("Av Uruguay 1530, Montevideo", "EcoShop", "Incursianos en alimentos ecológicos aptos para veganos");
+        mySystem.addSalePoint(store1);
+        mySystem.addSalePoint(store2);
+        mySystem.addSalePoint(store3);
         Package p1 = new Package("Tupper hermetico", "Plastico", 1800);
         Package p2 = new Package("Bolsa Ziploc 4cm x 6cm", "Plastico", 70);
         Package p3 = new Package("Bollon", "Vidrio", 100);
@@ -84,7 +89,7 @@ public class Ecoshop extends Application {
         s1.addProductToCart(new Pair(product1, 1));
         s1.addProductToCart(new Pair(product2, 2));
         s1.addUsedPackage(p1);
-        s1.setShopPlace(store);
+        s1.setShopPlace(store2);
         s1.setTicketNumber("1");
         s1.setTotalPrice(s1.obtainPrice());
         LocalDate date1 = LocalDate.of(2019, 1, 25);
@@ -93,7 +98,7 @@ public class Ecoshop extends Application {
         s2.addProductToCart(new Pair(product1, 5));
         s2.addProductToCart(new Pair(product2, 3));
         s2.addUsedPackage(p3);
-        s2.setShopPlace(store);
+        s2.setShopPlace(store1);
         s2.setTicketNumber("2");
         s2.setTotalPrice(s2.obtainPrice());
         s2.setIsPreSale(true);

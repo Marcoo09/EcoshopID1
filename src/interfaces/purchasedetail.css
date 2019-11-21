@@ -3,6 +3,10 @@
 
 }
 
+.list-view .list-cell:selected {
+    -fx-background-color: #106EAF;
+}
+
 .wizardContainer{
     -fx-background-color: 'white';  
     -fx-box-radius: 50;

@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextField;
 import domain.Client;
+import domain.PointOfSale;
 import domain.Product;
 import domain.Sale;
 import static interfaces.Ecoshop.myPrimaryStage;
@@ -17,6 +18,7 @@ import java.time.LocalDate;
 import static java.time.LocalDate.now;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +26,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -72,15 +75,32 @@ public class PurchaseDetailController implements Initializable {
     @FXML
     private WebView browser;
 
+    @FXML
+    private JFXListView availablePointsOfSale;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentTab = 0;
         initializeTabs();
         initializeListView();
+        intitializeMap();
+        initializeListViewOfPointOfSales();
+    }
+
+    @FXML
+    private void intitializeMap(){
         final URL urlGoogleMaps = getClass().getResource("htmlResources/mapBuyFlow.html");
         browser.getEngine().load(urlGoogleMaps.toExternalForm());
     }
-
+    
+    private void initializeListViewOfPointOfSales(){
+        availablePointsOfSale.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        ArrayList<PointOfSale> points = mySystem.getSalePoints();
+        for (int i = 0; i < points.size(); i++) {
+            availablePointsOfSale.getItems().add(points.get(i));
+        }
+    }
+    
     @FXML
     private void initializeTabs() {
         tabPane.getTabs().get(currentTab).setDisable(false);
@@ -102,6 +122,21 @@ public class PurchaseDetailController implements Initializable {
         });
     }
 
+    @FXML
+    public void nextOfPointOfSaleTabEvent(MouseEvent e) throws IOException {
+        PointOfSale pointSelected = (PointOfSale)availablePointsOfSale.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Error de local seleccionado");
+        if (pointSelected != null) {
+            newSale.setShopPlace(pointSelected);
+            nextTabLogic();
+        } else {
+            alert.setContentText("Debe seleccionar un punto de venta");
+            alert.showAndWait();
+        }
+    }
+    
     @FXML
     public void nextOfDateTabEvent(MouseEvent e) throws IOException {
         LocalDate dateSelected = date.getValue();

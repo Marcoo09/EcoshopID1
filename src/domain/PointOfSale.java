@@ -105,4 +105,10 @@ public class PointOfSale {
         return returnList;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    
 }
