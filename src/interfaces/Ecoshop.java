@@ -76,9 +76,6 @@ public class Ecoshop extends Application {
         mySystem.addPackage(p1);
         mySystem.addPackage(p2);
         mySystem.addPackage(p3);
-        mySystem.addClient(c1);
-        mySystem.addClient(c2);
-        mySystem.addClient(c3);
         mySystem.addProduct(product1);
         mySystem.addProduct(product2);
         mySystem.addProduct(product3);

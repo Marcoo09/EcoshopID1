@@ -95,6 +95,20 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="31.0" layoutY="20.0" onMouseClicked="#registerClientEvent" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: #6C6C6C;" text="Registro de cliente" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="16.0" layoutY="21.0">
+                     <image>
+                        <Image url="@../resources/baseline_add_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
       <Text fill="#838383" layoutX="188.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comprar Producto" wrappingWidth="199.9999941587448" AnchorPane.leftAnchor="188.0">
