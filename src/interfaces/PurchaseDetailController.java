@@ -35,8 +35,9 @@ import javafx.util.Pair;
 /**
  * FXML Controller class
  *
- * @author Marco Fiorito
+ * @author Agustín Hernandorena and Marco Fiorito
  */
+
 public class PurchaseDetailController implements Initializable {
 
     private Integer currentTab;
@@ -61,7 +62,7 @@ public class PurchaseDetailController implements Initializable {
 
     @FXML
     JFXTextField clientNumber;
-
+        
     @FXML
     JFXCheckBox isPreSale;
 
@@ -82,10 +83,36 @@ public class PurchaseDetailController implements Initializable {
         currentTab = 0;
         initializeTabs();
         initializeListView();
+        initializeMoreInformation();
         intitializeMap();
         initializeListViewOfPointOfSales();
     }
 
+    @FXML
+    private void initializeMoreInformation(){
+        Client client = mySystem.getClient();
+        if(client.getClientNumber() != ""){
+            clientNumber.setText(client.getClientNumber());
+            clientNumber.setDisable(true);
+        }
+        if(client.getFirstName()!= ""){
+            firstName.setText(client.getFirstName());
+            firstName.setDisable(true);
+        }
+        if(client.getLastName()!= ""){
+            lastName.setText(client.getLastName());
+            lastName.setDisable(true);
+        }
+        if(client.getIdentifyCard()!= ""){
+            identifyCard.setText(client.getIdentifyCard());
+            identifyCard.setDisable(true);
+        }
+        if(client.getPhoneNumber()!= ""){
+            phoneNumber.setText(client.getPhoneNumber());
+            phoneNumber.setDisable(true);
+        }
+    }
+    
     @FXML
     private void intitializeMap(){
         final URL urlGoogleMaps = getClass().getResource("htmlResources/mapBuyFlow.html");

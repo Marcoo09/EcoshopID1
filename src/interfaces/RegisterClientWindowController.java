@@ -143,8 +143,10 @@ public class RegisterClientWindowController implements Initializable {
             aClient.setlastName(surnameOfClient);
             aClient.setIdentifyCard(identificationDocumentOfClient);
             aClient.setPhoneNumber(telephoneNumberOfClient);
+            aClient.setClientNumber(nameOfClient + identificationDocumentOfClient);
             JFXDialogLayout content = new JFXDialogLayout();
             if (!existClient) {
+                existClient = true;
                 content.setHeading(new Text("Registro."));
                 content.setBody(new Text("El cliente se ha registrado en el sistema."));
             } else {
