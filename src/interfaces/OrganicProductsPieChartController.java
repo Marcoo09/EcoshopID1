@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
 import static interfaces.Ecoshop.myPrimaryStage;
@@ -23,16 +18,42 @@ import javafx.scene.input.MouseEvent;
 
 /**
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
+
 public class OrganicProductsPieChartController implements Initializable {
 
     @FXML
     private PieChart pieChart;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<Data> list = FXCollections.observableArrayList(
+                new PieChart.Data("Organico", mySystem.quantityOfOrganicProductsSold()[0]),
+                new PieChart.Data("Inorganico", mySystem.quantityOfOrganicProductsSold()[1])
+        );
+        pieChart.setData(list);
+    }
+    
     @FXML
-    public void addProductEvent(MouseEvent e) throws IOException {
+    public void addProduct(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void mostSelledProducts(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void salesPerMonthEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
@@ -47,16 +68,8 @@ public class OrganicProductsPieChartController implements Initializable {
     }
 
     @FXML
-    public void salesPerMonthEvent(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-    
-    @FXML
-    public void mostSelledEvent(MouseEvent e) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
+    public void pieChartEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
@@ -69,14 +82,13 @@ public class OrganicProductsPieChartController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        ObservableList<Data> list = FXCollections.observableArrayList(
-                new PieChart.Data("Organico", mySystem.quantityOfOrganicProductsSold()[0]),
-                new PieChart.Data("Inorganico", mySystem.quantityOfOrganicProductsSold()[1])
-        );
-        pieChart.setData(list);
+    
+    @FXML
+    public void addProductEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
     }
 
 }

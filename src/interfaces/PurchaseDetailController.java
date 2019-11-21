@@ -18,7 +18,6 @@ import java.time.LocalDate;
 import static java.time.LocalDate.now;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -122,6 +121,38 @@ public class PurchaseDetailController implements Initializable {
         });
     }
 
+    @FXML
+    public void goToCartEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void sellerProfileEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void pointsOfSaleEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("PointsOfSaleWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void registerClientEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("RegisterClientWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
     @FXML
     public void nextOfPointOfSaleTabEvent(MouseEvent e) throws IOException {
         PointOfSale pointSelected = (PointOfSale)availablePointsOfSale.getSelectionModel().getSelectedItem();

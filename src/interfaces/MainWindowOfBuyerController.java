@@ -32,7 +32,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Pair;
 
 /**
  * FXML Controller class
@@ -106,13 +105,15 @@ public class MainWindowOfBuyerController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-
+    
+    @FXML
     public void registerClientEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("RegisterClientWindow.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
+    
     @FXML
     public void chargePane() {
         int index = 0;

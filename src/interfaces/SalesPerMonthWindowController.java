@@ -1,15 +1,11 @@
 package interfaces;
 
 import com.jfoenix.controls.JFXComboBox;
-import domain.Sale;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,15 +21,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
+
 public class SalesPerMonthWindowController implements Initializable {
 
     @FXML
@@ -56,47 +48,6 @@ public class SalesPerMonthWindowController implements Initializable {
     private ImageView perfil;
     @FXML
     private Label bestSeller;
-    
-     @FXML
-    public void addProductEvent(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-
-    @FXML
-    public void preSalesEvent (MouseEvent e) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("PreSaleListWindow.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-    
-    @FXML
-    public void mostSelledEvent(MouseEvent e) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-    
-    @FXML
-    public void pieChartEvent (MouseEvent e) throws IOException{
-       Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show(); 
-    }
-    
-    @FXML
-    public void buyerProfileEvent(MouseEvent e) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -111,6 +62,62 @@ public class SalesPerMonthWindowController implements Initializable {
         salesChart.getData().addAll(set1);
     }
 
+    @FXML
+    public void addProduct(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void mostSelledProducts(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void salesPerMonthEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void preSalesEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("PreSaleListWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void pieChartEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void buyerProfileEvent(MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void addProductEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
     public void monthEvent(ActionEvent e) {
         monthSelected = monthCheckBox.getSelectionModel().getSelectedItem().getText();
     }

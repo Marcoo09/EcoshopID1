@@ -25,7 +25,6 @@ import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -35,7 +34,7 @@ import javafx.scene.text.Text;
 /**
  * FXML Controller class
  *
- * @author Agustin Hernandorena and Marco FIorito
+ * @author Agustin Hernandorena and Marco Fiorito
  */
 
 public class MainWindowOfSellerController implements Initializable {
@@ -57,13 +56,28 @@ public class MainWindowOfSellerController implements Initializable {
     @FXML
     private StackPane myStackPane;
     @FXML
-    private AnchorPane mainPane;
-    private int count = mySystem.getProducts().size();
-    @FXML
-    private ImageView perfil;
-    @FXML
-    private PieChart pieChart;
 
+    private AnchorPane mainPane;
+
+    private int count = mySystem.getProducts().size();
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        availablePackages.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        for (int i = 0; i < mySystem.getPackagesList().size(); i++) {
+            availablePackages.getItems().add(mySystem.getPackagesList().get(i));
+        }
+    }
+    
+    @FXML
+    public void addProduct(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
     public void mostSelledProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
         Scene scene = new Scene(root);
@@ -185,13 +199,5 @@ public class MainWindowOfSellerController implements Initializable {
             count++;
         }
 
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        availablePackages.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        for (int i = 0; i < mySystem.getPackagesList().size(); i++) {
-            availablePackages.getItems().add(mySystem.getPackagesList().get(i));
-        }
     }
 }

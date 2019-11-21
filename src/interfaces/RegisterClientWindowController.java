@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfaces;
 
 import com.jfoenix.controls.JFXButton;
@@ -32,7 +27,7 @@ import javafx.scene.text.Text;
 
 /**
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
 public class RegisterClientWindowController implements Initializable {
     
@@ -86,13 +81,44 @@ public class RegisterClientWindowController implements Initializable {
     }
     
     @FXML
+    public void goToCartEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void sellerProfileEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void pointsOfSaleEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("PointsOfSaleWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void registerClientEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("RegisterClientWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
     public void eventRegister(ActionEvent e) {
         Client aClient = mySystem.getClient();
         String nameOfClient = "";
         String surnameOfClient = "";
         String telephoneNumberOfClient = "";
         String identificationDocumentOfClient = "";
-        String clientIdOfClient = "";
         nameOfClient = name.getText();
         surnameOfClient = surname.getText();
         telephoneNumberOfClient = telephone.getText();

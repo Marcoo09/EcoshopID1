@@ -16,18 +16,19 @@
                <graphic>
                   <ImageView>
                      <image>
-                        <Image url="@../resources/baseline_account_circle_white_18dp.png" />
+                        <Image url="@../resources/baseline_face_white_18dp.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Label>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#goToCartEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
                   <Label alignment="CENTER" layoutX="7.0" layoutY="21.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Carrito" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
-                     </font></Label>
-                  <ImageView layoutX="26.0" layoutY="21.0">
+                     </font>
+                  </Label>
+                  <ImageView layoutX="26.0" layoutY="21.0" AnchorPane.leftAnchor="20.0">
                      <image>
                         <Image url="@../resources/baseline_shopping_cart_white_18dp.png" />
                      </image>
@@ -39,48 +40,51 @@
                   <Label alignment="CENTER" layoutX="7.0" layoutY="28.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Pre-compra" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
-                     </font></Label>
-                  <ImageView layoutX="21.0" layoutY="29.0">
+                     </font>
+                  </Label>
+                  <ImageView layoutX="24.0" layoutY="29.0" AnchorPane.leftAnchor="20.0">
                      <image>
-                        <Image url="@../resources/baseline_date_range_white_18dp.png" />
+                        <Image url="@../resources/baseline_shop_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#pointsOfSaleEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="39.0" layoutY="25.0" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Puntos de venta" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="35.0" layoutY="26.0" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Puntos de venta" textFill="WHITE" AnchorPane.leftAnchor="35.0">
                      <font>
                         <Font name="System Bold" size="13.0" />
-                     </font></Label>
-                  <ImageView layoutX="20.0" layoutY="26.0">
+                     </font>
+                  </Label>
+                  <ImageView layoutX="20.0" layoutY="26.0" AnchorPane.leftAnchor="20.0">
                      <image>
                         <Image url="@../resources/baseline_my_location_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#registerClientEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="39.0" layoutY="23.0" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: #6C6C6C;" text="Envases reutilizados" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: #6C6C6C;" text="Cuenta de cliente" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
-                     </font></Label>
-                  <ImageView layoutX="16.0" layoutY="21.0">
+                     </font>
+                  </Label>
+                  <ImageView layoutX="16.0" layoutY="21.0" AnchorPane.leftAnchor="20.0">
                      <image>
-                        <Image url="@../resources/icons8-reciclaje-24.png" />
+                        <Image url="@../resources/baseline_add_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#sellerProfileEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
                   <Label alignment="CENTER" layoutX="26.0" layoutY="23.0" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: #6C6C6C;" text="Perfil vendedor" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <ImageView layoutX="17.0" layoutY="22.0">
+                  <ImageView layoutX="17.0" layoutY="22.0" AnchorPane.leftAnchor="20.0">
                      <image>
                         <Image url="@../resources/baseline_account_circle_white_18dp.png" />
                      </image>

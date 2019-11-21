@@ -30,53 +30,14 @@ import javafx.util.Pair;
 
 /**
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
+
 public class PreSaleListWindowController implements Initializable {
 
     @FXML
     private JFXTreeTableView<Sale> table;
-
-    @FXML
-    public void addProductEvent(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-
-    @FXML
-    public void salesPerMonthEvent(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-
-    @FXML
-    public void mostSelledEvent(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-
-    @FXML
-    public void pieChartEvent(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
     
-    @FXML
-    public void buyerProfileEvent(MouseEvent e) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         JFXTreeTableColumn<Sale, String> orderedNumberCol = new JFXTreeTableColumn<>("Numero de orden");
@@ -155,4 +116,60 @@ public class PreSaleListWindowController implements Initializable {
         }
     }
 
+    @FXML
+    public void addProduct(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void mostSelledProducts(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void salesPerMonthEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void preSalesEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("PreSaleListWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void pieChartEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void buyerProfileEvent(MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
+    @FXML
+    public void addProductEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+    
 }
