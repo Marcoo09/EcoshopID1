@@ -26,22 +26,22 @@
                   </ImageView>
                </graphic>
             </Label>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#addProduct" prefHeight="0.0" prefWidth="158.0">
                <children>
                   <Label alignment="CENTER" layoutX="12.0" layoutY="17.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Agregar Producto" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
-                  <ImageView layoutX="11.0" layoutY="17.0">
+                  <ImageView layoutX="11.0" layoutY="17.0" AnchorPane.leftAnchor="11.0">
                      <image>
                         <Image url="@../resources/baseline_add_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#preSalesEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="-10.0" layoutY="26.0" onMouseClicked="#preSalesEvent" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Pre-ventas" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="-10.0" layoutY="26.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Pre-ventas" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font></Label>
@@ -52,9 +52,9 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#mostSelledProducts" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label fx:id="bestSeller" alignment="CENTER" layoutX="-1.0" layoutY="28.0" onMouseClicked="#mostSelledProducts" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Mas vendidos" textFill="WHITE">
+                  <Label fx:id="bestSeller" alignment="CENTER" layoutX="-1.0" layoutY="28.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Mas vendidos" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font></Label>
@@ -78,42 +78,42 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#salesPerMonthEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
                   <ImageView layoutX="9.0" layoutY="27.0">
                      <image>
                         <Image url="@../resources/icons8-comportamiento-de-las-ventas-24.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="30.0" layoutY="29.0" onMouseClicked="#salesPerMonthEvent" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Ventas por mes" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="30.0" layoutY="29.0" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Ventas por mes" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="175.0">
+            <AnchorPane onMouseClicked="#pieChartEvent" prefHeight="0.0" prefWidth="175.0">
                <children>
                   <ImageView layoutX="10.0" layoutY="25.0">
                      <image>
                         <Image url="@../resources/baseline_eco_white_18dp.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="34.0" layoutY="22.0" onMouseClicked="#pieChartEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Organicos vendidos" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="34.0" layoutY="22.0" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Organicos vendidos" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="175.0">
+            <AnchorPane onMouseClicked="#buyerProfileEvent" prefHeight="0.0" prefWidth="175.0">
                <children>
                   <ImageView layoutX="10.0" layoutY="23.0">
                      <image>
                         <Image url="@../resources/baseline_face_white_18dp.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="27.0" layoutY="20.0" onMouseClicked="#buyerProfileEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Perfil comprador" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="27.0" layoutY="20.0" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Perfil comprador" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -122,21 +122,21 @@
             </AnchorPane>
          </children>
       </VBox>
-      <Text layoutX="262.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pais de origen">
+      <Text layoutX="262.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pais de origen" AnchorPane.leftAnchor="233.0">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <Text layoutX="283.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio">
+      <Text layoutX="283.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio" AnchorPane.leftAnchor="233.0">
          <font>
             <Font size="13.0" />
          </font></Text>
-      <Text layoutX="278.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Material">
+      <Text layoutX="278.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Material" AnchorPane.leftAnchor="233.0">
          <font>
             <Font size="13.0" />
          </font></Text>
       <Text fill="WHITE" layoutX="283.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text layoutX="277.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+      <Text layoutX="277.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" AnchorPane.leftAnchor="233.0">
          <font>
             <Font size="13.0" />
          </font></Text>
@@ -144,15 +144,15 @@
          <font>
             <Font name="System Bold" size="21.0" />
          </font></Text>
-      <JFXButton layoutX="571.0" layoutY="465.0" onAction="#registerEvent" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #106EAF;" text="Registrar" textFill="WHITE">
+      <JFXButton layoutX="571.0" layoutY="465.0" onAction="#registerEvent" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #106EAF;" text="Registrar" textFill="WHITE" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <font>
             <Font size="13.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="nameTextField" layoutX="233.0" layoutY="85.0" style="-fx-background-color: FFFFFF;" />
-      <JFXTextField fx:id="originCountryTextField" layoutX="234.0" layoutY="162.0" style="-fx-background-color: FFFFFF;" />
-      <JFXTextField fx:id="priceTextField" layoutX="233.0" layoutY="236.0" style="-fx-background-color: FFFFFF;" />
-      <JFXTextField fx:id="materialTextField" layoutX="234.0" layoutY="317.0" style="-fx-background-color: FFFFFF;" />
+      <JFXTextField fx:id="nameTextField" layoutX="233.0" layoutY="85.0" AnchorPane.leftAnchor="233.0" />
+      <JFXTextField fx:id="originCountryTextField" layoutX="234.0" layoutY="162.0" AnchorPane.leftAnchor="233.0" />
+      <JFXTextField fx:id="priceTextField" layoutX="233.0" layoutY="236.0" AnchorPane.leftAnchor="233.0" />
+      <JFXTextField fx:id="materialTextField" layoutX="234.0" layoutY="317.0" AnchorPane.leftAnchor="233.0" />
       <JFXCheckBox fx:id="organicCheck" layoutX="451.0" layoutY="64.0" text="Organico">
          <font>
             <Font size="13.0" />
@@ -163,12 +163,12 @@
             <Font size="13.0" />
          </font>
       </JFXCheckBox>
-      <Text layoutX="516.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Envases disponibles">
+      <Text layoutX="516.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Envases disponibles" AnchorPane.leftAnchor="458.0">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <JFXListView fx:id="availablePackages" layoutX="458.0" layoutY="158.0" prefHeight="273.0" prefWidth="238.0" />
+      <JFXListView fx:id="availablePackages" layoutX="458.0" layoutY="158.0" prefHeight="273.0" prefWidth="238.0" AnchorPane.leftAnchor="458.0" />
       <StackPane fx:id="myStackPane" layoutX="193.0" layoutY="431.0" prefHeight="175.0" prefWidth="250.0" />
    </children>
 </AnchorPane>
