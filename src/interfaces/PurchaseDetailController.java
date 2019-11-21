@@ -284,6 +284,7 @@ public class PurchaseDetailController implements Initializable {
     public void confirmTabEvent(MouseEvent e) throws IOException {
         newSale.setTotalPrice(newSale.obtainPrice());
         mySystem.addSale(newSale);
+        java.lang.System.out.println(mySystem.totalUsedPackages());
         newSale = new Sale();
 
         nextTabLogic();

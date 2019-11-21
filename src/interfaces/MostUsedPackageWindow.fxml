@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="mainPane" pickOnBounds="false" prefHeight="471.0" prefWidth="724.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.MostSelledProductsWindowController">
+<AnchorPane id="AnchorPane" fx:id="mainPane" pickOnBounds="false" prefHeight="471.0" prefWidth="724.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.MostUsedPackageWindowController">
    <children>
       <VBox layoutX="20.0" layoutY="20.0" prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -130,28 +130,28 @@
          </font>
       </Text>
       <JFXTreeTableView fx:id="table" layoutX="209.0" layoutY="431.0" prefHeight="452.0" prefWidth="500.0" stylesheets="@../../../../Desktop/salesPerMonth.css" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="312.0" />
-      <Label layoutX="453.0" layoutY="125.0" prefHeight="24.0" prefWidth="112.0" text="Veces reutilizado" textFill="#838383">
+      <Label layoutX="443.0" layoutY="115.0" prefHeight="24.0" prefWidth="112.0" text="Veces reutilizado" textFill="#838383">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <Pane layoutX="222.0" layoutY="60.0" prefHeight="178.0" prefWidth="175.0" AnchorPane.bottomAnchor="562.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="327.0" AnchorPane.topAnchor="60.0">
          <children>
-            <ImageView fx:id="packageImage" fitHeight="178.0" fitWidth="182.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="packageImage" fitHeight="178.0" fitWidth="182.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <Pane layoutX="494.0" layoutY="157.0" prefHeight="20.0" prefWidth="54.0" AnchorPane.bottomAnchor="623.0" AnchorPane.leftAnchor="493.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="157.0">
          <children>
             <Label fx:id="lblQuantity" layoutX="6.0" prefHeight="17.0" prefWidth="34.0">
                <font>
-                  <Font size="15.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
          </children>
       </Pane>
       <Pane layoutX="485.0" layoutY="46.0" prefHeight="24.0" prefWidth="122.0" AnchorPane.bottomAnchor="706.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="70.0">
          <children>
-            <Label fx:id="lblName" layoutX="32.0" layoutY="3.0" prefHeight="17.0" prefWidth="89.0">
+            <Label fx:id="lblName" layoutX="-1.0" layoutY="3.0" prefHeight="20.0" prefWidth="167.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

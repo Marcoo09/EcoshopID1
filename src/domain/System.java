@@ -180,4 +180,43 @@ public class System {
         }
         return null;
     }
+
+    public int totalPerPackage(Package aPackage) {
+        int quantity = 0;
+        for (int i = 0; i < sales.size(); i++) {
+            ArrayList<domain.Package> usedPackages = sales.get(i).getPackagesUsed();
+            for (int j = 0; j < usedPackages.size(); j++) {
+                if (usedPackages.get(j).getName().equals(aPackage.getName())) {
+                    quantity++;
+                }
+            }
+        }
+        return quantity;
+    }
+
+    public ArrayList<Pair> totalUsedPackages() {
+        ArrayList<Pair> returnList = new ArrayList<>();
+        for (int i = 0; i < packagesList.size(); i++) {
+            int quantity = totalPerPackage(packagesList.get(i));
+            Pair pairToAdd = new Pair(packagesList.get(i), quantity);
+            returnList.add(pairToAdd);
+        }
+        return returnList;
+    }
+
+    public Pair mostUsedPackage() {
+        ArrayList<Pair> totalPerPackage = totalUsedPackages();
+        int maximum = -1;
+        Pair returnPair = new Pair(new domain.Package(), maximum);
+        for (int i = 0; i < totalUsedPackages().size(); i++) {
+            Pair currentPair = totalUsedPackages().get(i);
+            int quantity = (int) currentPair.getValue();
+            if (quantity > maximum) {
+                maximum = quantity;
+                returnPair = currentPair;
+            }
+        }
+        return returnPair;
+    }
+
 }

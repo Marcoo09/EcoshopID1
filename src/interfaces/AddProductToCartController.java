@@ -142,7 +142,7 @@ public class AddProductToCartController implements Initializable {
                     }
                     if (packageUsed != "default") {
                         domain.Package pack = mySystem.getPackageByName(packageUsed);
-                        if (pack != null && !newSale.getPackagesUsed().contains(pack)) {
+                        if (pack != null) {
                             newSale.addUsedPackage(pack);
                         }
                     } else {
