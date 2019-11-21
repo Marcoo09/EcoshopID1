@@ -114,6 +114,14 @@ public class MainWindowOfSellerController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
+    
+     @FXML
+    public void reusedPackagesEvent(MouseEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("MostUsedPackageWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
 
     public void registerEvent(ActionEvent e) {
         String name = "";
