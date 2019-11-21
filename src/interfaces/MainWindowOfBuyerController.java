@@ -1,6 +1,5 @@
 package interfaces;
 
-import components.ProductController;
 import domain.Product;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
@@ -38,6 +37,7 @@ import javafx.stage.StageStyle;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
+
 public class MainWindowOfBuyerController implements Initializable {
 
     @FXML
