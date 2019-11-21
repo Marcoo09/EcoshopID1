@@ -11,50 +11,60 @@
 
 <AnchorPane id="AnchorPane" fx:id="mainPane" pickOnBounds="false" prefHeight="471.0" prefWidth="724.0" style="-fx-background-color: #F0F0F0;" stylesheets="@salesPerMonth.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.PreSaleListWindowController">
    <children>
-      <VBox prefHeight="577.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Text fill="WHITE" layoutX="283.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fill="#838383" layoutX="209.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pre-ventas de productos">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Text>
+      <JFXTreeTableView fx:id="table" layoutX="209.0" layoutY="52.0" prefHeight="384.0" prefWidth="479.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="52.0" />
+      <VBox layoutX="20.0" layoutY="20.0" prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="62.0" prefWidth="178.0" style="-fx-background-color: #106EAF;" text="EcoShop" textFill="WHITE">
                <graphic>
-                  <ImageView fx:id="perfil">
+                  <ImageView fx:id="perfil1">
                      <image>
                         <Image url="@../resources/baseline_account_circle_white_18dp.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Label>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#addProduct" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="9.0" layoutY="21.0" onMouseClicked="#addProductEvent" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Agregar Producto" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="12.0" layoutY="17.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Agregar Producto" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
-                     </font></Label>
-                  <ImageView layoutX="11.0" layoutY="23.0">
+                     </font>
+                  </Label>
+                  <ImageView layoutX="11.0" layoutY="17.0" AnchorPane.leftAnchor="11.0">
                      <image>
                         <Image url="@../resources/baseline_add_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#preSalesEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="-8.0" layoutY="30.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Pre-ventas" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="-10.0" layoutY="26.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Pre-ventas" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
-                     </font></Label>
-                  <ImageView layoutX="12.0" layoutY="30.0">
+                     </font>
+                  </Label>
+                  <ImageView layoutX="12.0" layoutY="26.0">
                      <image>
                         <Image url="@../resources/baseline_date_range_white_18dp.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#mostSelledProducts" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label fx:id="bestSeller" alignment="CENTER" layoutX="-1.0" layoutY="32.0" onMouseClicked="#mostSelledEvent" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Mas vendidos" textFill="WHITE">
+                  <Label fx:id="bestSeller1" alignment="CENTER" layoutX="-1.0" layoutY="28.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Mas vendidos" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
-                     </font></Label>
-                  <ImageView layoutX="11.0" layoutY="33.0">
+                     </font>
+                  </Label>
+                  <ImageView layoutX="11.0" layoutY="28.0">
                      <image>
                         <Image url="@../resources/baseline_sort_white_18dp.png" />
                      </image>
@@ -63,53 +73,54 @@
             </AnchorPane>
             <AnchorPane prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="30.0" layoutY="32.0" prefHeight="19.0" prefWidth="134.0" style="-fx-background-color: #6C6C6C;" text="Envases reutilizados" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="30.0" layoutY="26.0" prefHeight="19.0" prefWidth="134.0" style="-fx-background-color: #6C6C6C;" text="Envases reutilizados" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
-                     </font></Label>
-                  <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="11.0" layoutY="32.0">
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="10.0" layoutY="25.0">
                      <image>
                         <Image url="@../resources/icons8-reciclaje-24.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#salesPerMonthEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <ImageView layoutX="9.0" layoutY="32.0">
+                  <ImageView layoutX="9.0" layoutY="27.0">
                      <image>
                         <Image url="@../resources/icons8-comportamiento-de-las-ventas-24.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="32.0" layoutY="36.0" onMouseClicked="#salesPerMonthEvent" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Ventas por mes" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="30.0" layoutY="29.0" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Ventas por mes" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="175.0">
+            <AnchorPane onMouseClicked="#pieChartEvent" prefHeight="0.0" prefWidth="175.0">
                <children>
                   <ImageView layoutX="10.0" layoutY="25.0">
                      <image>
                         <Image url="@../resources/baseline_eco_white_18dp.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="35.0" layoutY="23.0" onMouseClicked="#pieChartEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Organicos vendidos" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="34.0" layoutY="22.0" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Organicos vendidos" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="175.0">
+            <AnchorPane onMouseClicked="#buyerProfileEvent" prefHeight="0.0" prefWidth="175.0">
                <children>
-                  <ImageView layoutX="10.0" layoutY="24.0">
+                  <ImageView layoutX="10.0" layoutY="23.0">
                      <image>
                         <Image url="@../resources/baseline_face_white_18dp.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" layoutX="29.0" layoutY="21.0" onMouseClicked="#buyerProfileEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Perfil comprador" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="27.0" layoutY="20.0" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Perfil comprador" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -118,12 +129,5 @@
             </AnchorPane>
          </children>
       </VBox>
-      <Text fill="WHITE" layoutX="283.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fill="#838383" layoutX="209.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pre-ventas de productos">
-         <font>
-            <Font name="System Bold" size="21.0" />
-         </font>
-      </Text>
-      <JFXTreeTableView fx:id="table" layoutX="209.0" layoutY="52.0" prefHeight="384.0" prefWidth="479.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="52.0" />
    </children>
 </AnchorPane>
