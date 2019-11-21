@@ -22,6 +22,10 @@ public class Client {
     }
     public Client(){
         this.setClientNumber("");
+        this.setFirstName("");
+        this.setIdentifyCard("");
+        this.setPhoneNumber("");
+        this.setlastName("");
     }
         
     public String getFirstName() {
