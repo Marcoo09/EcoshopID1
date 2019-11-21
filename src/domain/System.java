@@ -8,10 +8,9 @@ import javafx.util.Pair;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public class System {
 
-    private ArrayList<Client> clientList;
+    private Client client;
     private ArrayList<Package> packagesList;
     private ArrayList<PointOfSale> salePoints;
     private ArrayList<Product> products;
@@ -19,7 +18,7 @@ public class System {
     private ArrayList<Sale> preSales;
 
     public System() {
-        clientList = new ArrayList<>();
+        client = new Client();
         packagesList = new ArrayList<>();
         salePoints = new ArrayList<>();
         products = new ArrayList<>();
@@ -35,8 +34,8 @@ public class System {
         this.preSales.add(aSale);
     }
 
-    public ArrayList<Client> getClientList() {
-        return clientList;
+    public Client getClient() {
+        return client;
     }
 
     public ArrayList<Package> getPackagesList() {
@@ -55,8 +54,8 @@ public class System {
         return sales;
     }
 
-    public void addClient(Client aClient) {
-        clientList.add(aClient);
+    public void setClient(Client aClient) {
+        client = aClient;
     }
 
     public void addPackage(Package aPackage) {
@@ -161,21 +160,21 @@ public class System {
         }
         return organicAndInorganic;
     }
-    
-    public Product getProductsByName(String name){
+
+    public Product getProductsByName(String name) {
         for (int i = 0; i < products.size(); i++) {
             Product currentProduct = products.get(i);
-            if(currentProduct.getName() == name){
+            if (currentProduct.getName() == name) {
                 return currentProduct;
             }
         }
         return null;
     }
-    
-    public Package getPackageByName(String name){
+
+    public Package getPackageByName(String name) {
         for (int i = 0; i < packagesList.size(); i++) {
             Package currentPackage = packagesList.get(i);
-            if(currentPackage.getName() == name){
+            if (currentPackage.getName() == name) {
                 return currentPackage;
             }
         }
