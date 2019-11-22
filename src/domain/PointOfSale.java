@@ -8,7 +8,6 @@ import java.util.ArrayList;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public class PointOfSale {
 
     private String address;
@@ -110,5 +109,5 @@ public class PointOfSale {
         return name;
     }
 
-    
+
 }

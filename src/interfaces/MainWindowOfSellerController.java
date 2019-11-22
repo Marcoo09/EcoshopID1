@@ -34,7 +34,6 @@ import javafx.scene.text.Text;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public class MainWindowOfSellerController implements Initializable {
 
     @FXML
@@ -66,7 +65,7 @@ public class MainWindowOfSellerController implements Initializable {
             availablePackages.getItems().add(mySystem.getPackagesList().get(i));
         }
     }
-    
+
     @FXML
     public void addProduct(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -74,7 +73,7 @@ public class MainWindowOfSellerController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void mostSelledProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
@@ -106,18 +105,26 @@ public class MainWindowOfSellerController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
-    public void buyerProfileEvent(MouseEvent e) throws IOException{
+    public void buyerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
-     @FXML
-    public void reusedPackagesEvent(MouseEvent e) throws IOException{
+
+    @FXML
+    public void reusedPackagesEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostUsedPackageWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
+
+    @FXML
+    public void dashboardEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("DashboardWindow.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="mainPane" pickOnBounds="false" prefHeight="471.0" prefWidth="770.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.DashboardWindowController">
+   <children>
+      <VBox prefHeight="800.0" prefWidth="175.0" style="-fx-background-color: #6C6C6C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="62.0" prefWidth="178.0" style="-fx-background-color: #106EAF;" text="EcoShop" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="perfil">
+                     <image>
+                        <Image url="@../resources/baseline_account_circle_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="9.0" layoutY="21.0" onMouseClicked="#addProduct" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Agregar Producto" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <ImageView layoutX="11.0" layoutY="23.0">
+                     <image>
+                        <Image url="@../resources/baseline_add_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="-10.0" layoutY="30.0" onMouseClicked="#preSalesEvent" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Pre-ventas" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <ImageView layoutX="12.0" layoutY="30.0">
+                     <image>
+                        <Image url="@../resources/baseline_date_range_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="-1.0" layoutY="32.0" onMouseClicked="#mostSelledProducts" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Mas vendidos" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <ImageView layoutX="11.0" layoutY="33.0">
+                     <image>
+                        <Image url="@../resources/baseline_sort_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="30.0" layoutY="35.0" onMouseClicked="#reusedPackagesEvent" prefHeight="19.0" prefWidth="134.0" style="-fx-background-color: #6C6C6C;" text="Envases reutilizados" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="11.0" layoutY="35.0">
+                     <image>
+                        <Image url="@../resources/icons8-reciclaje-24.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="158.0">
+               <children>
+                  <ImageView layoutX="9.0" layoutY="29.0">
+                     <image>
+                        <Image url="@../resources/icons8-comportamiento-de-las-ventas-24.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="32.0" layoutY="32.0" onMouseClicked="#salesPerMonthEvent" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #6C6C6C;" text="Ventas por mes" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="175.0">
+               <children>
+                  <ImageView layoutX="10.0" layoutY="25.0">
+                     <image>
+                        <Image url="@../resources/baseline_eco_white_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="33.0" layoutY="22.0" onMouseClicked="#pieChartEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Organicos vendidos" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="175.0">
+               <children>
+                  <ImageView layoutX="10.0" layoutY="23.0">
+                     <image>
+                        <Image url="@../resources/baseline_face_white_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="27.0" layoutY="19.0" onMouseClicked="#buyerProfileEvent" prefHeight="24.0" prefWidth="122.0" style="-fx-background-color: #6C6C6C;" text="Perfil comprador" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="175.0">
+               <children>
+                  <ImageView layoutX="9.0" layoutY="21.0">
+                     <image>
+                        <Image url="@../resources/download-business-statistics-symbol-of-a-graphic.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="39.0" layoutY="19.0" onMouseClicked="#dashboardEvent" prefHeight="24.0" prefWidth="76.0" style="-fx-background-color: #6C6C6C;" text="Dashboard" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <PieChart fx:id="saleAndPreSale" layoutX="213.0" layoutY="-10.0" prefHeight="359.0" prefWidth="410.0" />
+      <BarChart fx:id="barChart" layoutX="735.0" layoutY="8.0" legendVisible="false" prefHeight="359.0" prefWidth="410.0" title="Ventas por EcoShop">
+        <xAxis>
+          <CategoryAxis label="Tienda" side="BOTTOM" fx:id="x" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="y" label="Ingresos" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <LineChart fx:id="lineChart" layoutX="213.0" layoutY="342.0" legendVisible="false" prefHeight="359.0" prefWidth="410.0">
+        <xAxis>
+          <CategoryAxis label="Mes" side="BOTTOM" fx:id="xLineChart" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yLineChart" label="Ventas" side="LEFT" />
+        </yAxis>
+      </LineChart>
+   </children>
+</AnchorPane>

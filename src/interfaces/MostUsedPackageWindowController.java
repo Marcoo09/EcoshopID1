@@ -149,6 +149,14 @@ public class MostUsedPackageWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
+    
+    @FXML
+    public void dashboardEvent(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("DashboardWindow.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
+    }
 
     class Container extends RecursiveTreeObject<Container> {
 

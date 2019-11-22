@@ -102,8 +102,6 @@ public class Ecoshop extends Application {
         s2.setClient(c3);
         s2.setPurchaseDate(LocalDate.of(2019, 12, 15));
         mySystem.addSale(s2);
-        java.lang.System.out.println(mySystem.totalUsedPackages());
-        
         launch(args);
     }
 
