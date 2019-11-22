@@ -194,6 +194,28 @@ public class System {
         return quantity;
     }
 
+    public int totalSalesPerPointOfSale(PointOfSale aPointOfSale) {
+        int totalQuantity = 0;
+        for (int i = 0; i < sales.size(); i++) {
+            Sale currentSale = sales.get(i);
+            if (currentSale.getShopPlace().getName().equals(aPointOfSale.getName())) {
+                totalQuantity = totalQuantity + sales.get(i).obtainPrice();
+            }
+        }
+        return totalQuantity;
+    }
+
+    public ArrayList<Pair> salesListPerPointOfSale() {
+        ArrayList<Pair> returnList = new ArrayList<>();
+        for (int i = 0; i < salePoints.size(); i++) {
+            PointOfSale currentPointOfSale = salePoints.get(i);
+            int quantity = totalSalesPerPointOfSale(currentPointOfSale);
+            Pair pairToAdd = new Pair(currentPointOfSale, quantity);
+            returnList.add(pairToAdd);
+        }
+        return returnList;
+    }
+
     public ArrayList<Pair> totalUsedPackages() {
         ArrayList<Pair> returnList = new ArrayList<>();
         for (int i = 0; i < packagesList.size(); i++) {
@@ -217,6 +239,16 @@ public class System {
             }
         }
         return returnPair;
+    }
+
+    public int quantityOfPreSales() {
+        int quantityOfPreSales = 0;
+        for (int i = 0; i < sales.size(); i++) {
+            if (sales.get(i).isIsPreSale()) {
+                quantityOfPreSales++;
+            }
+        }
+        return quantityOfPreSales;
     }
 
 }

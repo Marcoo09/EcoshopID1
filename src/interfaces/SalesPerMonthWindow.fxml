@@ -71,7 +71,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="30.0" layoutY="26.0" prefHeight="19.0" prefWidth="134.0" style="-fx-background-color: #6C6C6C;" text="Envases reutilizados" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="30.0" layoutY="26.0" onMouseClicked="#reusedPackagesEvent" prefHeight="19.0" prefWidth="134.0" style="-fx-background-color: #6C6C6C;" text="Envases reutilizados" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -125,6 +125,20 @@
                   </Label>
                </children>
             </AnchorPane>
+            <AnchorPane prefHeight="0.0" prefWidth="175.0">
+               <children>
+                  <ImageView layoutX="9.0" layoutY="21.0">
+                     <image>
+                        <Image url="@../resources/download-business-statistics-symbol-of-a-graphic.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="36.0" layoutY="18.0" onMouseClicked="#dashboardEvent" prefHeight="24.0" prefWidth="76.0" style="-fx-background-color: #6C6C6C;" text="Dashboard" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
       <Text fill="WHITE" layoutX="283.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -139,7 +153,7 @@
       <Pane layoutX="413.0" layoutY="370.0" prefHeight="99.0" prefWidth="112.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="413.0" AnchorPane.rightAnchor="199.0">
          <children>
             <JFXComboBox fx:id="monthCheckBox" layoutX="25.0" layoutY="33.0" onAction="#monthEvent" />
-            <JFXButton layoutX="19.0" layoutY="69.0" onAction="#viewDetail" style="-fx-background-color: #106EAF;" text="Ver detalle" textFill="WHITE" />
+            <JFXButton layoutX="19.0" layoutY="69.0" onAction="#viewDetail" onMouseClicked="#viewDetail" style="-fx-background-color: #106EAF;" text="Ver detalle" textFill="WHITE" />
             <Text layoutX="41.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes" wrappingWidth="24.00000786781311">
                <font>
                   <Font size="13.0" />
