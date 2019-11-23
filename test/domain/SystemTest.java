@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
 import java.time.LocalDate;
@@ -17,8 +12,9 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Agustin Hernandorena
+ * @author Agustin Hernandorena and Marco Fiorito
  */
+
 public class SystemTest {
 
     private System mySystem;
@@ -78,6 +74,16 @@ public class SystemTest {
         assertEquals(expect, mySystem.getPreSales());
     }
 
+    /**
+     * Test of isInPreSaleMode method, of class System.
+     */
+    @Test
+    public void testIsInPreSaleMode() {
+        mySystem.setIsInPreSaleMode(true);
+        boolean expectedValue = true;
+        assertEquals(expectedValue, mySystem.isIsInPreSaleMode());
+    }
+    
     /**
      * Test of getClient method, of class System.
      */
@@ -175,6 +181,16 @@ public class SystemTest {
         assertEquals(expect, mySystem.getSales());
     }
 
+    
+    /**
+     * Test of setPreSaleMode method, of class System.
+     */
+    @Test
+    public void testSetPreSaleMode() {
+        mySystem.setIsInPreSaleMode(false);
+        assertEquals(false,mySystem.isIsInPreSaleMode());
+    }
+    
     /**
      * Test of setClient method, of class System.
      */
@@ -372,6 +388,17 @@ public class SystemTest {
         mySystem.addProduct(aProduct);
         mySystem.addProduct(expect);
         assertEquals(expect, mySystem.getProductsByName("Nueces"));
+    }
+
+     /**
+     * Test of getProductsByName method in a case which return null, of class System.
+     */
+    @Test
+    public void testGetProductsByName3() {
+        Product stubProduct = new Product("Uruguay", true, true, 150, "No aplica", 1, "Nueces");
+        Product expect = null;
+        mySystem.addProduct(stubProduct);
+        assertEquals(expect, mySystem.getProductsByName("Almendras"));
     }
 
     /**
