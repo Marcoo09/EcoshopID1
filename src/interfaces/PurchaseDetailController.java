@@ -132,6 +132,12 @@ public class PurchaseDetailController implements Initializable {
     @FXML
     private Text txtTotal;
     
+    @FXML
+    private ImageView arrowBack;
+    
+    @FXML
+    private ImageView arrowNext;
+        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentTab = 0;
@@ -464,6 +470,49 @@ public class PurchaseDetailController implements Initializable {
         tabPane.getSelectionModel().select(currentTab);
     }
 
+    @FXML
+    public void backLogic(MouseEvent e) throws IOException {
+        switch(currentTab){ 
+            case 1:
+                arrowBack.setVisible(false);
+                previousTabLogic();
+                break;
+            case 2:
+                previousTabLogic();
+                break;                
+            case 3:
+                previousOfPointsOfSaleTabEvent(e);
+                break;
+            case 4:
+                previousTabLogic();
+                break;             
+        }
+    }
+    
+    @FXML
+    public void nextLogic(MouseEvent e) throws IOException {
+        switch(currentTab){ 
+            case 0:
+                nextTabEvent(e);
+                arrowBack.setVisible(true);
+                break;
+            case 1:
+                nextOfMoreInfoTabEvent(e);
+                break;
+            case 2:
+                nextOfDateTabEvent(e);
+                break;                
+            case 3:
+                nextOfPointOfSaleTabEvent(e);
+                break;
+            case 4:
+                confirmTabEvent(e);
+                arrowBack.setVisible(false);
+                arrowNext.setVisible(false);
+                break;             
+        }
+    }    
+    
     class PurchasedProductInfo extends RecursiveTreeObject<PurchasedProductInfo> {
 
         StringProperty productName;
