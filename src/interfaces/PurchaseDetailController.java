@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTabPane;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
@@ -124,6 +125,9 @@ public class PurchaseDetailController implements Initializable {
     @FXML
     private TitledPane datePane;
     
+    @FXML
+    private JFXTextArea txtAreaPintOfSale;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentTab = 0;
@@ -210,6 +214,12 @@ public class PurchaseDetailController implements Initializable {
         }else{
             dateResume.setValue(newSale.getPurchaseDate());
         }
+    }
+
+    @FXML
+    private void initializePointOfSaleOnResume(){
+        PointOfSale shopPlace = newSale.getShopPlace();
+        txtAreaPintOfSale.setText(shopPlace.getName() + ", " + shopPlace.getAddress());
     }
     
     @FXML
@@ -313,6 +323,7 @@ public class PurchaseDetailController implements Initializable {
         if (pointSelected != null) {
             newSale.setShopPlace(pointSelected);
             initializeDateOnResume();
+            initializePointOfSaleOnResume();
             nextTabLogic();
         } else {
             alert.setContentText("Debe seleccionar un punto de venta");
