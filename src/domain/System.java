@@ -16,7 +16,8 @@ public class System {
     private ArrayList<Product> products;
     private ArrayList<Sale> sales;
     private ArrayList<Sale> preSales;
-
+    private boolean isInPreSaleMode;
+    
     public System() {
         client = new Client();
         packagesList = new ArrayList<>();
@@ -24,6 +25,15 @@ public class System {
         products = new ArrayList<>();
         sales = new ArrayList<>();
         preSales = new ArrayList<>();
+        isInPreSaleMode = false;
+    }
+
+    public boolean isIsInPreSaleMode() {
+        return isInPreSaleMode;
+    }
+
+    public void setIsInPreSaleMode(boolean isInPreSaleMode) {
+        this.isInPreSaleMode = isInPreSaleMode;
     }
 
     public ArrayList<Sale> getPreSales() {

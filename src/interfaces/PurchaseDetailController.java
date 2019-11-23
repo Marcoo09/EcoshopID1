@@ -147,6 +147,18 @@ public class PurchaseDetailController implements Initializable {
         intitializeMap();
         initializeListViewOfPointOfSales();
         initializeResume();
+        if(mySystem.isIsInPreSaleMode()){
+            tabPane.getTabs().get(currentTab).setDisable(true);
+            if(mySystem.getClient().getFirstName() != ""){
+                currentTab = 2;
+            }else{
+                currentTab = 1;
+            }
+            isPreSale.setSelected(true);
+            arrowBack.setVisible(true);
+            tabPane.getTabs().get(currentTab).setDisable(false);
+            tabPane.getSelectionModel().select(currentTab);
+        }
     }
 
     @FXML

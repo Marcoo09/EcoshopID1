@@ -1,5 +1,6 @@
 package interfaces;
 
+import com.jfoenix.controls.JFXToggleButton;
 import domain.Product;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
@@ -46,6 +47,9 @@ public class MainWindowOfBuyerController implements Initializable {
     @FXML
     Label lblCant;
 
+    @FXML
+    JFXToggleButton toggleButton;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         chargePane();
@@ -84,6 +88,7 @@ public class MainWindowOfBuyerController implements Initializable {
 
     @FXML
     public void goToCartEvent(MouseEvent e) throws IOException {
+        mySystem.setIsInPreSaleMode(toggleButton.isSelected());
         Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
