@@ -336,6 +336,14 @@ public class PurchaseDetailController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
+
+    @FXML
+    public void goToListOfProducts(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();            
+    }
     
     @FXML
     public void nextOfPointOfSaleTabEvent(MouseEvent e) throws IOException {
