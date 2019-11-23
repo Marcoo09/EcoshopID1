@@ -147,6 +147,18 @@ public class PurchaseDetailController implements Initializable {
         intitializeMap();
         initializeListViewOfPointOfSales();
         initializeResume();
+        if(mySystem.isIsInPreSaleMode()){
+            tabPane.getTabs().get(currentTab).setDisable(true);
+            if(mySystem.getClient().getFirstName() != ""){
+                currentTab = 2;
+            }else{
+                currentTab = 1;
+            }
+            isPreSale.setSelected(true);
+            arrowBack.setVisible(true);
+            tabPane.getTabs().get(currentTab).setDisable(false);
+            tabPane.getSelectionModel().select(currentTab);
+        }
     }
 
     @FXML
@@ -323,6 +335,14 @@ public class PurchaseDetailController implements Initializable {
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
+    }
+
+    @FXML
+    public void goToListOfProducts(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();            
     }
     
     @FXML

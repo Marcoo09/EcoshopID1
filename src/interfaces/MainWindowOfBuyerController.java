@@ -1,5 +1,6 @@
 package interfaces;
 
+import com.jfoenix.controls.JFXToggleButton;
 import domain.Product;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
@@ -18,6 +19,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -46,6 +48,9 @@ public class MainWindowOfBuyerController implements Initializable {
     @FXML
     Label lblCant;
 
+    @FXML
+    JFXToggleButton toggleButton;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         chargePane();
@@ -84,12 +89,30 @@ public class MainWindowOfBuyerController implements Initializable {
 
     @FXML
     public void goToCartEvent(MouseEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
-        Scene scene = new Scene(root);
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Sin productos en el carrito");
+        alert.setContentText("Debe agregar al menos un producto");
+        
+        if(newSale.getPurchasedProducts().size() == 0){
+            alert.showAndWait();
+        }else{
+            mySystem.setIsInPreSaleMode(toggleButton.isSelected());
+            Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
+            Scene scene = new Scene(root);
+            myPrimaryStage.setScene(scene);
+            myPrimaryStage.show();            
+        }
     }
 
+    @FXML
+    public void goToListOfProducts(MouseEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
+        Scene scene = new Scene(root);
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();            
+    }
+    
     @FXML
     public void sellerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));

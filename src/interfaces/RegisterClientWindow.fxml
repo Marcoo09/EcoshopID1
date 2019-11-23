@@ -23,28 +23,14 @@
                   </ImageView>
                </graphic>
             </Label>
-            <AnchorPane onMouseClicked="#goToCartEvent" prefHeight="0.0" prefWidth="158.0">
+            <AnchorPane onMouseClicked="#goToListOfProducts" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="7.0" layoutY="21.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Carrito" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="7.0" layoutY="21.0" onMouseClicked="#goToListOfProducts" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Lista de Productos" textFill="WHITE" AnchorPane.leftAnchor="18.0">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
                   <ImageView layoutX="26.0" layoutY="21.0" AnchorPane.leftAnchor="20.0">
-                     <image>
-                        <Image url="@../resources/baseline_shopping_cart_white_18dp.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="0.0" prefWidth="158.0">
-               <children>
-                  <Label alignment="CENTER" layoutX="7.0" layoutY="28.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Pre-compra" textFill="WHITE">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-                  <ImageView layoutX="24.0" layoutY="29.0" AnchorPane.leftAnchor="20.0">
                      <image>
                         <Image url="@../resources/baseline_shop_white_18dp.png" />
                      </image>
