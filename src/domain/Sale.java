@@ -84,6 +84,9 @@ public class Sale {
     }
     
     public void addProductToCart(Pair product) {
+        Product productToAdd = (Product) product.getKey();
+        int quantity = (int) product.getValue();
+        setFullPayment(getFullPayment() + productToAdd.getPrice() * quantity);
         purchasedProducts.add(product);
     }
 

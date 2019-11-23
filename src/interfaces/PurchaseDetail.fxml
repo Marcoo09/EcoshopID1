@@ -235,6 +235,20 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
+                        <Pane prefHeight="62.0" prefWidth="211.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0">
+                           <children>
+                              <Text layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txtTotal" fill="#979797" layoutX="70.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$1500">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
                         <Pane prefHeight="47.0" prefWidth="260.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
                               <JFXButton layoutX="48.0" layoutY="5.0" onMouseClicked="#previousTabEvent" ripplerFill="WHITE" styleClass="buttonBack" stylesheets="@purchasedetail.css" text="Anterior" />

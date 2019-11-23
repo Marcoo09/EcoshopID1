@@ -42,6 +42,7 @@ import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
 import javafx.util.Pair;
@@ -128,6 +129,9 @@ public class PurchaseDetailController implements Initializable {
     @FXML
     private JFXTextArea txtAreaPintOfSale;
     
+    @FXML
+    private Text txtTotal;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentTab = 0;
@@ -142,6 +146,7 @@ public class PurchaseDetailController implements Initializable {
     @FXML
     private void initializeResume(){
         initializeDetailOnResume();
+        txtTotal.setText("$" + newSale.getFullPayment());
     }
     
     @FXML
