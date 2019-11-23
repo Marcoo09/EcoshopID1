@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Ecoshop.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Ecoshop&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaces</a> &gt; <span class="el_source">Ecoshop.java</span></div><h1>Ecoshop.java</h1><pre class="source lang-java linenums">package interfaces;
+
+import domain.Client;
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import domain.System;
+import domain.Package;
+import domain.Product;
+import domain.PointOfSale;
+import domain.Sale;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.time.LocalDate;
+import javafx.util.Pair;
+
+/**
+ *
+ * @author Agustin Hernandorena and Marco Fiorito
+ */
+
+<span class="nc" id="L25">public class Ecoshop extends Application {</span>
+
+    public static Stage myPrimaryStage;
+    public static System mySystem;
+    public static Sale newSale;
+    public static Product pendingProduct;
+    
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+<span class="nc" id="L34">        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();</span>
+<span class="nc" id="L35">        myPrimaryStage = primaryStage;</span>
+<span class="nc" id="L36">        Parent root = FXMLLoader.load(getClass().getResource(&quot;HomeWindow.fxml&quot;));</span>
+<span class="nc" id="L37">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L38">        newSale = new Sale();</span>
+<span class="nc" id="L39">        myPrimaryStage.setMaximized(true);</span>
+<span class="nc" id="L40">        myPrimaryStage.setWidth(screenSize.getWidth());</span>
+<span class="nc" id="L41">        myPrimaryStage.setHeight(screenSize.getHeight());</span>
+<span class="nc" id="L42">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L43">        myPrimaryStage.show();</span>
+<span class="nc" id="L44">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L47">        mySystem = new System();</span>
+<span class="nc" id="L48">        Client c1 = new Client(&quot;Luis&quot;, &quot;Perez&quot;, &quot;58902346&quot;, &quot;091234567&quot;, &quot;1&quot;);</span>
+<span class="nc" id="L49">        Client c2 = new Client(&quot;Raul&quot;, &quot;Diaz&quot;, &quot;13456079&quot;, &quot;099771234&quot;, &quot;2&quot;);</span>
+<span class="nc" id="L50">        Client c3 = new Client(&quot;Nicolas&quot;, &quot;Gomez&quot;, &quot;34456788&quot;, &quot;095458711&quot;, &quot;3&quot;);</span>
+<span class="nc" id="L51">        Product product1 = new Product(&quot;Uruguay&quot;, true, true, 150, &quot;No aplica&quot;, 1, &quot;almendras&quot;);</span>
+<span class="nc" id="L52">        Product product2 = new Product(&quot;Uruguay&quot;, false, true, 190, &quot;No aplica&quot;, 2, &quot;almendrasacarameladas&quot;);</span>
+<span class="nc" id="L53">        Product product3 = new Product(&quot;Uruguay&quot;, false, true, 200, &quot;No aplica&quot;, 4, &quot;almendrasconchocolate&quot;);</span>
+<span class="nc" id="L54">        Product product4 = new Product(&quot;Uruguay&quot;, true, true, 120, &quot;No aplica&quot;, 3, &quot;ajogranulado&quot;);</span>
+<span class="nc" id="L55">        Product product5 = new Product(&quot;Uruguay&quot;, true, true, 120, &quot;No aplica&quot;, 3, &quot;anisestrelladoengrano&quot;);</span>
+<span class="nc" id="L56">        PointOfSale store1 = new PointOfSale(&quot;Ejido 1423, Montevideo&quot;, &quot;La Molienda&quot;, &quot;Incursionamos en el  área de elaboración de alimentos, un menú diario vegetariano y saludable,  postres, veganos y sin azúcar&quot;);</span>
+<span class="nc" id="L57">        PointOfSale store2 = new PointOfSale(&quot;Cuareim 14200, Montevideo&quot;, &quot;El granero&quot;, &quot;Variedad de insumos ecológicos a los mejores precios&quot;);</span>
+<span class="nc" id="L58">        PointOfSale store3 = new PointOfSale(&quot;Av Uruguay 1530, Montevideo&quot;, &quot;EcoShop&quot;, &quot;Incursianos en alimentos ecológicos aptos para veganos&quot;);</span>
+<span class="nc" id="L59">        mySystem.addSalePoint(store1);</span>
+<span class="nc" id="L60">        mySystem.addSalePoint(store2);</span>
+<span class="nc" id="L61">        mySystem.addSalePoint(store3);</span>
+<span class="nc" id="L62">        Package p1 = new Package(&quot;Tupper hermetico&quot;, &quot;Plastico&quot;, 1800);</span>
+<span class="nc" id="L63">        Package p2 = new Package(&quot;Bolsa Ziploc 4cm x 6cm&quot;, &quot;Plastico&quot;, 70);</span>
+<span class="nc" id="L64">        Package p3 = new Package(&quot;Bollon&quot;, &quot;Vidrio&quot;, 100);</span>
+<span class="nc" id="L65">        product1.addPackage(p1);</span>
+<span class="nc" id="L66">        product2.addPackage(p1);</span>
+<span class="nc" id="L67">        product3.addPackage(p1);</span>
+<span class="nc" id="L68">        product4.addPackage(p1);</span>
+<span class="nc" id="L69">        product5.addPackage(p1);</span>
+<span class="nc" id="L70">        product1.addPackage(p3);</span>
+<span class="nc" id="L71">        product3.addPackage(p3);</span>
+<span class="nc" id="L72">        product4.addPackage(p3);</span>
+<span class="nc" id="L73">        product5.addPackage(p3);</span>
+<span class="nc" id="L74">        product1.addPackage(p2);</span>
+<span class="nc" id="L75">        product2.addPackage(p2);</span>
+<span class="nc" id="L76">        mySystem.addPackage(p1);</span>
+<span class="nc" id="L77">        mySystem.addPackage(p2);</span>
+<span class="nc" id="L78">        mySystem.addPackage(p3);</span>
+<span class="nc" id="L79">        mySystem.addProduct(product1);</span>
+<span class="nc" id="L80">        mySystem.addProduct(product2);</span>
+<span class="nc" id="L81">        mySystem.addProduct(product3);</span>
+<span class="nc" id="L82">        mySystem.addProduct(product4);</span>
+<span class="nc" id="L83">        mySystem.addProduct(product5);</span>
+<span class="nc" id="L84">        Sale s1 = new Sale();</span>
+<span class="nc" id="L85">        Sale s2 = new Sale();</span>
+<span class="nc" id="L86">        s1.addProductToCart(new Pair(product1, 1));</span>
+<span class="nc" id="L87">        s1.addProductToCart(new Pair(product2, 2));</span>
+<span class="nc" id="L88">        s1.addUsedPackage(p1);</span>
+<span class="nc" id="L89">        s1.setShopPlace(store2);</span>
+<span class="nc" id="L90">        s1.setTicketNumber(&quot;1&quot;);</span>
+<span class="nc" id="L91">        s1.setTotalPrice(s1.obtainPrice());</span>
+<span class="nc" id="L92">        LocalDate date1 = LocalDate.of(2019, 1, 25);</span>
+<span class="nc" id="L93">        s1.setPurchaseDate(date1);</span>
+<span class="nc" id="L94">        mySystem.addSale(s1);</span>
+<span class="nc" id="L95">        s2.addProductToCart(new Pair(product1, 5));</span>
+<span class="nc" id="L96">        s2.addProductToCart(new Pair(product2, 3));</span>
+<span class="nc" id="L97">        s2.addUsedPackage(p3);</span>
+<span class="nc" id="L98">        s2.setShopPlace(store1);</span>
+<span class="nc" id="L99">        s2.setTicketNumber(&quot;2&quot;);</span>
+<span class="nc" id="L100">        s2.setTotalPrice(s2.obtainPrice());</span>
+<span class="nc" id="L101">        s2.setIsPreSale(true);</span>
+<span class="nc" id="L102">        s2.setClient(c3);</span>
+<span class="nc" id="L103">        s2.setPurchaseDate(LocalDate.of(2019, 12, 15));</span>
+<span class="nc" id="L104">        mySystem.addSale(s2);</span>
+<span class="nc" id="L105">        launch(args);</span>
+<span class="nc" id="L106">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

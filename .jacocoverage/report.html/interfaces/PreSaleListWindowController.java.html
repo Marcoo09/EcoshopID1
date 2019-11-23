@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PreSaleListWindowController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Ecoshop&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaces</a> &gt; <span class="el_source">PreSaleListWindowController.java</span></div><h1>PreSaleListWindowController.java</h1><pre class="source lang-java linenums">package interfaces;
+
+import com.jfoenix.controls.JFXTreeTableColumn;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import domain.Product;
+import static interfaces.Ecoshop.myPrimaryStage;
+import static interfaces.Ecoshop.mySystem;
+import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
+import javafx.util.Pair;
+
+/**
+ *
+ * @author Agustin Hernandorena and Marco Fiorito
+ */
+
+<span class="nc" id="L36">public class PreSaleListWindowController implements Initializable {</span>
+
+    @FXML
+    private JFXTreeTableView&lt;Sale&gt; table;
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+<span class="nc" id="L43">        JFXTreeTableColumn&lt;Sale, String&gt; orderedNumberCol = new JFXTreeTableColumn&lt;&gt;(&quot;Numero de orden&quot;);</span>
+<span class="nc" id="L44">        orderedNumberCol.setPrefWidth(150);</span>
+<span class="nc" id="L45">        orderedNumberCol.setCellValueFactory(new Callback&lt;TreeTableColumn.CellDataFeatures&lt;Sale, String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+            @Override
+            public ObservableValue&lt;String&gt; call(TreeTableColumn.CellDataFeatures&lt;Sale, String&gt; param) {
+<span class="nc" id="L48">                return param.getValue().getValue().orderNumber;</span>
+            }
+        });
+<span class="nc" id="L51">        JFXTreeTableColumn&lt;Sale, String&gt; purchasedProductsCol = new JFXTreeTableColumn&lt;&gt;(&quot;Productos comprados&quot;);</span>
+<span class="nc" id="L52">        purchasedProductsCol.setPrefWidth(220);</span>
+<span class="nc" id="L53">        purchasedProductsCol.setCellValueFactory(new Callback&lt;TreeTableColumn.CellDataFeatures&lt;Sale, String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+            @Override
+            public ObservableValue&lt;String&gt; call(TreeTableColumn.CellDataFeatures&lt;Sale, String&gt; param) {
+<span class="nc" id="L56">                return param.getValue().getValue().purchasedProducts;</span>
+            }
+        });
+<span class="nc" id="L59">        JFXTreeTableColumn&lt;Sale, String&gt; pickupDateCol = new JFXTreeTableColumn&lt;&gt;(&quot;Fecha de recogida&quot;);</span>
+<span class="nc" id="L60">        pickupDateCol.setPrefWidth(150);</span>
+<span class="nc" id="L61">        pickupDateCol.setCellValueFactory(new Callback&lt;TreeTableColumn.CellDataFeatures&lt;Sale, String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+            @Override
+            public ObservableValue&lt;String&gt; call(TreeTableColumn.CellDataFeatures&lt;Sale, String&gt; param) {
+<span class="nc" id="L64">                return param.getValue().getValue().pickupDate;</span>
+            }
+        });
+<span class="nc" id="L67">        JFXTreeTableColumn&lt;Sale, String&gt; totalPriceCol = new JFXTreeTableColumn&lt;&gt;(&quot;Precio Total&quot;);</span>
+<span class="nc" id="L68">        totalPriceCol.setPrefWidth(150);</span>
+<span class="nc" id="L69">        totalPriceCol.setCellValueFactory(new Callback&lt;TreeTableColumn.CellDataFeatures&lt;Sale, String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+            @Override
+            public ObservableValue&lt;String&gt; call(TreeTableColumn.CellDataFeatures&lt;Sale, String&gt; param) {
+<span class="nc" id="L72">                return param.getValue().getValue().totalPrice;</span>
+            }
+        });
+<span class="nc" id="L75">        JFXTreeTableColumn&lt;Sale, String&gt; clientIdentityCardCol = new JFXTreeTableColumn&lt;&gt;(&quot;Cedula de Identidad&quot;);</span>
+<span class="nc" id="L76">        clientIdentityCardCol.setPrefWidth(150);</span>
+<span class="nc" id="L77">        clientIdentityCardCol.setCellValueFactory(new Callback&lt;TreeTableColumn.CellDataFeatures&lt;Sale, String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+            @Override
+            public ObservableValue&lt;String&gt; call(TreeTableColumn.CellDataFeatures&lt;Sale, String&gt; param) {
+<span class="nc" id="L80">                return param.getValue().getValue().clientIdentityCard;</span>
+            }
+        });
+<span class="nc" id="L83">        ObservableList&lt;Sale&gt; preSales = FXCollections.observableArrayList();</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        for (int i = 0; i &lt; mySystem.getSales().size(); i++) {</span>
+<span class="nc" id="L85">            domain.Sale s = mySystem.getSales().get(i);</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">            if (s.isIsPreSale()) {</span>
+<span class="nc" id="L87">                preSales.add(new Sale(s.getTotalPrice(), s.getTicketNumber(), s.getPurchaseDate(), s.getPurchasedProducts(), s.getClient().getIdentifyCard()));</span>
+            }
+        }
+<span class="nc" id="L90">        final TreeItem&lt;Sale&gt; root = new RecursiveTreeItem&lt;Sale&gt;(preSales, RecursiveTreeObject::getChildren);</span>
+<span class="nc" id="L91">        table.getColumns().setAll(orderedNumberCol, purchasedProductsCol, pickupDateCol, totalPriceCol, clientIdentityCardCol);</span>
+<span class="nc" id="L92">        table.setRoot(root);</span>
+<span class="nc" id="L93">        table.setShowRoot(false);</span>
+<span class="nc" id="L94">    }</span>
+
+    class Sale extends RecursiveTreeObject&lt;Sale&gt; {
+
+        StringProperty totalPrice;
+        StringProperty orderNumber;
+        StringProperty pickupDate;
+        StringProperty purchasedProducts;
+        StringProperty clientIdentityCard;
+
+<span class="nc" id="L104">        public Sale(int aTotalPrice, String orderNumber, LocalDate aPickupDate, ArrayList&lt;Pair&gt; aPurchasedProducts, String aIdentityCard) {</span>
+<span class="nc" id="L105">            this.totalPrice = new SimpleStringProperty(aTotalPrice + &quot;&quot;);</span>
+<span class="nc" id="L106">            this.orderNumber = new SimpleStringProperty(orderNumber);</span>
+<span class="nc" id="L107">            this.pickupDate = new SimpleStringProperty(&quot;&quot; + aPickupDate.getDayOfMonth() + &quot;-&quot; + aPickupDate.getMonthValue() + &quot;-&quot; + aPickupDate.getYear());</span>
+<span class="nc" id="L108">            String products = &quot;&quot;;</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">            for (int i = 0; i &lt; aPurchasedProducts.size(); i++) {</span>
+<span class="nc" id="L110">                Product p = (Product) aPurchasedProducts.get(i).getKey();</span>
+<span class="nc" id="L111">                int quantity = (int) aPurchasedProducts.get(i).getValue();</span>
+<span class="nc" id="L112">                products = products + &quot;-&quot; + &quot; &quot; + p.getName() + &quot; &quot; + &quot;x&quot; + quantity + &quot; &quot; + &quot;Unidades&quot; + System.lineSeparator();</span>
+            }
+<span class="nc" id="L114">            this.purchasedProducts = new SimpleStringProperty(products);</span>
+<span class="nc" id="L115">            this.clientIdentityCard = new SimpleStringProperty(aIdentityCard);</span>
+<span class="nc" id="L116">        }</span>
+    }
+
+    @FXML
+    public void addProduct(MouseEvent e) throws IOException {
+<span class="nc" id="L121">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MainWindowOfSeller.fxml&quot;));</span>
+<span class="nc" id="L122">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L123">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L124">        myPrimaryStage.show();</span>
+<span class="nc" id="L125">    }</span>
+    
+    @FXML
+    public void mostSelledProducts(MouseEvent e) throws IOException {
+<span class="nc" id="L129">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MostSelledProductsWindow.fxml&quot;));</span>
+<span class="nc" id="L130">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L131">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L132">        myPrimaryStage.show();</span>
+<span class="nc" id="L133">    }</span>
+
+    @FXML
+    public void salesPerMonthEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L137">        Parent root = FXMLLoader.load(getClass().getResource(&quot;SalesPerMonthWindow.fxml&quot;));</span>
+<span class="nc" id="L138">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L139">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L140">        myPrimaryStage.show();</span>
+<span class="nc" id="L141">    }</span>
+
+    @FXML
+    public void preSalesEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L145">        Parent root = FXMLLoader.load(getClass().getResource(&quot;PreSaleListWindow.fxml&quot;));</span>
+<span class="nc" id="L146">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L147">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L148">        myPrimaryStage.show();</span>
+<span class="nc" id="L149">    }</span>
+
+    @FXML
+    public void pieChartEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L153">        Parent root = FXMLLoader.load(getClass().getResource(&quot;OrganicProductsPieChart.fxml&quot;));</span>
+<span class="nc" id="L154">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L155">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L156">        myPrimaryStage.show();</span>
+<span class="nc" id="L157">    }</span>
+    
+    @FXML
+    public void buyerProfileEvent(MouseEvent e) throws IOException{
+<span class="nc" id="L161">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MainWindowOfBuyer.fxml&quot;));</span>
+<span class="nc" id="L162">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L163">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L164">        myPrimaryStage.show();</span>
+<span class="nc" id="L165">    }</span>
+    
+    @FXML
+    public void addProductEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L169">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MainWindowOfSeller.fxml&quot;));</span>
+<span class="nc" id="L170">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L171">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L172">        myPrimaryStage.show();</span>
+<span class="nc" id="L173">    }</span>
+    
+    @FXML
+    public void reusedPackagesEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L177">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MostUsedPackageWindow.fxml&quot;));</span>
+<span class="nc" id="L178">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L179">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L180">        myPrimaryStage.show();</span>
+<span class="nc" id="L181">    }</span>
+
+    @FXML
+    public void dashboardEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L185">        Parent root = FXMLLoader.load(getClass().getResource(&quot;DashboardWindow.fxml&quot;));</span>
+<span class="nc" id="L186">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L187">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L188">        myPrimaryStage.show();</span>
+<span class="nc" id="L189">    }</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PointOfSale.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Ecoshop&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">domain</a> &gt; <span class="el_source">PointOfSale.java</span></div><h1>PointOfSale.java</h1><pre class="source lang-java linenums">package domain;
+
+import domain.Product;
+import domain.Sale;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Agustin Hernandorena and Marco Fiorito
+ */
+public class PointOfSale {
+
+    private String address;
+    private String name;
+    private String description;
+    private ArrayList&lt;Product&gt; productsForSale;
+    private ArrayList&lt;Product&gt; selledProducts;
+    private ArrayList&lt;Sale&gt; sales;
+
+<span class="fc" id="L20">    public PointOfSale() {</span>
+<span class="fc" id="L21">        productsForSale = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L22">        selledProducts = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L23">        sales = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L24">        this.setAddress(&quot;&quot;);</span>
+<span class="fc" id="L25">        this.setName(&quot;&quot;);</span>
+<span class="fc" id="L26">        this.setDescription(&quot;&quot;);</span>
+<span class="fc" id="L27">    }</span>
+
+<span class="fc" id="L29">    public PointOfSale(String address, String name, String description) {</span>
+<span class="fc" id="L30">        this.setAddress(address);</span>
+<span class="fc" id="L31">        this.setName(name);</span>
+<span class="fc" id="L32">        this.setDescription(description);</span>
+<span class="fc" id="L33">        productsForSale = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L34">        selledProducts = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L35">        sales = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L36">    }</span>
+
+    public String getAddress() {
+<span class="fc" id="L39">        return address;</span>
+    }
+
+    public void setAddress(String address) {
+<span class="fc" id="L43">        this.address = address;</span>
+<span class="fc" id="L44">    }</span>
+
+    public String getName() {
+<span class="fc" id="L47">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="fc" id="L51">        this.name = name;</span>
+<span class="fc" id="L52">    }</span>
+
+    public String getDescription() {
+<span class="fc" id="L55">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="fc" id="L59">        this.description = description;</span>
+<span class="fc" id="L60">    }</span>
+
+    public ArrayList&lt;Product&gt; getProductsForSale() {
+<span class="fc" id="L63">        return productsForSale;</span>
+    }
+
+    public ArrayList&lt;Sale&gt; getSales() {
+<span class="fc" id="L67">        return sales;</span>
+    }
+
+    public void addSale(Sale aSale) {
+<span class="fc" id="L71">        sales.add(aSale);</span>
+<span class="fc" id="L72">    }</span>
+
+    public ArrayList&lt;Product&gt; getSelledProducts() {
+<span class="fc" id="L75">        return selledProducts;</span>
+    }
+
+    public void addProductForSale(Product product) {
+<span class="fc" id="L79">        productsForSale.add(product);</span>
+<span class="fc" id="L80">    }</span>
+
+    public void addSoldProduct(Product p) {
+<span class="fc" id="L83">        selledProducts.add(p);</span>
+<span class="fc" id="L84">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L88">        return name;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

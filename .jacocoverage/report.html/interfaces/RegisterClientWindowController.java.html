@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RegisterClientWindowController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Ecoshop&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaces</a> &gt; <span class="el_source">RegisterClientWindowController.java</span></div><h1>RegisterClientWindowController.java</h1><pre class="source lang-java linenums">package interfaces;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXTextField;
+import domain.Client;
+import static interfaces.Ecoshop.myPrimaryStage;
+import static interfaces.Ecoshop.mySystem;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+
+/**
+ *
+ * @author Agustin Hernandorena and Marco Fiorito
+ */
+<span class="nc" id="L32">public class RegisterClientWindowController implements Initializable {</span>
+    
+    @FXML
+    private JFXTextField name;
+    
+    @FXML
+    private JFXTextField surname;
+    
+    @FXML
+    private JFXTextField telephone;
+    
+    @FXML
+    private JFXTextField indentifyCard;
+    
+    @FXML
+    private JFXButton btnRegister;
+    
+    @FXML
+    private StackPane myPane;
+    
+    @FXML
+    private Label title;
+    
+    @FXML
+    private AnchorPane mainPane;
+    
+    private boolean existClient;
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+<span class="nc" id="L62">        existClient = false;</span>
+<span class="nc" id="L63">        Client aClient = mySystem.getClient();</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (!aClient.getFirstName().equals(&quot;&quot;)) {</span>
+<span class="nc" id="L65">            existClient = true;</span>
+<span class="nc" id="L66">            btnRegister.setText(&quot;Actualizar&quot;);</span>
+<span class="nc" id="L67">            title.setText(&quot;Modificar cuenta&quot;);</span>
+<span class="nc" id="L68">            name.setText(aClient.getFirstName());</span>
+<span class="nc" id="L69">            surname.setText(aClient.getLastName());</span>
+<span class="nc" id="L70">            telephone.setText(aClient.getPhoneNumber());</span>
+<span class="nc" id="L71">            indentifyCard.setText(aClient.getIdentifyCard());</span>
+        }
+<span class="nc" id="L73">    }</span>
+    
+    @FXML
+    public void mainWindowOfBuyerEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L77">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MainWindowOfBuyer.fxml&quot;));</span>
+<span class="nc" id="L78">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L79">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L80">        myPrimaryStage.show();</span>
+<span class="nc" id="L81">    }</span>
+    
+    @FXML
+    public void goToCartEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L85">        Parent root = FXMLLoader.load(getClass().getResource(&quot;PurchaseDetail.fxml&quot;));</span>
+<span class="nc" id="L86">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L87">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L88">        myPrimaryStage.show();</span>
+<span class="nc" id="L89">    }</span>
+    
+    @FXML
+    public void goToListOfProducts(MouseEvent e) throws IOException {
+<span class="nc" id="L93">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MainWindowOfBuyer.fxml&quot;));</span>
+<span class="nc" id="L94">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L95">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L96">        myPrimaryStage.show();            </span>
+<span class="nc" id="L97">    }</span>
+    
+    @FXML
+    public void sellerProfileEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L101">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MainWindowOfSeller.fxml&quot;));</span>
+<span class="nc" id="L102">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L103">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L104">        myPrimaryStage.show();</span>
+<span class="nc" id="L105">    }</span>
+    
+    @FXML
+    public void pointsOfSaleEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L109">        Parent root = FXMLLoader.load(getClass().getResource(&quot;PointsOfSaleWindow.fxml&quot;));</span>
+<span class="nc" id="L110">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L111">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L112">        myPrimaryStage.show();</span>
+<span class="nc" id="L113">    }</span>
+    
+    @FXML
+    public void registerClientEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L117">        Parent root = FXMLLoader.load(getClass().getResource(&quot;RegisterClientWindow.fxml&quot;));</span>
+<span class="nc" id="L118">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L119">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L120">        myPrimaryStage.show();</span>
+<span class="nc" id="L121">    }</span>
+    
+    @FXML
+    public void eventRegister(ActionEvent e) {
+<span class="nc" id="L125">        Client aClient = mySystem.getClient();</span>
+<span class="nc" id="L126">        String nameOfClient = &quot;&quot;;</span>
+<span class="nc" id="L127">        String surnameOfClient = &quot;&quot;;</span>
+<span class="nc" id="L128">        String telephoneNumberOfClient = &quot;&quot;;</span>
+<span class="nc" id="L129">        String identificationDocumentOfClient = &quot;&quot;;</span>
+<span class="nc" id="L130">        nameOfClient = name.getText();</span>
+<span class="nc" id="L131">        surnameOfClient = surname.getText();</span>
+<span class="nc" id="L132">        telephoneNumberOfClient = telephone.getText();</span>
+<span class="nc" id="L133">        identificationDocumentOfClient = indentifyCard.getText();</span>
+<span class="nc" id="L134">        Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L135">        alert.setTitle(&quot;Error&quot;);</span>
+<span class="nc" id="L136">        alert.setHeaderText(&quot;Campo sin completar.&quot;);</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">        if (nameOfClient.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L138">            alert.setContentText(&quot;Debe ingresar un nombre.&quot;);</span>
+<span class="nc" id="L139">            alert.showAndWait();</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        } else if (surnameOfClient.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L141">            alert.setContentText(&quot;Debe ingresar un apellido.&quot;);</span>
+<span class="nc" id="L142">            alert.showAndWait();</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">        } else if (telephoneNumberOfClient.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L144">            alert.setContentText(&quot;Debe ingresar un numero de telefono.&quot;);</span>
+<span class="nc" id="L145">            alert.showAndWait();</span>
+<span class="nc bnc" id="L146" title="All 2 branches missed.">        } else if (identificationDocumentOfClient.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L147">            alert.setContentText(&quot;Debe ingresar su cedula de identidad.&quot;);</span>
+<span class="nc" id="L148">            alert.showAndWait();</span>
+        } else {
+<span class="nc" id="L150">            aClient.setFirstName(nameOfClient);</span>
+<span class="nc" id="L151">            aClient.setlastName(surnameOfClient);</span>
+<span class="nc" id="L152">            aClient.setIdentifyCard(identificationDocumentOfClient);</span>
+<span class="nc" id="L153">            aClient.setPhoneNumber(telephoneNumberOfClient);</span>
+<span class="nc" id="L154">            aClient.setClientNumber(nameOfClient + identificationDocumentOfClient);</span>
+<span class="nc" id="L155">            JFXDialogLayout content = new JFXDialogLayout();</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">            if (!existClient) {</span>
+<span class="nc" id="L157">                existClient = true;</span>
+<span class="nc" id="L158">                content.setHeading(new Text(&quot;Registro.&quot;));</span>
+<span class="nc" id="L159">                content.setBody(new Text(&quot;El cliente se ha registrado en el sistema.&quot;));</span>
+            } else {
+<span class="nc" id="L161">                content.setHeading(new Text(&quot;Modificacion.&quot;));</span>
+<span class="nc" id="L162">                content.setBody(new Text(&quot;Se han actualizado los datos correctamente.&quot;));</span>
+            }
+<span class="nc" id="L164">            myPane.setMargin(mainPane, new Insets(180, 141, 260, 280));</span>
+<span class="nc" id="L165">            JFXDialog dialog = new JFXDialog(myPane, content, JFXDialog.DialogTransition.CENTER);</span>
+<span class="nc" id="L166">            JFXButton okButton = new JFXButton(&quot;Aceptar&quot;);</span>
+<span class="nc" id="L167">            okButton.setOnAction(new EventHandler&lt;ActionEvent&gt;() {</span>
+                @Override
+                public void handle(ActionEvent event) {
+<span class="nc" id="L170">                    title.setText(&quot;Modificar cuenta&quot;);</span>
+<span class="nc" id="L171">                    btnRegister.setText(&quot;Actualizar&quot;);</span>
+<span class="nc" id="L172">                    dialog.close();</span>
+<span class="nc" id="L173">                }</span>
+            });
+<span class="nc" id="L175">            content.setActions(okButton);</span>
+<span class="nc" id="L176">            dialog.show();</span>
+        }
+<span class="nc" id="L178">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

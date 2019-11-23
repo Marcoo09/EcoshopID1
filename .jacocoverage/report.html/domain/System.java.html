@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>System.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Ecoshop&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">domain</a> &gt; <span class="el_source">System.java</span></div><h1>System.java</h1><pre class="source lang-java linenums">package domain;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import javafx.util.Pair;
+
+/**
+ *
+ * @author Agustin Hernandorena and Marco Fiorito
+ */
+public class System {
+
+    private Client client;
+    private ArrayList&lt;Package&gt; packagesList;
+    private ArrayList&lt;PointOfSale&gt; salePoints;
+    private ArrayList&lt;Product&gt; products;
+    private ArrayList&lt;Sale&gt; sales;
+    private ArrayList&lt;Sale&gt; preSales;
+    private boolean isInPreSaleMode;
+
+<span class="fc" id="L21">    public System() {</span>
+<span class="fc" id="L22">        client = new Client();</span>
+<span class="fc" id="L23">        packagesList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L24">        salePoints = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L25">        products = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L26">        sales = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L27">        preSales = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L28">        isInPreSaleMode = false;</span>
+<span class="fc" id="L29">    }</span>
+
+    public boolean isIsInPreSaleMode() {
+<span class="nc" id="L32">        return isInPreSaleMode;</span>
+    }
+
+    public void setIsInPreSaleMode(boolean isInPreSaleMode) {
+<span class="nc" id="L36">        this.isInPreSaleMode = isInPreSaleMode;</span>
+<span class="nc" id="L37">    }</span>
+
+    public ArrayList&lt;Sale&gt; getPreSales() {
+<span class="fc" id="L40">        return preSales;</span>
+    }
+
+    public void addPreSale(Sale aSale) {
+<span class="fc" id="L44">        this.preSales.add(aSale);</span>
+<span class="fc" id="L45">    }</span>
+
+    public Client getClient() {
+<span class="fc" id="L48">        return client;</span>
+    }
+
+    public ArrayList&lt;Package&gt; getPackagesList() {
+<span class="fc" id="L52">        return packagesList;</span>
+    }
+
+    public ArrayList&lt;PointOfSale&gt; getSalePoints() {
+<span class="fc" id="L56">        return salePoints;</span>
+    }
+
+    public ArrayList&lt;Product&gt; getProducts() {
+<span class="fc" id="L60">        return products;</span>
+    }
+
+    public ArrayList&lt;Sale&gt; getSales() {
+<span class="fc" id="L64">        return sales;</span>
+    }
+
+    public void setClient(Client aClient) {
+<span class="fc" id="L68">        client = aClient;</span>
+<span class="fc" id="L69">    }</span>
+
+    public void addPackage(Package aPackage) {
+<span class="fc" id="L72">        packagesList.add(aPackage);</span>
+<span class="fc" id="L73">    }</span>
+
+    public void addSalePoint(PointOfSale aSalePoint) {
+<span class="fc" id="L76">        salePoints.add(aSalePoint);</span>
+<span class="fc" id="L77">    }</span>
+
+    public void addProduct(Product aProduct) {
+<span class="fc" id="L80">        products.add(aProduct);</span>
+<span class="fc" id="L81">    }</span>
+
+    public void addSale(Sale aSale) {
+<span class="fc" id="L84">        sales.add(aSale);</span>
+<span class="fc" id="L85">    }</span>
+
+    public int[] salesPerMonth() {
+<span class="fc" id="L88">        int[] salesPerMonth = new int[13];</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">        for (int i = 0; i &lt; sales.size(); i++) {</span>
+<span class="fc" id="L90">            salesPerMonth[sales.get(i).getPurchaseDate().getMonthValue()] += sales.get(i).getTotalPrice();</span>
+        }
+<span class="fc" id="L92">        return salesPerMonth;</span>
+    }
+
+    public Pair totalSaleByProduct(Product aProduct) {
+<span class="fc" id="L96">        int quantity = 0;</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">        for (int i = 0; i &lt; sales.size(); i++) {</span>
+<span class="fc" id="L98">            ArrayList&lt;Pair&gt; purchasedProducts = sales.get(i).getPurchasedProducts();</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">            for (int j = 0; j &lt; purchasedProducts.size(); j++) {</span>
+<span class="fc" id="L100">                Pair actualProduct = purchasedProducts.get(j);</span>
+<span class="fc" id="L101">                Product myProduct = (Product) actualProduct.getKey();</span>
+<span class="fc" id="L102">                int actualQuantity = (int) actualProduct.getValue();</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">                if (myProduct.getName().equals(aProduct.getName())) {</span>
+<span class="fc" id="L104">                    quantity += actualQuantity;</span>
+                }
+            }
+        }
+<span class="fc" id="L108">        Pair returnPair = new Pair(aProduct, quantity);</span>
+<span class="fc" id="L109">        return returnPair;</span>
+    }
+
+    public ArrayList&lt;Pair&gt; totalQuantitySoldPerProduct() {
+<span class="fc" id="L113">        ArrayList&lt;Pair&gt; returnList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        for (int i = 0; i &lt; sales.size(); i++) {</span>
+<span class="fc" id="L115">            Sale actualSale = sales.get(i);</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">            for (int j = 0; j &lt; actualSale.getPurchasedProducts().size(); j++) {</span>
+<span class="fc" id="L117">                Pair aPair = totalSaleByProduct((Product) actualSale.getPurchasedProducts().get(j).getKey());</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">                if (!returnList.contains(aPair)) {</span>
+<span class="fc" id="L119">                    returnList.add(aPair);</span>
+                }
+            }
+        }
+<span class="fc" id="L123">        return returnList;</span>
+    }
+
+    public Pair mostSelledProduct() {
+<span class="fc" id="L127">        ArrayList&lt;Pair&gt; list = totalQuantitySoldPerProduct();</span>
+<span class="fc" id="L128">        int max = -1;</span>
+<span class="fc" id="L129">        Pair returnPair = null;</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">        for (int i = 0; i &lt; list.size(); i++) {</span>
+<span class="fc" id="L131">            Pair actualPair = list.get(i);</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">            if ((int) actualPair.getValue() &gt; max) {</span>
+<span class="fc" id="L133">                max = (int) actualPair.getValue();</span>
+<span class="fc" id="L134">                returnPair = actualPair;</span>
+            }
+        }
+<span class="fc" id="L137">        return returnPair;</span>
+    }
+
+    public int[] quantityOfOrganicProductsSold() {
+        //In position 0 put the organics and in 1 the inorganics.
+<span class="pc" id="L142">        int[] organicAndInorganic = new int[2];</span>
+<span class="fc" id="L143">        ArrayList&lt;Pair&gt; list = totalQuantitySoldPerProduct();</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">        for (int i = 0; i &lt; list.size(); i++) {</span>
+<span class="pc bnc" id="L145" title="All 2 branches missed.">            Product aProduct = (Product) list.get(i).getKey();</span>
+<span class="pc" id="L146">            int quantity = (int) list.get(i).getValue();</span>
+<span class="pc bpc" id="L147" title="2 of 4 branches missed.">            if (aProduct.isOrganic()) {</span>
+<span class="pc" id="L148">                organicAndInorganic[0] += quantity;</span>
+            } else {
+<span class="pc" id="L150">                organicAndInorganic[1] += quantity;</span>
+            }
+        }
+<span class="fc" id="L153">        return organicAndInorganic;</span>
+    }
+
+    public Product getProductsByName(String name) {
+<span class="pc bpc" id="L157" title="1 of 2 branches missed.">        for (int i = 0; i &lt; products.size(); i++) {</span>
+<span class="fc" id="L158">            Product currentProduct = products.get(i);</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">            if (currentProduct.getName() == name) {</span>
+<span class="fc" id="L160">                return currentProduct;</span>
+            }
+        }
+<span class="nc" id="L163">        return null;</span>
+    }
+
+    public Package getPackageByName(String name) {
+<span class="pc bpc" id="L167" title="1 of 2 branches missed.">        for (int i = 0; i &lt; packagesList.size(); i++) {</span>
+<span class="fc" id="L168">            Package currentPackage = packagesList.get(i);</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">            if (currentPackage.getName() == name) {</span>
+<span class="fc" id="L170">                return currentPackage;</span>
+            }
+        }
+<span class="nc" id="L173">        return null;</span>
+    }
+
+    public int totalPerPackage(Package aPackage) {
+<span class="fc" id="L177">        int quantity = 0;</span>
+<span class="fc bfc" id="L178" title="All 2 branches covered.">        for (int i = 0; i &lt; sales.size(); i++) {</span>
+<span class="fc" id="L179">            ArrayList&lt;domain.Package&gt; usedPackages = sales.get(i).getPackagesUsed();</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">            for (int j = 0; j &lt; usedPackages.size(); j++) {</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">                if (usedPackages.get(j).getName().equals(aPackage.getName())) {</span>
+<span class="fc" id="L182">                    quantity++;</span>
+                }
+            }
+        }
+<span class="fc" id="L186">        return quantity;</span>
+    }
+
+    public int totalSalesPerPointOfSale(PointOfSale aPointOfSale) {
+<span class="fc" id="L190">        int totalQuantity = 0;</span>
+<span class="fc bfc" id="L191" title="All 2 branches covered.">        for (int i = 0; i &lt; sales.size(); i++) {</span>
+<span class="fc" id="L192">            Sale currentSale = sales.get(i);</span>
+<span class="fc bfc" id="L193" title="All 2 branches covered.">            if (currentSale.getShopPlace().getName().equals(aPointOfSale.getName())) {</span>
+<span class="fc" id="L194">                totalQuantity = totalQuantity + sales.get(i).obtainPrice();</span>
+            }
+        }
+<span class="fc" id="L197">        return totalQuantity;</span>
+    }
+
+    public ArrayList&lt;Pair&gt; salesListPerPointOfSale() {
+<span class="fc" id="L201">        ArrayList&lt;Pair&gt; returnList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">        for (int i = 0; i &lt; salePoints.size(); i++) {</span>
+<span class="fc" id="L203">            PointOfSale currentPointOfSale = salePoints.get(i);</span>
+<span class="fc" id="L204">            int quantity = totalSalesPerPointOfSale(currentPointOfSale);</span>
+<span class="fc" id="L205">            Pair pairToAdd = new Pair(currentPointOfSale, quantity);</span>
+<span class="fc" id="L206">            returnList.add(pairToAdd);</span>
+        }
+<span class="fc" id="L208">        return returnList;</span>
+    }
+
+    public ArrayList&lt;Pair&gt; totalUsedPackages() {
+<span class="fc" id="L212">        ArrayList&lt;Pair&gt; returnList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">        for (int i = 0; i &lt; packagesList.size(); i++) {</span>
+<span class="fc" id="L214">            int quantity = totalPerPackage(packagesList.get(i));</span>
+<span class="fc" id="L215">            Pair pairToAdd = new Pair(packagesList.get(i), quantity);</span>
+<span class="fc" id="L216">            returnList.add(pairToAdd);</span>
+        }
+<span class="fc" id="L218">        return returnList;</span>
+    }
+
+    public Pair mostUsedPackage() {
+<span class="fc" id="L222">        ArrayList&lt;Pair&gt; totalPerPackage = totalUsedPackages();</span>
+<span class="fc" id="L223">        int maximum = -1;</span>
+<span class="fc" id="L224">        Pair returnPair = new Pair(new domain.Package(), maximum);</span>
+<span class="fc bfc" id="L225" title="All 2 branches covered.">        for (int i = 0; i &lt; totalUsedPackages().size(); i++) {</span>
+<span class="fc" id="L226">            Pair currentPair = totalUsedPackages().get(i);</span>
+<span class="fc" id="L227">            int quantity = (int) currentPair.getValue();</span>
+<span class="fc bfc" id="L228" title="All 2 branches covered.">            if (quantity &gt; maximum) {</span>
+<span class="fc" id="L229">                maximum = quantity;</span>
+<span class="fc" id="L230">                returnPair = currentPair;</span>
+            }
+        }
+<span class="fc" id="L233">        return returnPair;</span>
+    }
+
+    public int quantityOfPreSales() {
+<span class="fc" id="L237">        int quantityOfPreSales = 0;</span>
+<span class="fc bfc" id="L238" title="All 2 branches covered.">        for (int i = 0; i &lt; sales.size(); i++) {</span>
+<span class="fc bfc" id="L239" title="All 2 branches covered.">            if (sales.get(i).isIsPreSale()) {</span>
+<span class="fc" id="L240">                quantityOfPreSales++;</span>
+            }
+        }
+<span class="fc" id="L243">        return quantityOfPreSales;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

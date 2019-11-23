@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MainWindowOfSellerController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Ecoshop&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaces</a> &gt; <span class="el_source">MainWindowOfSellerController.java</span></div><h1>MainWindowOfSellerController.java</h1><pre class="source lang-java linenums">package interfaces;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextField;
+import domain.Product;
+import static interfaces.Ecoshop.myPrimaryStage;
+import static interfaces.Ecoshop.mySystem;
+import java.io.IOException;
+import javafx.scene.input.MouseEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+
+/**
+ * FXML Controller class
+ *
+ * @author Agustin Hernandorena and Marco Fiorito
+ */
+<span class="nc" id="L37">public class MainWindowOfSellerController implements Initializable {</span>
+
+    @FXML
+    private JFXCheckBox organicCheck;
+    @FXML
+    private JFXListView&lt;domain.Package&gt; availablePackages;
+    @FXML
+    private JFXTextField nameTextField;
+    @FXML
+    private JFXTextField originCountryTextField;
+    @FXML
+    private JFXTextField priceTextField;
+    @FXML
+    private JFXTextField materialTextField;
+    @FXML
+    private JFXCheckBox formedForRecycledMaterialCheck;
+    @FXML
+    private StackPane myStackPane;
+    @FXML
+
+    private AnchorPane mainPane;
+
+<span class="nc" id="L59">    private int count = mySystem.getProducts().size();</span>
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+<span class="nc" id="L63">        availablePackages.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        for (int i = 0; i &lt; mySystem.getPackagesList().size(); i++) {</span>
+<span class="nc" id="L65">            availablePackages.getItems().add(mySystem.getPackagesList().get(i));</span>
+        }
+<span class="nc" id="L67">    }</span>
+
+    @FXML
+    public void addProduct(MouseEvent e) throws IOException {
+<span class="nc" id="L71">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MainWindowOfSeller.fxml&quot;));</span>
+<span class="nc" id="L72">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L73">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L74">        myPrimaryStage.show();</span>
+<span class="nc" id="L75">    }</span>
+
+    @FXML
+    public void mostSelledProducts(MouseEvent e) throws IOException {
+<span class="nc" id="L79">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MostSelledProductsWindow.fxml&quot;));</span>
+<span class="nc" id="L80">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L81">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L82">        myPrimaryStage.show();</span>
+<span class="nc" id="L83">    }</span>
+
+    @FXML
+    public void salesPerMonthEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L87">        Parent root = FXMLLoader.load(getClass().getResource(&quot;SalesPerMonthWindow.fxml&quot;));</span>
+<span class="nc" id="L88">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L89">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L90">        myPrimaryStage.show();</span>
+<span class="nc" id="L91">    }</span>
+
+    @FXML
+    public void preSalesEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L95">        Parent root = FXMLLoader.load(getClass().getResource(&quot;PreSaleListWindow.fxml&quot;));</span>
+<span class="nc" id="L96">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L97">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L98">        myPrimaryStage.show();</span>
+<span class="nc" id="L99">    }</span>
+
+    @FXML
+    public void pieChartEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L103">        Parent root = FXMLLoader.load(getClass().getResource(&quot;OrganicProductsPieChart.fxml&quot;));</span>
+<span class="nc" id="L104">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L105">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L106">        myPrimaryStage.show();</span>
+<span class="nc" id="L107">    }</span>
+
+    @FXML
+    public void buyerProfileEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L111">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MainWindowOfBuyer.fxml&quot;));</span>
+<span class="nc" id="L112">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L113">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L114">        myPrimaryStage.show();</span>
+<span class="nc" id="L115">    }</span>
+
+    @FXML
+    public void reusedPackagesEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L119">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MostUsedPackageWindow.fxml&quot;));</span>
+<span class="nc" id="L120">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L121">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L122">        myPrimaryStage.show();</span>
+<span class="nc" id="L123">    }</span>
+
+    @FXML
+    public void dashboardEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L127">        Parent root = FXMLLoader.load(getClass().getResource(&quot;DashboardWindow.fxml&quot;));</span>
+<span class="nc" id="L128">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L129">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L130">        myPrimaryStage.show();</span>
+<span class="nc" id="L131">    }</span>
+
+    public void registerEvent(ActionEvent e) {
+<span class="nc" id="L134">        String name = &quot;&quot;;</span>
+<span class="nc" id="L135">        String originCountry = &quot;&quot;;</span>
+<span class="nc" id="L136">        String material = &quot;&quot;;</span>
+<span class="nc" id="L137">        String price = &quot;&quot;;</span>
+<span class="nc" id="L138">        int intPrice = -1;</span>
+<span class="nc" id="L139">        boolean isInt = false;</span>
+<span class="nc" id="L140">        boolean isLetter = false;</span>
+<span class="nc" id="L141">        name = nameTextField.getText();</span>
+<span class="nc" id="L142">        originCountry = originCountryTextField.getText();</span>
+<span class="nc" id="L143">        price = priceTextField.getText();</span>
+        try {
+<span class="nc" id="L145">            intPrice = Integer.parseInt(price);</span>
+<span class="nc" id="L146">            isInt = true;</span>
+<span class="nc" id="L147">        } catch (NumberFormatException excepcion) {</span>
+<span class="nc" id="L148">            isLetter = true;</span>
+<span class="nc" id="L149">        }</span>
+<span class="nc" id="L150">        material = materialTextField.getText();</span>
+<span class="nc" id="L151">        boolean isOrganic = false;</span>
+<span class="nc" id="L152">        boolean formedFromRecycledMaterial = false;</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">        if (organicCheck.isSelected()) {</span>
+<span class="nc" id="L154">            isOrganic = true;</span>
+        }
+<span class="nc bnc" id="L156" title="All 2 branches missed.">        if (formedForRecycledMaterialCheck.isSelected()) {</span>
+<span class="nc" id="L157">            formedFromRecycledMaterial = true;</span>
+        }
+<span class="nc" id="L159">        ObservableList&lt;domain.Package&gt; list = availablePackages.getSelectionModel().getSelectedItems();</span>
+<span class="nc" id="L160">        Product p = new Product(originCountry, isOrganic, formedFromRecycledMaterial, intPrice, material, 20, name);</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">        for (int i = 0; i &lt; list.size(); i++) {</span>
+<span class="nc" id="L162">            p.addPackage(list.get(i));</span>
+        }
+<span class="nc" id="L164">        Alert alert = new Alert(AlertType.ERROR);</span>
+<span class="nc" id="L165">        alert.setTitle(&quot;Error&quot;);</span>
+<span class="nc" id="L166">        alert.setHeaderText(&quot;Error faltan ingresar datos.&quot;);</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">        if (list.size() == 0) {</span>
+<span class="nc" id="L168">            alert.setContentText(&quot;Debe seleccionar algun envase.&quot;);</span>
+<span class="nc" id="L169">            alert.showAndWait();</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">        } else if (name.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L171">            alert.setContentText(&quot;Debe ingresar un nombre.&quot;);</span>
+<span class="nc" id="L172">            alert.showAndWait();</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">        } else if (originCountry.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L174">            alert.setContentText(&quot;Debe ingresar un pais de origen.&quot;);</span>
+<span class="nc" id="L175">            alert.showAndWait();</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">        } else if (material.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L177">            alert.setContentText(&quot;Debe ingresar un material.&quot;);</span>
+<span class="nc" id="L178">            alert.showAndWait();</span>
+<span class="nc bnc" id="L179" title="All 2 branches missed.">        } else if (price.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L180">            alert.setContentText(&quot;Debe ingresar un precio.&quot;);</span>
+<span class="nc" id="L181">            alert.showAndWait();</span>
+<span class="nc bnc" id="L182" title="All 2 branches missed.">        } else if (isLetter) {</span>
+<span class="nc" id="L183">            alert.setContentText(&quot;El precio debe ser un numero.&quot;);</span>
+<span class="nc" id="L184">            alert.showAndWait();</span>
+<span class="nc bnc" id="L185" title="All 4 branches missed.">        } else if (intPrice &lt;= 0 &amp;&amp; isInt) {</span>
+<span class="nc" id="L186">            alert.setContentText(&quot;El precio debe ser positivo.&quot;);</span>
+<span class="nc" id="L187">            alert.showAndWait();</span>
+        } else {
+<span class="nc" id="L189">            mySystem.addProduct(p);</span>
+<span class="nc" id="L190">            JFXDialogLayout content = new JFXDialogLayout();</span>
+<span class="nc" id="L191">            myStackPane.setMargin(mainPane, new Insets(180, 141, 260, 280));</span>
+<span class="nc" id="L192">            content.setHeading(new Text(&quot;Alta de producto&quot;));</span>
+<span class="nc" id="L193">            content.setBody(new Text(&quot;El producto se ha registrado correctamente en el sistema&quot;));</span>
+<span class="nc" id="L194">            JFXDialog dialog = new JFXDialog(myStackPane, content, JFXDialog.DialogTransition.CENTER);</span>
+<span class="nc" id="L195">            JFXButton okButton = new JFXButton(&quot;Aceptar&quot;);</span>
+<span class="nc" id="L196">            okButton.setOnAction(new EventHandler&lt;ActionEvent&gt;() {</span>
+                @Override
+                public void handle(ActionEvent event) {
+<span class="nc" id="L199">                    dialog.close();</span>
+<span class="nc" id="L200">                    nameTextField.setText(&quot;&quot;);</span>
+<span class="nc" id="L201">                    originCountryTextField.setText(&quot;&quot;);</span>
+<span class="nc" id="L202">                    materialTextField.setText(&quot;&quot;);</span>
+<span class="nc" id="L203">                    priceTextField.setText(&quot;&quot;);</span>
+<span class="nc" id="L204">                    organicCheck.setSelected(false);</span>
+<span class="nc" id="L205">                    formedForRecycledMaterialCheck.setSelected(false);</span>
+<span class="nc" id="L206">                    availablePackages.getSelectionModel().clearSelection();</span>
+
+<span class="nc" id="L208">                }</span>
+            });
+<span class="nc" id="L210">            content.setActions(okButton);</span>
+<span class="nc" id="L211">            dialog.show();</span>
+<span class="nc" id="L212">            count++;</span>
+        }
+
+<span class="nc" id="L215">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

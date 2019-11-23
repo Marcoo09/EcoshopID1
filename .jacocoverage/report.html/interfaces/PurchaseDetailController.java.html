@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PurchaseDetailController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Ecoshop&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaces</a> &gt; <span class="el_source">PurchaseDetailController.java</span></div><h1>PurchaseDetailController.java</h1><pre class="source lang-java linenums">package interfaces;
+
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTabPane;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTreeTableColumn;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import domain.Client;
+import domain.PointOfSale;
+import domain.Product;
+import domain.Sale;
+import static interfaces.Ecoshop.myPrimaryStage;
+import static interfaces.Ecoshop.mySystem;
+import static interfaces.Ecoshop.newSale;
+import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import static java.time.LocalDate.now;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TitledPane;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import javafx.scene.web.WebView;
+import javafx.util.Callback;
+import javafx.util.Pair;
+
+/**
+ * FXML Controller class
+ *
+ * @author Agustín Hernandorena and Marco Fiorito
+ */
+
+<span class="nc" id="L56">public class PurchaseDetailController implements Initializable {</span>
+
+    private Integer currentTab;
+
+    @FXML
+    JFXTabPane tabPane;
+
+    @FXML
+    JFXListView listOfProducts;
+
+    @FXML
+    JFXTextField firstName;
+
+    @FXML
+    JFXTextField lastName;
+
+    @FXML
+    JFXTextField phoneNumber;
+
+    @FXML
+    JFXTextField identifyCard;
+
+    @FXML
+    JFXTextField clientNumber;
+        
+    @FXML
+    JFXCheckBox isPreSale;
+    
+    @FXML
+    JFXTextField firstNameResume;
+
+    @FXML
+    JFXTextField lastNameResume;
+
+    @FXML
+    JFXTextField phoneNumberResume;
+
+    @FXML
+    JFXTextField identifyCardResume;
+
+    @FXML
+    JFXTextField clientNumberResume;
+        
+    @FXML
+    JFXCheckBox isPreSaleResume;
+
+    @FXML
+    JFXDatePicker date;
+    
+    @FXML
+    JFXDatePicker dateResume;
+        
+    @FXML
+    Label confirmationText;
+
+    @FXML
+    private WebView browser;
+
+    @FXML
+    private JFXListView availablePointsOfSale;
+    
+    @FXML
+    private JFXTreeTableView&lt;PurchasedProductInfo&gt; table;
+
+    @FXML
+    private Label lblName;
+
+    @FXML
+    private Label lblQuantity;
+    
+    @FXML
+    private TitledPane datePane;
+    
+    @FXML
+    private JFXTextArea txtAreaPintOfSale;
+    
+    @FXML
+    private Text txtTotal;
+    
+    @FXML
+    private ImageView arrowBack;
+    
+    @FXML
+    private ImageView arrowNext;
+        
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+<span class="nc" id="L143">        currentTab = 0;</span>
+<span class="nc" id="L144">        initializeTabs();</span>
+<span class="nc" id="L145">        initializeListView();</span>
+<span class="nc" id="L146">        initializeMoreInformation();</span>
+<span class="nc" id="L147">        intitializeMap();</span>
+<span class="nc" id="L148">        initializeListViewOfPointOfSales();</span>
+<span class="nc" id="L149">        initializeResume();</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">        if(mySystem.isIsInPreSaleMode()){</span>
+<span class="nc" id="L151">            tabPane.getTabs().get(currentTab).setDisable(true);</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">            if(mySystem.getClient().getFirstName() != &quot;&quot;){</span>
+<span class="nc" id="L153">                currentTab = 2;</span>
+            }else{
+<span class="nc" id="L155">                currentTab = 1;</span>
+            }
+<span class="nc" id="L157">            isPreSale.setSelected(true);</span>
+<span class="nc" id="L158">            arrowBack.setVisible(true);</span>
+<span class="nc" id="L159">            tabPane.getTabs().get(currentTab).setDisable(false);</span>
+<span class="nc" id="L160">            tabPane.getSelectionModel().select(currentTab);</span>
+        }
+<span class="nc" id="L162">    }</span>
+
+    @FXML
+    private void initializeResume(){
+<span class="nc" id="L166">        initializeDetailOnResume();</span>
+<span class="nc" id="L167">        txtTotal.setText(&quot;$&quot; + newSale.getFullPayment());</span>
+<span class="nc" id="L168">    }</span>
+    
+    @FXML
+    private void initializeDetailOnResume(){
+<span class="nc" id="L172">        JFXTreeTableColumn&lt;PurchasedProductInfo, String&gt; nameCol = new JFXTreeTableColumn&lt;&gt;(&quot;Nombre&quot;);</span>
+<span class="nc" id="L173">        nameCol.setPrefWidth(250);</span>
+<span class="nc" id="L174">        JFXTreeTableColumn&lt;PurchasedProductInfo, String&gt; quantityCol = new JFXTreeTableColumn&lt;&gt;(&quot;Cantidad&quot;);</span>
+<span class="nc" id="L175">        quantityCol.setPrefWidth(250);</span>
+<span class="nc" id="L176">        JFXTreeTableColumn&lt;PurchasedProductInfo, String&gt; priceUnitCol = new JFXTreeTableColumn&lt;&gt;(&quot;Precio&quot;);</span>
+<span class="nc" id="L177">        priceUnitCol.setPrefWidth(250);</span>
+<span class="nc" id="L178">        JFXTreeTableColumn&lt;PurchasedProductInfo, String&gt; priceAllCol = new JFXTreeTableColumn&lt;&gt;(&quot;Precio Total&quot;);</span>
+<span class="nc" id="L179">        priceAllCol.setPrefWidth(250);</span>
+        
+<span class="nc" id="L181">        nameCol.setCellValueFactory(new Callback&lt;TreeTableColumn.CellDataFeatures&lt;PurchasedProductInfo, String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+            @Override
+            public ObservableValue&lt;String&gt; call(TreeTableColumn.CellDataFeatures&lt;PurchasedProductInfo, String&gt; param) {
+<span class="nc" id="L184">                return param.getValue().getValue().productName;</span>
+            }
+        });
+        
+<span class="nc" id="L188">        quantityCol.setCellValueFactory(new Callback&lt;TreeTableColumn.CellDataFeatures&lt;PurchasedProductInfo, String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+            @Override
+           public ObservableValue&lt;String&gt; call(TreeTableColumn.CellDataFeatures&lt;PurchasedProductInfo, String&gt; param) {
+<span class="nc" id="L191">                return param.getValue().getValue().quantitySold;</span>
+            }
+        });
+
+<span class="nc" id="L195">        priceUnitCol.setCellValueFactory(new Callback&lt;TreeTableColumn.CellDataFeatures&lt;PurchasedProductInfo, String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+            @Override
+           public ObservableValue&lt;String&gt; call(TreeTableColumn.CellDataFeatures&lt;PurchasedProductInfo, String&gt; param) {
+<span class="nc" id="L198">                return param.getValue().getValue().priceUnit;</span>
+            }
+        });
+                        
+<span class="nc" id="L202">        priceAllCol.setCellValueFactory(new Callback&lt;TreeTableColumn.CellDataFeatures&lt;PurchasedProductInfo, String&gt;, ObservableValue&lt;String&gt;&gt;() {</span>
+            @Override
+           public ObservableValue&lt;String&gt; call(TreeTableColumn.CellDataFeatures&lt;PurchasedProductInfo, String&gt; param) {
+<span class="nc" id="L205">                return param.getValue().getValue().incomeGenerated;</span>
+            }
+        });
+           
+<span class="nc" id="L209">        ObservableList&lt;PurchasedProductInfo&gt; products = FXCollections.observableArrayList();</span>
+<span class="nc" id="L210">        ArrayList&lt;Pair&gt; purchasedProducts = newSale.getPurchasedProducts();</span>
+
+<span class="nc bnc" id="L212" title="All 2 branches missed.">       for (int i = 0; i &lt; purchasedProducts.size(); i++) {</span>
+<span class="nc" id="L213">            Pair productPair = purchasedProducts.get(i);</span>
+<span class="nc" id="L214">            Product value = (Product) productPair.getKey();</span>
+<span class="nc" id="L215">            int quantity = (int) productPair.getValue();</span>
+<span class="nc" id="L216">            products.add(new PurchasedProductInfo(value,quantity));</span>
+        }
+<span class="nc" id="L218">        final TreeItem&lt;PurchasedProductInfo&gt; root = new RecursiveTreeItem&lt;PurchasedProductInfo&gt;(products, RecursiveTreeObject::getChildren);</span>
+<span class="nc" id="L219">        table.getColumns().setAll(nameCol, quantityCol, priceUnitCol,priceAllCol);</span>
+<span class="nc" id="L220">        table.setRoot(root);</span>
+<span class="nc" id="L221">        table.setShowRoot(false);</span>
+<span class="nc" id="L222">    }</span>
+    
+    private void initializeMoreInfoOnResume(){
+<span class="nc" id="L225">        Client client = newSale.getClient();</span>
+<span class="nc" id="L226">        firstNameResume.setText(client.getFirstName());</span>
+<span class="nc" id="L227">        lastNameResume.setText(client.getLastName());</span>
+<span class="nc" id="L228">        phoneNumberResume.setText(client.getPhoneNumber());</span>
+<span class="nc" id="L229">        identifyCardResume.setText(client.getIdentifyCard());</span>
+<span class="nc" id="L230">        clientNumberResume.setText(client.getClientNumber());</span>
+<span class="nc" id="L231">        isPreSale.setSelected(newSale.isIsPreSale());</span>
+<span class="nc" id="L232">    }</span>
+    
+    private void initializeDateOnResume(){
+<span class="nc bnc" id="L235" title="All 2 branches missed.">        if(!newSale.isIsPreSale()){</span>
+<span class="nc" id="L236">            datePane.setDisable(true);</span>
+        }else{
+<span class="nc" id="L238">            dateResume.setValue(newSale.getPurchaseDate());</span>
+        }
+<span class="nc" id="L240">    }</span>
+
+    @FXML
+    private void initializePointOfSaleOnResume(){
+<span class="nc" id="L244">        PointOfSale shopPlace = newSale.getShopPlace();</span>
+<span class="nc" id="L245">        txtAreaPintOfSale.setText(shopPlace.getName() + &quot;, &quot; + shopPlace.getAddress());</span>
+<span class="nc" id="L246">    }</span>
+    
+    @FXML
+    private void initializeMoreInformation(){
+<span class="nc" id="L250">        Client client = mySystem.getClient();</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">        if(client.getClientNumber() != &quot;&quot;){</span>
+<span class="nc" id="L252">            clientNumber.setText(client.getClientNumber());</span>
+<span class="nc" id="L253">            clientNumber.setDisable(true);</span>
+        }
+<span class="nc bnc" id="L255" title="All 2 branches missed.">        if(client.getFirstName()!= &quot;&quot;){</span>
+<span class="nc" id="L256">            firstName.setText(client.getFirstName());</span>
+<span class="nc" id="L257">            firstName.setDisable(true);</span>
+        }
+<span class="nc bnc" id="L259" title="All 2 branches missed.">        if(client.getLastName()!= &quot;&quot;){</span>
+<span class="nc" id="L260">            lastName.setText(client.getLastName());</span>
+<span class="nc" id="L261">            lastName.setDisable(true);</span>
+        }
+<span class="nc bnc" id="L263" title="All 2 branches missed.">        if(client.getIdentifyCard()!= &quot;&quot;){</span>
+<span class="nc" id="L264">            identifyCard.setText(client.getIdentifyCard());</span>
+<span class="nc" id="L265">            identifyCard.setDisable(true);</span>
+        }
+<span class="nc bnc" id="L267" title="All 2 branches missed.">        if(client.getPhoneNumber()!= &quot;&quot;){</span>
+<span class="nc" id="L268">            phoneNumber.setText(client.getPhoneNumber());</span>
+<span class="nc" id="L269">            phoneNumber.setDisable(true);</span>
+        }
+<span class="nc" id="L271">    }</span>
+    
+    @FXML
+    private void intitializeMap(){
+<span class="nc" id="L275">        final URL urlGoogleMaps = getClass().getResource(&quot;htmlResources/mapBuyFlow.html&quot;);</span>
+<span class="nc" id="L276">        browser.getEngine().load(urlGoogleMaps.toExternalForm());</span>
+<span class="nc" id="L277">    }</span>
+    
+    private void initializeListViewOfPointOfSales(){
+<span class="nc" id="L280">        availablePointsOfSale.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);</span>
+<span class="nc" id="L281">        ArrayList&lt;PointOfSale&gt; points = mySystem.getSalePoints();</span>
+<span class="nc bnc" id="L282" title="All 2 branches missed.">        for (int i = 0; i &lt; points.size(); i++) {</span>
+<span class="nc" id="L283">            availablePointsOfSale.getItems().add(points.get(i));</span>
+        }
+<span class="nc" id="L285">    }</span>
+    
+    @FXML
+    private void initializeTabs() {
+<span class="nc" id="L289">        tabPane.getTabs().get(currentTab).setDisable(false);</span>
+<span class="nc" id="L290">        tabPane.getSelectionModel().select(currentTab);</span>
+<span class="nc" id="L291">    }</span>
+
+    @FXML
+    private void initializeListView() {
+<span class="nc" id="L295">        ArrayList&lt;Pair&gt; purchasedProducts = newSale.getPurchasedProducts();</span>
+<span class="nc" id="L296">        purchasedProducts.forEach((product) -&gt; {</span>
+            try {
+<span class="nc" id="L298">                Product aProduct = (Product) product.getKey();</span>
+<span class="nc" id="L299">                Label lbl = new Label(&quot;&quot; + (int) product.getValue());</span>
+<span class="nc" id="L300">                lbl.setGraphic(new ImageView(new Image(&quot;resources/&quot; + aProduct.getName() + &quot;.png&quot;)));</span>
+<span class="nc" id="L301">                listOfProducts.getItems().add(lbl);</span>
+<span class="nc" id="L302">            } catch (Exception e) {</span>
+<span class="nc" id="L303">                System.out.println(&quot;An error occurs in charge the list&quot;);</span>
+<span class="nc" id="L304">            }</span>
+<span class="nc" id="L305">        });</span>
+<span class="nc" id="L306">    }</span>
+
+    @FXML
+    public void goToCartEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L310">        Parent root = FXMLLoader.load(getClass().getResource(&quot;PurchaseDetail.fxml&quot;));</span>
+<span class="nc" id="L311">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L312">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L313">        myPrimaryStage.show();</span>
+<span class="nc" id="L314">    }</span>
+
+    @FXML
+    public void sellerProfileEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L318">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MainWindowOfSeller.fxml&quot;));</span>
+<span class="nc" id="L319">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L320">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L321">        myPrimaryStage.show();</span>
+<span class="nc" id="L322">    }</span>
+    
+    @FXML
+    public void pointsOfSaleEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L326">        Parent root = FXMLLoader.load(getClass().getResource(&quot;PointsOfSaleWindow.fxml&quot;));</span>
+<span class="nc" id="L327">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L328">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L329">        myPrimaryStage.show();</span>
+<span class="nc" id="L330">    }</span>
+    
+    @FXML
+    public void registerClientEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L334">        Parent root = FXMLLoader.load(getClass().getResource(&quot;RegisterClientWindow.fxml&quot;));</span>
+<span class="nc" id="L335">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L336">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L337">        myPrimaryStage.show();</span>
+<span class="nc" id="L338">    }</span>
+
+    @FXML
+    public void goToListOfProducts(MouseEvent e) throws IOException {
+<span class="nc" id="L342">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MainWindowOfBuyer.fxml&quot;));</span>
+<span class="nc" id="L343">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L344">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L345">        myPrimaryStage.show();            </span>
+<span class="nc" id="L346">    }</span>
+    
+    @FXML
+    public void nextOfPointOfSaleTabEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L350">        PointOfSale pointSelected = (PointOfSale)availablePointsOfSale.getSelectionModel().getSelectedItem();</span>
+<span class="nc" id="L351">        Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L352">        alert.setTitle(&quot;Error&quot;);</span>
+<span class="nc" id="L353">        alert.setHeaderText(&quot;Error de local seleccionado&quot;);</span>
+<span class="nc bnc" id="L354" title="All 2 branches missed.">        if (pointSelected != null) {</span>
+<span class="nc" id="L355">            newSale.setShopPlace(pointSelected);</span>
+<span class="nc" id="L356">            initializeDateOnResume();</span>
+<span class="nc" id="L357">            initializePointOfSaleOnResume();</span>
+<span class="nc" id="L358">            nextTabLogic();</span>
+        } else {
+<span class="nc" id="L360">            alert.setContentText(&quot;Debe seleccionar un punto de venta&quot;);</span>
+<span class="nc" id="L361">            alert.showAndWait();</span>
+        }
+<span class="nc" id="L363">    }</span>
+    
+    @FXML
+    public void nextOfDateTabEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L367">        LocalDate dateSelected = date.getValue();</span>
+<span class="nc" id="L368">        Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L369">        alert.setTitle(&quot;Error&quot;);</span>
+<span class="nc" id="L370">        alert.setHeaderText(&quot;Error de fecha&quot;);</span>
+<span class="nc bnc" id="L371" title="All 2 branches missed.">        if (dateSelected != null) {</span>
+<span class="nc" id="L372">            LocalDate today = now();</span>
+<span class="nc bnc" id="L373" title="All 2 branches missed.">            if (dateSelected.isBefore(today)) {</span>
+<span class="nc" id="L374">                alert.setContentText(&quot;Debe ingresar una fecha posterior al dia de hoy.&quot;);</span>
+<span class="nc" id="L375">                alert.showAndWait();</span>
+            } else {
+<span class="nc" id="L377">                newSale.setPurchaseDate(dateSelected);</span>
+<span class="nc" id="L378">                nextTabLogic();</span>
+            }
+<span class="nc" id="L380">        } else {</span>
+<span class="nc" id="L381">            alert.setContentText(&quot;Debe seleccionar una fecha.&quot;);</span>
+<span class="nc" id="L382">            alert.showAndWait();</span>
+        }
+<span class="nc" id="L384">    }</span>
+
+    @FXML
+    public void nextOfMoreInfoTabEvent(MouseEvent e) throws IOException {
+<span class="nc bnc" id="L388" title="All 2 branches missed.">        if (enterAllFields()) {</span>
+<span class="nc" id="L389">            Client client = new Client(firstName.getText(), lastName.getText(), identifyCard.getText(), phoneNumber.getText(), clientNumber.getText());</span>
+<span class="nc" id="L390">            boolean isPreSaleValue = isPreSale.isSelected();</span>
+<span class="nc" id="L391">            newSale.setClient(client);</span>
+<span class="nc" id="L392">            newSale.setIsPreSale(isPreSaleValue);</span>
+<span class="nc" id="L393">            tabPane.getTabs().get(currentTab).setDisable(true);</span>
+<span class="nc" id="L394">            currentTab++;</span>
+<span class="nc bnc" id="L395" title="All 2 branches missed.">            if (!isPreSaleValue) {</span>
+<span class="nc" id="L396">                currentTab++;</span>
+            }
+<span class="nc" id="L398">            tabPane.getTabs().get(currentTab).setDisable(false);</span>
+<span class="nc" id="L399">            tabPane.getSelectionModel().select(currentTab);</span>
+<span class="nc" id="L400">            initializeMoreInfoOnResume();</span>
+        }
+<span class="nc" id="L402">    }</span>
+
+    @FXML
+    public boolean enterAllFields() {
+<span class="nc" id="L406">        boolean enterAllFields = false;</span>
+<span class="nc" id="L407">        String name = &quot;&quot;;</span>
+<span class="nc" id="L408">        String surname = &quot;&quot;;</span>
+<span class="nc" id="L409">        String telephoneNumber = &quot;&quot;;</span>
+<span class="nc" id="L410">        String identificationDocument = &quot;&quot;;</span>
+<span class="nc" id="L411">        String clientId = &quot;&quot;;</span>
+<span class="nc" id="L412">        name = firstName.getText();</span>
+<span class="nc" id="L413">        surname = lastName.getText();</span>
+<span class="nc" id="L414">        telephoneNumber = phoneNumber.getText();</span>
+<span class="nc" id="L415">        identificationDocument = identifyCard.getText();</span>
+<span class="nc" id="L416">        clientId = clientNumber.getText();</span>
+<span class="nc" id="L417">        Alert alert = new Alert(Alert.AlertType.ERROR);</span>
+<span class="nc" id="L418">        alert.setTitle(&quot;Error&quot;);</span>
+<span class="nc" id="L419">        alert.setHeaderText(&quot;Campo sin completar.&quot;);</span>
+<span class="nc bnc" id="L420" title="All 2 branches missed.">        if (name.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L421">            alert.setContentText(&quot;Debe ingresar un nombre.&quot;);</span>
+<span class="nc" id="L422">            alert.showAndWait();</span>
+<span class="nc bnc" id="L423" title="All 2 branches missed.">        } else if (surname.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L424">            alert.setContentText(&quot;Debe ingresar un apellido.&quot;);</span>
+<span class="nc" id="L425">            alert.showAndWait();</span>
+<span class="nc bnc" id="L426" title="All 2 branches missed.">        } else if (telephoneNumber.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L427">            alert.setContentText(&quot;Debe ingresar un numero de telefono.&quot;);</span>
+<span class="nc" id="L428">            alert.showAndWait();</span>
+<span class="nc bnc" id="L429" title="All 2 branches missed.">        } else if (identificationDocument.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L430">            alert.setContentText(&quot;Debe ingresar su cedula de identidad.&quot;);</span>
+<span class="nc" id="L431">            alert.showAndWait();</span>
+<span class="nc bnc" id="L432" title="All 2 branches missed.">        } else if (clientId.equals(&quot;&quot;)) {</span>
+<span class="nc" id="L433">            alert.setContentText(&quot;Debe ingresar su numero de cliente.&quot;);</span>
+<span class="nc" id="L434">            alert.showAndWait();</span>
+        } else {
+<span class="nc" id="L436">            enterAllFields = true;</span>
+        }
+<span class="nc" id="L438">        return enterAllFields;</span>
+    }
+
+    @FXML
+    public void nextTabEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L443">        nextTabLogic();</span>
+<span class="nc" id="L444">    }</span>
+
+    @FXML
+    public void previousTabEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L448">        previousTabLogic();</span>
+<span class="nc" id="L449">    }</span>
+
+    @FXML
+    public void confirmTabEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L453">        newSale.setTotalPrice(newSale.obtainPrice());</span>
+<span class="nc" id="L454">        mySystem.addSale(newSale);</span>
+<span class="nc" id="L455">        java.lang.System.out.println(mySystem.totalUsedPackages());</span>
+<span class="nc" id="L456">        newSale = new Sale();</span>
+
+<span class="nc" id="L458">        nextTabLogic();</span>
+<span class="nc" id="L459">    }</span>
+
+    @FXML
+    public void previousOfPointsOfSaleTabEvent(MouseEvent e) throws IOException {
+<span class="nc" id="L463">        tabPane.getTabs().get(currentTab).setDisable(true);</span>
+<span class="nc" id="L464">        currentTab--;</span>
+<span class="nc bnc" id="L465" title="All 2 branches missed.">        if (!newSale.isIsPreSale()) {</span>
+<span class="nc" id="L466">            currentTab--;</span>
+        }
+<span class="nc" id="L468">        tabPane.getTabs().get(currentTab).setDisable(false);</span>
+<span class="nc" id="L469">        tabPane.getSelectionModel().select(currentTab);</span>
+<span class="nc" id="L470">    }</span>
+
+    public void goToHome(MouseEvent e) throws IOException {
+<span class="nc" id="L473">        Parent root = FXMLLoader.load(getClass().getResource(&quot;MainWindowOfBuyer.fxml&quot;));</span>
+<span class="nc" id="L474">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L475">        myPrimaryStage.setScene(scene);</span>
+<span class="nc" id="L476">        myPrimaryStage.show();</span>
+<span class="nc" id="L477">    }</span>
+
+    public void nextTabLogic() {
+<span class="nc" id="L480">        tabPane.getTabs().get(currentTab).setDisable(true);</span>
+<span class="nc" id="L481">        currentTab++;</span>
+<span class="nc" id="L482">        tabPane.getTabs().get(currentTab).setDisable(false);</span>
+<span class="nc" id="L483">        tabPane.getSelectionModel().select(currentTab);</span>
+<span class="nc" id="L484">    }</span>
+
+    public void previousTabLogic() {
+<span class="nc" id="L487">        tabPane.getTabs().get(currentTab).setDisable(true);</span>
+<span class="nc" id="L488">        currentTab--;</span>
+<span class="nc" id="L489">        tabPane.getTabs().get(currentTab).setDisable(false);</span>
+<span class="nc" id="L490">        tabPane.getSelectionModel().select(currentTab);</span>
+<span class="nc" id="L491">    }</span>
+
+    @FXML
+    public void backLogic(MouseEvent e) throws IOException {
+<span class="nc bnc" id="L495" title="All 5 branches missed.">        switch(currentTab){ </span>
+            case 1:
+<span class="nc" id="L497">                arrowBack.setVisible(false);</span>
+<span class="nc" id="L498">                previousTabLogic();</span>
+<span class="nc" id="L499">                break;</span>
+            case 2:
+<span class="nc" id="L501">                previousTabLogic();</span>
+<span class="nc" id="L502">                break;                </span>
+            case 3:
+<span class="nc" id="L504">                previousOfPointsOfSaleTabEvent(e);</span>
+<span class="nc" id="L505">                break;</span>
+            case 4:
+<span class="nc" id="L507">                previousTabLogic();</span>
+                break;             
+        }
+<span class="nc" id="L510">    }</span>
+    
+    @FXML
+    public void nextLogic(MouseEvent e) throws IOException {
+<span class="nc bnc" id="L514" title="All 6 branches missed.">        switch(currentTab){ </span>
+            case 0:
+<span class="nc" id="L516">                nextTabEvent(e);</span>
+<span class="nc" id="L517">                arrowBack.setVisible(true);</span>
+<span class="nc" id="L518">                break;</span>
+            case 1:
+<span class="nc" id="L520">                nextOfMoreInfoTabEvent(e);</span>
+<span class="nc" id="L521">                break;</span>
+            case 2:
+<span class="nc" id="L523">                nextOfDateTabEvent(e);</span>
+<span class="nc" id="L524">                break;                </span>
+            case 3:
+<span class="nc" id="L526">                nextOfPointOfSaleTabEvent(e);</span>
+<span class="nc" id="L527">                break;</span>
+            case 4:
+<span class="nc" id="L529">                confirmTabEvent(e);</span>
+<span class="nc" id="L530">                arrowBack.setVisible(false);</span>
+<span class="nc" id="L531">                arrowNext.setVisible(false);</span>
+                break;             
+        }
+<span class="nc" id="L534">    }    </span>
+    
+    class PurchasedProductInfo extends RecursiveTreeObject&lt;PurchasedProductInfo&gt; {
+
+        StringProperty productName;
+        StringProperty quantitySold;
+        StringProperty incomeGenerated;
+        StringProperty priceUnit;
+        
+<span class="nc" id="L543">        public PurchasedProductInfo(Product aProduct, int quantity) {</span>
+<span class="nc" id="L544">            this.productName = new SimpleStringProperty(aProduct.getName());</span>
+<span class="nc" id="L545">            this.quantitySold = new SimpleStringProperty(&quot;&quot; + quantity);</span>
+<span class="nc" id="L546">            this.incomeGenerated = new SimpleStringProperty(&quot;$ &quot; + (quantity * aProduct.getPrice()));</span>
+<span class="nc" id="L547">            this.priceUnit = new SimpleStringProperty(&quot;$ &quot; + aProduct.getPrice());</span>
+<span class="nc" id="L548">        }</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
