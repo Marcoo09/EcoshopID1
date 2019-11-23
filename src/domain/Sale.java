@@ -75,7 +75,6 @@ public class Sale {
     public boolean pertain(Product product){
         boolean ret=false;
         for (int i = 0; i < purchasedProducts.size(); i++) {
-            Pair currentPair = purchasedProducts.get(i);
             Product currentProduct = (Product)purchasedProducts.get(i).getKey();
             if(currentProduct.getName().equalsIgnoreCase(product.getName())){
                 ret=true;
