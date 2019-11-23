@@ -127,24 +127,6 @@ public class System {
         return returnPair;
     }
 
-    public ArrayList<Pair> productsOrderedBySales() {
-        ArrayList<Pair> list = totalQuantitySoldPerProduct();
-        list.sort(new Comparator<Pair>() {
-            @Override
-            public int compare(Pair o1, Pair o2) {
-                if ((int) (o1.getValue()) > (int) o2.getValue()) {
-                    return -1;
-                } else if ((int) (o1.getValue()) == (int) o2.getValue()) {
-                    return 0;
-                } else {
-                    return 1;
-                }
-            }
-        }
-        );
-        return list;
-    }
-
     public int[] quantityOfOrganicProductsSold() {
         //In position 0 put the organics and in 1 the inorganics.
         int[] organicAndInorganic = new int[2];

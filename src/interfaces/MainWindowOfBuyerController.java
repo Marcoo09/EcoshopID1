@@ -1,5 +1,6 @@
 package interfaces;
 
+import com.jfoenix.controls.JFXButton;
 import domain.Product;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
@@ -81,6 +82,32 @@ public class MainWindowOfBuyerController implements Initializable {
         }
         lblCant.setText(" " + newSale.getPurchasedProducts().size());
     }
+    
+    @FXML
+    public void moreInfoEvent(ActionEvent e) throws IOException {
+        pendingProduct = new Product();
+        Button btn = (Button) e.getSource();
+        String element = btn.getId();
+        pendingProduct = mySystem.getProductsByName(element);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddProductToCart.fxml"));
+        Scene newScene;
+        try {
+            newScene = new Scene(loader.load());
+        } catch (IOException ex) {
+            return;
+        }
+        Stage inputStage = new Stage();
+        inputStage.initStyle(StageStyle.UNDECORATED);
+        inputStage.initOwner(myPrimaryStage);
+        inputStage.setScene(newScene);
+        inputStage.showAndWait();
+
+        chargePane();
+        if (newSale.getPurchasedProducts().size() != 0) {
+            changeStyleOfQuantityText(true);
+        }
+        lblCant.setText(" " + newSale.getPurchasedProducts().size());
+    }
 
     @FXML
     public void goToCartEvent(MouseEvent e) throws IOException {
@@ -131,7 +158,7 @@ public class MainWindowOfBuyerController implements Initializable {
             Button addToCart = (Button) listOfChildrens.get(2);
             Label labelOfPrice = (Label) listOfChildrens.get(3);
             Label labelOfQuantity = (Label) listOfChildrens.get(4);
-
+            JFXButton moreInfo = (JFXButton)listOfChildrens.get(6);
             try {
                 Product currentProduct = productList.get(index);
                 image = new Image("resources/" + currentProduct.getName() + ".png");
@@ -142,6 +169,7 @@ public class MainWindowOfBuyerController implements Initializable {
                 int quantityOfTimes = (int) newSale.getProduct(currentProduct).getValue();
                 labelOfQuantity.setText(Integer.toString(quantityOfTimes));
                 addToCart.setId(currentProduct.getName());
+                moreInfo.setId(currentProduct.getName());
             } catch (Exception e) {
                 productPane.setVisible(false);
             }

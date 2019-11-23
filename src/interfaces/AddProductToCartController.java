@@ -37,10 +37,10 @@ public class AddProductToCartController implements Initializable {
     ImageView firstAuxImage;
 
     @FXML
-    VBox secondAuxImage;
+    ImageView secondAuxImage;
 
     @FXML
-    VBox thirdAuxImage;
+    ImageView thirdAuxImage;
 
     @FXML
     Label nameOfProduct;
@@ -76,7 +76,12 @@ public class AddProductToCartController implements Initializable {
     @FXML
     private void initializeDetail() {
         Image image = new Image("resources/" + pendingProduct.getName() + ".png");
+        Image secondImage = new Image("resources/" + pendingProduct.getName() + "2.png");
+        Image thirdImage = new Image("resources/" + pendingProduct.getName() + "3.png"); 
         mainImage.setImage(image);
+        firstAuxImage.setImage(image);
+        secondAuxImage.setImage(secondImage);
+        thirdAuxImage.setImage(thirdImage);
         nameOfProduct.setText(pendingProduct.getName());
         price.setText("$ " + pendingProduct.getPrice());
         description.setText(pendingProduct.toString());
@@ -92,6 +97,26 @@ public class AddProductToCartController implements Initializable {
             packagesContainer.getItems().add(labelToAdd);
         }
     }
+
+    @FXML
+    private void firstImageEvent(MouseEvent event) {
+        Image image = new Image("resources/" + pendingProduct.getName() + ".png");
+        mainImage.setImage(image);
+    }
+
+    @FXML
+    private void secondImageEvent(MouseEvent event) {
+        Image image = new Image("resources/" + pendingProduct.getName() + "2.png");
+        mainImage.setImage(image);
+    }
+    
+    @FXML
+    private void thirdImageEvent(MouseEvent event) {
+        Image image = new Image("resources/" + pendingProduct.getName() + "3.png");
+        mainImage.setImage(image);
+    }
+    
+    
 
     @FXML
     private void close(MouseEvent event) {

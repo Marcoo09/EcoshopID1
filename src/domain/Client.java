@@ -67,5 +67,11 @@ public class Client {
     public void setClientNumber(String clientNumber) {
         this.clientNumber = clientNumber;
     }
+    
+    @Override
+    public boolean equals (Object o){
+        Client aClient = (Client)o;
+        return this.getIdentifyCard().equals(aClient.getIdentifyCard());
+    }
 
 }

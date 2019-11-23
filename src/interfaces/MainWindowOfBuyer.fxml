@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXClippedPane?>
 <?import com.jfoenix.controls.JFXDialog?>
 <?import javafx.scene.control.Button?>
@@ -31,9 +32,9 @@
             </Label>
             <AnchorPane onMouseClicked="#goToCartEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="7.0" layoutY="21.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Carrito" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="-3.0" layoutY="21.0" prefHeight="18.0" prefWidth="158.0" style="-fx-background-color: #6C6C6C;" text="Compra" textFill="WHITE">
                      <font>
-                        <Font size="13.0" />
+                        <Font name="System Bold" size="13.0" />
                      </font></Label>
                   <ImageView layoutX="26.0" layoutY="21.0" AnchorPane.leftAnchor="20.0">
                      <image>
@@ -70,7 +71,7 @@
             </AnchorPane>
             <AnchorPane onMouseClicked="#registerClientEvent" prefHeight="0.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="31.0" layoutY="20.0" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: #6C6C6C;" text="Cuenta de cliente" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="42.0" layoutY="20.0" prefHeight="19.0" prefWidth="65.0" style="-fx-background-color: #6C6C6C;" text="Mi cuenta" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -130,6 +131,11 @@
                         <Font size="14.0" />
                      </font></Label>
                   <Label id="price" layoutX="14.0" layoutY="171.0" text="\$" textFill="#969595" />
+                  <JFXButton layoutX="171.0" layoutY="174.0" onAction="#moreInfoEvent" prefHeight="17.0" prefWidth="58.0" style="-fx-background-color: #106EAF;" text="Mas info" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </JFXButton>
                  </children>
                <effect>
                   <DropShadow color="#898989" />
@@ -149,6 +155,11 @@
                         <Font size="14.0" />
                      </font></Label>
                   <Label id="price" layoutX="14.0" layoutY="171.0" text="\$" textFill="#969595" />
+                  <JFXButton layoutX="173.0" layoutY="173.0" onAction="#moreInfoEvent" prefHeight="17.0" prefWidth="58.0" style="-fx-background-color: #106EAF;" text="Mas info" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </JFXButton>
                  </children>
                <effect>
                   <DropShadow color="#898989" />
@@ -170,6 +181,11 @@
                      </font>
                   </Label>
                   <Label id="price" layoutX="14.0" layoutY="171.0" text="\$" textFill="#969595" />
+                  <JFXButton layoutX="173.0" layoutY="173.0" onAction="#moreInfoEvent" prefHeight="17.0" prefWidth="58.0" style="-fx-background-color: #106EAF;" text="Mas info" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </JFXButton>
                </children>
                <effect>
                   <DropShadow color="#898989" />
@@ -189,6 +205,11 @@
                         <Font size="14.0" />
                      </font></Label>
                   <Label id="price" layoutX="14.0" layoutY="171.0" text="\$" textFill="#969595" />
+                  <JFXButton layoutX="173.0" layoutY="173.0" onAction="#moreInfoEvent" prefHeight="17.0" prefWidth="58.0" style="-fx-background-color: #106EAF;" text="Mas info" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </JFXButton>
                  </children>
                <effect>
                   <DropShadow color="#898989" />
@@ -208,6 +229,11 @@
                         <Font size="14.0" />
                      </font></Label>
                   <Label id="price" layoutX="14.0" layoutY="171.0" text="\$" textFill="#969595" />
+                  <JFXButton layoutX="173.0" layoutY="173.0" onAction="#moreInfoEvent" prefHeight="17.0" prefWidth="58.0" style="-fx-background-color: #106EAF;" text="Mas info" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </JFXButton>
                  </children>
                <effect>
                   <DropShadow color="#898989" />
@@ -229,6 +255,11 @@
                      </font>
                   </Label>
                   <Label id="price" layoutX="14.0" layoutY="171.0" text="\$" textFill="#969595" />
+                  <JFXButton layoutX="173.0" layoutY="173.0" onAction="#moreInfoEvent" prefHeight="17.0" prefWidth="58.0" style="-fx-background-color: #106EAF;" text="Mas info" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </JFXButton>
                </children>
                <effect>
                   <DropShadow color="#898989" />
@@ -250,6 +281,11 @@
                      </font>
                   </Label>
                   <Label id="price" layoutX="14.0" layoutY="171.0" text="\$" textFill="#969595" />
+                  <JFXButton layoutX="173.0" layoutY="173.0" onAction="#moreInfoEvent" prefHeight="17.0" prefWidth="58.0" style="-fx-background-color: #106EAF;" text="Mas info" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </JFXButton>
                </children>
                <effect>
                   <DropShadow color="#898989" />
@@ -271,6 +307,11 @@
                      </font>
                   </Label>
                   <Label id="price" layoutX="14.0" layoutY="171.0" text="\$" textFill="#969595" />
+                  <JFXButton layoutX="173.0" layoutY="173.0" onAction="#moreInfoEvent" prefHeight="17.0" prefWidth="58.0" style="-fx-background-color: #106EAF;" text="Mas info" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </JFXButton>
                </children>
                <effect>
                   <DropShadow color="#898989" />
@@ -292,6 +333,11 @@
                      </font>
                   </Label>
                   <Label id="price" layoutX="14.0" layoutY="171.0" text="\$" textFill="#969595" />
+                  <JFXButton layoutX="173.0" layoutY="173.0" onAction="#moreInfoEvent" prefHeight="17.0" prefWidth="58.0" style="-fx-background-color: #106EAF;" text="Mas info" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </JFXButton>
                </children>
                <effect>
                   <DropShadow color="#898989" />

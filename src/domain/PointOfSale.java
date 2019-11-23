@@ -17,16 +17,19 @@ public class PointOfSale {
     private ArrayList<Product> selledProducts;
     private ArrayList<Sale> sales;
 
-    PointOfSale() {
+    public PointOfSale() {
+        this.setAddress("");
+        this.setName("");
+        this.setDescription("");
         productsForSale = new ArrayList<>();
         selledProducts = new ArrayList<>();
         sales = new ArrayList<>();
     }
 
     public PointOfSale(String address, String name, String description) {
-        setAddress(address);
-        setName(name);
-        setDescription(description);
+        this.setAddress(address);
+        this.setName(name);
+        this.setDescription(description);
         productsForSale = new ArrayList<>();
         selledProducts = new ArrayList<>();
         sales = new ArrayList<>();
@@ -78,30 +81,6 @@ public class PointOfSale {
 
     public void addSoldProduct(Product p) {
         selledProducts.add(p);
-    }
-
-    //PRE: The store sold some product.
-    //POS: Given a natural n, returns a list of the n best selling products of
-    // the store.
-    public ArrayList<Product> mostSelledProducts(int quantity) {
-        ArrayList<Product> listOfBestSellingProducts = new ArrayList<>();
-        for (int i = 0; i < selledProducts.size() && quantity > 0; i++) {
-            listOfBestSellingProducts.add(selledProducts.get(i));
-            quantity--;
-        }
-        return listOfBestSellingProducts;
-    }
-
-    //PRE: This operation don't have preconditions.
-    //POS: Given a month, return a list of all sales in that month.
-    public ArrayList<Sale> salesPerMonth(int month) {
-        ArrayList<Sale> returnList = new ArrayList<>();
-        for (int i = 0; i < sales.size(); i++) {
-            if (sales.get(i).getPurchaseDate().getDayOfMonth() == month) {
-                returnList.add(sales.get(i));
-            }
-        }
-        return returnList;
     }
 
     @Override

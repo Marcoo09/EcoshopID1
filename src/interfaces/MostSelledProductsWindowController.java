@@ -88,7 +88,7 @@ public class MostSelledProductsWindowController implements Initializable {
             }
         });
         ObservableList<ProductInfo> products = FXCollections.observableArrayList();
-        ArrayList<Pair> sortedProducts = mySystem.productsOrderedBySales();
+        ArrayList<Pair> sortedProducts = mySystem.totalQuantitySoldPerProduct();
         for (int i = 0; i < sortedProducts.size(); i++) {
             Pair p = sortedProducts.get(i);
             products.add(new ProductInfo((Product) p.getKey(), (int) p.getValue()));
