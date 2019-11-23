@@ -4,7 +4,6 @@ package domain;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public class Client {
 
     private String firstName;
@@ -20,14 +19,15 @@ public class Client {
         this.setPhoneNumber(phoneNumber);
         this.setClientNumber(clientNumber);
     }
-    public Client(){
+
+    public Client() {
         this.setClientNumber("");
         this.setFirstName("");
         this.setIdentifyCard("");
         this.setPhoneNumber("");
         this.setlastName("");
     }
-        
+
     public String getFirstName() {
         return firstName;
     }
@@ -66,6 +66,12 @@ public class Client {
 
     public void setClientNumber(String clientNumber) {
         this.clientNumber = clientNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Client aClient = (Client) o;
+        return this.getIdentifyCard().equals(aClient.getIdentifyCard());
     }
 
 }
