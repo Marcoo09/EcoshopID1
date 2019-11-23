@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
 import java.util.ArrayList;
@@ -260,7 +255,7 @@ public class ProductTest {
     }
 
     /**
-     * Test of toString method, of class Product.
+     * Test of toString method with an organic product, of class Product.
      */
     @Test
     public void testToString() {
@@ -272,4 +267,17 @@ public class ProductTest {
         assertEquals(expect, aProduct.toString());
     }
 
+    /**
+     * Test of toString method with a not organic product, of class Product.
+     */
+    @Test
+    public void testToString2() {
+        aProduct.setMaterial("Madera");
+        aProduct.setOrganic(false);
+        aProduct.setCountryOfOrigin("Brasil");
+        String expect = "El material es: " + aProduct.getMaterial() + "\n" + (aProduct.isOrganic() ? "Es organico\n" : "No es Organico\n")
+                + "Proviene de " + aProduct.getCountryOfOrigin() + "\n";
+        assertEquals(expect, aProduct.toString());
+    }
+    
 }
