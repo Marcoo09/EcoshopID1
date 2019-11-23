@@ -8,7 +8,6 @@ import javafx.util.Pair;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public class Sale {
 
     private ArrayList<Pair> purchasedProducts;
@@ -21,22 +20,22 @@ public class Sale {
     private ArrayList<Package> usedPackagingList;
     private boolean isPreSale;
     private Client client;
-    
+
     public Sale() {
         purchasedProducts = new ArrayList<>();
         usedPackagingList = new ArrayList<>();
-        setPurchaseDate(LocalDate.now());
+        this.setPurchaseDate(LocalDate.now());
     }
 
     public Sale(PointOfSale shopPlace, String ticketNumber, int fullPayment, int totalPrice) {
-        setShopPlace(shopPlace);
-        setTicketNumber(ticketNumber);
-        setFullPayment(fullPayment);
-        setTotalPrice(totalPrice);
-        setChange(totalPrice - fullPayment);
+        this.setShopPlace(shopPlace);
+        this.setTicketNumber(ticketNumber);
+        this.setFullPayment(fullPayment);
+        this.setTotalPrice(totalPrice);
+        this.setChange(totalPrice - fullPayment);
         purchasedProducts = new ArrayList<>();
         usedPackagingList = new ArrayList<>();
-        setPurchaseDate(LocalDate.now());
+        this.setPurchaseDate(LocalDate.now());
     }
 
     public Client getClient() {
@@ -54,35 +53,35 @@ public class Sale {
     public void setIsPreSale(boolean isPreSale) {
         this.isPreSale = isPreSale;
     }
-    
+
     public ArrayList<Pair> getPurchasedProducts() {
         return purchasedProducts;
     }
-    
-    public Pair getProduct(Product product){
+
+    public Pair getProduct(Product product) {
         Product aProduct = new Product();
-        Pair returnedValue = new Pair(aProduct,0);
+        Pair returnedValue = new Pair(aProduct, 0);
         for (int i = 0; i < purchasedProducts.size(); i++) {
             Pair currentPair = purchasedProducts.get(i);
-            Product currentProduct = (Product)purchasedProducts.get(i).getKey();
-            if(currentProduct.getName().equalsIgnoreCase(product.getName())){
+            Product currentProduct = (Product) purchasedProducts.get(i).getKey();
+            if (currentProduct.getName().equalsIgnoreCase(product.getName())) {
                 returnedValue = currentPair;
             }
         }
         return returnedValue;
     }
-    
-    public boolean pertain(Product product){
-        boolean ret=false;
+
+    public boolean pertain(Product product) {
+        boolean ret = false;
         for (int i = 0; i < purchasedProducts.size(); i++) {
-            Product currentProduct = (Product)purchasedProducts.get(i).getKey();
-            if(currentProduct.getName().equalsIgnoreCase(product.getName())){
-                ret=true;
+            Product currentProduct = (Product) purchasedProducts.get(i).getKey();
+            if (currentProduct.getName().equalsIgnoreCase(product.getName())) {
+                ret = true;
             }
         }
         return ret;
     }
-    
+
     public void addProductToCart(Pair product) {
         Product productToAdd = (Product) product.getKey();
         int quantity = (int) product.getValue();
@@ -119,7 +118,7 @@ public class Sale {
         }
         return totalPrice;
     }
-    
+
     public String getTicketNumber() {
         return ticketNumber;
     }
@@ -164,8 +163,4 @@ public class Sale {
         usedPackagingList.remove(aPackage);
     }
 
-    @Override
-    public String toString() {
-        return "Sale{" + "purchasedProducts=" + purchasedProducts + ", shopPlace=" + shopPlace + ", totalPrice=" + totalPrice + ", ticketNumber=" + ticketNumber + ", purchaseDate=" + purchaseDate + ", fullPayment=" + fullPayment + ", change=" + change + ", usedPackagingList=" + usedPackagingList + '}';
-    }
 }

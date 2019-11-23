@@ -3,17 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/interfaces/RegisterClientWindowController.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/interfaces/Ecoshop.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/interfaces/PurchaseDetailController.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/interfaces/MainWindowOfBuyerController.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/domain/Client.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/domain/System.java</file>
-<<<<<<< Updated upstream
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/interfaces/AddProductToCartController.java</file>
-=======
->>>>>>> Stashed changes
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/interfaces/MainWindowOfSellerController.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/HomeWindowController.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/Sale.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/MainWindowOfBuyerController.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/System.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/interfaces/PurchaseDetail.fxml</file>
         </group>
     </open-files>
 </project-private>
