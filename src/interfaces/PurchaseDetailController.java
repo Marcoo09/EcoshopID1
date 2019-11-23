@@ -35,6 +35,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.Image;
@@ -77,10 +78,31 @@ public class PurchaseDetailController implements Initializable {
         
     @FXML
     JFXCheckBox isPreSale;
+    
+    @FXML
+    JFXTextField firstNameResume;
+
+    @FXML
+    JFXTextField lastNameResume;
+
+    @FXML
+    JFXTextField phoneNumberResume;
+
+    @FXML
+    JFXTextField identifyCardResume;
+
+    @FXML
+    JFXTextField clientNumberResume;
+        
+    @FXML
+    JFXCheckBox isPreSaleResume;
 
     @FXML
     JFXDatePicker date;
-
+    
+    @FXML
+    JFXDatePicker dateResume;
+        
     @FXML
     Label confirmationText;
 
@@ -99,6 +121,9 @@ public class PurchaseDetailController implements Initializable {
     @FXML
     private Label lblQuantity;
     
+    @FXML
+    private TitledPane datePane;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentTab = 0;
@@ -112,7 +137,11 @@ public class PurchaseDetailController implements Initializable {
 
     @FXML
     private void initializeResume(){
-        //InitializeDetail
+        initializeDetailOnResume();
+    }
+    
+    @FXML
+    private void initializeDetailOnResume(){
         JFXTreeTableColumn<PurchasedProductInfo, String> nameCol = new JFXTreeTableColumn<>("Nombre");
         nameCol.setPrefWidth(250);
         JFXTreeTableColumn<PurchasedProductInfo, String> quantityCol = new JFXTreeTableColumn<>("Cantidad");
@@ -164,7 +193,25 @@ public class PurchaseDetailController implements Initializable {
         table.setRoot(root);
         table.setShowRoot(false);
     }
-
+    
+    private void initializeMoreInfoOnResume(){
+        Client client = newSale.getClient();
+        firstNameResume.setText(client.getFirstName());
+        lastNameResume.setText(client.getLastName());
+        phoneNumberResume.setText(client.getPhoneNumber());
+        identifyCardResume.setText(client.getIdentifyCard());
+        clientNumberResume.setText(client.getClientNumber());
+        isPreSale.setSelected(newSale.isIsPreSale());
+    }
+    
+    private void initializeDateOnResume(){
+        if(!newSale.isIsPreSale()){
+            datePane.setDisable(true);
+        }else{
+            dateResume.setValue(newSale.getPurchaseDate());
+        }
+    }
+    
     @FXML
     private void initializeMoreInformation(){
         Client client = mySystem.getClient();
@@ -265,6 +312,7 @@ public class PurchaseDetailController implements Initializable {
         alert.setHeaderText("Error de local seleccionado");
         if (pointSelected != null) {
             newSale.setShopPlace(pointSelected);
+            initializeDateOnResume();
             nextTabLogic();
         } else {
             alert.setContentText("Debe seleccionar un punto de venta");
@@ -307,6 +355,7 @@ public class PurchaseDetailController implements Initializable {
             }
             tabPane.getTabs().get(currentTab).setDisable(false);
             tabPane.getSelectionModel().select(currentTab);
+            initializeMoreInfoOnResume();
         }
     }
 
@@ -409,8 +458,8 @@ public class PurchaseDetailController implements Initializable {
         public PurchasedProductInfo(Product aProduct, int quantity) {
             this.productName = new SimpleStringProperty(aProduct.getName());
             this.quantitySold = new SimpleStringProperty("" + quantity);
-            this.incomeGenerated = new SimpleStringProperty("" + (quantity * aProduct.getPrice()));
-            this.priceUnit = new SimpleStringProperty("" + aProduct.getPrice());
+            this.incomeGenerated = new SimpleStringProperty("$ " + (quantity * aProduct.getPrice()));
+            this.priceUnit = new SimpleStringProperty("$ " + aProduct.getPrice());
         }
     }
     
