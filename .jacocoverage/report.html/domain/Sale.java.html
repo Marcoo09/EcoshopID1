@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Sale.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Ecoshop&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">domain</a> &gt; <span class="el_source">Sale.java</span></div><h1>Sale.java</h1><pre class="source lang-java linenums">package domain;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import javafx.util.Pair;
+
+/**
+ *
+ * @author Agustin Hernandorena and Marco Fiorito
+ */
+public class Sale {
+
+    private ArrayList&lt;Pair&gt; purchasedProducts;
+    private PointOfSale shopPlace;
+    private int totalPrice;
+    private String ticketNumber;
+    private LocalDate purchaseDate;
+    private int fullPayment;
+    private int change;
+    private ArrayList&lt;Package&gt; usedPackagingList;
+    private boolean isPreSale;
+    private Client client;
+
+<span class="fc" id="L24">    public Sale() {</span>
+<span class="fc" id="L25">        purchasedProducts = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L26">        usedPackagingList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L27">        this.setPurchaseDate(LocalDate.now());</span>
+<span class="fc" id="L28">    }</span>
+
+<span class="fc" id="L30">    public Sale(PointOfSale shopPlace, String ticketNumber, int fullPayment, int totalPrice) {</span>
+<span class="fc" id="L31">        this.setShopPlace(shopPlace);</span>
+<span class="fc" id="L32">        this.setTicketNumber(ticketNumber);</span>
+<span class="fc" id="L33">        this.setFullPayment(fullPayment);</span>
+<span class="fc" id="L34">        this.setTotalPrice(totalPrice);</span>
+<span class="fc" id="L35">        this.setChange(totalPrice - fullPayment);</span>
+<span class="fc" id="L36">        purchasedProducts = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L37">        usedPackagingList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L38">        this.setPurchaseDate(LocalDate.now());</span>
+<span class="fc" id="L39">    }</span>
+
+    public Client getClient() {
+<span class="fc" id="L42">        return client;</span>
+    }
+
+    public void setClient(Client client) {
+<span class="fc" id="L46">        this.client = client;</span>
+<span class="fc" id="L47">    }</span>
+
+    public boolean isIsPreSale() {
+<span class="fc" id="L50">        return isPreSale;</span>
+    }
+
+    public void setIsPreSale(boolean isPreSale) {
+<span class="fc" id="L54">        this.isPreSale = isPreSale;</span>
+<span class="fc" id="L55">    }</span>
+
+    public ArrayList&lt;Pair&gt; getPurchasedProducts() {
+<span class="fc" id="L58">        return purchasedProducts;</span>
+    }
+
+    public Pair getProduct(Product product) {
+<span class="fc" id="L62">        Product aProduct = new Product();</span>
+<span class="fc" id="L63">        Pair returnedValue = new Pair(aProduct, 0);</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        for (int i = 0; i &lt; purchasedProducts.size(); i++) {</span>
+<span class="fc" id="L65">            Pair currentPair = purchasedProducts.get(i);</span>
+<span class="fc" id="L66">            Product currentProduct = (Product) purchasedProducts.get(i).getKey();</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">            if (currentProduct.getName().equalsIgnoreCase(product.getName())) {</span>
+<span class="fc" id="L68">                returnedValue = currentPair;</span>
+            }
+        }
+<span class="fc" id="L71">        return returnedValue;</span>
+    }
+
+    public boolean pertain(Product product) {
+<span class="fc" id="L75">        boolean ret = false;</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        for (int i = 0; i &lt; purchasedProducts.size(); i++) {</span>
+<span class="fc" id="L77">            Product currentProduct = (Product) purchasedProducts.get(i).getKey();</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            if (currentProduct.getName().equalsIgnoreCase(product.getName())) {</span>
+<span class="fc" id="L79">                ret = true;</span>
+            }
+        }
+<span class="fc" id="L82">        return ret;</span>
+    }
+
+    public void addProductToCart(Pair product) {
+<span class="fc" id="L86">        Product productToAdd = (Product) product.getKey();</span>
+<span class="fc" id="L87">        int quantity = (int) product.getValue();</span>
+<span class="fc" id="L88">        setFullPayment(getFullPayment() + productToAdd.getPrice() * quantity);</span>
+<span class="fc" id="L89">        purchasedProducts.add(product);</span>
+<span class="fc" id="L90">    }</span>
+
+    public void removeProductOfCart(Pair product) {
+<span class="fc" id="L93">        purchasedProducts.remove(product);</span>
+<span class="fc" id="L94">    }</span>
+
+    public PointOfSale getShopPlace() {
+<span class="fc" id="L97">        return shopPlace;</span>
+    }
+
+    public void setShopPlace(PointOfSale shopPlace) {
+<span class="fc" id="L101">        this.shopPlace = shopPlace;</span>
+<span class="fc" id="L102">    }</span>
+
+    public int getTotalPrice() {
+<span class="fc" id="L105">        return totalPrice;</span>
+    }
+
+    public void setTotalPrice(int aTotalPrice) {
+<span class="fc" id="L109">        totalPrice = aTotalPrice;</span>
+<span class="fc" id="L110">    }</span>
+
+    public int obtainPrice() {
+<span class="fc" id="L113">        int totalPrice = 0;</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        for (int i = 0; i &lt; purchasedProducts.size(); i++) {</span>
+<span class="fc" id="L115">            Product p = (Product) purchasedProducts.get(i).getKey();</span>
+<span class="fc" id="L116">            int quantity = (int) purchasedProducts.get(i).getValue();</span>
+<span class="fc" id="L117">            totalPrice += p.getPrice() * (quantity);</span>
+        }
+<span class="fc" id="L119">        return totalPrice;</span>
+    }
+
+    public String getTicketNumber() {
+<span class="fc" id="L123">        return ticketNumber;</span>
+    }
+
+    public void setTicketNumber(String ticketNumber) {
+<span class="fc" id="L127">        this.ticketNumber = ticketNumber;</span>
+<span class="fc" id="L128">    }</span>
+
+    public int getFullPayment() {
+<span class="fc" id="L131">        return fullPayment;</span>
+    }
+
+    public LocalDate getPurchaseDate() {
+<span class="fc" id="L135">        return purchaseDate;</span>
+    }
+
+    public void setPurchaseDate(LocalDate purchaseDate) {
+<span class="fc" id="L139">        this.purchaseDate = purchaseDate;</span>
+<span class="fc" id="L140">    }</span>
+
+    public void setFullPayment(int fullPayment) {
+<span class="fc" id="L143">        this.fullPayment = fullPayment;</span>
+<span class="fc" id="L144">    }</span>
+
+    public int getChange() {
+<span class="fc" id="L147">        return change;</span>
+    }
+
+    public void setChange(int change) {
+<span class="fc" id="L151">        this.change = change;</span>
+<span class="fc" id="L152">    }</span>
+
+    public ArrayList&lt;Package&gt; getPackagesUsed() {
+<span class="fc" id="L155">        return usedPackagingList;</span>
+    }
+
+    public void addUsedPackage(Package aPackage) {
+<span class="fc" id="L159">        usedPackagingList.add(aPackage);</span>
+<span class="fc" id="L160">    }</span>
+
+    public void removeUsedPackage(Package aPackage) {
+<span class="fc" id="L163">        usedPackagingList.remove(aPackage);</span>
+<span class="fc" id="L164">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
