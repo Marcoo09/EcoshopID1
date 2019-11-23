@@ -5,9 +5,13 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -123,6 +127,31 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
+                        <Pane layoutX="26.0" layoutY="57.0" prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="397.0" AnchorPane.topAnchor="41.0">
+                           <children>
+                              <JFXTextField fx:id="firstName" style="-fx-background-color: FFFFFF;" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="221.0" layoutY="41.0" prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="41.0">
+                           <children>
+                              <JFXTextField fx:id="lastName" layoutX="-4.0" style="-fx-background-color: FFFFFF;" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="408.0" AnchorPane.topAnchor="41.0">
+                           <children>
+                              <JFXTextField fx:id="phoneNumber" style="-fx-background-color: FFFFFF;" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="27.0" layoutY="116.0" prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="129.0">
+                           <children>
+                              <JFXTextField fx:id="identifyCard" style="-fx-background-color: FFFFFF;" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="226.0" layoutY="129.0" prefHeight="54.0" prefWidth="158.0">
+                           <children>
+                              <JFXTextField fx:id="clientNumber" layoutX="2.0" style="-fx-background-color: FFFFFF;" />
+                           </children>
+                        </Pane>
                         <Pane layoutX="392.0" layoutY="107.0" prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="392.0" AnchorPane.topAnchor="107.0">
                            <children>
                               <JFXCheckBox fx:id="isPreSale" layoutX="20.0" text="Es preventa">
@@ -130,21 +159,6 @@
                                     <Font size="13.0" />
                                  </font>
                               </JFXCheckBox>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="27.0" layoutY="116.0" prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="116.0">
-                           <children>
-                              <Pane layoutX="-3.0" layoutY="15.0" prefHeight="54.0" prefWidth="158.0">
-                                 <children>
-                                    <JFXTextField fx:id="identifyCard" layoutX="4.0" style="-fx-background-color: FFFFFF;" />
-                                 </children>
-                              </Pane>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="300.0" layoutY="40.0" prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="40.0" />
-                        <Pane layoutX="26.0" layoutY="57.0" prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="397.0" AnchorPane.topAnchor="40.0">
-                           <children>
-                              <JFXTextField fx:id="firstName" style="-fx-background-color: FFFFFF;" />
                            </children>
                         </Pane>
                         <Pane prefHeight="42.0" prefWidth="150.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
@@ -168,11 +182,6 @@
                               <Font size="13.0" />
                            </font>
                         </Text>
-                        <Pane layoutX="221.0" layoutY="41.0" prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="41.0">
-                           <children>
-                              <JFXTextField fx:id="lastName" layoutX="-4.0" style="-fx-background-color: FFFFFF;" />
-                           </children>
-                        </Pane>
                         <Text fx:id="phoneNumberLabel1" layoutX="25.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cédula de Identidad">
                            <font>
                               <Font size="13.0" />
@@ -183,12 +192,6 @@
                               <Font size="13.0" />
                            </font>
                         </Text>
-                        <Pane layoutX="226.0" layoutY="129.0" prefHeight="54.0" prefWidth="158.0">
-                           <children>
-                              <JFXTextField fx:id="clientNumber" layoutX="2.0" style="-fx-background-color: FFFFFF;" />
-                           </children>
-                        </Pane>
-                        <JFXTextField fx:id="phoneNumber" layoutX="408.0" layoutY="40.0" style="-fx-background-color: FFFFFF;" />
                      </children>
                   </AnchorPane>
               </content>
@@ -203,7 +206,7 @@
                               <JFXButton layoutX="75.0" layoutY="5.0" onMouseClicked="#nextOfDateTabEvent" styleClass="buttonNext" stylesheets="@purchasedetail.css" text="Siguiente" />
                            </children>
                         </Pane>
-                        <Pane layoutX="149.0" layoutY="1.0" prefHeight="275.0" prefWidth="297.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+                        <Pane layoutX="149.0" layoutY="1.0" prefHeight="275.0" prefWidth="297.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="20.0">
                            <children>
                               <JFXDatePicker fx:id="date" defaultColor="#106eaf" layoutX="37.0" layoutY="22.0" prefHeight="26.0" prefWidth="224.0" promptText="Selecciona cuando lo recoges" />
                            </children>
@@ -232,12 +235,132 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
+                        <Pane prefHeight="62.0" prefWidth="211.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0">
+                           <children>
+                              <Text layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txtTotal" fill="#979797" layoutX="70.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$1500">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
                         <Pane prefHeight="47.0" prefWidth="260.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                            <children>
                               <JFXButton layoutX="48.0" layoutY="5.0" onMouseClicked="#previousTabEvent" ripplerFill="WHITE" styleClass="buttonBack" stylesheets="@purchasedetail.css" text="Anterior" />
                               <JFXButton layoutX="121.0" layoutY="5.0" onMouseClicked="#confirmTabEvent" styleClass="buttonConfirm" stylesheets="@purchasedetail.css" text="Confirmar compra" />
                            </children>
                         </Pane>
+                        <Accordion layoutX="28.0" layoutY="14.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                          <panes>
+                            <TitledPane text="Detalle">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="200.0">
+                                       <children>
+                                          <JFXTreeTableView fx:id="table" layoutX="14.0" layoutY="-114.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane text="Más Info">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="41.0">
+                                             <children>
+                                                <JFXTextField fx:id="firstNameResume" disable="true" style="-fx-background-color: FFFFFF;" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="41.0">
+                                             <children>
+                                                <JFXTextField fx:id="lastNameResume" disable="true" layoutX="-4.0" style="-fx-background-color: FFFFFF;" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="129.0">
+                                             <children>
+                                                <JFXTextField fx:id="phoneNumberResume" disable="true" style="-fx-background-color: FFFFFF;" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="129.0">
+                                             <children>
+                                                <JFXTextField fx:id="identifyCardResume" disable="true" style="-fx-background-color: FFFFFF;" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="217.0">
+                                             <children>
+                                                <JFXTextField fx:id="clientNumberResume" disable="true" layoutX="2.0" style="-fx-background-color: FFFFFF;" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="54.0" prefWidth="158.0" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="217.0">
+                                             <children>
+                                                <JFXCheckBox fx:id="isPreSaleResume" disable="true" layoutX="20.0" text="Es preventa">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </JFXCheckBox>
+                                             </children>
+                                          </Pane>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="13.9">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="13.9">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Número de teléfono" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="102.9">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cédula de Identidad" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="102.9">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="phoneNumberLabel111" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de cliente" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="189.9">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                              <TitledPane fx:id="datePane" text="Fecha">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane prefHeight="275.0" prefWidth="297.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="41.0">
+                                             <children>
+                                                <JFXDatePicker fx:id="dateResume" defaultColor="#106eaf" disable="true" editable="false" layoutY="7.0" prefHeight="26.0" prefWidth="224.0" promptText="Selecciona cuando lo recoges" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                            <TitledPane text="Punto de Venta">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Punto de Venta" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="13.9">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <JFXTextArea fx:id="txtAreaPintOfSale" disable="true" layoutX="51.7" layoutY="62.7" prefHeight="80.0" prefWidth="424.0" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="52.0" />
+                                       </children></AnchorPane>
+                              </content>
+                            </TitledPane>
+                          </panes>
+                        </Accordion>
                      </children>
                   </AnchorPane>
                </content>

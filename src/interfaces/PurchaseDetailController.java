@@ -4,7 +4,12 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTabPane;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTreeTableColumn;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import domain.Client;
 import domain.PointOfSale;
 import domain.Product;
@@ -18,6 +23,11 @@ import java.time.LocalDate;
 import static java.time.LocalDate.now;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,10 +36,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TitledPane;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
+import javafx.util.Callback;
 import javafx.util.Pair;
 
 /**
@@ -65,10 +80,31 @@ public class PurchaseDetailController implements Initializable {
         
     @FXML
     JFXCheckBox isPreSale;
+    
+    @FXML
+    JFXTextField firstNameResume;
+
+    @FXML
+    JFXTextField lastNameResume;
+
+    @FXML
+    JFXTextField phoneNumberResume;
+
+    @FXML
+    JFXTextField identifyCardResume;
+
+    @FXML
+    JFXTextField clientNumberResume;
+        
+    @FXML
+    JFXCheckBox isPreSaleResume;
 
     @FXML
     JFXDatePicker date;
-
+    
+    @FXML
+    JFXDatePicker dateResume;
+        
     @FXML
     Label confirmationText;
 
@@ -78,6 +114,24 @@ public class PurchaseDetailController implements Initializable {
     @FXML
     private JFXListView availablePointsOfSale;
     
+    @FXML
+    private JFXTreeTableView<PurchasedProductInfo> table;
+
+    @FXML
+    private Label lblName;
+
+    @FXML
+    private Label lblQuantity;
+    
+    @FXML
+    private TitledPane datePane;
+    
+    @FXML
+    private JFXTextArea txtAreaPintOfSale;
+    
+    @FXML
+    private Text txtTotal;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentTab = 0;
@@ -86,8 +140,93 @@ public class PurchaseDetailController implements Initializable {
         initializeMoreInformation();
         intitializeMap();
         initializeListViewOfPointOfSales();
+        initializeResume();
     }
 
+    @FXML
+    private void initializeResume(){
+        initializeDetailOnResume();
+        txtTotal.setText("$" + newSale.getFullPayment());
+    }
+    
+    @FXML
+    private void initializeDetailOnResume(){
+        JFXTreeTableColumn<PurchasedProductInfo, String> nameCol = new JFXTreeTableColumn<>("Nombre");
+        nameCol.setPrefWidth(250);
+        JFXTreeTableColumn<PurchasedProductInfo, String> quantityCol = new JFXTreeTableColumn<>("Cantidad");
+        quantityCol.setPrefWidth(250);
+        JFXTreeTableColumn<PurchasedProductInfo, String> priceUnitCol = new JFXTreeTableColumn<>("Precio");
+        priceUnitCol.setPrefWidth(250);
+        JFXTreeTableColumn<PurchasedProductInfo, String> priceAllCol = new JFXTreeTableColumn<>("Precio Total");
+        priceAllCol.setPrefWidth(250);
+        
+        nameCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String> param) {
+                return param.getValue().getValue().productName;
+            }
+        });
+        
+        quantityCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String>, ObservableValue<String>>() {
+            @Override
+           public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String> param) {
+                return param.getValue().getValue().quantitySold;
+            }
+        });
+
+        priceUnitCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String>, ObservableValue<String>>() {
+            @Override
+           public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String> param) {
+                return param.getValue().getValue().priceUnit;
+            }
+        });
+                        
+        priceAllCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String>, ObservableValue<String>>() {
+            @Override
+           public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String> param) {
+                return param.getValue().getValue().incomeGenerated;
+            }
+        });
+           
+        ObservableList<PurchasedProductInfo> products = FXCollections.observableArrayList();
+        ArrayList<Pair> purchasedProducts = newSale.getPurchasedProducts();
+
+       for (int i = 0; i < purchasedProducts.size(); i++) {
+            Pair productPair = purchasedProducts.get(i);
+            Product value = (Product) productPair.getKey();
+            int quantity = (int) productPair.getValue();
+            products.add(new PurchasedProductInfo(value,quantity));
+        }
+        final TreeItem<PurchasedProductInfo> root = new RecursiveTreeItem<PurchasedProductInfo>(products, RecursiveTreeObject::getChildren);
+        table.getColumns().setAll(nameCol, quantityCol, priceUnitCol,priceAllCol);
+        table.setRoot(root);
+        table.setShowRoot(false);
+    }
+    
+    private void initializeMoreInfoOnResume(){
+        Client client = newSale.getClient();
+        firstNameResume.setText(client.getFirstName());
+        lastNameResume.setText(client.getLastName());
+        phoneNumberResume.setText(client.getPhoneNumber());
+        identifyCardResume.setText(client.getIdentifyCard());
+        clientNumberResume.setText(client.getClientNumber());
+        isPreSale.setSelected(newSale.isIsPreSale());
+    }
+    
+    private void initializeDateOnResume(){
+        if(!newSale.isIsPreSale()){
+            datePane.setDisable(true);
+        }else{
+            dateResume.setValue(newSale.getPurchaseDate());
+        }
+    }
+
+    @FXML
+    private void initializePointOfSaleOnResume(){
+        PointOfSale shopPlace = newSale.getShopPlace();
+        txtAreaPintOfSale.setText(shopPlace.getName() + ", " + shopPlace.getAddress());
+    }
+    
     @FXML
     private void initializeMoreInformation(){
         Client client = mySystem.getClient();
@@ -188,6 +327,8 @@ public class PurchaseDetailController implements Initializable {
         alert.setHeaderText("Error de local seleccionado");
         if (pointSelected != null) {
             newSale.setShopPlace(pointSelected);
+            initializeDateOnResume();
+            initializePointOfSaleOnResume();
             nextTabLogic();
         } else {
             alert.setContentText("Debe seleccionar un punto de venta");
@@ -230,6 +371,7 @@ public class PurchaseDetailController implements Initializable {
             }
             tabPane.getTabs().get(currentTab).setDisable(false);
             tabPane.getSelectionModel().select(currentTab);
+            initializeMoreInfoOnResume();
         }
     }
 
@@ -322,4 +464,19 @@ public class PurchaseDetailController implements Initializable {
         tabPane.getSelectionModel().select(currentTab);
     }
 
+    class PurchasedProductInfo extends RecursiveTreeObject<PurchasedProductInfo> {
+
+        StringProperty productName;
+        StringProperty quantitySold;
+        StringProperty incomeGenerated;
+        StringProperty priceUnit;
+        
+        public PurchasedProductInfo(Product aProduct, int quantity) {
+            this.productName = new SimpleStringProperty(aProduct.getName());
+            this.quantitySold = new SimpleStringProperty("" + quantity);
+            this.incomeGenerated = new SimpleStringProperty("$ " + (quantity * aProduct.getPrice()));
+            this.priceUnit = new SimpleStringProperty("$ " + aProduct.getPrice());
+        }
+    }
+    
 }
