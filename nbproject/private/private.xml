@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/test/domain/SaleTest.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/test/domain/ProductTest.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/test/domain/PackageTest.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/domain/System.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/domain/Product.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/interfaces/Ecoshop.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/Facultad/CuartoSemestre/IngSoftware1/Ecoshop/Ecoshop/src/interfaces/MainWindowOfSellerController.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/Sale.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/PointOfSale.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/System.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/Client.java</file>
+            <file>file:/C:/Users/Agustin%20Hernandorena/Documents/Ecoshop/src/domain/Product.java</file>
         </group>
     </open-files>
 </project-private>
