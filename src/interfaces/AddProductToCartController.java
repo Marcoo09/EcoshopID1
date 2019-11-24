@@ -36,10 +36,10 @@ public class AddProductToCartController implements Initializable {
     ImageView firstAuxImage;
 
     @FXML
-    VBox secondAuxImage;
+    ImageView secondAuxImage;
 
     @FXML
-    VBox thirdAuxImage;
+    ImageView thirdAuxImage;
 
     @FXML
     Label nameOfProduct;
@@ -74,8 +74,28 @@ public class AddProductToCartController implements Initializable {
 
     @FXML
     private void initializeDetail() {
-        Image image = new Image("resources/" + pendingProduct.getName() + ".png");
+        Image image;
+        Image secondImage;
+        Image thirdImage;
+        try {
+            image = new Image("resources/" + pendingProduct.getName() + ".png");
+        } catch (Exception aException) {
+            image = new Image("resources/default.png");
+        }
+        try {
+            secondImage = new Image("resources/" + pendingProduct.getName() + "2.png");
+        } catch (Exception aException) {
+            secondImage = new Image("resources/default.png");
+        }
+        try {
+            thirdImage = new Image("resources/" + pendingProduct.getName() + "3.png");
+        } catch (Exception aException) {
+            thirdImage = new Image("resources/default.png");
+        }
         mainImage.setImage(image);
+        firstAuxImage.setImage(image);
+        secondAuxImage.setImage(secondImage);
+        thirdAuxImage.setImage(thirdImage);
         nameOfProduct.setText(pendingProduct.getName());
         price.setText("$ " + pendingProduct.getPrice());
         description.setText(pendingProduct.toString());
@@ -90,6 +110,39 @@ public class AddProductToCartController implements Initializable {
             labelToAdd.setText(currentPackage.getName());
             packagesContainer.getItems().add(labelToAdd);
         }
+    }
+
+    @FXML
+    private void firstImageEvent(MouseEvent event) {
+        Image image;
+        try {
+            image = new Image("resources/" + pendingProduct.getName() + ".png");
+        } catch (Exception aException) {
+            image = new Image("resources/default.png");
+        }
+        mainImage.setImage(image);
+    }
+
+    @FXML
+    private void secondImageEvent(MouseEvent event) {
+        Image image;
+        try {
+            image = new Image("resources/" + pendingProduct.getName() + "2.png");
+        } catch (Exception aException) {
+            image = new Image("resources/default.png");
+        }
+        mainImage.setImage(image);
+    }
+
+    @FXML
+    private void thirdImageEvent(MouseEvent event) {
+        Image image;
+        try {
+            image = new Image("resources/" + pendingProduct.getName() + "3.png");
+        } catch (Exception aException) {
+            image = new Image("resources/default.png");
+        }
+        mainImage.setImage(image);
     }
 
     @FXML
