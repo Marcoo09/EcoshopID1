@@ -12,9 +12,8 @@ import domain.Package;
 import domain.Product;
 import domain.PointOfSale;
 import domain.Sale;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.time.LocalDate;
+import javafx.stage.StageStyle;
 import javafx.util.Pair;
 
 /**
@@ -31,14 +30,10 @@ public class Ecoshop extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         myPrimaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("HomeWindow.fxml"));
         Scene scene = new Scene(root);
         newSale = new Sale();
-        myPrimaryStage.setMaximized(true);
-        myPrimaryStage.setWidth(screenSize.getWidth());
-        myPrimaryStage.setHeight(screenSize.getHeight());
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
