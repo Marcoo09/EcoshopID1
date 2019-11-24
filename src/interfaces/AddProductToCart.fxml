@@ -28,7 +28,7 @@
                         <Image url="@../resources/dummy.jpg" />
                      </image>
                   </ImageView>
-                  <VBox style="-fx-background-color: #696969ab;" />
+                  <VBox onMouseClicked="#firstImageEvent" style="-fx-background-color: #696969ab;" />
                </children>
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
@@ -36,22 +36,22 @@
             </StackPane>
             <StackPane layoutX="10.0" layoutY="10.0">
                <children>
-                  <ImageView fitHeight="112.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="secondAuxImage" fitHeight="112.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/dummy.jpg" />
                      </image>
                   </ImageView>
-                  <VBox fx:id="secondAuxImage" style="-fx-background-color: #696969ab;" />
+                  <VBox onMouseClicked="#secondImageEvent" style="-fx-background-color: #696969ab;" />
                </children>
             </StackPane>
             <StackPane layoutX="10.0" layoutY="10.0">
                <children>
-                  <ImageView fitHeight="112.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="thirdAuxImage" fitHeight="112.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/dummy.jpg" />
                      </image>
                   </ImageView>
-                  <VBox fx:id="thirdAuxImage" style="-fx-background-color: #696969ab;" />
+                  <VBox onMouseClicked="#thirdImageEvent" style="-fx-background-color: #696969ab;" />
                </children>
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
