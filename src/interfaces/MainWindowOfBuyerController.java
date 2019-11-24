@@ -11,7 +11,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -62,7 +61,7 @@ public class MainWindowOfBuyerController implements Initializable {
     }
 
     @FXML
-    public void plusEvent(ActionEvent e) throws IOException {
+    public void plusEvent(MouseEvent e) throws IOException {
         pendingProduct = new Product();
         Button btn = (Button) e.getSource();
         String element = btn.getId();
@@ -72,6 +71,7 @@ public class MainWindowOfBuyerController implements Initializable {
         try {
             newScene = new Scene(loader.load());
         } catch (IOException ex) {
+            System.out.println("a " + ex);
             return;
         }
         Stage inputStage = new Stage();
@@ -166,7 +166,19 @@ public class MainWindowOfBuyerController implements Initializable {
                 labelOfQuantity.setText(Integer.toString(quantityOfTimes));
                 addToCart.setId(currentProduct.getName());
             } catch (Exception e) {
-                productPane.setVisible(false);
+                if(index < productList.size()){
+                    Product currentProduct = productList.get(index);
+                    image = new Image("resources/default.png");
+                    imageOfProduct.setImage(image);
+                    imageOfProduct.setId(currentProduct.getName());
+                    labelOfName.setText(currentProduct.getName());
+                    labelOfPrice.setText(Integer.toString(currentProduct.getPrice()));
+                    int quantityOfTimes = (int) newSale.getProduct(currentProduct).getValue();
+                    labelOfQuantity.setText(Integer.toString(quantityOfTimes));
+                    addToCart.setId(currentProduct.getName());
+                }else{
+                    productPane.setVisible(false);
+                }
             }
             index++;
         }
