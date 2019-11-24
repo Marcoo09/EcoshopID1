@@ -25,8 +25,8 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public class SalesPerMonthWindowController implements Initializable {
+
     public static String monthSelected;
 
     @FXML
@@ -41,7 +41,6 @@ public class SalesPerMonthWindowController implements Initializable {
     @FXML
     private JFXComboBox<Label> monthCheckBox;
 
-    
     @FXML
     private AnchorPane mainPane;
     @FXML
@@ -69,7 +68,7 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void mostSelledProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
@@ -101,15 +100,15 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
-    public void buyerProfileEvent(MouseEvent e) throws IOException{
+    public void buyerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void addProductEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -117,7 +116,7 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void reusedPackagesEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostUsedPackageWindow.fxml"));
@@ -133,17 +132,16 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     public void monthEvent(ActionEvent e) {
         monthSelected = monthCheckBox.getSelectionModel().getSelectedItem().getText();
     }
-    
-    public void viewDetail (ActionEvent e) throws IOException{
+
+    public void viewDetail(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthInDetailWindow.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
-        myPrimaryStage.show(); 
+        myPrimaryStage.show();
     }
-
 
 }

@@ -1,4 +1,3 @@
-
 package components;
 
 import java.net.URL;
@@ -16,9 +15,9 @@ import javafx.util.Pair;
  * @author Marco Fiorito
  */
 public class ProductListCellController implements Initializable {
-    
+
     private Pair product;
-    
+
     @FXML
     private ImageView image;
     @FXML
@@ -34,12 +33,6 @@ public class ProductListCellController implements Initializable {
 
     public ProductListCellController(Pair product) {
         product = product;
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductListCell.fxml"));
-//        try {
-//            fxmlLoader.load();
-//        } catch (IOException exception) {
-//            throw new RuntimeException(exception);
-//        }
     }
 
     /**
@@ -55,6 +48,5 @@ public class ProductListCellController implements Initializable {
         productName.setText(product.getKey().toString());
         quantity.setText(product.getValue().toString());
     }
-    
-    
+
 }

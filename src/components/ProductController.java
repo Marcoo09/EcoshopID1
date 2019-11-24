@@ -16,6 +16,7 @@ import javafx.scene.layout.Region;
  * @author Marco Fiorito
  */
 public class ProductController extends Region implements Initializable {
+
     @FXML
     ImageView image;
     @FXML
@@ -24,12 +25,12 @@ public class ProductController extends Region implements Initializable {
     Label name;
     @FXML
     JFXButton addToCart;
-    
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) {    
+    public void initialize(URL url, ResourceBundle rb) {
         price.setText("Precio");
         name.setText("Name");
         Image auxImage = new Image("resources/almendras.png");
         image = new ImageView(auxImage);
-    }    
+    }
 }

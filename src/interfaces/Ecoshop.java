@@ -19,14 +19,12 @@ import javafx.util.Pair;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public class Ecoshop extends Application {
 
     public static Stage myPrimaryStage;
     public static System mySystem;
     public static Sale newSale;
     public static Product pendingProduct;
-    
 
     public static void main(String[] args) {
         mySystem = new System();
@@ -89,6 +87,7 @@ public class Ecoshop extends Application {
         mySystem.addSale(s2);
         launch(args);
     }
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         myPrimaryStage = primaryStage;

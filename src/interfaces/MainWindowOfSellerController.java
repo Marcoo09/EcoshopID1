@@ -188,7 +188,7 @@ public class MainWindowOfSellerController implements Initializable {
         } else {
             mySystem.addProduct(p);
             JFXDialogLayout content = new JFXDialogLayout();
-            StackPane.setMargin(mainPane, new Insets(180, 141, 260, 280));
+            StackPane.setMargin(mainPane, new Insets(100, 141, 260, 500));
             content.setHeading(new Text("Alta de producto"));
             content.setBody(new Text("El producto se ha registrado correctamente en el sistema"));
             JFXDialog dialog = new JFXDialog(myStackPane, content, JFXDialog.DialogTransition.CENTER);

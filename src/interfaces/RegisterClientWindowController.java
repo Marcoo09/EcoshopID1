@@ -30,33 +30,33 @@ import javafx.scene.text.Text;
  * @author Agustin Hernandorena and Marco Fiorito
  */
 public class RegisterClientWindowController implements Initializable {
-    
+
     @FXML
     private JFXTextField name;
-    
+
     @FXML
     private JFXTextField surname;
-    
+
     @FXML
     private JFXTextField telephone;
-    
+
     @FXML
     private JFXTextField indentifyCard;
-    
+
     @FXML
     private JFXButton btnRegister;
-    
+
     @FXML
     private StackPane myPane;
-    
+
     @FXML
     private Label title;
-    
+
     @FXML
     private AnchorPane mainPane;
-    
+
     private boolean existClient;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         existClient = false;
@@ -71,7 +71,7 @@ public class RegisterClientWindowController implements Initializable {
             indentifyCard.setText(aClient.getIdentifyCard());
         }
     }
-    
+
     @FXML
     public void mainWindowOfBuyerEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
@@ -79,7 +79,7 @@ public class RegisterClientWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void goToCartEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
@@ -87,15 +87,15 @@ public class RegisterClientWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void goToListOfProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();            
+        myPrimaryStage.show();
     }
-    
+
     @FXML
     public void sellerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -103,7 +103,7 @@ public class RegisterClientWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void pointsOfSaleEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PointsOfSaleWindow.fxml"));
@@ -111,7 +111,7 @@ public class RegisterClientWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void registerClientEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("RegisterClientWindow.fxml"));
@@ -119,7 +119,7 @@ public class RegisterClientWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void eventRegister(ActionEvent e) {
         Client aClient = mySystem.getClient();
