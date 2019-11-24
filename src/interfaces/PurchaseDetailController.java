@@ -60,7 +60,7 @@ public class PurchaseDetailController implements Initializable {
     JFXTabPane tabPane;
 
     @FXML
-    JFXListView listOfProducts;
+    private JFXTreeTableView<PurchasedProductInfo> tableDetail;
 
     @FXML
     JFXTextField firstName;
@@ -141,7 +141,6 @@ public class PurchaseDetailController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         currentTab = 0;
         initializeTabs();
-        initializeListView();
         initializeMoreInformation();
         intitializeMap();
         initializeListViewOfPointOfSales();
@@ -162,12 +161,12 @@ public class PurchaseDetailController implements Initializable {
 
     @FXML
     private void initializeResume() {
-        initializeDetailOnResume();
+        initializeDetail();
         txtTotal.setText("$" + newSale.getFullPayment());
     }
 
     @FXML
-    private void initializeDetailOnResume() {
+    private void initializeDetail() {
         JFXTreeTableColumn<PurchasedProductInfo, String> nameCol = new JFXTreeTableColumn<>("Nombre");
         nameCol.setPrefWidth(250);
         JFXTreeTableColumn<PurchasedProductInfo, String> quantityCol = new JFXTreeTableColumn<>("Cantidad");
@@ -218,6 +217,9 @@ public class PurchaseDetailController implements Initializable {
         table.getColumns().setAll(nameCol, quantityCol, priceUnitCol, priceAllCol);
         table.setRoot(root);
         table.setShowRoot(false);
+        tableDetail.getColumns().setAll(nameCol, quantityCol, priceUnitCol, priceAllCol);
+        tableDetail.setRoot(root);
+        tableDetail.setShowRoot(false);
     }
 
     private void initializeMoreInfoOnResume() {
@@ -287,20 +289,6 @@ public class PurchaseDetailController implements Initializable {
     private void initializeTabs() {
         tabPane.getTabs().get(currentTab).setDisable(false);
         tabPane.getSelectionModel().select(currentTab);
-    }
-
-    @FXML
-    private void initializeListView() {
-        ArrayList<Pair> purchasedProducts = newSale.getPurchasedProducts();
-        purchasedProducts.forEach((product) -> {
-            try {
-                Product aProduct = (Product) product.getKey();
-                Label lbl = new Label("" + (int) product.getValue());
-                lbl.setGraphic(new ImageView(new Image("resources/" + aProduct.getName() + ".png")));
-                listOfProducts.getItems().add(lbl);
-            } catch (Exception e) {
-            }
-        });
     }
 
     @FXML
