@@ -27,7 +27,7 @@ public class ProductController extends Region implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {    
-        price.setText("Precio");;
+        price.setText("Precio");
         name.setText("Name");
         Image auxImage = new Image("resources/almendras.png");
         image = new ImageView(auxImage);

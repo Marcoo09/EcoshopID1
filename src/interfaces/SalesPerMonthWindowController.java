@@ -27,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
  */
 
 public class SalesPerMonthWindowController implements Initializable {
+    public static String monthSelected;
 
     @FXML
     private BarChart<?, ?> salesChart;
@@ -40,7 +41,6 @@ public class SalesPerMonthWindowController implements Initializable {
     @FXML
     private JFXComboBox<Label> monthCheckBox;
 
-    public static String monthSelected;
     
     @FXML
     private AnchorPane mainPane;
@@ -139,7 +139,6 @@ public class SalesPerMonthWindowController implements Initializable {
     }
     
     public void viewDetail (ActionEvent e) throws IOException{
-        java.lang.System.out.println("Entre");
         Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthInDetailWindow.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);

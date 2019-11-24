@@ -8,7 +8,7 @@ import javafx.util.Pair;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-public class Sale {
+public final class Sale {
 
     private ArrayList<Pair> purchasedProducts;
     private PointOfSale shopPlace;

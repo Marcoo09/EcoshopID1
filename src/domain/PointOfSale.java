@@ -1,14 +1,12 @@
 package domain;
 
-import domain.Product;
-import domain.Sale;
 import java.util.ArrayList;
 
 /**
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-public class PointOfSale {
+public final class PointOfSale {
 
     private String address;
     private String name;

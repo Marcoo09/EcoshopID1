@@ -3,10 +3,10 @@ package domain;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -14,10 +14,6 @@ import static org.junit.Assert.*;
  */
 public class ProductTest {
 
-    private Product aProduct;
-
-    public ProductTest() {
-    }
 
     @BeforeClass
     public static void setUpClass() {
@@ -25,6 +21,9 @@ public class ProductTest {
 
     @AfterClass
     public static void tearDownClass() {
+    }
+    private Product aProduct;
+    public ProductTest() {
     }
 
     @Before

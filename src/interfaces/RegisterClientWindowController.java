@@ -161,7 +161,7 @@ public class RegisterClientWindowController implements Initializable {
                 content.setHeading(new Text("Modificacion."));
                 content.setBody(new Text("Se han actualizado los datos correctamente."));
             }
-            myPane.setMargin(mainPane, new Insets(180, 141, 260, 280));
+            StackPane.setMargin(mainPane, new Insets(180, 141, 260, 280));
             JFXDialog dialog = new JFXDialog(myPane, content, JFXDialog.DialogTransition.CENTER);
             JFXButton okButton = new JFXButton("Aceptar");
             okButton.setOnAction(new EventHandler<ActionEvent>() {

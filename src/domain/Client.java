@@ -4,7 +4,7 @@ package domain;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-public class Client {
+public final class Client {
 
     private String firstName;
     private String lastName;

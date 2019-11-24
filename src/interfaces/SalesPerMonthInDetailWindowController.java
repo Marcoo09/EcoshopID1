@@ -87,27 +87,6 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         
     }
     
-    class Sale extends RecursiveTreeObject<Sale> {
-        
-        StringProperty totalPrice;
-        StringProperty ticketNumber;
-        StringProperty purchasedDate;
-        StringProperty purchasedProducts;
-        
-        public Sale(int aTotalPrice, String ticketNumber, LocalDate aPurchasedDate, ArrayList<Pair> aPurchasedProducts) {
-            this.totalPrice = new SimpleStringProperty(aTotalPrice + "");
-            this.ticketNumber = new SimpleStringProperty(ticketNumber);
-            this.purchasedDate = new SimpleStringProperty("" + aPurchasedDate.getDayOfMonth() + "-" + aPurchasedDate.getMonthValue() + "-" + aPurchasedDate.getYear());
-            String products = "";
-            for (int i = 0; i < aPurchasedProducts.size(); i++) {
-                Product p = (Product) aPurchasedProducts.get(i).getKey();
-                int quantity = (int) aPurchasedProducts.get(i).getValue();
-                products = products + "-" + " " + p.getName() + " " + "x" + quantity + " " + "Unidades" + System.lineSeparator();
-                
-            }
-            this.purchasedProducts = new SimpleStringProperty(products);
-        }
-    }
     
     @FXML
     public void addProduct(MouseEvent e) throws IOException {
@@ -179,6 +158,28 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
+    }
+
+    class Sale extends RecursiveTreeObject<Sale> {
+
+        StringProperty totalPrice;
+        StringProperty ticketNumber;
+        StringProperty purchasedDate;
+        StringProperty purchasedProducts;
+
+        Sale(int aTotalPrice, String ticketNumber, LocalDate aPurchasedDate, ArrayList<Pair> aPurchasedProducts) {
+            this.totalPrice = new SimpleStringProperty(aTotalPrice + "");
+            this.ticketNumber = new SimpleStringProperty(ticketNumber);
+            this.purchasedDate = new SimpleStringProperty("" + aPurchasedDate.getDayOfMonth() + "-" + aPurchasedDate.getMonthValue() + "-" + aPurchasedDate.getYear());
+            String products = "";
+            for (int i = 0; i < aPurchasedProducts.size(); i++) {
+                Product p = (Product) aPurchasedProducts.get(i).getKey();
+                int quantity = (int) aPurchasedProducts.get(i).getValue();
+                products = products + "-" + " " + p.getName() + " " + "x" + quantity + " " + "Unidades" + System.lineSeparator();
+                
+            }
+            this.purchasedProducts = new SimpleStringProperty(products);
+        }
     }
     
 }
