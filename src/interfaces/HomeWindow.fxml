@@ -2,27 +2,34 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.HomeWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces.HomeWindowController">
    <children>
-      <Label layoutX="303.0" layoutY="14.0" text="EcoShop">
+      <Label layoutX="303.0" layoutY="14.0" text="EcoShop" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="10.0">
          <font>
             <Font size="41.0" />
          </font>
+         <effect>
+            <DropShadow color="#515151" />
+         </effect>
       </Label>
-      <Label layoutX="323.0" layoutY="102.0" prefHeight="59.0" prefWidth="103.0" text="Soy un">
+      <Label layoutX="323.0" layoutY="102.0" prefHeight="59.0" prefWidth="223.0" text="Entrar en modo:" AnchorPane.leftAnchor="100.0">
          <font>
             <Font size="30.0" />
          </font>
+         <effect>
+            <DropShadow color="#515151" />
+         </effect>
       </Label>
-      <JFXButton layoutX="320.0" layoutY="311.0" onAction="#buyerEvent" prefHeight="48.0" prefWidth="123.0" style="-fx-background-color: AFACAC;" text="Comprador" textAlignment="CENTER">
+      <JFXButton layoutX="320.0" layoutY="311.0" onAction="#buyerEvent" prefHeight="48.0" prefWidth="123.0" style="-fx-background-color: AFACAC;" text="Comprador" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="180.0">
          <font>
             <Font size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnSeller" layoutX="320.0" layoutY="213.0" onAction="#sellerEvent" prefHeight="48.0" prefWidth="123.0" style="-fx-background-color: AFACAC;" text="Vendedor" textAlignment="CENTER">
+      <JFXButton fx:id="btnSeller" layoutX="92.0" layoutY="157.0" onAction="#sellerEvent" prefHeight="48.0" prefWidth="123.0" style="-fx-background-color: #106EAF;" text="Vendedor" textAlignment="CENTER" textFill="#ebe8e8" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="180.0">
          <font>
             <Font size="18.0" />
          </font>

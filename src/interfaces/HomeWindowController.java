@@ -1,7 +1,8 @@
 package interfaces;
 
-import com.jfoenix.controls.JFXButton;
 import static interfaces.Ecoshop.myPrimaryStage;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -24,7 +26,11 @@ public class HomeWindowController implements Initializable {
     public void sellerEvent(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
         Scene scene = new Scene(root);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         myPrimaryStage.setScene(scene);
+        myPrimaryStage.setMaximized(true);
+        myPrimaryStage.setWidth(screenSize.getWidth());
+        myPrimaryStage.setHeight(screenSize.getHeight());
         myPrimaryStage.show(); 
     }
     
@@ -32,7 +38,11 @@ public class HomeWindowController implements Initializable {
     public void buyerEvent(ActionEvent e) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         myPrimaryStage.setScene(scene);
+        myPrimaryStage.setMaximized(true);
+        myPrimaryStage.setWidth(screenSize.getWidth());
+        myPrimaryStage.setHeight(screenSize.getHeight());
         myPrimaryStage.show(); 
     }
     
