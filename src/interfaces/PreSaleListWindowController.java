@@ -93,28 +93,6 @@ public class PreSaleListWindowController implements Initializable {
         table.setShowRoot(false);
     }
 
-    class Sale extends RecursiveTreeObject<Sale> {
-
-        StringProperty totalPrice;
-        StringProperty orderNumber;
-        StringProperty pickupDate;
-        StringProperty purchasedProducts;
-        StringProperty clientIdentityCard;
-
-        public Sale(int aTotalPrice, String orderNumber, LocalDate aPickupDate, ArrayList<Pair> aPurchasedProducts, String aIdentityCard) {
-            this.totalPrice = new SimpleStringProperty(aTotalPrice + "");
-            this.orderNumber = new SimpleStringProperty(orderNumber);
-            this.pickupDate = new SimpleStringProperty("" + aPickupDate.getDayOfMonth() + "-" + aPickupDate.getMonthValue() + "-" + aPickupDate.getYear());
-            String products = "";
-            for (int i = 0; i < aPurchasedProducts.size(); i++) {
-                Product p = (Product) aPurchasedProducts.get(i).getKey();
-                int quantity = (int) aPurchasedProducts.get(i).getValue();
-                products = products + "-" + " " + p.getName() + " " + "x" + quantity + " " + "Unidades" + System.lineSeparator();
-            }
-            this.purchasedProducts = new SimpleStringProperty(products);
-            this.clientIdentityCard = new SimpleStringProperty(aIdentityCard);
-        }
-    }
 
     @FXML
     public void addProduct(MouseEvent e) throws IOException {
@@ -186,6 +164,29 @@ public class PreSaleListWindowController implements Initializable {
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
+    }
+
+    class Sale extends RecursiveTreeObject<Sale> {
+
+        StringProperty totalPrice;
+        StringProperty orderNumber;
+        StringProperty pickupDate;
+        StringProperty purchasedProducts;
+        StringProperty clientIdentityCard;
+
+        Sale(int aTotalPrice, String orderNumber, LocalDate aPickupDate, ArrayList<Pair> aPurchasedProducts, String aIdentityCard) {
+            this.totalPrice = new SimpleStringProperty(aTotalPrice + "");
+            this.orderNumber = new SimpleStringProperty(orderNumber);
+            this.pickupDate = new SimpleStringProperty("" + aPickupDate.getDayOfMonth() + "-" + aPickupDate.getMonthValue() + "-" + aPickupDate.getYear());
+            String products = "";
+            for (int i = 0; i < aPurchasedProducts.size(); i++) {
+                Product p = (Product) aPurchasedProducts.get(i).getKey();
+                int quantity = (int) aPurchasedProducts.get(i).getValue();
+                products = products + "-" + " " + p.getName() + " " + "x" + quantity + " " + "Unidades" + System.lineSeparator();
+            }
+            this.purchasedProducts = new SimpleStringProperty(products);
+            this.clientIdentityCard = new SimpleStringProperty(aIdentityCard);
+        }
     }
     
 }

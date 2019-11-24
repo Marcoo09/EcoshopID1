@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import javafx.util.Pair;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -16,10 +16,6 @@ import static org.junit.Assert.*;
  */
 public class SaleTest {
 
-    private Sale aSale;
-
-    public SaleTest() {
-    }
 
     @BeforeClass
     public static void setUpClass() {
@@ -27,6 +23,9 @@ public class SaleTest {
 
     @AfterClass
     public static void tearDownClass() {
+    }
+    private Sale aSale;
+    public SaleTest() {
     }
 
     @Before

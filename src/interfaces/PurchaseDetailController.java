@@ -149,7 +149,7 @@ public class PurchaseDetailController implements Initializable {
         initializeResume();
         if(mySystem.isIsInPreSaleMode()){
             tabPane.getTabs().get(currentTab).setDisable(true);
-            if(mySystem.getClient().getFirstName() != ""){
+            if(!"".equals(mySystem.getClient().getFirstName())){
                 currentTab = 2;
             }else{
                 currentTab = 1;
@@ -248,23 +248,23 @@ public class PurchaseDetailController implements Initializable {
     @FXML
     private void initializeMoreInformation(){
         Client client = mySystem.getClient();
-        if(client.getClientNumber() != ""){
+        if(!"".equals(client.getClientNumber())){
             clientNumber.setText(client.getClientNumber());
             clientNumber.setDisable(true);
         }
-        if(client.getFirstName()!= ""){
+        if(!"".equals(client.getFirstName())){
             firstName.setText(client.getFirstName());
             firstName.setDisable(true);
         }
-        if(client.getLastName()!= ""){
+        if(!"".equals(client.getLastName())){
             lastName.setText(client.getLastName());
             lastName.setDisable(true);
         }
-        if(client.getIdentifyCard()!= ""){
+        if(!"".equals(client.getIdentifyCard())){
             identifyCard.setText(client.getIdentifyCard());
             identifyCard.setDisable(true);
         }
-        if(client.getPhoneNumber()!= ""){
+        if(!"".equals(client.getPhoneNumber())){
             phoneNumber.setText(client.getPhoneNumber());
             phoneNumber.setDisable(true);
         }
@@ -300,7 +300,6 @@ public class PurchaseDetailController implements Initializable {
                 lbl.setGraphic(new ImageView(new Image("resources/" + aProduct.getName() + ".png")));
                 listOfProducts.getItems().add(lbl);
             } catch (Exception e) {
-                System.out.println("An error occurs in charge the list");
             }
         });
     }
@@ -452,7 +451,6 @@ public class PurchaseDetailController implements Initializable {
     public void confirmTabEvent(MouseEvent e) throws IOException {
         newSale.setTotalPrice(newSale.obtainPrice());
         mySystem.addSale(newSale);
-        java.lang.System.out.println(mySystem.totalUsedPackages());
         newSale = new Sale();
 
         nextTabLogic();
@@ -540,7 +538,7 @@ public class PurchaseDetailController implements Initializable {
         StringProperty incomeGenerated;
         StringProperty priceUnit;
         
-        public PurchasedProductInfo(Product aProduct, int quantity) {
+        PurchasedProductInfo(Product aProduct, int quantity) {
             this.productName = new SimpleStringProperty(aProduct.getName());
             this.quantitySold = new SimpleStringProperty("" + quantity);
             this.incomeGenerated = new SimpleStringProperty("$ " + (quantity * aProduct.getPrice()));

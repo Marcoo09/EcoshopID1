@@ -93,19 +93,6 @@ public class MostSelledProductsWindowController implements Initializable {
         table.setShowRoot(false);
     }
 
-    class ProductInfo extends RecursiveTreeObject<ProductInfo> {
-
-        StringProperty productName;
-        StringProperty quantitySold;
-        StringProperty incomeGenerated;
-
-        public ProductInfo(Product aProduct, int quantity) {
-            this.productName = new SimpleStringProperty(aProduct.getName());
-            this.quantitySold = new SimpleStringProperty("" + quantity);
-            this.incomeGenerated = new SimpleStringProperty("" + (quantity * aProduct.getPrice()));
-
-        }
-    }
     
     @FXML
     public void addProduct(MouseEvent e) throws IOException {
@@ -177,6 +164,19 @@ public class MostSelledProductsWindowController implements Initializable {
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
+    }
+
+    class ProductInfo extends RecursiveTreeObject<ProductInfo> {
+
+        StringProperty productName;
+        StringProperty quantitySold;
+        StringProperty incomeGenerated;
+
+        ProductInfo(Product aProduct, int quantity) {
+            this.productName = new SimpleStringProperty(aProduct.getName());
+            this.quantitySold = new SimpleStringProperty("" + quantity);
+            this.incomeGenerated = new SimpleStringProperty("" + (quantity * aProduct.getPrice()));
+        }
     }
 
 }

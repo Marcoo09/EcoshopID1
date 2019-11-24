@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Agustin Hernandorena and Marco Fiorito
  */
 
-public class Product {
+public final class Product {
 
     private String name;
     private String countryOfOrigin;

@@ -10,7 +10,6 @@ import domain.Product;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
 import java.io.IOException;
-import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -25,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
@@ -188,7 +188,7 @@ public class MainWindowOfSellerController implements Initializable {
         } else {
             mySystem.addProduct(p);
             JFXDialogLayout content = new JFXDialogLayout();
-            myStackPane.setMargin(mainPane, new Insets(180, 141, 260, 280));
+            StackPane.setMargin(mainPane, new Insets(180, 141, 260, 280));
             content.setHeading(new Text("Alta de producto"));
             content.setBody(new Text("El producto se ha registrado correctamente en el sistema"));
             JFXDialog dialog = new JFXDialog(myStackPane, content, JFXDialog.DialogTransition.CENTER);

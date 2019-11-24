@@ -13,7 +13,6 @@ import domain.Product;
 import domain.PointOfSale;
 import domain.Sale;
 import java.time.LocalDate;
-import javafx.stage.StageStyle;
 import javafx.util.Pair;
 
 /**
@@ -28,15 +27,6 @@ public class Ecoshop extends Application {
     public static Sale newSale;
     public static Product pendingProduct;
     
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        myPrimaryStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("HomeWindow.fxml"));
-        Scene scene = new Scene(root);
-        newSale = new Sale();
-        myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();
-    }
 
     public static void main(String[] args) {
         mySystem = new System();
@@ -98,6 +88,15 @@ public class Ecoshop extends Application {
         s2.setPurchaseDate(LocalDate.of(2019, 12, 15));
         mySystem.addSale(s2);
         launch(args);
+    }
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        myPrimaryStage = primaryStage;
+        Parent root = FXMLLoader.load(getClass().getResource("HomeWindow.fxml"));
+        Scene scene = new Scene(root);
+        newSale = new Sale();
+        myPrimaryStage.setScene(scene);
+        myPrimaryStage.show();
     }
 
 }

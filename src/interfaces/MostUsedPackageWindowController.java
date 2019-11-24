@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import domain.Product;
 import static interfaces.Ecoshop.myPrimaryStage;
 import static interfaces.Ecoshop.mySystem;
 import java.io.IOException;
@@ -164,7 +163,7 @@ public class MostUsedPackageWindowController implements Initializable {
         StringProperty numberOfTimesReused;
         StringProperty material;
 
-        public Container(String aName, int aNumberOfTimesReused, String aMaterial) {
+        Container(String aName, int aNumberOfTimesReused, String aMaterial) {
             this.name = new SimpleStringProperty(aName);
             this.numberOfTimesReused = new SimpleStringProperty("" + aNumberOfTimesReused);
             this.material = new SimpleStringProperty(aMaterial);

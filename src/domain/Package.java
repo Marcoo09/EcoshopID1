@@ -5,7 +5,7 @@ package domain;
  * @author Agustin Hernandorena and Marco Fiorito
  */
 
-public class Package {
+public final class Package {
     private String name;
     private String material;
     private int capacity;

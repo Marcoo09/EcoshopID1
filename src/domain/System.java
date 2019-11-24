@@ -155,7 +155,7 @@ public class System {
     public Product getProductsByName(String name) {
         for (int i = 0; i < products.size(); i++) {
             Product currentProduct = products.get(i);
-            if (currentProduct.getName() == name) {
+            if (currentProduct.getName() == null ? name == null : currentProduct.getName().equals(name)) {
                 return currentProduct;
             }
         }
@@ -165,7 +165,7 @@ public class System {
     public Package getPackageByName(String name) {
         for (int i = 0; i < packagesList.size(); i++) {
             Package currentPackage = packagesList.get(i);
-            if (currentPackage.getName() == name) {
+            if (currentPackage.getName() == null ? name == null : currentPackage.getName().equals(name)) {
                 return currentPackage;
             }
         }
@@ -190,7 +190,7 @@ public class System {
         for (int i = 0; i < sales.size(); i++) {
             Sale currentSale = sales.get(i);
             if (currentSale.getShopPlace().getName().equals(aPointOfSale.getName())) {
-                totalQuantity = totalQuantity + sales.get(i).obtainPrice();
+                totalQuantity += sales.get(i).obtainPrice();
             }
         }
         return totalQuantity;

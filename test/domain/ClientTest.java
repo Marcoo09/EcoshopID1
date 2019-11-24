@@ -2,10 +2,10 @@ package domain;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -13,11 +13,6 @@ import static org.junit.Assert.*;
  */
 public class ClientTest {
 
-    private Client aClient;
-
-    public ClientTest() {
-
-    }
 
     @BeforeClass
     public static void setUpClass() {
@@ -25,6 +20,10 @@ public class ClientTest {
 
     @AfterClass
     public static void tearDownClass() {
+    }
+    private Client aClient;
+    public ClientTest() {
+        
     }
 
     @Before

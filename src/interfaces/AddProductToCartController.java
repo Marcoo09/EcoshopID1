@@ -18,7 +18,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Pair;
@@ -140,7 +139,7 @@ public class AddProductToCartController implements Initializable {
                         Pair newProduct = new Pair(product, quantityOfProductsToBuy);
                         newSale.addProductToCart(newProduct);
                     }
-                    if (packageUsed != "default") {
+                    if (!"default".equals(packageUsed)) {
                         domain.Package pack = mySystem.getPackageByName(packageUsed);
                         if (pack != null) {
                             newSale.addUsedPackage(pack);
