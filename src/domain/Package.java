@@ -4,24 +4,24 @@ package domain;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public final class Package {
+
     private String name;
     private String material;
     private int capacity;
-    
-    public Package(){
-       this.setName("");
-       this.setMaterial("");
-       this.setCapacity(0);
+
+    public Package() {
+        this.setName("");
+        this.setMaterial("");
+        this.setCapacity(0);
     }
-    
-    public Package(String name, String material, int capacity){
+
+    public Package(String name, String material, int capacity) {
         this.setName(name);
         this.setMaterial(material);
         this.setCapacity(capacity);
     }
-    
+
     public String getName() {
         return name;
     }
@@ -33,7 +33,6 @@ public final class Package {
     public String getMaterial() {
         return material;
     }
-    
 
     public void setMaterial(String material) {
         this.material = material;
@@ -49,9 +48,7 @@ public final class Package {
 
     @Override
     public String toString() {
-        return  ""+name;
+        return "" + name;
     }
-    
+
 }
-
-

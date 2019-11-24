@@ -6,7 +6,6 @@ import java.util.ArrayList;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public final class Product {
 
     private String name;
@@ -113,5 +112,4 @@ public final class Product {
                 + "Proviene de " + countryOfOrigin + "\n";
     }
 
-   
 }

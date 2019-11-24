@@ -17,21 +17,21 @@ import javafx.scene.web.WebView;
  * @author Agustin Hernandorena and Marco Fiorito
  */
 public class PointsOfSaleWindowController implements Initializable {
-    
+
     @FXML
     private WebView browser;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         intitializeMap();
     }
-    
+
     @FXML
-    private void intitializeMap(){
-       final URL urlGoogleMaps = getClass().getResource("htmlResources/mapPointOfSale.html");
-       browser.getEngine().load(urlGoogleMaps.toExternalForm()); 
+    private void intitializeMap() {
+        final URL urlGoogleMaps = getClass().getResource("htmlResources/mapPointOfSale.html");
+        browser.getEngine().load(urlGoogleMaps.toExternalForm());
     }
-    
+
     @FXML
     public void goToCartEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
@@ -39,15 +39,15 @@ public class PointsOfSaleWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void goToListOfProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();            
+        myPrimaryStage.show();
     }
-    
+
     @FXML
     public void sellerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -55,7 +55,7 @@ public class PointsOfSaleWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void pointsOfSaleEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PointsOfSaleWindow.fxml"));
@@ -63,7 +63,7 @@ public class PointsOfSaleWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void registerClientEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("RegisterClientWindow.fxml"));
@@ -71,5 +71,5 @@ public class PointsOfSaleWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
 }

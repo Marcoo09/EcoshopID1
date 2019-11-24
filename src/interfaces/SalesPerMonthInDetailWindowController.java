@@ -33,12 +33,11 @@ import javafx.util.Pair;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public class SalesPerMonthInDetailWindowController implements Initializable {
-    
+
     @FXML
     private JFXTreeTableView<Sale> treeView;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         JFXTreeTableColumn<Sale, String> ticketNumberCol = new JFXTreeTableColumn<>("Numero de ticket");
@@ -84,10 +83,9 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         treeView.getColumns().setAll(ticketNumberCol, purchasedDateCol, purchasedProductsCol, totalPriceCol);
         treeView.setRoot(root);
         treeView.setShowRoot(false);
-        
+
     }
-    
-    
+
     @FXML
     public void addProduct(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -95,7 +93,7 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void mostSelledProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
@@ -127,15 +125,15 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
-    public void buyerProfileEvent(MouseEvent e) throws IOException{
+    public void buyerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void addProductEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -143,7 +141,7 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void reusedPackagesEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostUsedPackageWindow.fxml"));
@@ -176,10 +174,10 @@ public class SalesPerMonthInDetailWindowController implements Initializable {
                 Product p = (Product) aPurchasedProducts.get(i).getKey();
                 int quantity = (int) aPurchasedProducts.get(i).getValue();
                 products = products + "-" + " " + p.getName() + " " + "x" + quantity + " " + "Unidades" + System.lineSeparator();
-                
+
             }
             this.purchasedProducts = new SimpleStringProperty(products);
         }
     }
-    
+
 }

@@ -32,12 +32,11 @@ import javafx.util.Pair;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public class PreSaleListWindowController implements Initializable {
 
     @FXML
     private JFXTreeTableView<Sale> table;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         JFXTreeTableColumn<Sale, String> orderedNumberCol = new JFXTreeTableColumn<>("Numero de orden");
@@ -93,7 +92,6 @@ public class PreSaleListWindowController implements Initializable {
         table.setShowRoot(false);
     }
 
-
     @FXML
     public void addProduct(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -101,7 +99,7 @@ public class PreSaleListWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void mostSelledProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
@@ -133,15 +131,15 @@ public class PreSaleListWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
-    public void buyerProfileEvent(MouseEvent e) throws IOException{
+    public void buyerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void addProductEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -149,7 +147,7 @@ public class PreSaleListWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void reusedPackagesEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostUsedPackageWindow.fxml"));
@@ -188,5 +186,5 @@ public class PreSaleListWindowController implements Initializable {
             this.clientIdentityCard = new SimpleStringProperty(aIdentityCard);
         }
     }
-    
+
 }

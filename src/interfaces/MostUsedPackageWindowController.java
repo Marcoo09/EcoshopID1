@@ -83,8 +83,8 @@ public class MostUsedPackageWindowController implements Initializable {
         ArrayList<Pair> usedPackages = mySystem.totalUsedPackages();
         for (int i = 0; i < usedPackages.size(); i++) {
             Pair p = usedPackages.get(i);
-            domain.Package currentPackage = (domain.Package)p.getKey();
-            int quantity = (int)p.getValue();
+            domain.Package currentPackage = (domain.Package) p.getKey();
+            int quantity = (int) p.getValue();
             packages.add(new Container(currentPackage.getName(), quantity, currentPackage.getMaterial()));
         }
         final TreeItem<Container> root = new RecursiveTreeItem<Container>(packages, RecursiveTreeObject::getChildren);
@@ -148,7 +148,7 @@ public class MostUsedPackageWindowController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void dashboardEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("DashboardWindow.fxml"));

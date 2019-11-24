@@ -18,7 +18,6 @@ import javafx.scene.Scene;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public class HomeWindowController implements Initializable {
 
     @FXML
@@ -30,11 +29,11 @@ public class HomeWindowController implements Initializable {
         myPrimaryStage.setMaximized(true);
         myPrimaryStage.setWidth(screenSize.getWidth());
         myPrimaryStage.setHeight(screenSize.getHeight());
-        myPrimaryStage.show(); 
+        myPrimaryStage.show();
     }
-    
+
     @FXML
-    public void buyerEvent(ActionEvent e) throws IOException{
+    public void buyerEvent(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -42,9 +41,9 @@ public class HomeWindowController implements Initializable {
         myPrimaryStage.setMaximized(true);
         myPrimaryStage.setWidth(screenSize.getWidth());
         myPrimaryStage.setHeight(screenSize.getHeight());
-        myPrimaryStage.show(); 
+        myPrimaryStage.show();
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }

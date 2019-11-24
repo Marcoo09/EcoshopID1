@@ -38,7 +38,6 @@ import javafx.stage.StageStyle;
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
-
 public class MainWindowOfBuyerController implements Initializable {
 
     @FXML
@@ -49,7 +48,7 @@ public class MainWindowOfBuyerController implements Initializable {
 
     @FXML
     JFXToggleButton toggleButton;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         chargePane();
@@ -71,7 +70,6 @@ public class MainWindowOfBuyerController implements Initializable {
         try {
             newScene = new Scene(loader.load());
         } catch (IOException ex) {
-            System.out.println("a " + ex);
             return;
         }
         Stage inputStage = new Stage();
@@ -93,15 +91,15 @@ public class MainWindowOfBuyerController implements Initializable {
         alert.setTitle("Error");
         alert.setHeaderText("Sin productos en el carrito");
         alert.setContentText("Debe agregar al menos un producto");
-        
-        if(newSale.getPurchasedProducts().size() == 0){
+
+        if (newSale.getPurchasedProducts().size() == 0) {
             alert.showAndWait();
-        }else{
+        } else {
             mySystem.setIsInPreSaleMode(toggleButton.isSelected());
             Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
             Scene scene = new Scene(root);
             myPrimaryStage.setScene(scene);
-            myPrimaryStage.show();            
+            myPrimaryStage.show();
         }
     }
 
@@ -110,9 +108,9 @@ public class MainWindowOfBuyerController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();            
+        myPrimaryStage.show();
     }
-    
+
     @FXML
     public void sellerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -120,7 +118,7 @@ public class MainWindowOfBuyerController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void pointsOfSaleEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PointsOfSaleWindow.fxml"));
@@ -128,7 +126,7 @@ public class MainWindowOfBuyerController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void registerClientEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("RegisterClientWindow.fxml"));
@@ -136,7 +134,7 @@ public class MainWindowOfBuyerController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void chargePane() {
         int index = 0;
@@ -166,7 +164,7 @@ public class MainWindowOfBuyerController implements Initializable {
                 labelOfQuantity.setText(Integer.toString(quantityOfTimes));
                 addToCart.setId(currentProduct.getName());
             } catch (Exception e) {
-                if(index < productList.size()){
+                if (index < productList.size()) {
                     Product currentProduct = productList.get(index);
                     image = new Image("resources/default.png");
                     imageOfProduct.setImage(image);
@@ -176,7 +174,7 @@ public class MainWindowOfBuyerController implements Initializable {
                     int quantityOfTimes = (int) newSale.getProduct(currentProduct).getValue();
                     labelOfQuantity.setText(Integer.toString(quantityOfTimes));
                     addToCart.setId(currentProduct.getName());
-                }else{
+                } else {
                     productPane.setVisible(false);
                 }
             }

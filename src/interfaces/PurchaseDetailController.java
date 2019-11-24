@@ -52,7 +52,6 @@ import javafx.util.Pair;
  *
  * @author Agustín Hernandorena and Marco Fiorito
  */
-
 public class PurchaseDetailController implements Initializable {
 
     private Integer currentTab;
@@ -77,10 +76,10 @@ public class PurchaseDetailController implements Initializable {
 
     @FXML
     JFXTextField clientNumber;
-        
+
     @FXML
     JFXCheckBox isPreSale;
-    
+
     @FXML
     JFXTextField firstNameResume;
 
@@ -95,16 +94,16 @@ public class PurchaseDetailController implements Initializable {
 
     @FXML
     JFXTextField clientNumberResume;
-        
+
     @FXML
     JFXCheckBox isPreSaleResume;
 
     @FXML
     JFXDatePicker date;
-    
+
     @FXML
     JFXDatePicker dateResume;
-        
+
     @FXML
     Label confirmationText;
 
@@ -113,7 +112,7 @@ public class PurchaseDetailController implements Initializable {
 
     @FXML
     private JFXListView availablePointsOfSale;
-    
+
     @FXML
     private JFXTreeTableView<PurchasedProductInfo> table;
 
@@ -122,22 +121,22 @@ public class PurchaseDetailController implements Initializable {
 
     @FXML
     private Label lblQuantity;
-    
+
     @FXML
     private TitledPane datePane;
-    
+
     @FXML
     private JFXTextArea txtAreaPintOfSale;
-    
+
     @FXML
     private Text txtTotal;
-    
+
     @FXML
     private ImageView arrowBack;
-    
+
     @FXML
     private ImageView arrowNext;
-        
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentTab = 0;
@@ -147,11 +146,11 @@ public class PurchaseDetailController implements Initializable {
         intitializeMap();
         initializeListViewOfPointOfSales();
         initializeResume();
-        if(mySystem.isIsInPreSaleMode()){
+        if (mySystem.isIsInPreSaleMode()) {
             tabPane.getTabs().get(currentTab).setDisable(true);
-            if(!"".equals(mySystem.getClient().getFirstName())){
+            if (!"".equals(mySystem.getClient().getFirstName())) {
                 currentTab = 2;
-            }else{
+            } else {
                 currentTab = 1;
             }
             isPreSale.setSelected(true);
@@ -162,13 +161,13 @@ public class PurchaseDetailController implements Initializable {
     }
 
     @FXML
-    private void initializeResume(){
+    private void initializeResume() {
         initializeDetailOnResume();
         txtTotal.setText("$" + newSale.getFullPayment());
     }
-    
+
     @FXML
-    private void initializeDetailOnResume(){
+    private void initializeDetailOnResume() {
         JFXTreeTableColumn<PurchasedProductInfo, String> nameCol = new JFXTreeTableColumn<>("Nombre");
         nameCol.setPrefWidth(250);
         JFXTreeTableColumn<PurchasedProductInfo, String> quantityCol = new JFXTreeTableColumn<>("Cantidad");
@@ -177,51 +176,51 @@ public class PurchaseDetailController implements Initializable {
         priceUnitCol.setPrefWidth(250);
         JFXTreeTableColumn<PurchasedProductInfo, String> priceAllCol = new JFXTreeTableColumn<>("Precio Total");
         priceAllCol.setPrefWidth(250);
-        
+
         nameCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String> param) {
                 return param.getValue().getValue().productName;
             }
         });
-        
+
         quantityCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String>, ObservableValue<String>>() {
             @Override
-           public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String> param) {
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String> param) {
                 return param.getValue().getValue().quantitySold;
             }
         });
 
         priceUnitCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String>, ObservableValue<String>>() {
             @Override
-           public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String> param) {
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String> param) {
                 return param.getValue().getValue().priceUnit;
             }
         });
-                        
+
         priceAllCol.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String>, ObservableValue<String>>() {
             @Override
-           public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String> param) {
+            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<PurchasedProductInfo, String> param) {
                 return param.getValue().getValue().incomeGenerated;
             }
         });
-           
+
         ObservableList<PurchasedProductInfo> products = FXCollections.observableArrayList();
         ArrayList<Pair> purchasedProducts = newSale.getPurchasedProducts();
 
-       for (int i = 0; i < purchasedProducts.size(); i++) {
+        for (int i = 0; i < purchasedProducts.size(); i++) {
             Pair productPair = purchasedProducts.get(i);
             Product value = (Product) productPair.getKey();
             int quantity = (int) productPair.getValue();
-            products.add(new PurchasedProductInfo(value,quantity));
+            products.add(new PurchasedProductInfo(value, quantity));
         }
         final TreeItem<PurchasedProductInfo> root = new RecursiveTreeItem<PurchasedProductInfo>(products, RecursiveTreeObject::getChildren);
-        table.getColumns().setAll(nameCol, quantityCol, priceUnitCol,priceAllCol);
+        table.getColumns().setAll(nameCol, quantityCol, priceUnitCol, priceAllCol);
         table.setRoot(root);
         table.setShowRoot(false);
     }
-    
-    private void initializeMoreInfoOnResume(){
+
+    private void initializeMoreInfoOnResume() {
         Client client = newSale.getClient();
         firstNameResume.setText(client.getFirstName());
         lastNameResume.setText(client.getLastName());
@@ -230,60 +229,60 @@ public class PurchaseDetailController implements Initializable {
         clientNumberResume.setText(client.getClientNumber());
         isPreSale.setSelected(newSale.isIsPreSale());
     }
-    
-    private void initializeDateOnResume(){
-        if(!newSale.isIsPreSale()){
+
+    private void initializeDateOnResume() {
+        if (!newSale.isIsPreSale()) {
             datePane.setDisable(true);
-        }else{
+        } else {
             dateResume.setValue(newSale.getPurchaseDate());
         }
     }
 
     @FXML
-    private void initializePointOfSaleOnResume(){
+    private void initializePointOfSaleOnResume() {
         PointOfSale shopPlace = newSale.getShopPlace();
         txtAreaPintOfSale.setText(shopPlace.getName() + ", " + shopPlace.getAddress());
     }
-    
+
     @FXML
-    private void initializeMoreInformation(){
+    private void initializeMoreInformation() {
         Client client = mySystem.getClient();
-        if(!"".equals(client.getClientNumber())){
+        if (!"".equals(client.getClientNumber())) {
             clientNumber.setText(client.getClientNumber());
             clientNumber.setDisable(true);
         }
-        if(!"".equals(client.getFirstName())){
+        if (!"".equals(client.getFirstName())) {
             firstName.setText(client.getFirstName());
             firstName.setDisable(true);
         }
-        if(!"".equals(client.getLastName())){
+        if (!"".equals(client.getLastName())) {
             lastName.setText(client.getLastName());
             lastName.setDisable(true);
         }
-        if(!"".equals(client.getIdentifyCard())){
+        if (!"".equals(client.getIdentifyCard())) {
             identifyCard.setText(client.getIdentifyCard());
             identifyCard.setDisable(true);
         }
-        if(!"".equals(client.getPhoneNumber())){
+        if (!"".equals(client.getPhoneNumber())) {
             phoneNumber.setText(client.getPhoneNumber());
             phoneNumber.setDisable(true);
         }
     }
-    
+
     @FXML
-    private void intitializeMap(){
+    private void intitializeMap() {
         final URL urlGoogleMaps = getClass().getResource("htmlResources/mapBuyFlow.html");
         browser.getEngine().load(urlGoogleMaps.toExternalForm());
     }
-    
-    private void initializeListViewOfPointOfSales(){
+
+    private void initializeListViewOfPointOfSales() {
         availablePointsOfSale.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         ArrayList<PointOfSale> points = mySystem.getSalePoints();
         for (int i = 0; i < points.size(); i++) {
             availablePointsOfSale.getItems().add(points.get(i));
         }
     }
-    
+
     @FXML
     private void initializeTabs() {
         tabPane.getTabs().get(currentTab).setDisable(false);
@@ -319,7 +318,7 @@ public class PurchaseDetailController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void pointsOfSaleEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PointsOfSaleWindow.fxml"));
@@ -327,7 +326,7 @@ public class PurchaseDetailController implements Initializable {
         myPrimaryStage.setScene(scene);
         myPrimaryStage.show();
     }
-    
+
     @FXML
     public void registerClientEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("RegisterClientWindow.fxml"));
@@ -341,12 +340,12 @@ public class PurchaseDetailController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
         myPrimaryStage.setScene(scene);
-        myPrimaryStage.show();            
+        myPrimaryStage.show();
     }
-    
+
     @FXML
     public void nextOfPointOfSaleTabEvent(MouseEvent e) throws IOException {
-        PointOfSale pointSelected = (PointOfSale)availablePointsOfSale.getSelectionModel().getSelectedItem();
+        PointOfSale pointSelected = (PointOfSale) availablePointsOfSale.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("Error de local seleccionado");
@@ -360,7 +359,7 @@ public class PurchaseDetailController implements Initializable {
             alert.showAndWait();
         }
     }
-    
+
     @FXML
     public void nextOfDateTabEvent(MouseEvent e) throws IOException {
         LocalDate dateSelected = date.getValue();
@@ -490,26 +489,26 @@ public class PurchaseDetailController implements Initializable {
 
     @FXML
     public void backLogic(MouseEvent e) throws IOException {
-        switch(currentTab){ 
+        switch (currentTab) {
             case 1:
                 arrowBack.setVisible(false);
                 previousTabLogic();
                 break;
             case 2:
                 previousTabLogic();
-                break;                
+                break;
             case 3:
                 previousOfPointsOfSaleTabEvent(e);
                 break;
             case 4:
                 previousTabLogic();
-                break;             
+                break;
         }
     }
-    
+
     @FXML
     public void nextLogic(MouseEvent e) throws IOException {
-        switch(currentTab){ 
+        switch (currentTab) {
             case 0:
                 nextTabEvent(e);
                 arrowBack.setVisible(true);
@@ -519,7 +518,7 @@ public class PurchaseDetailController implements Initializable {
                 break;
             case 2:
                 nextOfDateTabEvent(e);
-                break;                
+                break;
             case 3:
                 nextOfPointOfSaleTabEvent(e);
                 break;
@@ -527,17 +526,17 @@ public class PurchaseDetailController implements Initializable {
                 confirmTabEvent(e);
                 arrowBack.setVisible(false);
                 arrowNext.setVisible(false);
-                break;             
+                break;
         }
-    }    
-    
+    }
+
     class PurchasedProductInfo extends RecursiveTreeObject<PurchasedProductInfo> {
 
         StringProperty productName;
         StringProperty quantitySold;
         StringProperty incomeGenerated;
         StringProperty priceUnit;
-        
+
         PurchasedProductInfo(Product aProduct, int quantity) {
             this.productName = new SimpleStringProperty(aProduct.getName());
             this.quantitySold = new SimpleStringProperty("" + quantity);
@@ -545,5 +544,5 @@ public class PurchaseDetailController implements Initializable {
             this.priceUnit = new SimpleStringProperty("$ " + aProduct.getPrice());
         }
     }
-    
+
 }
