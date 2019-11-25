@@ -34,7 +34,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- * FXML Controller class
+ * This class shows a panel with images, name and price of the products. From
+ * here the client can buy.
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
@@ -59,6 +60,14 @@ public class MainWindowOfBuyerController implements Initializable {
         lblCant.setText(quantityOfProducstAdded);
     }
 
+    /**
+     *
+     * This method opens a window with a detailed description of the product
+     * selected.
+     *
+     * @param e Click on the "+" button.
+     * @throws IOException A exception.
+     */
     @FXML
     public void plusEvent(MouseEvent e) throws IOException {
         pendingProduct = new Product();
@@ -85,6 +94,13 @@ public class MainWindowOfBuyerController implements Initializable {
         lblCant.setText(" " + newSale.getPurchasedProducts().size());
     }
 
+    /**
+     *
+     * This method opens a window with the purchase process.
+     *
+     * @param e Click on the cart.
+     * @throws IOException A exception.
+     */
     @FXML
     public void goToCartEvent(MouseEvent e) throws IOException {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -103,6 +119,12 @@ public class MainWindowOfBuyerController implements Initializable {
         }
     }
 
+    /**
+     * This method does not change the window.
+     *
+     * @param e Click made by the client in "list of products"
+     * @throws IOException
+     */
     @FXML
     public void goToListOfProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
@@ -111,6 +133,13 @@ public class MainWindowOfBuyerController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens a window with the seller profile.
+     *
+     * @param e Click made by the client in "Seller profile".
+     * @throws IOException A exception.
+     */
     @FXML
     public void sellerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -119,6 +148,13 @@ public class MainWindowOfBuyerController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * It shows a window with a map containing the points of sale.
+     *
+     * @param e Click made by the user in "Points of sale"
+     * @throws IOException A exception.
+     */
     @FXML
     public void pointsOfSaleEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PointsOfSaleWindow.fxml"));
@@ -127,6 +163,13 @@ public class MainWindowOfBuyerController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens a window that allows you to register a client.
+     *
+     * @param e Click made by the client in "Register client".
+     * @throws IOException A exception.
+     */
     @FXML
     public void registerClientEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("RegisterClientWindow.fxml"));
@@ -135,6 +178,11 @@ public class MainWindowOfBuyerController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method loads the panel with the images, name and price of the
+     * products.
+     */
     @FXML
     public void chargePane() {
         int index = 0;
@@ -182,6 +230,12 @@ public class MainWindowOfBuyerController implements Initializable {
         }
     }
 
+    /**
+     * This method changes the style of the shopping cart.
+     *
+     * @param cartWithProducts It is true if the customer added any product to
+     * the shopping cart.
+     */
     @FXML
     public void changeStyleOfQuantityText(boolean cartWithProducts) {
         if (cartWithProducts) {

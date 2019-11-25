@@ -25,7 +25,10 @@ import javafx.util.Pair;
 
 /**
  *
- * @author Agustin Hernandorena
+ * This class contains graphic representations of the main metrics of the
+ * ecoshop: total sales per month, sales per ecoshop.
+ *
+ * @author Marco Fiorito and Agustin Hernandorena
  */
 public class DashboardWindowController implements Initializable {
 
@@ -51,6 +54,10 @@ public class DashboardWindowController implements Initializable {
         initalizeLineChart();
     }
 
+    /**
+     *
+     * This method loads the amount of sales and pre-sales data in a pie chart.
+     */
     public void initalizePieChart() {
         int quantityOfPreSales = mySystem.quantityOfPreSales();
         int quantityOfSales = mySystem.getSales().size() - quantityOfPreSales;
@@ -61,6 +68,11 @@ public class DashboardWindowController implements Initializable {
         saleAndPreSale.setData(list);
     }
 
+    /**
+     *
+     * This method loads the total sales amount per point of sale in a bar
+     * chart.
+     */
     public void initalizeBarChart() {
         ArrayList<Pair> salesPerPointOfSale = mySystem.salesListPerPointOfSale();
         XYChart.Series set1 = new XYChart.Series<>();
@@ -73,6 +85,11 @@ public class DashboardWindowController implements Initializable {
         barChart.getData().addAll(set1);
     }
 
+    /**
+     *
+     * This method loads the total sales amount of all the sales points in each
+     * month in a linear graph.
+     */
     public void initalizeLineChart() {
         XYChart.Series set1 = new XYChart.Series<>();
         int[] salesPerMonth = mySystem.salesPerMonth();
@@ -82,6 +99,12 @@ public class DashboardWindowController implements Initializable {
         lineChart.getData().addAll(set1);
     }
 
+    /**
+     * This method opens the window of adding a product to the system.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void addProduct(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -90,6 +113,13 @@ public class DashboardWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the window of the best selling product.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void mostSelledProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
@@ -98,6 +128,13 @@ public class DashboardWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the sales per month window.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void salesPerMonthEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
@@ -106,6 +143,13 @@ public class DashboardWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the window that contains the pre-sales list.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void preSalesEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PreSaleListWindow.fxml"));
@@ -114,6 +158,14 @@ public class DashboardWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the window that contains a pie chart with the quantity
+     * of organic and inorganic products sold.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void pieChartEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
@@ -122,6 +174,13 @@ public class DashboardWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the buyer profile window.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void buyerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
@@ -130,6 +189,13 @@ public class DashboardWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the most used package window.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void reusedPackagesEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostUsedPackageWindow.fxml"));
@@ -138,6 +204,13 @@ public class DashboardWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens this same window.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void dashboardEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("DashboardWindow.fxml"));

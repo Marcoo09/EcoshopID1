@@ -22,6 +22,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
+ * This class controls the window that displays a bar graph with total sales per
+ * month.
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
@@ -48,6 +50,13 @@ public class SalesPerMonthWindowController implements Initializable {
     @FXML
     private Label bestSeller;
 
+    /**
+     *
+     * Method that loads the bar graph with total sales per month.
+     *
+     * @param location A location.
+     * @param resources A resource.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         for (int i = 1; i <= 12; i++) {
@@ -61,6 +70,12 @@ public class SalesPerMonthWindowController implements Initializable {
         salesChart.getData().addAll(set1);
     }
 
+    /**
+     * This method opens the window of adding a product to the system.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void addProduct(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -69,6 +84,13 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the window of the best selling product.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void mostSelledProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
@@ -77,6 +99,13 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the sales per month window.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void salesPerMonthEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
@@ -85,6 +114,13 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the window that contains the pre-sales list.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void preSalesEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PreSaleListWindow.fxml"));
@@ -93,6 +129,14 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the window that contains a pie chart with the quantity
+     * of organic and inorganic products sold.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void pieChartEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
@@ -101,6 +145,13 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the buyer profile window.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void buyerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
@@ -109,6 +160,12 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     * This method opens the window of adding a product to the system.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void addProductEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -117,6 +174,13 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the most used package window.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void reusedPackagesEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostUsedPackageWindow.fxml"));
@@ -125,6 +189,13 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the dasbord window.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void dashboardEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("DashboardWindow.fxml"));
@@ -133,10 +204,23 @@ public class SalesPerMonthWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * Method that obtains the month selected in the checkbox.
+     *
+     * @param e Click in a month.
+     */
     public void monthEvent(ActionEvent e) {
         monthSelected = monthCheckBox.getSelectionModel().getSelectedItem().getText();
     }
 
+    /**
+     *
+     * Method that opens the window sales per month in detail.
+     *
+     * @param e Click en view detail.
+     * @throws IOException A exception.
+     */
     public void viewDetail(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthInDetailWindow.fxml"));
         Scene scene = new Scene(root);
