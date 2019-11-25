@@ -39,7 +39,6 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -48,7 +47,9 @@ import javafx.util.Callback;
 import javafx.util.Pair;
 
 /**
- * FXML Controller class
+ *
+ * This class controls the window in which the process of buying a product
+ * occurs.
  *
  * @author Agustín Hernandorena and Marco Fiorito
  */
@@ -159,12 +160,20 @@ public class PurchaseDetailController implements Initializable {
         }
     }
 
+    /**
+     * Method that shows a summary of the purchase.
+     */
     @FXML
     private void initializeResume() {
         initializeDetail();
         txtTotal.setText("$" + newSale.getFullPayment());
     }
 
+    /**
+     *
+     * Method that loads a list with each product purchased, quantity, price and
+     * total price.
+     */
     @FXML
     private void initializeDetail() {
         JFXTreeTableColumn<PurchasedProductInfo, String> nameCol = new JFXTreeTableColumn<>("Nombre");
@@ -222,6 +231,10 @@ public class PurchaseDetailController implements Initializable {
         tableDetail.setShowRoot(false);
     }
 
+    /**
+     *
+     * Method to place more information in the summary of the sale.
+     */
     private void initializeMoreInfoOnResume() {
         Client client = newSale.getClient();
         firstNameResume.setText(client.getFirstName());
@@ -232,6 +245,10 @@ public class PurchaseDetailController implements Initializable {
         isPreSale.setSelected(newSale.isIsPreSale());
     }
 
+    /**
+     *
+     * Method to place the date in the summary of the sale.
+     */
     private void initializeDateOnResume() {
         if (!newSale.isIsPreSale()) {
             datePane.setDisable(true);
@@ -240,12 +257,21 @@ public class PurchaseDetailController implements Initializable {
         }
     }
 
+    /**
+     *
+     *
+     * Method to place the point of sale in the summary of the sale.
+     */
     @FXML
     private void initializePointOfSaleOnResume() {
         PointOfSale shopPlace = newSale.getShopPlace();
         txtAreaPintOfSale.setText(shopPlace.getName() + ", " + shopPlace.getAddress());
     }
 
+    /**
+     *
+     * Method that initializes the more informationsection.
+     */
     @FXML
     private void initializeMoreInformation() {
         Client client = mySystem.getClient();
@@ -271,12 +297,19 @@ public class PurchaseDetailController implements Initializable {
         }
     }
 
+    /**
+     * Method that initializes the map.
+     */
     @FXML
     private void intitializeMap() {
         final URL urlGoogleMaps = getClass().getResource("htmlResources/mapBuyFlow.html");
         browser.getEngine().load(urlGoogleMaps.toExternalForm());
     }
 
+    /**
+     *
+     * Method that loads the list of points of sale.
+     */
     private void initializeListViewOfPointOfSales() {
         availablePointsOfSale.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         ArrayList<PointOfSale> points = mySystem.getSalePoints();
@@ -285,12 +318,24 @@ public class PurchaseDetailController implements Initializable {
         }
     }
 
+    /**
+     *
+     * Method that initializes the part of the window where the purchase process
+     * takes place.
+     */
     @FXML
     private void initializeTabs() {
         tabPane.getTabs().get(currentTab).setDisable(false);
         tabPane.getSelectionModel().select(currentTab);
     }
 
+    /**
+     *
+     * This method opens a window with the purchase process.
+     *
+     * @param e Click on the cart.
+     * @throws IOException A exception.
+     */
     @FXML
     public void goToCartEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
@@ -299,6 +344,13 @@ public class PurchaseDetailController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens a window with the seller profile.
+     *
+     * @param e Click made by the client in "Seller profile".
+     * @throws IOException A exception.
+     */
     @FXML
     public void sellerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -307,6 +359,13 @@ public class PurchaseDetailController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * It shows a window with a map containing the points of sale.
+     *
+     * @param e Click made by the user in "Points of sale"
+     * @throws IOException A exception.
+     */
     @FXML
     public void pointsOfSaleEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PointsOfSaleWindow.fxml"));
@@ -315,6 +374,13 @@ public class PurchaseDetailController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens a window that allows you to register a client.
+     *
+     * @param e Click made by the client in "Register client".
+     * @throws IOException A exception.
+     */
     @FXML
     public void registerClientEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("RegisterClientWindow.fxml"));
@@ -323,6 +389,12 @@ public class PurchaseDetailController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     * This method does not change the window.
+     *
+     * @param e Click made by the client in "list of products"
+     * @throws IOException
+     */
     @FXML
     public void goToListOfProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
@@ -331,6 +403,13 @@ public class PurchaseDetailController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     * Method that opens a window when the user is in the "Points of sale"
+     * section and clicks on next arrow.
+     *
+     * @param e Click in next arrow.
+     * @throws IOException A exception.
+     */
     @FXML
     public void nextOfPointOfSaleTabEvent(MouseEvent e) throws IOException {
         PointOfSale pointSelected = (PointOfSale) availablePointsOfSale.getSelectionModel().getSelectedItem();
@@ -348,6 +427,13 @@ public class PurchaseDetailController implements Initializable {
         }
     }
 
+    /**
+     * Method that opens a window when the user is in the "Purchase date"
+     * section and clicks on next arrow.
+     *
+     * @param e Click in next arrow.
+     * @throws IOException A exception.
+     */
     @FXML
     public void nextOfDateTabEvent(MouseEvent e) throws IOException {
         LocalDate dateSelected = date.getValue();
@@ -369,6 +455,14 @@ public class PurchaseDetailController implements Initializable {
         }
     }
 
+    /**
+     *
+     * Method that opens a window when the user is in the "More info" section
+     * and clicks on next arrow.
+     *
+     * @param e Click in next arrow.
+     * @throws IOException A exception.
+     */
     @FXML
     public void nextOfMoreInfoTabEvent(MouseEvent e) throws IOException {
         if (enterAllFields()) {
@@ -387,6 +481,11 @@ public class PurchaseDetailController implements Initializable {
         }
     }
 
+    /**
+     * Method that returns true if the user completes all fields.
+     *
+     * @return true if the user completes all fields.
+     */
     @FXML
     public boolean enterAllFields() {
         boolean enterAllFields = false;
@@ -424,16 +523,34 @@ public class PurchaseDetailController implements Initializable {
         return enterAllFields;
     }
 
+    /**
+     * Method that invokes the "nextTabLogic" method.
+     *
+     * @param e Click in next arrow.
+     * @throws IOException
+     */
     @FXML
     public void nextTabEvent(MouseEvent e) throws IOException {
         nextTabLogic();
     }
 
+    /**
+     * Method that invokes the "previousTabLogic" method.
+     *
+     * @param e Click in previous arrow.
+     * @throws IOException A exception.
+     */
     @FXML
     public void previousTabEvent(MouseEvent e) throws IOException {
         previousTabLogic();
     }
 
+    /**
+     * Method that confirms and adds the sale to the system.
+     *
+     * @param e Click in "Register purchase".
+     * @throws IOException A exception.
+     */
     @FXML
     public void confirmTabEvent(MouseEvent e) throws IOException {
         newSale.setTotalPrice(newSale.obtainPrice());
@@ -443,6 +560,14 @@ public class PurchaseDetailController implements Initializable {
         nextTabLogic();
     }
 
+    /**
+     *
+     *
+     * Method to go back in the map window.
+     *
+     * @param e Click in previous arrow.
+     * @throws IOException A exception.
+     */
     @FXML
     public void previousOfPointsOfSaleTabEvent(MouseEvent e) throws IOException {
         tabPane.getTabs().get(currentTab).setDisable(true);
@@ -454,6 +579,13 @@ public class PurchaseDetailController implements Initializable {
         tabPane.getSelectionModel().select(currentTab);
     }
 
+    /**
+     * Method that opens the window that contains all the products (main
+     * window).
+     *
+     * @param e Click in "list of products".
+     * @throws IOException A exception.
+     */
     public void goToHome(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
         Scene scene = new Scene(root);
@@ -461,6 +593,10 @@ public class PurchaseDetailController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * Logic of the method when moving forward in the sales process.
+     */
     public void nextTabLogic() {
         tabPane.getTabs().get(currentTab).setDisable(true);
         currentTab++;
@@ -468,6 +604,10 @@ public class PurchaseDetailController implements Initializable {
         tabPane.getSelectionModel().select(currentTab);
     }
 
+    /**
+     *
+     * Logic of the method when going backwards in the sales process.
+     */
     public void previousTabLogic() {
         tabPane.getTabs().get(currentTab).setDisable(true);
         currentTab--;
@@ -475,6 +615,13 @@ public class PurchaseDetailController implements Initializable {
         tabPane.getSelectionModel().select(currentTab);
     }
 
+    /**
+     *
+     * Method that passes to the previous stage in the sales process
+     *
+     * @param e Click in previous right.
+     * @throws IOException A exception.
+     */
     @FXML
     public void backLogic(MouseEvent e) throws IOException {
         switch (currentTab) {
@@ -494,6 +641,13 @@ public class PurchaseDetailController implements Initializable {
         }
     }
 
+    /**
+     *
+     * Method that passes to the next stage in the sales process
+     *
+     * @param e Click in arrow next.
+     * @throws IOException A exception.
+     */
     @FXML
     public void nextLogic(MouseEvent e) throws IOException {
         switch (currentTab) {
@@ -518,6 +672,10 @@ public class PurchaseDetailController implements Initializable {
         }
     }
 
+    /**
+     *
+     * Auxiliary class to load the table.
+     */
     class PurchasedProductInfo extends RecursiveTreeObject<PurchasedProductInfo> {
 
         StringProperty productName;

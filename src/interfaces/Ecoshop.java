@@ -17,6 +17,8 @@ import javafx.util.Pair;
 
 /**
  *
+ * This is the main class, here the execution begins.
+ *
  * @author Agustin Hernandorena and Marco Fiorito
  */
 public class Ecoshop extends Application {

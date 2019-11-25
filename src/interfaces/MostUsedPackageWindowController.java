@@ -30,6 +30,8 @@ import javafx.util.Callback;
 import javafx.util.Pair;
 
 /**
+ * This class controls the window that shows the most reused package and a list
+ * of all the packages and with number of times they were reused.
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
@@ -47,6 +49,14 @@ public class MostUsedPackageWindowController implements Initializable {
     @FXML
     private Label lblName;
 
+    /**
+     *
+     * At the beginning, the most used package image is loaded. Then a table is
+     * loaded with all the packages and the number of times they were reused.
+     *
+     * @param location A location.
+     * @param resources A resorces.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Pair mostUsedPackage = mySystem.mostUsedPackage();
@@ -93,6 +103,12 @@ public class MostUsedPackageWindowController implements Initializable {
         table.setShowRoot(false);
     }
 
+    /**
+     * This method opens the window of adding a product to the system.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void addProduct(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -101,6 +117,13 @@ public class MostUsedPackageWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the window of the best selling product.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void mostSelledProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MostSelledProductsWindow.fxml"));
@@ -109,6 +132,13 @@ public class MostUsedPackageWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the sales per month window.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void salesPerMonthEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("SalesPerMonthWindow.fxml"));
@@ -117,6 +147,13 @@ public class MostUsedPackageWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the window that contains the pre-sales list.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void preSalesEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PreSaleListWindow.fxml"));
@@ -125,6 +162,14 @@ public class MostUsedPackageWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the window that contains a pie chart with the quantity
+     * of organic and inorganic products sold.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void pieChartEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("OrganicProductsPieChart.fxml"));
@@ -133,6 +178,13 @@ public class MostUsedPackageWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens the buyer profile window.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void buyerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
@@ -141,6 +193,12 @@ public class MostUsedPackageWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     * This method opens the window of adding a product to the system.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void addProductEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -149,6 +207,13 @@ public class MostUsedPackageWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens this same window.
+     *
+     * @param e Click made by the client.
+     * @throws IOException A exception.
+     */
     @FXML
     public void dashboardEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("DashboardWindow.fxml"));
@@ -157,6 +222,10 @@ public class MostUsedPackageWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * Auxiliary class used to complete the table
+     */
     class Container extends RecursiveTreeObject<Container> {
 
         StringProperty name;
