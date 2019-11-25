@@ -18,14 +18,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
 /**
- * FXML Controller class
+ * FXML Controller class * This class shows the client a description of the
+ * product, its price, available packages, and gives the possibility to buy
+ * them.
  *
- * @author Marco Fiorito
+ * @author Marco Fiorito and Agustin Hernandorena
  */
 public class AddProductToCartController implements Initializable {
 
@@ -72,6 +73,11 @@ public class AddProductToCartController implements Initializable {
         initializeDetail();
     }
 
+    /**
+     *
+     * This method initializes in detail the window of the previously selected
+     * product.
+     */
     @FXML
     private void initializeDetail() {
         Image image;
@@ -112,6 +118,12 @@ public class AddProductToCartController implements Initializable {
         }
     }
 
+    /**
+     *
+     * This method loads the first image in the product detail window.
+     *
+     * @param event Click made by the client.
+     */
     @FXML
     private void firstImageEvent(MouseEvent event) {
         Image image;
@@ -123,6 +135,11 @@ public class AddProductToCartController implements Initializable {
         mainImage.setImage(image);
     }
 
+    /**
+     * This method loads the second image in the product detail window.
+     *
+     * @param event Click made by the client.
+     */
     @FXML
     private void secondImageEvent(MouseEvent event) {
         Image image;
@@ -134,6 +151,11 @@ public class AddProductToCartController implements Initializable {
         mainImage.setImage(image);
     }
 
+    /**
+     * This method loads the third image in the product detail window.
+     *
+     * @param event Click made by the client.
+     */
     @FXML
     private void thirdImageEvent(MouseEvent event) {
         Image image;
@@ -145,6 +167,12 @@ public class AddProductToCartController implements Initializable {
         mainImage.setImage(image);
     }
 
+    /**
+     *
+     * This method closes the window.
+     *
+     * @param event Click made by the client.
+     */
     @FXML
     private void close(MouseEvent event) {
         Button btn = (Button) event.getSource();
@@ -152,12 +180,25 @@ public class AddProductToCartController implements Initializable {
         stage.close();
     }
 
+    /**
+     * This method increases the quantity of products sold by one and updates
+     * the value in the cart.
+     *
+     * @param event Click made by the client.
+     */
     @FXML
     private void increment(MouseEvent event) {
         quantityOfProductsToBuy++;
         quantity.setText(Integer.toString(quantityOfProductsToBuy));
     }
 
+    /**
+     *
+     * This method decreases the quantity of products sold by one and updates
+     * the value in the car
+     *
+     * @param event Click made by the client.
+     */
     @FXML
     private void decrement(MouseEvent event) {
         if (quantityOfProductsToBuy >= 1) {
@@ -166,6 +207,14 @@ public class AddProductToCartController implements Initializable {
         }
     }
 
+    /**
+     *
+     * This method confirms the purchase of the product with its package, and
+     * adds it to the system.
+     *
+     * @param e Click made by the client.
+     * @throws IOException
+     */
     @FXML
     private void confirmEvent(MouseEvent e) throws IOException {
         ArrayList<Product> productList = mySystem.getProducts();

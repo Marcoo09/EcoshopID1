@@ -27,6 +27,9 @@ import javafx.scene.text.Text;
 
 /**
  *
+ * This class controls the window that allows the registration of a client in
+ * the system.
+ *
  * @author Agustin Hernandorena and Marco Fiorito
  */
 public class RegisterClientWindowController implements Initializable {
@@ -72,6 +75,12 @@ public class RegisterClientWindowController implements Initializable {
         }
     }
 
+    /**
+     * This method opens a window with the list of products.
+     *
+     * @param e Click made by the client in "list of products"
+     * @throws IOException
+     */
     @FXML
     public void mainWindowOfBuyerEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
@@ -80,6 +89,13 @@ public class RegisterClientWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens a window with the purchase process.
+     *
+     * @param e Click on the cart.
+     * @throws IOException A exception.
+     */
     @FXML
     public void goToCartEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PurchaseDetail.fxml"));
@@ -88,6 +104,12 @@ public class RegisterClientWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     * This method opens a window with the list of products.
+     *
+     * @param e Click made by the client in "list of products"
+     * @throws IOException
+     */
     @FXML
     public void goToListOfProducts(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
@@ -96,6 +118,13 @@ public class RegisterClientWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens a window with the seller profile.
+     *
+     * @param e Click made by the client in "Seller profile".
+     * @throws IOException A exception.
+     */
     @FXML
     public void sellerProfileEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -104,6 +133,13 @@ public class RegisterClientWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * It shows a window with a map containing the points of sale.
+     *
+     * @param e Click made by the user in "Points of sale"
+     * @throws IOException A exception.
+     */
     @FXML
     public void pointsOfSaleEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("PointsOfSaleWindow.fxml"));
@@ -112,6 +148,13 @@ public class RegisterClientWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * This method opens a window that allows you to register a client.
+     *
+     * @param e Click made by the client in "Register client".
+     * @throws IOException A exception.
+     */
     @FXML
     public void registerClientEvent(MouseEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("RegisterClientWindow.fxml"));
@@ -120,6 +163,12 @@ public class RegisterClientWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     *
+     * Method that registers a client in the system.
+     *
+     * @param e Click in "Register client"
+     */
     @FXML
     public void eventRegister(ActionEvent e) {
         Client aClient = mySystem.getClient();

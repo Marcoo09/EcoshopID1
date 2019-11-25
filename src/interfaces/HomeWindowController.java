@@ -14,12 +14,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 /**
- * FXML Controller class
+ * This class shows the main menu. From it you can access the seller profile or
+ * the buyer profile.
  *
  * @author Agustin Hernandorena and Marco Fiorito
  */
 public class HomeWindowController implements Initializable {
 
+    /**
+     *
+     * This method opens the window in the seller profile.
+     *
+     * @param e Click on the seller button.
+     * @throws IOException A exception.
+     */
     @FXML
     public void sellerEvent(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfSeller.fxml"));
@@ -32,6 +40,12 @@ public class HomeWindowController implements Initializable {
         myPrimaryStage.show();
     }
 
+    /**
+     * This method opens the window in the buyer profile.
+     *
+     * @param e Click on the buyer button.
+     * @throws IOException A exception.
+     */
     @FXML
     public void buyerEvent(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainWindowOfBuyer.fxml"));
